@@ -44,33 +44,29 @@
   --gold-100: #FDE9C8;
   --gold-200: #FAD08E;
   --gold-300: #F6B44E;
-  --bronze-400: #C48A3A;  /* Warm Bronze — brand accent */
+  --gold-400: #D4943A;
   --gold-500: #B87A2E;
   --gold-600: #916024;
   --gold-700: #6B471B;
   --gold-800: #4A3114;
-  --success: #8BAF9C;
-  --warning: #D4A24B;
-  --error: #C27A6B;
-  --info: #8BA4BE;
-  --focus: #7CBBDF;  /* Ducky blue — interactive focus states */
+  --success: #34D399;
+  --warning: #FBBF24;
+  --error: #F87171;
+  --info: #60A5FA;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.45);
-  --shadow-glow-gold: 0 0 24px rgba(196,138,58,0.15);
-  --shadow-glow-soft: 0 0 60px rgba(196,138,58,0.06);
+  --shadow-glow-gold: 0 0 24px rgba(212,148,58,0.15);
+  --shadow-glow-soft: 0 0 60px rgba(212,148,58,0.06);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
-  /* Radius: Two families. Sleeves are near-square. Labels are round. */
-  --radius-sleeve: 4px;       /* Cards, containers, panels — vinyl sleeve edges */
-  --radius-label: 9999px;     /* Buttons, stickers, badges, pills — stickers ON the sleeve */
-  --radius-sm: 6px;           /* Small interactive elements */
-  --radius-md: 10px;          /* Inputs, dropdowns */
-  --radius-lg: 4px;           /* Cards (sleeve) — intentionally sharp */
-  --radius-xl: 4px;           /* Large cards (sleeve) — intentionally sharp */
-  --radius-full: 9999px;      /* Pills, toggles */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
   --glass-bg: rgba(17,22,32,0.75);
   --glass-border: rgba(235,225,210,0.06);
   color-scheme: dark;
@@ -95,8 +91,8 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
-  --shadow-glow-gold: 0 0 24px rgba(196,138,58,0.1);
-  --shadow-glow-soft: 0 0 60px rgba(196,138,58,0.04);
+  --shadow-glow-gold: 0 0 24px rgba(212,148,58,0.1);
+  --shadow-glow-soft: 0 0 60px rgba(212,148,58,0.04);
   --glass-bg: rgba(255,255,255,0.7);
   --glass-border: rgba(0,0,0,0.06);
   color-scheme: light;
@@ -114,7 +110,7 @@ body {
   overflow-x: hidden;
   transition: background 0.5s var(--ease-smooth), color 0.5s var(--ease-smooth);
 }
-::selection { background: rgba(196,138,58,0.3); color: var(--text-primary); }
+::selection { background: rgba(212,148,58,0.3); color: var(--text-primary); }
 a { color: inherit; }
 
 /* --- NAV --- */
@@ -135,7 +131,7 @@ a { color: inherit; }
   font-weight: 900; font-size: 20px; letter-spacing: -0.02em;
   color: var(--text-primary); text-decoration: none;
 }
-.nav-logo span { color: var(--bronze-400); }
+.nav-logo span { color: var(--gold-400); }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
   font-size: 14px; font-weight: 500; color: var(--text-secondary);
@@ -159,7 +155,7 @@ a { color: inherit; }
 section { padding: 120px 0; }
 .section-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--bronze-400); margin-bottom: 12px;
+  color: var(--gold-400); margin-bottom: 12px;
 }
 .section-num {
   font-weight: 700; color: var(--text-muted); letter-spacing: 0.04em;
@@ -183,7 +179,7 @@ section { padding: 120px 0; }
 .hero-content { text-align: center; position: relative; z-index: 2; }
 .hero-overline {
   font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--bronze-400); margin-bottom: 32px;
+  color: var(--gold-400); margin-bottom: 32px;
   opacity: 0; animation: fadeUp 0.8s var(--ease-out) 0.2s forwards;
 }
 .hero-title {
@@ -191,7 +187,7 @@ section { padding: 120px 0; }
   letter-spacing: -0.04em; color: var(--text-primary); margin-bottom: 28px;
   opacity: 0; animation: fadeUp 0.8s var(--ease-out) 0.4s forwards;
 }
-.hero-title .gold { color: var(--bronze-400); }
+.hero-title .gold { color: var(--gold-400); }
 .hero-subtitle {
   font-size: clamp(16px, 2vw, 20px); color: var(--text-secondary); max-width: 560px;
   margin: 0 auto 48px; line-height: 1.6;
@@ -249,9 +245,9 @@ section { padding: 120px 0; }
 }
 .font-accessibility-note {
   margin-top: 32px; padding: 24px;
-  border-radius: var(--radius-sleeve);
-  background: rgba(212,162,75,0.06);
-  border: 1px solid rgba(212,162,75,0.15);
+  border-radius: var(--radius-lg);
+  background: rgba(251,191,36,0.06);
+  border: 1px solid rgba(251,191,36,0.15);
 }
 .font-accessibility-note .note-title {
   font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
@@ -264,11 +260,11 @@ section { padding: 120px 0; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
 }
 .font-usage-card {
-  padding: 24px; border-radius: var(--radius-sleeve);
+  padding: 24px; border-radius: var(--radius-lg);
   border: 1px solid var(--border-default);
 }
-.font-usage-card.use { background: rgba(139,175,156,0.04); border-color: rgba(139,175,156,0.15); }
-.font-usage-card.avoid { background: rgba(194,122,107,0.04); border-color: rgba(194,122,107,0.15); }
+.font-usage-card.use { background: rgba(52,211,153,0.04); border-color: rgba(52,211,153,0.15); }
+.font-usage-card.avoid { background: rgba(248,113,113,0.04); border-color: rgba(248,113,113,0.15); }
 .font-usage-card .usage-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   margin-bottom: 12px;
@@ -284,23 +280,12 @@ section { padding: 120px 0; }
   margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
 }
 .font-compare-col {
-  padding: 40px; border-radius: var(--radius-sleeve);
+  padding: 32px; border-radius: var(--radius-xl);
   background: var(--bg-raised); border: 1px solid var(--border-default);
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 400ms ease;
-}
-.font-compare-col:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 0 60px rgba(196, 138, 58, 0.03);
-  border-color: rgba(235, 225, 210, 0.1);
 }
 .font-compare-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--bronze-400); margin-bottom: 20px;
+  color: var(--gold-400); margin-bottom: 20px;
 }
 .font-compare-sample { font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 12px; }
 .font-compare-body { font-size: 14px; color: var(--text-tertiary); }
@@ -325,132 +310,53 @@ section { padding: 120px 0; }
 }
 
 /* === SURFACE 1: SOLID === */
-/* The walls and floor. Structural. Grounding. Physical. */
+/* The walls and floor. Structural. Grounding. */
 .surface-solid {
-  background:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(235, 225, 210, 0.015) 0%, transparent 30%),
-    var(--bg-raised);
+  background: var(--bg-raised);
   border: 1px solid var(--border-default);
-  border-top-color: rgba(235, 225, 210, 0.08);
-  border-radius: var(--radius-sleeve);
-  box-shadow:
-    0 1px 0 0 rgba(235, 225, 210, 0.03) inset,
-    0 4px 16px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-lg);
 }
 
 /* === SURFACE 2: GLASS === */
-/* Real frosted glass. Not a CSS trick — a physical material. */
-/* Layered: noise texture + blur + inner light + edge refraction + depth shadow */
-
+/* Frosted vinyl sleeve. Smoked glass coffee table. Content shows through, softened. */
 .surface-glass {
-  background:
-    /* Noise texture layer — gives the glass surface grain, like real frosted glass */
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
-    /* Gradient: subtle warm light hitting the top edge, fading to transparent */
-    linear-gradient(
-      180deg,
-      rgba(235, 225, 210, 0.04) 0%,
-      rgba(235, 225, 210, 0.01) 20%,
-      transparent 50%
-    ),
-    /* Base tint */
-    rgba(24, 30, 42, 0.5);
-  backdrop-filter: blur(28px) saturate(1.25) brightness(1.02);
-  -webkit-backdrop-filter: blur(28px) saturate(1.25) brightness(1.02);
+  background: rgba(24, 30, 42, 0.55);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
   border: 1px solid rgba(235, 225, 210, 0.06);
-  border-top-color: rgba(235, 225, 210, 0.1);
-  border-radius: var(--radius-sleeve);
-  box-shadow:
-    /* Top inner edge: light refraction — the bright line you see on real glass */
-    0 1px 0 0 rgba(235, 225, 210, 0.06) inset,
-    /* Left inner edge: secondary refraction */
-    1px 0 0 0 rgba(235, 225, 210, 0.02) inset,
-    /* Inner depth: the glass has thickness */
-    0 4px 12px 0 rgba(0, 0, 0, 0.08) inset,
-    /* Outer shadow: glass floats above the surface */
-    0 8px 32px rgba(0, 0, 0, 0.25),
-    /* Soft ambient: barely-there warmth underneath */
-    0 2px 8px rgba(0, 0, 0, 0.15);
-  transition:
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 400ms ease,
-    background 400ms ease;
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 1px 0 0 rgba(235, 225, 210, 0.03) inset,
+    0 8px 32px rgba(0, 0, 0, 0.25);
 }
 .surface-glass:hover {
-  background:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
-    linear-gradient(
-      180deg,
-      rgba(235, 225, 210, 0.06) 0%,
-      rgba(235, 225, 210, 0.015) 25%,
-      transparent 55%
-    ),
-    rgba(24, 30, 42, 0.58);
-  border-top-color: rgba(235, 225, 210, 0.13);
-  box-shadow:
-    0 1px 0 0 rgba(235, 225, 210, 0.08) inset,
-    1px 0 0 0 rgba(235, 225, 210, 0.03) inset,
-    0 4px 12px 0 rgba(0, 0, 0, 0.06) inset,
-    0 24px 64px rgba(0, 0, 0, 0.35),
-    0 4px 12px rgba(0, 0, 0, 0.2),
-    0 0 60px rgba(196, 138, 58, 0.025);
-  transform: translateY(-3px);
+  background: rgba(24, 30, 42, 0.62);
+  border-color: rgba(235, 225, 210, 0.09);
+  box-shadow: 
+    0 1px 0 0 rgba(235, 225, 210, 0.04) inset,
+    0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Lighter glass variant for stacking on raised surfaces */
 .surface-glass-light {
-  background:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(235, 225, 210, 0.03) 0%, transparent 40%),
-    rgba(38, 47, 63, 0.4);
-  backdrop-filter: blur(20px) saturate(1.15);
-  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  background: rgba(38, 47, 63, 0.45);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
   border: 1px solid rgba(235, 225, 210, 0.05);
-  border-top-color: rgba(235, 225, 210, 0.08);
-  border-radius: var(--radius-sleeve);
-  box-shadow:
-    0 1px 0 0 rgba(235, 225, 210, 0.04) inset,
-    0 3px 8px 0 rgba(0, 0, 0, 0.06) inset;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 0 0 rgba(235, 225, 210, 0.02) inset;
 }
 
 /* Warm glass — gold-tinted for premium callouts */
 .surface-glass-warm {
-  background:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
-    linear-gradient(
-      180deg,
-      rgba(196, 138, 58, 0.08) 0%,
-      rgba(196, 138, 58, 0.02) 30%,
-      transparent 60%
-    ),
-    rgba(196, 138, 58, 0.04);
-  backdrop-filter: blur(28px) saturate(1.3) brightness(1.02);
-  -webkit-backdrop-filter: blur(28px) saturate(1.3) brightness(1.02);
-  border: 1px solid rgba(196, 138, 58, 0.1);
-  border-top-color: rgba(196, 138, 58, 0.18);
-  border-radius: var(--radius-sleeve);
-  box-shadow:
-    0 1px 0 0 rgba(196, 138, 58, 0.08) inset,
-    1px 0 0 0 rgba(196, 138, 58, 0.03) inset,
-    0 4px 12px 0 rgba(0, 0, 0, 0.06) inset,
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    0 0 40px rgba(196, 138, 58, 0.02);
-  transition:
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 400ms ease;
-}
-.surface-glass-warm:hover {
-  transform: translateY(-3px);
-  border-top-color: rgba(196, 138, 58, 0.22);
-  box-shadow:
-    0 1px 0 0 rgba(196, 138, 58, 0.1) inset,
-    1px 0 0 0 rgba(196, 138, 58, 0.04) inset,
-    0 4px 12px 0 rgba(0, 0, 0, 0.05) inset,
-    0 24px 64px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(196, 138, 58, 0.035);
+  background: rgba(212, 148, 58, 0.06);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  border: 1px solid rgba(212, 148, 58, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 1px 0 0 rgba(212, 148, 58, 0.04) inset,
+    0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* === SURFACE 3: VINYL === */
@@ -460,12 +366,12 @@ section { padding: 120px 0; }
     135deg,
     rgba(24, 30, 42, 0.7) 0%,
     rgba(31, 39, 53, 0.5) 40%,
-    rgba(196, 138, 58, 0.04) 100%
+    rgba(212, 148, 58, 0.04) 100%
   );
   backdrop-filter: blur(32px) saturate(1.3);
   -webkit-backdrop-filter: blur(32px) saturate(1.3);
   border: 1px solid rgba(235, 225, 210, 0.08);
-  border-radius: var(--radius-sleeve);
+  border-radius: var(--radius-xl);
   box-shadow:
     0 1px 0 0 rgba(235, 225, 210, 0.04) inset,
     0 -1px 0 0 rgba(0, 0, 0, 0.2) inset,
@@ -483,20 +389,6 @@ section { padding: 120px 0; }
   pointer-events: none;
 }
 
-
-.surface-vinyl {
-  transition:
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 700ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.surface-vinyl:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 1px 0 0 rgba(235, 225, 210, 0.05) inset,
-    0 -1px 0 0 rgba(0, 0, 0, 0.2) inset,
-    0 24px 64px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(196, 138, 58, 0.04);
-}
 /* === SURFACE: STICKER === */
 /* The transparent overlay. Like a label on a record sleeve. */
 .surface-sticker {
@@ -504,8 +396,8 @@ section { padding: 120px 0; }
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(235, 225, 210, 0.04);
-  border-radius: var(--radius-label);
-  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -515,21 +407,17 @@ section { padding: 120px 0; }
   transition: all var(--duration-default) var(--ease-out);
 }
 .surface-sticker:hover {
-  background: rgba(24, 30, 42, 0.55);
-  border-color: rgba(235, 225, 210, 0.1);
+  background: rgba(24, 30, 42, 0.5);
+  border-color: rgba(235, 225, 210, 0.08);
   color: var(--text-primary);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
-.surface-sticker.sticker-accent {
-  border-color: rgba(124, 187, 223, 0.15);
-  color: var(--focus);
+.surface-sticker.sticker-gold {
+  border-color: rgba(212, 148, 58, 0.12);
+  color: var(--gold-400);
 }
-.surface-sticker.sticker-accent:hover {
-  background: rgba(124, 187, 223, 0.08);
-  border-color: rgba(124, 187, 223, 0.3);
-  box-shadow: 0 4px 20px rgba(124, 187, 223, 0.06);
-  transform: translateY(-1px);
+.surface-sticker.sticker-gold:hover {
+  background: rgba(212, 148, 58, 0.08);
+  border-color: rgba(212, 148, 58, 0.2);
 }
 
 /* === AMBIENT GLOW === */
@@ -542,7 +430,7 @@ section { padding: 120px 0; }
   position: absolute;
   width: 400px; height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(196, 138, 58, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 148, 58, 0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
   top: -100px; right: -100px;
@@ -552,7 +440,7 @@ section { padding: 120px 0; }
 /* Makes artist imagery look elevated — the room makes the music look good */
 .artist-frame {
   position: relative;
-  border-radius: var(--radius-sleeve);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
@@ -582,49 +470,19 @@ section { padding: 120px 0; }
   gap: 24px;
 }
 .surface-demo {
-  padding: 40px;
-  min-height: 240px;
+  padding: 32px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-  transition:
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 400ms ease;
-  cursor: default;
+  transition: all var(--duration-moderate) var(--ease-out);
 }
-.surface-demo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    400px circle at var(--card-glow-x, 50%) var(--card-glow-y, 50%),
-    rgba(196, 138, 58, 0.07) 0%,
-    transparent 55%
-  );
-  opacity: 0;
-  transition: opacity 500ms ease;
-  pointer-events: none;
-  z-index: 1;
-}
-.surface-demo:hover::before { opacity: 1; }
-.surface-demo:hover {
-  box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(196, 138, 58, 0.03);
-}
-.surface-demo > * { position: relative; z-index: 2; }
 .surface-demo-label {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--bronze-400);
+  color: var(--gold-400);
   margin-bottom: 8px;
 }
 .surface-demo-name {
@@ -646,11 +504,11 @@ section { padding: 120px 0; }
 /* Gradient backdrop for glass demos */
 .glass-backdrop {
   position: relative;
-  border-radius: var(--radius-sleeve);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   padding: 48px 32px;
   background: 
-    radial-gradient(ellipse at 30% 20%, rgba(196, 138, 58, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 20%, rgba(212, 148, 58, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 70%, rgba(46, 56, 73, 0.6) 0%, transparent 50%),
     linear-gradient(135deg, #111620 0%, #181E2A 100%);
 }
@@ -665,7 +523,7 @@ section { padding: 120px 0; }
   padding: 32px;
   background:
     linear-gradient(to top, rgba(17, 22, 32, 0.95) 0%, rgba(17, 22, 32, 0.3) 50%, transparent 100%),
-    radial-gradient(ellipse at 50% 30%, rgba(196, 138, 58, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 30%, rgba(212, 148, 58, 0.1) 0%, transparent 60%),
     var(--bg-raised);
 }
 .artist-backdrop-content {
@@ -676,79 +534,16 @@ section { padding: 120px 0; }
 /* The "record player" card — content sits on top like a record on a turntable */
 .turntable-card {
   position: relative;
-  border-radius: var(--radius-sleeve);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  background:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(235, 225, 210, 0.02) 0%, transparent 20%),
-    var(--bg-raised);
+  background: var(--bg-raised);
   border: 1px solid var(--border-default);
-  border-top-color: rgba(235, 225, 210, 0.08);
-  transform-style: preserve-3d;
-  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
-  transition:
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 500ms ease;
-  cursor: default;
 }
-/* Cursor-tracking glow */
-.turntable-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    500px circle at var(--card-glow-x, 50%) var(--card-glow-y, 50%),
-    rgba(196, 138, 58, 0.08) 0%,
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity 600ms ease;
-  pointer-events: none;
-  z-index: 3;
-}
-/* Cursor-tracking edge light */
-.turntable-card::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: radial-gradient(
-    400px circle at var(--card-glow-x, 50%) var(--card-glow-y, 50%),
-    rgba(196, 138, 58, 0.3) 0%,
-    rgba(235, 225, 210, 0.05) 40%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 600ms ease;
-  pointer-events: none;
-  z-index: 0;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 1px;
-}
-.turntable-card:hover {
-  border-color: rgba(235, 225, 210, 0.03);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.4),
-    0 0 100px rgba(196, 138, 58, 0.04);
-}
-.turntable-card:hover::before { opacity: 1; }
-.turntable-card:hover::after { opacity: 1; }
-
 .turntable-card-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   padding: 32px;
-  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.turntable-card:hover .turntable-card-content {
-  transform: translateY(-2px);
-}
-
 .turntable-card-art {
   width: 100%;
   aspect-ratio: 1;
@@ -759,22 +554,6 @@ section { padding: 120px 0; }
   font-size: 48px;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border-default);
-  position: relative;
-  z-index: 2;
-  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-}
-/* Art scales subtly on hover, like lifting a record closer */
-.turntable-card:hover .turntable-card-art {
-  transform: scale(1.02);
-}
-/* Warm vignette on art */
-.turntable-card-art::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(17, 22, 32, 0.3) 100%);
-  pointer-events: none;
 }
 @media (max-width: 768px) {
   .surface-showcase-row { grid-template-columns: 1fr; }
@@ -801,7 +580,7 @@ section { padding: 120px 0; }
 .type-body-md { font-size: 16px; font-weight: 400; line-height: 1.6; }
 .type-body-sm { font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--text-secondary); }
 .type-caption { font-size: 12px; font-weight: 500; letter-spacing: 0.02em; line-height: 1.4; color: var(--text-secondary); }
-.type-overline { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bronze-400); }
+.type-overline { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-400); }
 
 .type-alphabet {
   margin-top: 80px; padding: 48px; border-radius: var(--radius-xl);
@@ -809,7 +588,7 @@ section { padding: 120px 0; }
 }
 .type-alphabet-title {
   font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--bronze-400); margin-bottom: 32px;
+  color: var(--gold-400); margin-bottom: 32px;
 }
 .type-alphabet-chars {
   font-size: clamp(32px, 4vw, 56px); font-weight: 900; letter-spacing: 0.02em;
@@ -895,155 +674,18 @@ section { padding: 120px 0; }
 .semantic-name { font-size: 14px; font-weight: 600; }
 .semantic-hex { font-family: 'JetBrains Mono', monospace; font-size: 11px; opacity: 0.6; }
 
-/* --- CARD SYSTEM: PREMIUM INTERACTIONS --- */
-
-/* === SHARED CARD FOUNDATION === */
-/* Every card in the system shares these bones */
-[class*="card"], .surface-demo, .surface-glass, .surface-glass-warm, .surface-vinyl, .turntable-card, .font-compare-col, .font-usage-card {
-  --card-glow-opacity: 0;
-  --card-glow-x: 50%;
-  --card-glow-y: 50%;
-  --card-border-opacity: 0;
-  will-change: transform;
-  transition:
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 400ms ease;
-}
-
-/* === THE GLOW: cursor-following warm light === */
-/* A radial gradient that tracks the mouse, like lamplight hitting glass */
-.card-glow {
-  position: relative;
-  overflow: hidden;
-}
-.card-glow::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    600px circle at var(--card-glow-x) var(--card-glow-y),
-    rgba(196, 138, 58, 0.07) 0%,
-    transparent 60%
-  );
-  opacity: var(--card-glow-opacity);
-  transition: opacity 500ms ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* === EDGE LIGHT: border that glows where the cursor is === */
-.card-edge-light {
-  position: relative;
-}
-.card-edge-light::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: radial-gradient(
-    400px circle at var(--card-glow-x) var(--card-glow-y),
-    rgba(196, 138, 58, 0.25) 0%,
-    transparent 50%
-  );
-  opacity: var(--card-border-opacity);
-  transition: opacity 500ms ease;
-  pointer-events: none;
-  z-index: 0;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 1px;
-}
-
-/* === COMP CARDS (Component showcase) === */
+/* --- COMPONENTS --- */
 .comp-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 24px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px;
   margin-top: 48px;
-  perspective: 1200px;
 }
 .comp-card {
-  padding: 44px;
-  border-radius: var(--radius-sleeve);
-  background:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(235, 225, 210, 0.02) 0%, transparent 25%),
-    var(--bg-raised);
-  border: 1px solid var(--border-default);
-  border-top-color: rgba(235, 225, 210, 0.08);
-  position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
-  transition:
-    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 400ms ease;
+  padding: 40px; border-radius: var(--radius-xl);
+  background: var(--bg-raised); border: 1px solid var(--border-default);
 }
-/* Warm glow that follows cursor */
-.comp-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    500px circle at var(--card-glow-x) var(--card-glow-y),
-    rgba(196, 138, 58, 0.06) 0%,
-    transparent 55%
-  );
-  opacity: 0;
-  transition: opacity 500ms ease;
-  pointer-events: none;
-  z-index: 1;
-}
-/* Edge light */
-.comp-card::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: radial-gradient(
-    350px circle at var(--card-glow-x) var(--card-glow-y),
-    rgba(196, 138, 58, 0.2) 0%,
-    rgba(235, 225, 210, 0.06) 40%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 500ms ease;
-  pointer-events: none;
-  z-index: 0;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 1px;
-}
-.comp-card:hover {
-  border-color: rgba(235, 225, 210, 0.04);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(196, 138, 58, 0.03);
-}
-.comp-card:hover::before { opacity: 1; }
-.comp-card:hover::after { opacity: 1; }
-
-/* Inner content shift on hover for depth */
-.comp-card > * {
-  position: relative;
-  z-index: 2;
-  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.comp-card:hover > * {
-  transform: translateZ(10px);
-}
-
 .comp-card-title {
   font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--bronze-400); margin-bottom: 32px;
+  color: var(--gold-400); margin-bottom: 32px;
 }
 
 /* buttons */
@@ -1052,11 +694,11 @@ section { padding: 120px 0; }
   font-family: 'Satoshi', sans-serif; font-weight: 700; font-size: 14px;
   letter-spacing: 0.02em; text-transform: uppercase;
   padding: 12px 28px; height: 44px;
-  border-radius: var(--radius-label); border: none; cursor: pointer;
+  border-radius: var(--radius-md); border: none; cursor: pointer;
   transition: all 0.2s var(--ease-out); text-decoration: none;
 }
 .btn-primary {
-  background: var(--bronze-400); color: var(--text-inverse);
+  background: var(--gold-400); color: var(--text-inverse);
 }
 .btn-primary:hover { background: var(--gold-500); transform: scale(1.02); }
 .btn-primary:active { background: var(--gold-600); transform: scale(0.98); }
@@ -1066,7 +708,7 @@ section { padding: 120px 0; }
 }
 .btn-secondary:hover { border-color: var(--border-active); background: rgba(255,255,255,0.03); }
 .btn-tertiary {
-  background: transparent; color: var(--bronze-400); padding: 8px 4px;
+  background: transparent; color: var(--gold-400); padding: 8px 4px;
   height: auto; text-transform: none; font-weight: 500; letter-spacing: 0;
 }
 .btn-tertiary:hover { color: var(--gold-300); }
@@ -1085,8 +727,8 @@ section { padding: 120px 0; }
   outline: none; transition: border-color 0.2s, box-shadow 0.2s;
 }
 .input-field::placeholder { color: var(--text-tertiary); }
-.input-field:focus { border-color: var(--focus); box-shadow: 0 0 0 3px rgba(124,187,223,0.15); }
-.input-field.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(194,122,107,0.12); }
+.input-field:focus { border-color: var(--gold-400); box-shadow: 0 0 0 3px rgba(212,148,58,0.12); }
+.input-field.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(248,113,113,0.12); }
 .input-label {
   display: block; font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
   color: var(--text-secondary); margin-bottom: 6px;
@@ -1103,11 +745,11 @@ section { padding: 120px 0; }
   background: rgba(255,255,255,0.06); border: 1px solid var(--border-default);
   color: var(--text-secondary);
 }
-.badge-accent { background: rgba(124,187,223,0.1); border-color: rgba(124,187,223,0.2); color: var(--focus); }
-.badge-success { background: rgba(139,175,156,0.12); border-color: rgba(139,175,156,0.2); color: var(--success); }
-.badge-error { background: rgba(194,122,107,0.12); border-color: rgba(194,122,107,0.2); color: var(--error); }
-.badge-info { background: rgba(139,164,190,0.12); border-color: rgba(139,164,190,0.2); color: var(--info); }
-.badge-warning { background: rgba(212,162,75,0.12); border-color: rgba(212,162,75,0.2); color: var(--warning); }
+.badge-gold { background: rgba(212,148,58,0.12); border-color: rgba(212,148,58,0.2); color: var(--gold-300); }
+.badge-success { background: rgba(52,211,153,0.12); border-color: rgba(52,211,153,0.2); color: var(--success); }
+.badge-error { background: rgba(248,113,113,0.12); border-color: rgba(248,113,113,0.2); color: var(--error); }
+.badge-info { background: rgba(96,165,250,0.12); border-color: rgba(96,165,250,0.2); color: var(--info); }
+.badge-warning { background: rgba(251,191,36,0.12); border-color: rgba(251,191,36,0.2); color: var(--warning); }
 .badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* cards preview */
@@ -1118,7 +760,7 @@ section { padding: 120px 0; }
   cursor: pointer;
 }
 .preview-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-.preview-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bronze-400); margin-bottom: 12px; }
+.preview-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-400); margin-bottom: 12px; }
 .preview-card-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
 .preview-card-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
 
@@ -1128,7 +770,7 @@ section { padding: 120px 0; }
   font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1;
   margin-bottom: 8px; font-variant-numeric: tabular-nums;
 }
-.stat-number.gold { color: var(--bronze-400); }
+.stat-number.gold { color: var(--gold-400); }
 .stat-label {
   font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--text-secondary);
@@ -1141,7 +783,7 @@ section { padding: 120px 0; }
 }
 .section-label-num { color: var(--text-muted); letter-spacing: 0.04em; }
 .section-label-slash { color: var(--text-tertiary); }
-.section-label-text { color: var(--bronze-400); letter-spacing: 0.06em; text-transform: uppercase; }
+.section-label-text { color: var(--gold-400); letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* toggle */
 .toggle-track {
@@ -1149,7 +791,7 @@ section { padding: 120px 0; }
   background: var(--bg-muted); border: 1px solid var(--border-default);
   position: relative; cursor: pointer; transition: background 0.2s;
 }
-.toggle-track.active { background: var(--bronze-400); border-color: var(--bronze-400); }
+.toggle-track.active { background: var(--gold-400); border-color: var(--gold-400); }
 .toggle-thumb {
   width: 18px; height: 18px; border-radius: var(--radius-full);
   background: var(--text-primary); position: absolute; top: 2px; left: 2px;
@@ -1182,8 +824,8 @@ section { padding: 120px 0; }
   display: flex; align-items: center; justify-content: center;
   font-size: 20px; margin-bottom: 20px;
 }
-.photo-rule-icon.do { background: rgba(139,175,156,0.1); }
-.photo-rule-icon.dont { background: rgba(194,122,107,0.1); }
+.photo-rule-icon.do { background: rgba(52,211,153,0.1); }
+.photo-rule-icon.dont { background: rgba(248,113,113,0.1); }
 .photo-rule-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
 .photo-rule-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
 
@@ -1231,7 +873,7 @@ section { padding: 120px 0; }
 }
 .easing-dot {
   width: 12px; height: 12px; border-radius: var(--radius-full);
-  background: var(--bronze-400); position: absolute; bottom: -6px; left: 0;
+  background: var(--gold-400); position: absolute; bottom: -6px; left: 0;
 }
 .easing-card:hover .easing-dot { left: calc(100% - 12px); }
 .easing-dot.ease-out { transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -1250,7 +892,7 @@ section { padding: 120px 0; }
   display: flex; align-items: center; gap: 16px;
 }
 .spacing-bar {
-  height: 24px; background: rgba(196,138,58,0.15); border: 1px solid rgba(196,138,58,0.2);
+  height: 24px; background: rgba(212,148,58,0.15); border: 1px solid rgba(212,148,58,0.2);
   border-radius: 4px; transition: width 0.3s var(--ease-out);
 }
 .spacing-label {
@@ -1270,7 +912,7 @@ section { padding: 120px 0; }
   width: 80px; height: 80px; background: var(--bg-raised); border: 1px solid var(--border-hover);
   transition: border-color 0.2s;
 }
-.radius-box:hover { border-color: var(--bronze-400); }
+.radius-box:hover { border-color: var(--gold-400); }
 .radius-info { text-align: center; }
 .radius-info .name { font-size: 12px; font-weight: 500; }
 .radius-info .val { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-tertiary); }
@@ -1281,7 +923,7 @@ section { padding: 120px 0; }
   text-align: center;
 }
 .footer-logo { font-size: 24px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
-.footer-logo span { color: var(--bronze-400); }
+.footer-logo span { color: var(--gold-400); }
 .footer-note { font-size: 13px; color: var(--text-tertiary); }
 
 /* --- RESPONSIVE --- */
@@ -1336,49 +978,7 @@ section { padding: 120px 0; }
   <div class="hero-content">
     <div class="hero-overline">Design System v1.0</div>
     <h1 class="hero-title grouped-display">The visual<br>language of<br><span class="gold">Grouped.</span></h1>
-    <p class="hero-subtitle">A complete design system for building every surface of Grouped. Dark mode primary. Swiss minimal roots. Bronze accent, earned.</p>
-  </div>
-</section>
-
-<div class="container"><div class="divider"></div></div>
-
-<!-- PHILOSOPHY: MAKE THE SCREEN DISAPPEAR -->
-<section id="philosophy">
-  <div class="container">
-    <div class="fade-up">
-      <div class="section-label"><span class="section-num">00</span> / Philosophy</div>
-      <h2 class="section-title grouped-display">Make the screen disappear.</h2>
-      <p class="section-desc">Every decision in this system serves one goal: make the digital experience feel physical. Tactile. Like an extension of your hands and ears. Music is not flat. It moves in cycles, in loops, in waves. The design should move the same way.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-top:48px;">
-      <div class="surface-glass fade-up stagger-1" style="padding:36px;">
-        <div style="font-size:44px; margin-bottom:20px; line-height:1;">&#9676;</div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">CYCLICAL</div>
-        <div style="font-size:17px; font-weight:600; margin-bottom:8px; line-height:1.3;">Motion tells the next story.</div>
-        <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Music lives in loops. Write, record, release, connect, repeat. Every animation should feel like it's returning to something, building on the last cycle. Rounded corners, circular motifs, spring easings that overshoot and settle. Nothing stops. Everything flows into the next beat.</div>
-      </div>
-      <div class="surface-glass fade-up stagger-2" style="padding:36px;">
-        <div style="font-size:44px; margin-bottom:20px; line-height:1;">&#9687;</div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">TACTILE</div>
-        <div style="font-size:17px; font-weight:600; margin-bottom:8px; line-height:1.3;">Surfaces you can almost touch.</div>
-        <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Glass has weight. Cards tilt when you reach for them. Stickers resist then follow your hand. Grain gives every surface a texture you can feel through the screen. The experience should remind you of handling vinyl, flipping through a crate, holding something real.</div>
-      </div>
-      <div class="surface-glass fade-up stagger-3" style="padding:36px;">
-        <div style="font-size:44px; margin-bottom:20px; line-height:1;">&#9673;</div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">VIBING</div>
-        <div style="font-size:17px; font-weight:600; margin-bottom:8px; line-height:1.3;">The room has a tempo.</div>
-        <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Timing is feel. Fast UI feels anxious. Slow UI feels confident. Our transitions run 500ms or longer because we're not in a hurry. We're vibing. The cursor glow drifts. Cards lift and settle with weight. Everything breathes at a pace that matches sitting in a listening room, not clicking through a dashboard.</div>
-      </div>
-    </div>
-
-    <div class="surface-vinyl fade-up" style="padding:40px; margin-top:24px;">
-      <div style="position:relative; z-index:1; max-width:680px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">THE FEELING</div>
-        <div class="grouped-display" style="font-size:clamp(22px,3vw,32px); line-height:1.2; margin-bottom:16px;">This should feel like an extension of the artist, not a tool they log into.</div>
-        <div style="font-size:15px; color:var(--text-secondary); line-height:1.7;">When an artist opens Grouped, the screen should dissolve. No chrome, no clutter, no "app" feeling. Just them, their music, and a warm room full of fans. The physical metaphors in this system (glass, grain, warmth, tilt, weight) exist to bridge the gap between pixels and the real relationship happening underneath. Fans should feel the same thing: not a platform, but a place.</div>
-      </div>
-    </div>
+    <p class="hero-subtitle">A complete design system for building every surface of Grouped. Dark mode primary. Swiss minimal roots. Gold accent, earned.</p>
   </div>
 </section>
 
@@ -1389,22 +989,22 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">01</span> / Typography</div>
-      <h2 class="section-title">Satoshi<span style="font-family:'Grouped Font';color:var(--bronze-400)"> + Grouped Font.</span></h2>
-      <p class="section-desc">Two typefaces, one system. Grouped Font is the custom display face for marketing headlines and brand moments. Satoshi handles everything else. Type should feel confident and unhurried. Tight letter-spacing at large sizes gives headlines physical density. Generous line-height in body copy lets the text breathe the way the room breathes.</p>
+      <h2 class="section-title">Satoshi<span style="font-family:'Grouped Font';color:var(--gold-400)"> + Grouped Font.</span></h2>
+      <p class="section-desc">Two typefaces, one system. Grouped Font is the custom display face for marketing headlines and brand moments. Satoshi handles everything else: body copy, product UI, and anywhere legibility at small sizes matters most.</p>
     </div>
 
 
     <!-- Grouped Font Specimen -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="padding:48px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+      <div style="padding:48px; border-radius:var(--radius-xl); background:var(--bg-raised); border:1px solid var(--border-default);">
         <div class="comp-card-title">Grouped Font / Custom Display</div>
         <div class="type-grouped-specimen" style="font-size:clamp(40px,7vw,80px); line-height:0.95; letter-spacing:-0.02em; margin-bottom:24px;">
           Turn every release into a growth engine.
         </div>
-        <div class="type-grouped-specimen" style="font-size:clamp(28px,4vw,56px); line-height:1.0; letter-spacing:-0.015em; color:var(--bronze-400); margin-bottom:24px;">
+        <div class="type-grouped-specimen" style="font-size:clamp(28px,4vw,56px); line-height:1.0; letter-spacing:-0.015em; color:var(--gold-400); margin-bottom:24px;">
           Where real fans come first.
         </div>
-        <div class="type-grouped-specimen" style="font-size:clamp(32px,5vw,64px); line-height:1.25; letter-spacing:0.02em; margin-bottom:32px;">
+        <div class="type-grouped-specimen" style="font-size:clamp(32px,5vw,64px); line-height:1.0; letter-spacing:-0.02em; margin-bottom:32px;">
           ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
           <span style="color:var(--text-secondary)">abcdefghijklmnopqrstuvwxyz</span><br>
           <span style="color:var(--text-tertiary)">0123456789 !@#$%&</span>
@@ -1428,7 +1028,7 @@ section { padding: 120px 0; }
     </div>
 
     <!-- Accessibility Note -->
-    <div class="font-accessibility-note surface-glass-warm fade-up" style="background:rgba(196,138,58,0.06);">
+    <div class="font-accessibility-note surface-glass-warm fade-up" style="background:rgba(212,148,58,0.06);">
       <div class="note-title">⚠ Accessibility takes priority over brand expression</div>
       <div class="note-body">Grouped Font is a single-weight display face. It works well at large sizes (32px+) but should never be used for body text, form labels, navigation, product UI, or any text smaller than 28px. When in doubt, use Satoshi. Legibility always wins. Grouped Font should enhance the experience for sighted users without creating barriers for anyone else.</div>
     </div>
@@ -1555,26 +1155,26 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">02</span> / Color</div>
-      <h2 class="section-title grouped-display">Warm bronze. Cool blue. Deep navy.</h2>
-      <p class="section-desc">Three temperature layers. Deep blue surfaces create the room. Warm bronze marks the brand: headlines, logos, section labels, CTAs. Cool focus blue handles everything interactive: input highlights, accent stickers, active indicators, badges. The split keeps bronze feeling earned and intentional instead of overused.</p>
+      <h2 class="section-title grouped-display">Gold on deep blue.</h2>
+      <p class="section-desc">A warm-cool tension at its core. Deep blue surfaces create richness and depth. Warm gold and warm white text sit on top with a softness that never feels harsh. The temperature contrast is the whole trick.</p>
     </div>
 
     <div class="color-section" style="margin-top: 64px;">
 
       <!-- Gold Scale -->
       <div class="fade-up">
-        <div class="color-group-title">Bronze Accent Scale</div>
+        <div class="color-group-title">Gold Accent Scale</div>
         <div class="gold-scale">
           <div class="gold-step" style="background:#FEF7EC;color:#4A3114" onclick="copyHex(this,'#FEF7EC')"><span>50</span></div>
           <div class="gold-step" style="background:#FDE9C8;color:#4A3114" onclick="copyHex(this,'#FDE9C8')"><span>100</span></div>
           <div class="gold-step" style="background:#FAD08E;color:#4A3114" onclick="copyHex(this,'#FAD08E')"><span>200</span></div>
           <div class="gold-step" style="background:#F6B44E;color:#4A3114" onclick="copyHex(this,'#F6B44E')"><span>300</span></div>
-          <div class="gold-step" style="background:#C48A3A;color:#09090B" onclick="copyHex(this,'#C48A3A')"><span>400 ★</span></div>
+          <div class="gold-step" style="background:#D4943A;color:#09090B" onclick="copyHex(this,'#D4943A')"><span>400 ★</span></div>
           <div class="gold-step" style="background:#B87A2E;color:#FEF7EC" onclick="copyHex(this,'#B87A2E')"><span>500</span></div>
           <div class="gold-step" style="background:#916024;color:#FEF7EC" onclick="copyHex(this,'#916024')"><span>600</span></div>
           <div class="gold-step" style="background:#6B471B;color:#FEF7EC" onclick="copyHex(this,'#6B471B')"><span>700</span></div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">★ Primary brand accent. <span style="font-family:'JetBrains Mono',monospace">#C48A3A</span> is reserved for headlines, logos, section labels, CTAs, and the concentric arc motif. It is the brand voice. It should never appear on interactive feedback elements like focus rings, stickers, or status badges.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">★ Primary accent. <span style="font-family:'JetBrains Mono',monospace">#D4943A</span> is the default gold used for CTAs, active states, and high-value moments.</p>
       </div>
 
       <!-- Background Surfaces -->
@@ -1587,7 +1187,7 @@ section { padding: 120px 0; }
           <div class="surface-level" style="background:#262F3F"><span class="level-name">Subtle</span><span class="level-hex">#262F3F</span></div>
           <div class="surface-level" style="background:#2E3849"><span class="level-name">Muted</span><span class="level-hex">#2E3849</span></div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Each level gains ~7 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Each level gains ~7 lightness points with a consistent blue undertone. Cool surfaces make the warm gold and warm white feel intentional, not accidental.</p>
       </div>
 
       <!-- Text Hierarchy -->
@@ -1617,314 +1217,29 @@ section { padding: 120px 0; }
       <div class="fade-up">
         <div class="color-group-title">Semantic</div>
         <div class="semantic-row">
-          <div class="semantic-card" style="background:rgba(139,175,156,0.08); border-color:rgba(139,175,156,0.2);">
+          <div class="semantic-card" style="background:rgba(52,211,153,0.08); border-color:rgba(52,211,153,0.2);">
             <div class="semantic-dot" style="background:var(--success)"></div>
             <div class="semantic-name" style="color:var(--success)">Success</div>
-            <div class="semantic-hex">#8BAF9C</div>
+            <div class="semantic-hex">#34D399</div>
           </div>
-          <div class="semantic-card" style="background:rgba(212,162,75,0.08); border-color:rgba(212,162,75,0.2);">
+          <div class="semantic-card" style="background:rgba(251,191,36,0.08); border-color:rgba(251,191,36,0.2);">
             <div class="semantic-dot" style="background:var(--warning)"></div>
             <div class="semantic-name" style="color:var(--warning)">Warning</div>
-            <div class="semantic-hex">#D4A24B</div>
+            <div class="semantic-hex">#FBBF24</div>
           </div>
-          <div class="semantic-card" style="background:rgba(194,122,107,0.08); border-color:rgba(194,122,107,0.2);">
+          <div class="semantic-card" style="background:rgba(248,113,113,0.08); border-color:rgba(248,113,113,0.2);">
             <div class="semantic-dot" style="background:var(--error)"></div>
             <div class="semantic-name" style="color:var(--error)">Error</div>
-            <div class="semantic-hex">#C27A6B</div>
+            <div class="semantic-hex">#F87171</div>
           </div>
-          <div class="semantic-card" style="background:rgba(139,164,190,0.08); border-color:rgba(139,164,190,0.2);">
+          <div class="semantic-card" style="background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.2);">
             <div class="semantic-dot" style="background:var(--info)"></div>
             <div class="semantic-name" style="color:var(--info)">Info</div>
-            <div class="semantic-hex">#8BA4BE</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Focus Blue -->
-      <div class="fade-up">
-        <div class="color-group-title">Focus Blue</div>
-        <div style="display:flex; gap:16px; align-items:stretch; margin-top:16px;">
-          <div style="width:120px; height:80px; border-radius:var(--radius-md); background:#7CBBDF; display:flex; align-items:flex-end; padding:10px;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#111620; font-weight:600;">#7CBBDF</span>
-          </div>
-          <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-            <div style="font-size:15px; font-weight:600; margin-bottom:4px;">Interactive accent. The color of "you're here" and "this is active."</div>
-            <div style="font-size:13px; color:var(--text-tertiary); line-height:1.5;">Used for input focus rings, accent stickers and badges, active state indicators, and highlighted data points. Pops against the deep blue without reading as a warning the way bronze does at small sizes. CSS variable: <span style="font-family:'JetBrains Mono',monospace;">--focus</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Color Roles -->
-      <div class="fade-up" style="margin-top:48px;">
-        <div class="color-group-title">Color Roles</div>
-        <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-top:8px; margin-bottom:24px;">Bronze and focus blue serve different jobs. Mixing them up makes the interface feel muddy and makes bronze lose its weight. These rules keep the separation clean.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-          <!-- Bronze column -->
-          <div style="padding:24px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default);">
-            <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
-              <div style="width:12px; height:12px; border-radius:50%; background:var(--bronze-400);"></div>
-              <div style="font-size:13px; font-weight:700; letter-spacing:0.04em;">WARM BRONZE <span style="font-family:'JetBrains Mono',monospace; font-weight:400; color:var(--text-tertiary); font-size:11px;">--bronze-400</span></div>
-            </div>
-            <div style="font-size:13px; color:var(--text-secondary); line-height:1.7;">
-              ✓ Headlines and display type<br>
-              ✓ Logo and wordmark<br>
-              ✓ Section overline labels<br>
-              ✓ Primary CTA buttons (fill)<br>
-              ✓ Concentric arc motif<br>
-              ✓ The logo dot in "grouped."<br>
-              ✗ Input focus rings<br>
-              ✗ Stickers and tags<br>
-              ✗ Status badges<br>
-              ✗ Active/selected indicators
-            </div>
-          </div>
-          <!-- Focus blue column -->
-          <div style="padding:24px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default);">
-            <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
-              <div style="width:12px; height:12px; border-radius:50%; background:var(--focus);"></div>
-              <div style="font-size:13px; font-weight:700; letter-spacing:0.04em;">FOCUS BLUE <span style="font-family:'JetBrains Mono',monospace; font-weight:400; color:var(--text-tertiary); font-size:11px;">--focus</span></div>
-            </div>
-            <div style="font-size:13px; color:var(--text-secondary); line-height:1.7;">
-              ✓ Input focus rings and borders<br>
-              ✓ Accent stickers (metrics, status)<br>
-              ✓ Accent badges<br>
-              ✓ Active/selected state highlights<br>
-              ✓ Data visualization accents<br>
-              ✓ Interactive hover accents<br>
-              ✗ Headlines or display type<br>
-              ✗ Brand-level identity elements<br>
-              ✗ CTA buttons<br>
-              ✗ Section labels or overlines
-            </div>
-          </div>
-        </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:16px; line-height:1.5;">The test: if the element is part of the brand voice (something you'd see on a poster), it's bronze. If the element is part of the interface (something you'd interact with or that tells you a current state), it's focus blue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="container"><div class="divider"></div></div>
-
-<!-- SURFACES: THE LISTENING ROOM -->
-<section id="surfaces">
-  <div class="container">
-    <div class="fade-up">
-      <div class="section-label"><span class="section-num">02b</span> / Surfaces</div>
-      <h2 class="section-title grouped-display">The listening room.</h2>
-      <p class="section-desc">Grouped is the room. Artists are the music playing in it. Every surface is designed to elevate whatever sits on top of it. Three surface types create depth, warmth, and that feeling of walking into a place where the details matter.</p>
-    </div>
-
-    <!-- Surface Demos -->
-    <div class="surface-showcase fade-up" style="margin-top:48px;">
-      <div class="surface-showcase-row">
-        <div class="surface-demo surface-solid">
-          <div class="surface-demo-label">Solid</div>
-          <div class="surface-demo-name">The walls and floor.</div>
-          <div class="surface-demo-desc">Structural surfaces. Cards, containers, nav backgrounds. The foundation everything else sits on.</div>
-        </div>
-        <div class="surface-demo surface-glass">
-          <div class="surface-demo-label">Glass</div>
-          <div class="surface-demo-name">Frosted vinyl sleeve.</div>
-          <div class="surface-demo-desc">Transparent, blurred, soft. Like looking through smoked glass. Callouts, overlays, floating elements.</div>
-        </div>
-        <div class="surface-demo surface-vinyl">
-          <div class="surface-demo-label">Vinyl</div>
-          <div class="surface-demo-name">The premium surface.</div>
-          <div class="surface-demo-desc">Warm sheen, subtle gradient. For hero moments, featured content, the things worth spotlighting.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Glass on gradient backdrop -->
-    <div class="glass-backdrop fade-up" style="margin-top:32px;">
-      <div style="margin-bottom:20px;">
-        <div class="surface-demo-label">Glass on warm light</div>
-        <p style="font-size:15px; color:var(--text-secondary); max-width:480px; line-height:1.6;">When glass surfaces sit over warm ambient light, the frosted effect creates depth without opacity. Content behind the glass is present but softened. The room glows through. Each glass card has its own surface texture (a subtle noise layer) so no two feel identical, the same way no two panes of frosted glass catch light the same way.</p>
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div class="surface-glass" style="padding:24px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; color:var(--bronze-400); margin-bottom:8px;">GLASS / DEFAULT</div>
-          <div style="font-size:16px; font-weight:600; margin-bottom:4px;">4,500+ artists onboarded</div>
-          <div style="font-size:13px; color:var(--text-tertiary);">In the past year, with zero sales team.</div>
-        </div>
-        <div class="surface-glass-warm" style="padding:24px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; color:var(--bronze-400); margin-bottom:8px;">GLASS / WARM</div>
-          <div style="font-size:16px; font-weight:600; margin-bottom:4px;">16.53% upgrade rate</div>
-          <div style="font-size:13px; color:var(--text-tertiary);">Product-led. No pricing page. No sales calls.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sticker labels -->
-    <div class="fade-up" style="margin-top:48px;">
-      <div class="surface-demo-label" style="margin-bottom:16px;">Stickers</div>
-      <p style="font-size:15px; color:var(--text-secondary); max-width:560px; line-height:1.6; margin-bottom:24px;">Lightweight transparent labels. Like stickers on a record sleeve or tags on a crate of vinyl. Hover over them and they follow your cursor with a slight magnetic pull, as if they're stuck to the surface but not quite fixed. That resistance is the tactile detail that makes the difference.</p>
-      <div class="sticker-row">
-        <div class="surface-sticker">Early Access</div>
-        <div class="surface-sticker">Pre-save Live</div>
-        <div class="surface-sticker sticker-accent">&#9679; 4,500+ Artists</div>
-        <div class="surface-sticker">Smart Swap</div>
-        <div class="surface-sticker sticker-accent">&#9679; Pro Tier</div>
-        <div class="surface-sticker">Push Notifications</div>
-      </div>
-      <div class="sticker-row" style="margin-top:12px;">
-        <div class="surface-sticker sticker-accent">&#9679; $8 CPA Proven</div>
-        <div class="surface-sticker">Fan Pass</div>
-        <div class="surface-sticker">CRM Sync</div>
-        <div class="surface-sticker sticker-accent">&#9679; 30% MAU</div>
-      </div>
-    </div>
-
-    <!-- The "Makes Others Look Good" principle -->
-    <div class="fade-up" style="margin-top:64px;">
-      <div class="surface-demo-label" style="margin-bottom:16px;">The room makes the music look good</div>
-      <p style="font-size:15px; color:var(--text-secondary); max-width:560px; line-height:1.6; margin-bottom:32px;">Artist content should always be the brightest, warmest, most vivid thing on screen. The album art scales toward you when you hover, like picking a record up off the shelf. The card tilts in your hand. The shadow deepens underneath. These are the micro-moments that make a screen feel like a listening room and not a dashboard.</p>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-        <!-- Turntable card 1 -->
-        <div class="turntable-card">
-          <div class="turntable-card-art" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); aspect-ratio:1;">
-            <div style="text-align:center;">
-              <div style="font-size:72px; opacity:0.25;">&#9835;</div>
-              <div style="font-size:10px; letter-spacing:0.12em; color:var(--text-muted); margin-top:12px;">ALBUM ART</div>
-            </div>
-          </div>
-          <div class="turntable-card-content">
-            <div class="surface-sticker sticker-accent" style="margin-bottom:16px; font-size:11px;">&#9679; Early Access</div>
-            <div style="font-size:18px; font-weight:700; margin-bottom:4px;">Midnight Sessions</div>
-            <div style="font-size:13px; color:var(--text-tertiary);">New single dropping Friday. Your fans hear it first.</div>
-          </div>
-        </div>
-        <!-- Turntable card 2 -->
-        <div class="turntable-card">
-          <div class="turntable-card-art" style="background: linear-gradient(135deg, #2d1b2e 0%, #44203a 50%, #6b2d3e 100%); aspect-ratio:1;">
-            <div style="text-align:center;">
-              <div style="font-size:72px; opacity:0.25;">&#9835;</div>
-              <div style="font-size:10px; letter-spacing:0.12em; color:var(--text-muted); margin-top:12px;">ALBUM ART</div>
-            </div>
-          </div>
-          <div class="turntable-card-content">
-            <div class="surface-sticker" style="margin-bottom:16px; font-size:11px;">2,847 fans waiting</div>
-            <div style="font-size:18px; font-weight:700; margin-bottom:4px;">Velvet Hour</div>
-            <div style="font-size:13px; color:var(--text-tertiary);">Pre-save live. Momentum building before release day.</div>
+            <div class="semantic-hex">#60A5FA</div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Design principle callout -->
-    <div class="surface-vinyl fade-up" style="padding:40px; margin-top:48px;">
-      <div style="position:relative; z-index:1;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">DESIGN PRINCIPLE</div>
-        <div class="grouped-display" style="font-size:clamp(24px,3.5vw,36px); line-height:1.15; margin-bottom:16px;">Grouped is the room. Artists are the reason people walked in.</div>
-        <div style="font-size:15px; color:var(--text-secondary); max-width:600px; line-height:1.6;">Every design decision should ask: does this elevate the artist's content, or compete with it? The deep blue recedes. The grain adds texture without noise. Glass surfaces frame without containing. When it works, artists feel like the platform was built around them. That is the goal.</div>
-      </div>
-    </div>
-
-    <!-- ================================ -->
-    <!-- INTERACTION LANGUAGE: SHAPES OF SOUND -->
-    <!-- ================================ -->
-    <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">INTERACTION LANGUAGE</div>
-      <div style="font-size:28px; font-weight:700; letter-spacing:-0.01em; margin-bottom:12px; line-height:1.2;">Every shape and interaction borrows from music.</div>
-      <p style="font-size:15px; color:var(--text-secondary); line-height:1.6; margin-bottom:40px; max-width:620px;">The recurring shapes across Grouped come from two places: the physics of sound and the hardware musicians use to control it. Flowing waveform strokes. Volume dials with clean tick marks. Frequency curves as progress indicators. These elements show up everywhere, from loading states to hover effects, because every interaction should remind you what this platform is for.</p>
-    </div>
-
-    <!-- Two-column: Light vs Solid vocabulary -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
-
-      <!-- Column 1: Light elements -->
-      <div class="surface-solid fade-up stagger-1" style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; min-height:320px;">
-        <div>
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">LIGHT ELEMENTS</div>
-          <div style="font-size:18px; font-weight:700; margin-bottom:8px;">Waveforms. Flowing lines. Frequency curves.</div>
-          <p style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Thin, luminous, alive. These are the shapes that move and respond. Progress bars that ripple. Loading states that pulse. Hover trails that follow the cursor like sound moving through a room. Clean strokes, no gradients. Light on dark. Subtle and sexy until you notice them, then impossible to unsee.</p>
-        </div>
-        <!-- Waveform demo -->
-        <div style="margin-top:24px;">
-          <svg viewBox="0 0 400 80" width="100%" height="80" style="overflow:visible;">
-            <path d="M 0 40 Q 25 10, 50 40 Q 75 70, 100 40 Q 125 15, 150 40 Q 175 65, 200 40 Q 225 20, 250 40 Q 275 60, 300 40 Q 325 25, 350 40 Q 375 55, 400 40" fill="none" stroke="var(--bronze-400)" stroke-width="2" opacity="0.5"/>
-            <path d="M 0 40 Q 30 22, 60 40 Q 90 58, 120 40 Q 150 18, 180 40 Q 210 62, 240 40 Q 270 22, 300 40 Q 330 58, 360 40 Q 390 28, 400 36" fill="none" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.15"/>
-            <!-- Baseline ticks -->
-            <line x1="0" y1="72" x2="0" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="50" y1="72" x2="50" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="100" y1="72" x2="100" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="150" y1="72" x2="150" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="200" y1="72" x2="200" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="250" y1="72" x2="250" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="300" y1="72" x2="300" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="350" y1="72" x2="350" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-            <line x1="400" y1="72" x2="400" y2="76" stroke="var(--text-primary)" stroke-width="1" opacity="0.12"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Column 2: Solid elements -->
-      <div class="surface-solid fade-up stagger-2" style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; min-height:320px;">
-        <div>
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">SOLID ELEMENTS</div>
-          <div style="font-size:18px; font-weight:700; margin-bottom:8px;">Dials. Tick marks. Faders. Level meters.</div>
-          <p style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Muted, structural, grounded. These shapes give the interface its weight. Volume dials with Swiss-minimal tick marks. Fader grooves as progress indicators. Level meters as data visualization. Flat fills, no shadows, no gradients. They feel like studio equipment because that is the vocabulary artists already think in.</p>
-        </div>
-        <!-- Dial + ticks + level meter demo -->
-        <div style="display:flex; align-items:flex-end; gap:32px; margin-top:24px;">
-          <!-- Mini dial with ticks -->
-          <svg viewBox="0 0 80 80" width="64" height="64">
-            <line x1="40" y1="6" x2="40" y2="10" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="57" y1="11" x2="55" y2="15" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="69" y1="23" x2="65" y2="25" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="74" y1="40" x2="70" y2="40" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="69" y1="57" x2="65" y2="55" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="57" y1="69" x2="55" y2="65" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="40" y1="74" x2="40" y2="70" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="23" y1="69" x2="25" y2="65" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="11" y1="57" x2="15" y2="55" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="6" y1="40" x2="10" y2="40" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="11" y1="23" x2="15" y2="25" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <line x1="23" y1="11" x2="25" y2="15" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12"/>
-            <circle cx="40" cy="40" r="24" fill="var(--bg-overlay)" stroke="var(--text-primary)" stroke-width="1" opacity="0.15"/>
-            <line x1="40" y1="40" x2="40" y2="20" stroke="var(--bronze-400)" stroke-width="2" opacity="0.5"/>
-            <circle cx="40" cy="40" r="2" fill="var(--text-primary)" opacity="0.2"/>
-          </svg>
-          <!-- Level meter bars -->
-          <div style="display:flex; gap:3px; align-items:flex-end; height:48px;">
-            <div style="width:6px; height:12px; background:var(--text-primary); opacity:0.1; border-radius:1px;"></div>
-            <div style="width:6px; height:20px; background:var(--text-primary); opacity:0.1; border-radius:1px;"></div>
-            <div style="width:6px; height:32px; background:var(--text-primary); opacity:0.1; border-radius:1px;"></div>
-            <div style="width:6px; height:44px; background:var(--text-primary); opacity:0.12; border-radius:1px;"></div>
-            <div style="width:6px; height:36px; background:var(--bronze-400); opacity:0.35; border-radius:1px;"></div>
-            <div style="width:6px; height:48px; background:var(--bronze-400); opacity:0.35; border-radius:1px;"></div>
-            <div style="width:6px; height:40px; background:var(--bronze-400); opacity:0.35; border-radius:1px;"></div>
-            <div style="width:6px; height:28px; background:var(--text-primary); opacity:0.1; border-radius:1px;"></div>
-            <div style="width:6px; height:16px; background:var(--text-primary); opacity:0.1; border-radius:1px;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- The contrast principle -->
-    <div class="surface-glass-warm fade-up" style="padding:32px 36px; margin-bottom:24px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">THE INTERPLAY</div>
-      <div style="font-size:17px; font-weight:600; margin-bottom:10px; line-height:1.3;">Light shapes play against solid ones.</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; max-width:640px;"><strong style="color:var(--text-primary)">Light elements</strong> are thin strokes, frequency curves, luminous accents that respond and move. They catch your eye the way a waveform catches light on an oscilloscope. <strong style="color:var(--text-primary)">Solid elements</strong> are flat shapes with muted fills that hold position and communicate structure. The interplay gives the interface its character: precise but alive. Studio hardware with music running through it.</p>
-    </div>
-
-    <!-- Placeholder for Osmo vault examples -->
-    <div class="surface-solid fade-up" style="padding:32px; display:flex; align-items:center; gap:20px; border-style:dashed; border-color:var(--border-hover);">
-      <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(196,138,58,0.06); border:1px solid rgba(196,138,58,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--bronze-400)" stroke-width="1.5" opacity="0.5">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <line x1="12" y1="8" x2="12" y2="16"/>
-          <line x1="8" y1="12" x2="16" y2="12"/>
-        </svg>
-      </div>
-      <div>
-        <div style="font-size:14px; font-weight:600; margin-bottom:4px;">Interaction examples incoming</div>
-        <div style="font-size:13px; color:var(--text-tertiary); line-height:1.5;">Osmo Supply vault references will be added here to showcase specific implementations: loading waveforms, progress dials, hover trails, level meter animations, and the full vocabulary of light-on-solid interactions in context.</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1936,7 +1251,7 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label"><span class="section-num">03</span> / Components</div>
       <h2 class="section-title grouped-display">Built to compound.</h2>
-      <p class="section-desc">Every component shares the same physical DNA. Cards have weight and surface texture. Buttons depress when you press them. Inputs have depth. Rounded corners echo the cyclical nature of the release cycle: write, record, release, connect, repeat. Nothing is sharp because nothing in this experience should feel like it ends.</p>
+      <p class="section-desc">Every component follows the same rules. Consistent radius, spacing, and interaction patterns create a system that feels unified across marketing and product surfaces.</p>
     </div>
 
     <div class="comp-grid">
@@ -1984,7 +1299,7 @@ section { padding: 120px 0; }
         <div class="comp-card-title">Badges & Tags</div>
         <div class="badge-row" style="margin-bottom:16px;">
           <span class="badge">Default</span>
-          <span class="badge badge-accent">Accent</span>
+          <span class="badge badge-gold">Gold</span>
           <span class="badge badge-success">Active</span>
           <span class="badge badge-info">New</span>
           <span class="badge badge-warning">Pending</span>
@@ -2057,7 +1372,7 @@ section { padding: 120px 0; }
       <div class="comp-card fade-up stagger-6">
         <div class="comp-card-title">Navigation & Glass</div>
         <div class="nav-preview" style="margin-bottom:20px;">
-          <div class="nav-preview-logo">grouped<span style="color:var(--bronze-400)">.</span></div>
+          <div class="nav-preview-logo">grouped<span style="color:var(--gold-400)">.</span></div>
           <div class="nav-preview-links">
             <span>Tools</span>
             <span>Pricing</span>
@@ -2114,7 +1429,7 @@ section { padding: 120px 0; }
       <div class="photo-rule fade-up stagger-1">
         <div class="photo-rule-icon do">✓</div>
         <div class="photo-rule-title">High contrast, warm tones</div>
-        <div class="photo-rule-desc">Deep blacks, warm highlights. Color grade should complement the bronze accent. Slightly desaturated to keep the palette cohesive. Think film stock, not phone camera.</div>
+        <div class="photo-rule-desc">Deep blacks, warm highlights. Color grade should complement the gold accent. Slightly desaturated to keep the palette cohesive. Think film stock, not phone camera.</div>
       </div>
       <div class="photo-rule fade-up stagger-2">
         <div class="photo-rule-icon do">✓</div>
@@ -2169,7 +1484,7 @@ section { padding: 120px 0; }
           </div>
           <div>
             <div style="font-size:14px; font-weight:600; margin-bottom:6px;">Saturation</div>
-            <div style="font-size:13px; color:var(--text-secondary);">Pull back 10-20% from natural. Let the bronze accent be the warmest thing in any composition. Skin tones stay natural.</div>
+            <div style="font-size:13px; color:var(--text-secondary);">Pull back 10-20% from natural. Let the gold accent be the warmest thing in any composition. Skin tones stay natural.</div>
           </div>
           <div>
             <div style="font-size:14px; font-weight:600; margin-bottom:6px;">Contrast</div>
@@ -2193,7 +1508,7 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label"><span class="section-num">05</span> / Motion</div>
       <h2 class="section-title grouped-display">Scroll drives narrative.</h2>
-      <p class="section-desc">Motion has mass. Elements enter with intention and settle with confidence. Bronze glows gradually. Stagger creates rhythm. Hover the cards below to preview each easing curve.</p>
+      <p class="section-desc">Motion has mass. Elements enter with intention and settle with confidence. Gold glows gradually. Stagger creates rhythm. Hover the cards below to preview each easing curve.</p>
     </div>
 
     <div class="easing-grid">
@@ -2228,12 +1543,12 @@ section { padding: 120px 0; }
     <div class="fade-up" style="margin-top:64px;">
       <div class="color-group-title">Duration Scale</div>
       <div class="spacing-visual" style="margin-top:24px;">
-        <div class="spacing-row"><span class="spacing-label">instant</span><div class="spacing-bar" style="width:20px;background:rgba(196,138,58,0.3);border-color:rgba(196,138,58,0.4)"></div><span class="spacing-value">100ms</span></div>
-        <div class="spacing-row"><span class="spacing-label">fast</span><div class="spacing-bar" style="width:40px;background:rgba(196,138,58,0.3);border-color:rgba(196,138,58,0.4)"></div><span class="spacing-value">200ms</span></div>
-        <div class="spacing-row"><span class="spacing-label">default</span><div class="spacing-bar" style="width:60px;background:rgba(196,138,58,0.3);border-color:rgba(196,138,58,0.4)"></div><span class="spacing-value">300ms</span></div>
-        <div class="spacing-row"><span class="spacing-label">moderate</span><div class="spacing-bar" style="width:100px;background:rgba(196,138,58,0.3);border-color:rgba(196,138,58,0.4)"></div><span class="spacing-value">500ms</span></div>
-        <div class="spacing-row"><span class="spacing-label">slow</span><div class="spacing-bar" style="width:160px;background:rgba(196,138,58,0.3);border-color:rgba(196,138,58,0.4)"></div><span class="spacing-value">800ms</span></div>
-        <div class="spacing-row"><span class="spacing-label">cinematic</span><div class="spacing-bar" style="width:240px;background:rgba(196,138,58,0.3);border-color:rgba(196,138,58,0.4)"></div><span class="spacing-value">1200ms</span></div>
+        <div class="spacing-row"><span class="spacing-label">instant</span><div class="spacing-bar" style="width:20px;background:rgba(212,148,58,0.3);border-color:rgba(212,148,58,0.4)"></div><span class="spacing-value">100ms</span></div>
+        <div class="spacing-row"><span class="spacing-label">fast</span><div class="spacing-bar" style="width:40px;background:rgba(212,148,58,0.3);border-color:rgba(212,148,58,0.4)"></div><span class="spacing-value">200ms</span></div>
+        <div class="spacing-row"><span class="spacing-label">default</span><div class="spacing-bar" style="width:60px;background:rgba(212,148,58,0.3);border-color:rgba(212,148,58,0.4)"></div><span class="spacing-value">300ms</span></div>
+        <div class="spacing-row"><span class="spacing-label">moderate</span><div class="spacing-bar" style="width:100px;background:rgba(212,148,58,0.3);border-color:rgba(212,148,58,0.4)"></div><span class="spacing-value">500ms</span></div>
+        <div class="spacing-row"><span class="spacing-label">slow</span><div class="spacing-bar" style="width:160px;background:rgba(212,148,58,0.3);border-color:rgba(212,148,58,0.4)"></div><span class="spacing-value">800ms</span></div>
+        <div class="spacing-row"><span class="spacing-label">cinematic</span><div class="spacing-bar" style="width:240px;background:rgba(212,148,58,0.3);border-color:rgba(212,148,58,0.4)"></div><span class="spacing-value">1200ms</span></div>
       </div>
     </div>
   </div>
@@ -2293,451 +1608,6 @@ section { padding: 120px 0; }
 </section>
 
 <div class="container"><div class="divider"></div></div>
-
-
-<!-- BRAND ELEMENTS & TEXTURES -->
-<section id="brand-elements">
-  <div class="container">
-    <div class="fade-up">
-      <div class="section-label"><span class="section-num">08</span> / Brand Elements & Textures</div>
-      <h2 class="section-title grouped-display">The physical toolkit.</h2>
-      <p class="section-desc">These are the graphic elements that make Grouped feel like Grouped. Concentric arcs from the logo DNA. Physical controls borrowed from studio hardware. Badge treatments pulled from 70s patch culture. Every element reinforces the tactile philosophy: this is something you can almost reach out and touch.</p>
-    </div>
-
-    <!-- ================================ -->
-    <!-- CONCENTRIC ARCS: THE SIGNATURE -->
-    <!-- ================================ -->
-    <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">THE SIGNATURE MOTIF</div>
-      <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Concentric arcs.</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">Sound waves radiating from a source. Vinyl grooves. Ripples. The concentric arc is the single most recognizable Grouped graphic element. Heavy strokes with tight gaps between them. The stroke is always wider than the gap (roughly 2.5:1). No feathering, no gradients, no per-ring opacity variation. Solid lines doing structural work.</p>
-    </div>
-
-    <!-- Arc demos -->
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:20px;">
-
-      <!-- Arc: Full rings -->
-      <div class="surface-solid fade-up stagger-1" style="padding:0; aspect-ratio:1; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-        <svg viewBox="0 0 400 400" width="100%" height="100%" style="position:absolute; inset:0;">
-          <!-- stroke 32, gap 12, period 44. Dense and heavy. -->
-          <circle cx="200" cy="200" r="50" fill="none" stroke="rgba(240,235,227,0.18)" stroke-width="32"/>
-          <circle cx="200" cy="200" r="94" fill="none" stroke="rgba(240,235,227,0.18)" stroke-width="32"/>
-          <circle cx="200" cy="200" r="138" fill="none" stroke="rgba(240,235,227,0.18)" stroke-width="32"/>
-          <circle cx="200" cy="200" r="182" fill="none" stroke="rgba(240,235,227,0.18)" stroke-width="32"/>
-        </svg>
-        <div style="position:relative; z-index:1; text-align:center;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-tertiary);">FULL RINGS</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Background / section divider</div>
-        </div>
-      </div>
-
-      <!-- Arc: Corner arcs — matching the poster assets -->
-      <div class="surface-solid fade-up stagger-2" style="padding:0; aspect-ratio:1; display:flex; align-items:flex-end; justify-content:flex-start; overflow:hidden; position:relative;">
-        <svg viewBox="0 0 400 400" width="100%" height="100%" style="position:absolute; inset:0;">
-          <!-- stroke 34, gap 14, period 48. Heavy quarter-arcs from top-right. -->
-          <path d="M 400 0 A 70 70 0 0 1 330 70" fill="none" stroke="var(--bronze-400)" stroke-width="34"/>
-          <path d="M 400 0 A 118 118 0 0 1 282 118" fill="none" stroke="var(--bronze-400)" stroke-width="34"/>
-          <path d="M 400 0 A 166 166 0 0 1 234 166" fill="none" stroke="var(--bronze-400)" stroke-width="34"/>
-          <path d="M 400 0 A 214 214 0 0 1 186 214" fill="none" stroke="var(--bronze-400)" stroke-width="34"/>
-          <path d="M 400 0 A 262 262 0 0 1 138 262" fill="none" stroke="var(--bronze-400)" stroke-width="34"/>
-          <path d="M 400 0 A 310 310 0 0 1 90 310" fill="none" stroke="var(--bronze-400)" stroke-width="34"/>
-        </svg>
-        <div style="position:relative; z-index:1; padding:24px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-tertiary);">CORNER ARCS</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Poster / hero layout</div>
-        </div>
-      </div>
-
-      <!-- Arc: G monogram — heavy, structural -->
-      <div class="surface-solid fade-up stagger-3" style="padding:0; aspect-ratio:1; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-        <svg viewBox="0 0 400 400" width="100%" height="100%" style="position:absolute; inset:0;">
-          <!-- stroke 24, gap 10, period 34. Matches logo weight. -->
-          <path d="M 268 200 A 68 68 0 1 0 200 268" fill="none" stroke="var(--text-primary)" stroke-width="24"/>
-          <path d="M 302 200 A 102 102 0 1 0 200 302" fill="none" stroke="var(--text-primary)" stroke-width="24"/>
-          <path d="M 336 200 A 136 136 0 1 0 200 336" fill="none" stroke="var(--text-primary)" stroke-width="24"/>
-          <line x1="200" y1="200" x2="268" y2="200" stroke="var(--text-primary)" stroke-width="24"/>
-        </svg>
-        <div style="position:relative; z-index:1; text-align:center; margin-top:100px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-tertiary);">G MONOGRAM</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Logo / watermark</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Arc usage rule -->
-    <div class="surface-glass-warm fade-up" style="padding:24px 32px; display:flex; gap:24px; align-items:center; margin-bottom:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); white-space:nowrap;">ARC RULE</div>
-      <div style="font-size:14px; color:var(--text-secondary); line-height:1.5;"><strong style="color:var(--text-primary)">Heavy strokes. Tight gaps.</strong> Stroke width is always larger than the gap between arcs (roughly 2.5:1 ratio). Every ring in a set uses the same weight and color. No opacity variation between individual strokes. When used as background, reduce the group opacity, not individual rings.</div>
-    </div>
-
-    <!-- ================================ -->
-    <!-- PHYSICAL CONTROLS -->
-    <!-- ================================ -->
-    <div class="fade-up">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">PHYSICAL CONTROLS</div>
-      <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Studio hardware as UI.</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">Controls borrowed from studio hardware, stripped to their structural essence. No gradients, no metallic effects, no embossing. The shape itself communicates the function. Circles rotate. Rectangles slide. The only warmth comes from bronze marking the active state. Swiss International Style applied to mixing boards.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:20px;">
-
-      <!-- VOLUME DIAL — flat, Swiss -->
-      <div class="surface-solid fade-up stagger-1" style="padding:32px; display:flex; flex-direction:column; align-items:center; gap:24px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-tertiary);">VOLUME DIAL</div>
-        <div style="position:relative; width:140px; height:140px;">
-          <svg viewBox="0 0 140 140" width="140" height="140">
-            <!-- Track: thin circle -->
-            <circle cx="70" cy="70" r="62" fill="none" stroke="rgba(240,235,227,0.08)" stroke-width="2"/>
-            <!-- Tick marks: simple lines, even spacing -->
-            <line x1="70" y1="10" x2="70" y2="18" stroke="rgba(240,235,227,0.12)" stroke-width="1.5" transform="rotate(-135 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(240,235,227,0.06)" stroke-width="1" transform="rotate(-108 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(240,235,227,0.06)" stroke-width="1" transform="rotate(-81 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="18" stroke="rgba(240,235,227,0.12)" stroke-width="1.5" transform="rotate(-54 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(240,235,227,0.06)" stroke-width="1" transform="rotate(-27 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(240,235,227,0.06)" stroke-width="1" transform="rotate(0 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="18" stroke="rgba(240,235,227,0.12)" stroke-width="1.5" transform="rotate(27 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(240,235,227,0.06)" stroke-width="1" transform="rotate(54 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(240,235,227,0.06)" stroke-width="1" transform="rotate(81 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="18" stroke="rgba(240,235,227,0.12)" stroke-width="1.5" transform="rotate(108 70 70)"/>
-            <line x1="70" y1="10" x2="70" y2="18" stroke="var(--bronze-400)" stroke-width="1.5" transform="rotate(135 70 70)" opacity="0.6"/>
-            <!-- Active arc: flat stroke, no effects -->
-            <path d="M 70 8 A 62 62 0 1 1 8 70" fill="none" stroke="var(--bronze-400)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-            <!-- The knob: flat fill circle -->
-            <circle cx="70" cy="70" r="44" fill="var(--bg-overlay)"/>
-            <circle cx="70" cy="70" r="44" fill="none" stroke="rgba(240,235,227,0.06)" stroke-width="1"/>
-            <!-- Center dot -->
-            <circle cx="70" cy="70" r="4" fill="rgba(240,235,227,0.12)"/>
-            <!-- Indicator line: single stroke from center toward value -->
-            <line x1="70" y1="70" x2="101" y2="39" stroke="var(--bronze-400)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-          </svg>
-        </div>
-        <div style="font-size:12px; color:var(--text-muted); text-align:center; line-height:1.5;">Flat fill. Indicator line from center. Active arc shows value.</div>
-      </div>
-
-      <!-- FADER / SLIDER — flat, Swiss -->
-      <div class="surface-solid fade-up stagger-2" style="padding:32px; display:flex; flex-direction:column; align-items:center; gap:24px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-tertiary);">MIXING FADER</div>
-        <div style="position:relative; width:48px; height:180px;">
-          <!-- Track: thin line -->
-          <div style="
-            position:absolute; left:50%; top:0; bottom:0; width:2px;
-            transform:translateX(-50%);
-            background: rgba(240,235,227,0.08);
-          "></div>
-          <!-- Active fill: solid bronze -->
-          <div style="
-            position:absolute; left:50%; bottom:0; width:2px; height:65%;
-            transform:translateX(-50%);
-            background: var(--bronze-400); opacity:0.4;
-          "></div>
-          <!-- Tick marks: minimal -->
-          <div style="position:absolute; right:-6px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
-            <div style="width:4px; height:1px; background:rgba(240,235,227,0.12);"></div>
-            <div style="width:3px; height:1px; background:rgba(240,235,227,0.06);"></div>
-            <div style="width:4px; height:1px; background:rgba(240,235,227,0.12);"></div>
-            <div style="width:3px; height:1px; background:rgba(240,235,227,0.06);"></div>
-            <div style="width:4px; height:1px; background:rgba(240,235,227,0.12);"></div>
-            <div style="width:3px; height:1px; background:rgba(240,235,227,0.06);"></div>
-            <div style="width:4px; height:1px; background:rgba(240,235,227,0.12);"></div>
-          </div>
-          <!-- The fader handle: flat rectangle -->
-          <div style="
-            position:absolute; left:50%; bottom:calc(65% - 12px);
-            transform:translateX(-50%);
-            width:28px; height:24px; border-radius:3px;
-            background: var(--bg-subtle);
-            border: 1px solid rgba(240,235,227,0.08);
-            cursor: grab;
-          ">
-            <!-- Grip lines: simple -->
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; flex-direction:column; gap:3px;">
-              <div style="width:12px; height:1px; background:rgba(240,235,227,0.1);"></div>
-              <div style="width:12px; height:1px; background:rgba(240,235,227,0.1);"></div>
-            </div>
-          </div>
-        </div>
-        <div style="font-size:12px; color:var(--text-muted); text-align:center; line-height:1.5;">Thin track. Flat handle. Minimal grip lines.</div>
-      </div>
-
-      <!-- TOGGLE / SWITCH — flat, Swiss -->
-      <div class="surface-solid fade-up stagger-3" style="padding:32px; display:flex; flex-direction:column; align-items:center; gap:24px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--text-tertiary);">POWER TOGGLE</div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:32px;">
-          <!-- Toggle OFF -->
-          <div style="display:flex; align-items:center; gap:16px;">
-            <div style="
-              width:52px; height:28px; border-radius:14px;
-              background: rgba(240,235,227,0.04);
-              border: 1px solid rgba(235,225,210,0.08);
-              position:relative; cursor:pointer;
-            ">
-              <div style="
-                position:absolute; top:3px; left:3px;
-                width:20px; height:20px; border-radius:50%;
-                background: var(--bg-subtle);
-                border: 1px solid rgba(235,225,210,0.08);
-              "></div>
-            </div>
-            <span style="font-size:12px; color:var(--text-muted);">Off</span>
-          </div>
-          <!-- Toggle ON -->
-          <div style="display:flex; align-items:center; gap:16px;">
-            <div style="
-              width:52px; height:28px; border-radius:14px;
-              background: rgba(196,138,58,0.15);
-              border: 1px solid rgba(196,138,58,0.2);
-              position:relative; cursor:pointer;
-            ">
-              <div style="
-                position:absolute; top:3px; right:3px;
-                width:20px; height:20px; border-radius:50%;
-                background: var(--bronze-400);
-              "></div>
-            </div>
-            <span style="font-size:12px; color:var(--text-secondary);">On</span>
-          </div>
-        </div>
-        <div style="font-size:12px; color:var(--text-muted); text-align:center; line-height:1.5;">Flat thumb. Solid bronze when on. No shadows.</div>
-      </div>
-    </div>
-
-    <!-- Physical control rule -->
-    <div class="surface-glass-warm fade-up" style="padding:24px 32px; display:flex; gap:24px; align-items:center; margin-bottom:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); white-space:nowrap;">HARDWARE RULE</div>
-      <div style="font-size:14px; color:var(--text-secondary); line-height:1.5;"><strong style="color:var(--text-primary)">Controls are flat and structural.</strong> No gradients on controls themselves. No metallic effects. No embossing. Shapes communicate function: circles rotate, rectangles slide, pills toggle. The only warmth comes from bronze as the active/indicator color. Think Swiss International Style applied to studio equipment: the grid does the work, not decoration.</div>
-    </div>
-
-    <!-- ================================ -->
-    <!-- BADGE / PATCH TREATMENT -->
-    <!-- ================================ -->
-    <div class="fade-up">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BADGE &amp; PATCH</div>
-      <div style="font-size:20px; font-weight:700; margin-bottom:8px;">The 70s patch aesthetic.</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">Concentric rounded borders in the brand palette create a retro badge feel. Use for special moments: launch announcements, year-in-review, limited drops, artist features. These are the stickers you'd iron onto a denim jacket.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:20px;">
-
-      <!-- Patch: Bronze monochrome -->
-      <div class="surface-solid fade-up stagger-1" style="aspect-ratio:1; display:flex; align-items:center; justify-content:center; padding:32px;">
-        <div style="
-          width:100%; max-width:200px; aspect-ratio:1.2;
-          border-radius:12px;
-          border: 4px solid var(--bronze-400);
-          display:flex; align-items:center; justify-content:center;
-          position:relative;
-          box-shadow: 0 0 0 8px var(--bg-raised), 0 0 0 11px rgba(196,138,58,0.3);
-        ">
-          <div style="text-align:center;">
-            <div class="grouped-display" style="font-size:28px; line-height:1;">Grouped</div>
-            <div style="font-size:11px; letter-spacing:0.12em; color:var(--text-tertiary); margin-top:4px;">EST. 2026</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Patch: Multi-color (from the brand asset) -->
-      <div class="surface-solid fade-up stagger-2" style="aspect-ratio:1; display:flex; align-items:center; justify-content:center; padding:32px;">
-        <div style="
-          width:100%; max-width:200px; aspect-ratio:1.2;
-          border-radius:16px;
-          border: 4px solid #C48A3A;
-          position:relative;
-          display:flex; align-items:center; justify-content:center;
-          box-shadow:
-            0 0 0 7px var(--bg-raised),
-            0 0 0 10px #B86E3A,
-            0 0 0 14px var(--bg-raised),
-            0 0 0 17px #7B8FAE;
-        ">
-          <div style="text-align:center;">
-            <div class="grouped-display" style="font-size:22px; line-height:1;">Grouped</div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-top:8px;">
-              <span style="font-size:16px; font-weight:700; letter-spacing:0.05em;">20</span>
-              <!-- Mini G monogram -->
-              <svg viewBox="0 0 24 24" width="24" height="24">
-                <path d="M 18 12 A 6 6 0 1 0 12 18" fill="none" stroke="var(--bronze-400)" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="12" y1="12" x2="18" y2="12" stroke="var(--bronze-400)" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-              <span style="font-size:16px; font-weight:700; letter-spacing:0.05em;">26</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Patch: Circle badge -->
-      <div class="surface-solid fade-up stagger-3" style="aspect-ratio:1; display:flex; align-items:center; justify-content:center; padding:32px;">
-        <div style="
-          width:160px; height:160px;
-          border-radius:50%;
-          border: 3px solid var(--bronze-400);
-          display:flex; align-items:center; justify-content:center;
-          position:relative;
-          box-shadow: 0 0 0 6px var(--bg-raised), 0 0 0 8px rgba(196,138,58,0.2);
-        ">
-          <!-- Concentric inner ring -->
-          <div style="
-            position:absolute; inset:8px; border-radius:50%;
-            border:1px solid rgba(196,138,58,0.15);
-          "></div>
-          <div style="text-align:center;">
-            <svg viewBox="0 0 40 40" width="40" height="40" style="margin-bottom:4px;">
-              <path d="M 28 20 A 8 8 0 1 0 20 28" fill="none" stroke="var(--bronze-400)" stroke-width="3" stroke-linecap="round"/>
-              <path d="M 32 20 A 12 12 0 1 0 20 32" fill="none" stroke="rgba(196,138,58,0.4)" stroke-width="3" stroke-linecap="round"/>
-              <line x1="20" y1="20" x2="28" y2="20" stroke="var(--bronze-400)" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; color:var(--text-tertiary);">MEMBER</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================================ -->
-    <!-- TEXTURE PATTERNS -->
-    <!-- ================================ -->
-    <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BACKGROUND TEXTURES</div>
-      <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Arcs as atmosphere.</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">The concentric arc pattern at large scale. For subtle use, keep every stroke at full opacity and reduce the opacity of the entire SVG group. For bold use, place solid arcs on a bronze or colored field. The strokes are always the same weight with equal spacing. Scale the group, not individual rings.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
-
-      <!-- Subtle: heavy strokes, low group opacity -->
-      <div class="surface-solid fade-up" style="aspect-ratio:1.5; position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:32px;">
-        <svg viewBox="0 0 600 400" width="100%" height="100%" preserveAspectRatio="xMaxYMin slice" style="position:absolute; inset:0; opacity:0.07;">
-          <path d="M 600 0 A 70 70 0 0 1 530 70" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
-          <path d="M 600 0 A 120 120 0 0 1 480 120" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
-          <path d="M 600 0 A 170 170 0 0 1 430 170" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
-          <path d="M 600 0 A 220 220 0 0 1 380 220" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
-          <path d="M 600 0 A 270 270 0 0 1 330 270" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
-          <path d="M 600 0 A 320 320 0 0 1 280 320" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
-        </svg>
-        <div style="position:relative; z-index:1;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:8px;">SUBTLE</div>
-          <div style="font-size:14px; color:var(--text-secondary);">Heavy strokes. Low group opacity. Background texture.</div>
-        </div>
-      </div>
-
-      <!-- Bold: bronze field, thick dark arcs -->
-      <div style="aspect-ratio:1.5; position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:32px; border-radius:var(--radius-sleeve); background:var(--bronze-400);">
-        <svg viewBox="0 0 600 400" width="100%" height="100%" preserveAspectRatio="xMinYMax slice" style="position:absolute; inset:0;">
-          <path d="M 0 400 A 70 70 0 0 1 70 330" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="38"/>
-          <path d="M 0 400 A 120 120 0 0 1 120 280" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="38"/>
-          <path d="M 0 400 A 170 170 0 0 1 170 230" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="38"/>
-          <path d="M 0 400 A 220 220 0 0 1 220 180" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="38"/>
-          <path d="M 0 400 A 270 270 0 0 1 270 130" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="38"/>
-          <path d="M 0 400 A 320 320 0 0 1 320 80" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="38"/>
-        </svg>
-        <div style="position:relative; z-index:1;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:rgba(0,0,0,0.5); margin-bottom:8px;">BOLD</div>
-          <div style="font-size:15px; font-weight:600; color:var(--bg-base);">Bronze field. Arcs in darker tone.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================================ -->
-    <!-- ELEMENT COMBINATIONS -->
-    <!-- ================================ -->
-    <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">PUTTING IT TOGETHER</div>
-      <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Elements in combination.</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">The real power of these elements comes from layering them. Arcs as background. Glass cards on top. Physical controls inside. Badge treatments for special moments. Each layer adds depth without clutter.</p>
-    </div>
-
-    <!-- Combo demo: mini player card -->
-    <div class="surface-glass fade-up" style="padding:0; overflow:hidden; max-width:480px; position:relative;">
-      <!-- Background arcs: heavy strokes, low group opacity -->
-      <svg viewBox="0 0 480 300" width="100%" height="300" preserveAspectRatio="xMaxYMin slice" style="position:absolute; inset:0; opacity:0.06;">
-        <path d="M 480 0 A 80 80 0 0 1 400 80" fill="none" stroke="var(--text-primary)" stroke-width="36"/>
-        <path d="M 480 0 A 130 130 0 0 1 350 130" fill="none" stroke="var(--text-primary)" stroke-width="36"/>
-        <path d="M 480 0 A 180 180 0 0 1 300 180" fill="none" stroke="var(--text-primary)" stroke-width="36"/>
-        <path d="M 480 0 A 230 230 0 0 1 250 230" fill="none" stroke="var(--text-primary)" stroke-width="36"/>
-      </svg>
-
-      <div style="position:relative; z-index:1; padding:32px;">
-        <div style="display:flex; gap:20px; align-items:flex-start;">
-          <!-- Album art (square sleeve) -->
-          <div style="
-            width:120px; height:120px; border-radius:var(--radius-sleeve); flex-shrink:0;
-            background: linear-gradient(135deg, #2d1b2e, #44203a, #6b2d3e);
-            display:flex; align-items:center; justify-content:center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-          ">
-            <svg viewBox="0 0 40 40" width="32" height="32" opacity="0.3">
-              <path d="M 28 20 A 8 8 0 1 0 20 28" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="20" y1="20" x2="28" y2="20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <!-- Track info -->
-          <div style="flex:1; padding-top:4px;">
-            <div class="surface-sticker sticker-accent" style="margin-bottom:12px; font-size:10px; padding:4px 12px;">&#9679; Now Playing</div>
-            <div style="font-size:18px; font-weight:700; margin-bottom:2px;">Midnight Sessions</div>
-            <div style="font-size:13px; color:var(--text-tertiary); margin-bottom:20px;">Early access preview</div>
-            <!-- Inline progress bar styled as a fader track -->
-            <div style="position:relative; height:2px; background:rgba(240,235,227,0.08); border-radius:1px;">
-              <div style="height:100%; width:38%; background:var(--bronze-400); border-radius:1px; opacity:0.4;"></div>
-              <!-- Scrubber dot -->
-              <div style="
-                position:absolute; top:50%; left:38%; transform:translate(-50%,-50%);
-                width:10px; height:10px; border-radius:50%;
-                background: var(--bg-subtle);
-                border:1.5px solid rgba(196,138,58,0.4);
-              "></div>
-            </div>
-            <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:11px; color:var(--text-muted);">
-              <span>1:24</span>
-              <span>3:47</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mini volume control inline -->
-        <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-default);">
-          <svg viewBox="0 0 20 20" width="14" height="14" style="opacity:0.3;">
-            <path d="M3 8v4h3l4 4V4L6 8H3z" fill="currentColor"/>
-          </svg>
-          <!-- Horizontal mini fader: flat -->
-          <div style="flex:1; height:2px; background:rgba(240,235,227,0.08); border-radius:1px; position:relative;">
-            <div style="height:100%; width:72%; background:var(--bronze-400); border-radius:1px; opacity:0.4;"></div>
-            <div style="
-              position:absolute; top:50%; left:72%; transform:translate(-50%,-50%);
-              width:10px; height:10px; border-radius:50%;
-              background: var(--bg-subtle);
-              border:1.5px solid rgba(196,138,58,0.4);
-            "></div>
-          </div>
-          <svg viewBox="0 0 20 20" width="14" height="14" style="opacity:0.4;">
-            <path d="M3 8v4h3l4 4V4L6 8H3z" fill="currentColor"/>
-            <path d="M14 5.5a5 5 0 010 9M16.5 3a8.5 8.5 0 010 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- Design principle callout -->
-    <div class="surface-vinyl fade-up" style="padding:36px; margin-top:32px;">
-      <div style="position:relative; z-index:1; max-width:640px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">TEXTURE PRINCIPLE</div>
-        <div class="grouped-display" style="font-size:clamp(20px,2.5vw,28px); line-height:1.2; margin-bottom:12px;">Flat controls. Warm room. No contradiction.</div>
-        <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Controls are minimal and structural. The room around them (glass surfaces, grain texture, ambient glow) provides the warmth. This contrast is intentional: crisp UI elements sitting inside a warm, textured environment. The only gradients that exist are the ones mimicking warm studio light on surfaces, never on the controls themselves.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="container"><div class="divider"></div></div>
-
-<!-- CLOSING PHILOSOPHY -->
-<section style="padding:80px 0;">
-  <div class="container">
-    <div class="surface-glass fade-up" style="padding:48px; text-align:center; max-width:720px; margin:0 auto;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">REMEMBER</div>
-      <div class="grouped-display" style="font-size:clamp(22px,3vw,34px); line-height:1.2; margin-bottom:16px;">Every pixel should vibe.</div>
-      <div style="font-size:15px; color:var(--text-secondary); line-height:1.7; max-width:540px; margin:0 auto;">If something feels flat, add texture. If something feels sharp, round it. If something feels fast, slow it down. If something feels static, let it breathe. The test is always the same: does this feel like a place you'd want to sit and listen to music in?</div>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -2807,123 +1677,6 @@ function copyHex(el, hex) {
   el.querySelector('.color-swatch-fill')?.appendChild(span) || el.appendChild(span);
   setTimeout(() => span.classList.remove('show'), 800);
 }
-
-// ============================================================
-// PREMIUM CARD INTERACTIONS
-// 3D tilt, cursor-following glow, edge light, smooth spring reset
-// Inspired by landonorris.com's cinematic hover states
-// ============================================================
-
-(function() {
-  'use strict';
-
-  // Cards that get the full 3D tilt + glow treatment
-  const TILT_SELECTORS = '.comp-card, .turntable-card, .surface-demo, .font-compare-col';
-  // Cards that get glow only (no tilt)
-  const GLOW_SELECTORS = '.surface-glass[style*="padding"], .surface-glass-warm[style*="padding"]';
-
-  const MAX_TILT = 4;        // degrees — subtle, not a toy
-  const GLOW_SIZE = 500;     // px radius of the warm light
-  const SPRING_DURATION = 800; // ms to spring back to rest
-
-  // Detect reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function initCardInteractions() {
-    // --- TILT + GLOW cards ---
-    document.querySelectorAll(TILT_SELECTORS).forEach(card => {
-      if (prefersReducedMotion) return;
-
-      let rafId = null;
-      let isHovered = false;
-
-      card.addEventListener('mouseenter', () => {
-        isHovered = true;
-        card.style.transition = 'box-shadow 600ms cubic-bezier(0.16,1,0.3,1), border-color 400ms ease';
-      });
-
-      card.addEventListener('mousemove', (e) => {
-        if (!isHovered) return;
-        if (rafId) cancelAnimationFrame(rafId);
-
-        rafId = requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const w = rect.width;
-          const h = rect.height;
-
-          // Normalized -1 to 1
-          const nx = (x / w - 0.5) * 2;
-          const ny = (y / h - 0.5) * 2;
-
-          // Tilt: rotate opposite to cursor position for natural depth
-          const rotateY = nx * MAX_TILT;
-          const rotateX = -ny * MAX_TILT;
-
-          card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-
-          // Glow position (percentage for CSS custom properties)
-          card.style.setProperty('--card-glow-x', `${(x / w) * 100}%`);
-          card.style.setProperty('--card-glow-y', `${(y / h) * 100}%`);
-        });
-      });
-
-      card.addEventListener('mouseleave', () => {
-        isHovered = false;
-        if (rafId) cancelAnimationFrame(rafId);
-
-        // Spring back to rest with cinematic easing
-        card.style.transition = `transform ${SPRING_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow ${SPRING_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1), border-color 400ms ease`;
-        card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-        card.style.setProperty('--card-glow-x', '50%');
-        card.style.setProperty('--card-glow-y', '50%');
-      });
-    });
-
-    // --- GLOW-ONLY cards (glass panels in the backdrop section, etc.) ---
-    document.querySelectorAll(GLOW_SELECTORS).forEach(card => {
-      if (prefersReducedMotion) return;
-
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--card-glow-x', `${(x / rect.width) * 100}%`);
-        card.style.setProperty('--card-glow-y', `${(y / rect.height) * 100}%`);
-      });
-    });
-
-    // --- STICKER magnetic hover (subtle pull toward cursor) ---
-    document.querySelectorAll('.surface-sticker').forEach(sticker => {
-      if (prefersReducedMotion) return;
-
-      sticker.addEventListener('mousemove', (e) => {
-        const rect = sticker.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        // Very subtle magnetic pull: 15% of cursor offset
-        sticker.style.transform = `translate(${x * 0.15}px, ${y * 0.15 - 1}px)`;
-      });
-
-      sticker.addEventListener('mouseleave', () => {
-        sticker.style.transition = 'transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background 300ms ease, border-color 300ms ease, box-shadow 300ms ease, color 200ms ease';
-        sticker.style.transform = 'translate(0, 0)';
-        setTimeout(() => {
-          sticker.style.transition = 'background 300ms ease, border-color 300ms ease, box-shadow 300ms ease, color 200ms ease';
-        }, 500);
-      });
-    });
-  }
-
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCardInteractions);
-  } else {
-    initCardInteractions();
-  }
-})();
-
 </script>
 </body>
 </html>
