@@ -82,6 +82,52 @@
   color-scheme: dark;
 }
 
+/* --- TOKENS: OLED (TRUE BLACK) --- */
+[data-theme="oled"] {
+  --bg-base: #000000;
+  --bg-raised: #0A0A0A;
+  --bg-overlay: #111111;
+  --bg-subtle: #1A1A1A;
+  --bg-muted: #222222;
+  --border-default: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.11);
+  --border-active: rgba(255,255,255,0.16);
+  --border-strong: rgba(255,255,255,0.22);
+  --text-primary: #F0EBE3;
+  --text-secondary: rgba(240,235,227,0.6);
+  --text-tertiary: rgba(240,235,227,0.38);
+  --text-muted: rgba(240,235,227,0.18);
+  --text-inverse: #000000;
+  --gold-50: #FEF7EC;
+  --gold-100: #FDE9C8;
+  --gold-200: #FAD08E;
+  --gold-300: #F6B44E;
+  --bronze-400: #C48A3A;
+  --gold-500: #B87A2E;
+  --gold-600: #916024;
+  --gold-700: #6B471B;
+  --gold-800: #4A3114;
+  --success: #8BAF9C;
+  --warning: #D4A24B;
+  --error: #C27A6B;
+  --info: #8BA4BE;
+  --focus: #7CBBDF;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.6);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.7);
+  --shadow-glow-gold: 0 0 24px rgba(196,138,58,0.12);
+  --shadow-glow-soft: 0 0 60px rgba(196,138,58,0.04);
+  --glass-bg: rgba(0,0,0,0.85);
+  --glass-border: rgba(255,255,255,0.06);
+  --deco-strong: rgba(255,255,255,0.16);
+  --deco-medium: rgba(255,255,255,0.1);
+  --deco-subtle: rgba(255,255,255,0.07);
+  --deco-faint: rgba(255,255,255,0.05);
+  --deco-ghost: rgba(255,255,255,0.03);
+  --deco-tint: rgba(255,255,255,0.08);
+  color-scheme: dark;
+}
+
 /* --- TOKENS: LIGHT --- */
 [data-theme="light"] {
   --bg-base: #FAFAF8;
@@ -1605,6 +1651,49 @@ section { padding: 120px 0; }
   background: rgba(140,90,30,0.2);
 }
 
+/* ============================================================
+   OLED MODE — TRUE BLACK SURFACE OVERRIDES
+   ============================================================ */
+[data-theme="oled"] .surface-solid {
+  background: var(--bg-raised);
+  border-color: var(--border-default);
+  box-shadow: none;
+}
+[data-theme="oled"] .surface-glass {
+  background: rgba(0,0,0,0.6);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.04) inset,
+    0 8px 32px rgba(0,0,0,0.5);
+}
+[data-theme="oled"] .surface-glass-light {
+  background: rgba(0,0,0,0.4);
+  border-color: rgba(255,255,255,0.04);
+}
+[data-theme="oled"] .surface-glass-warm {
+  background: rgba(196,138,58,0.03);
+  border-color: rgba(196,138,58,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+[data-theme="oled"] .surface-vinyl {
+  background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.7) 40%, rgba(196,138,58,0.03) 100%);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+}
+[data-theme="oled"] .surface-sticker {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.04);
+}
+[data-theme="oled"] .glass-backdrop {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(196,138,58,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(20,20,20,0.8) 0%, transparent 50%),
+    #000000;
+}
+[data-theme="oled"] .nav.scrolled {
+  background: rgba(0,0,0,0.9);
+}
+
 </style>
 </head>
 <body class="grain">
@@ -1895,6 +1984,17 @@ section { padding: 120px 0; }
           <div class="surface-level" style="background:#2E3849"><span class="level-name">Muted</span><span class="level-hex">#2E3849</span></div>
         </div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Each level gains ~7 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop.</p>
+      </div>
+
+      <!-- Navy Principle -->
+      <div class="fade-up" style="margin-top:32px;">
+        <div class="surface-glass-warm" style="padding:28px 32px;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">DESIGN PRINCIPLE</div>
+          <div style="font-size:20px; font-weight:700; margin-bottom:10px;">Our dark is navy, not black.</div>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Every dark surface carries a cool blue undertone that lets the warm bronze breathe. The temperature contrast between cool navy backgrounds and warm gold accents is what gives Grouped its depth. It's the same reason jewelers display gold on dark blue velvet, not black fabric.</p>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Never use neutral greys (<span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#1A1A1A</span>, <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#222</span>) in the dark theme. They read as dead spots that break the temperature relationship.</p>
+          <p style="font-size:13px; color:var(--text-tertiary); line-height:1.6; border-top:1px solid var(--border-default); padding-top:14px;"><strong style="color:var(--text-secondary);">Exception: OLED mode.</strong> For mobile apps where battery matters, an OLED theme uses true black (<span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#000000</span>) with neutral white strokes instead of warm cream. This is a functional variant, not the brand default. The navy theme is always the primary dark experience.</p>
+        </div>
       </div>
 
       <!-- Text Hierarchy -->
@@ -3670,10 +3770,14 @@ function switchTab(tab) {
 // --- Theme Toggle ---
 const toggle = document.getElementById('themeToggle');
 const html = document.documentElement;
+const themes = ['dark', 'light', 'oled'];
+const themeIcons = { dark: '◐', light: '◑', oled: '●' };
 toggle.addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  const current = html.getAttribute('data-theme') || 'dark';
+  const next = themes[(themes.indexOf(current) + 1) % themes.length];
   html.setAttribute('data-theme', next);
-  toggle.textContent = next === 'dark' ? '◐' : '◑';
+  toggle.textContent = themeIcons[next];
+  toggle.title = next.charAt(0).toUpperCase() + next.slice(1) + ' mode';
 });
 
 // --- Nav Scroll ---
