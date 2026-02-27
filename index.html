@@ -204,9 +204,10 @@ a { color: inherit; }
   color: var(--text-primary); text-decoration: none;
 }
 .nav-logo span { color: var(--bronze-400); }
-.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links { display: flex; gap: 16px; align-items: center; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+.nav-links::-webkit-scrollbar { display: none; }
 .nav-links a {
-  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  font-size: 13px; font-weight: 500; color: var(--text-secondary); white-space: nowrap;
   text-decoration: none; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--text-primary); }
@@ -1910,17 +1911,23 @@ section { padding: 120px 0; }
   <div class="nav-links">
     <a href="#typography" class="brand-nav-link">Type</a>
     <a href="#colors" class="brand-nav-link">Color</a>
+    <a href="#iconography" class="brand-nav-link">Icons</a>
     <a href="#components" class="brand-nav-link">Components</a>
     <a href="#photography" class="brand-nav-link">Photography</a>
     <a href="#motion" class="brand-nav-link">Motion</a>
+    <a href="#logo-usage" class="brand-nav-link">Logo</a>
     <a href="#prod-status" class="product-nav-link" style="display:none;">Status</a>
     <a href="#prod-type-tokens" class="product-nav-link" style="display:none;">Type</a>
     <a href="#prod-color-tokens" class="product-nav-link" style="display:none;">Color</a>
     <a href="#prod-radius-spacing" class="product-nav-link" style="display:none;">Layout</a>
     <a href="#prod-screens" class="product-nav-link" style="display:none;">Screens</a>
     <a href="#prod-components" class="product-nav-link" style="display:none;">Components</a>
+    <a href="#prod-states" class="product-nav-link" style="display:none;">States</a>
     <a href="#prod-tokens" class="product-nav-link" style="display:none;">Tokens</a>
     <a href="#prod-patterns" class="product-nav-link" style="display:none;">Patterns</a>
+    <a href="#prod-responsive" class="product-nav-link" style="display:none;">Responsive</a>
+    <a href="#prod-grid" class="product-nav-link" style="display:none;">Grid</a>
+    <a href="#prod-handoff" class="product-nav-link" style="display:none;">Handoff</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
   </div>
 </nav>
@@ -5997,7 +6004,7 @@ section { padding: 120px 0; }
 <div class="container"><div class="divider"></div></div>
 
 <!-- DESIGNER HANDOFF NOTES -->
-<section style="padding:64px 0;">
+<section id="prod-handoff" style="padding:64px 0;">
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P6</span> / Designer Handoff Notes</div>
