@@ -315,10 +315,11 @@ section { padding: 120px 0; }
 /* --- GROUPED DISPLAY FONT --- */
 .grouped-display {
   font-family: 'Grouped Font', 'Satoshi', sans-serif;
-  font-weight: normal; /* single weight font */
+  font-weight: normal !important; /* single weight font — NEVER bold */
 }
 .type-grouped-specimen {
   font-family: 'Grouped Font', 'Satoshi', sans-serif;
+  font-weight: normal !important; /* single weight font — NEVER bold */
 }
 .font-accessibility-note {
   margin-top: 32px; padding: 24px;
@@ -1998,7 +1999,7 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">01</span> / Typography</div>
-      <h2 class="section-title">Satoshi<span style="font-family:'Grouped Font';color:var(--bronze-400)"> + Grouped Font.</span></h2>
+      <h2 class="section-title">Satoshi<span style="font-family:'Grouped Font';font-weight:normal;color:var(--bronze-400)"> + Grouped Font.</span></h2>
       <p class="section-desc">Two typefaces, one system. Grouped Font is the custom display face for marketing headlines and brand moments. Satoshi handles everything else. Type should feel confident and unhurried. Tight letter-spacing at large sizes gives headlines physical density. Generous line-height in body copy lets the text breathe the way the room breathes.</p>
     </div>
 
@@ -4147,7 +4148,7 @@ section { padding: 120px 0; }
           <span class="type-token-name">Display Hero &mdash; Largest display text</span>
           <span class="align-card-status override" style="margin-left:auto;">Override</span>
         </div>
-        <div class="type-token-sample grouped-display" style="font-size:72px; font-weight:600; line-height:1.21; letter-spacing:-0.04em;">Turn every release</div>
+        <div class="type-token-sample grouped-display" style="font-size:72px; line-height:1.21; letter-spacing:-0.04em;">Turn every release</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
           <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:999px;">GROUPED FONT</span>
           <span style="font-size:11px; color:var(--text-tertiary);">font-family: 'Grouped Font', 'Satoshi', sans-serif &mdash; Satoshi fallback if custom font unavailable</span>
@@ -4155,8 +4156,8 @@ section { padding: 120px 0; }
         <div class="type-token-specs">
           <span>96px</span> <span>Semibold 600</span> <span>LH 116px</span> <span>LS -4%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 96px; font-weight: 600; line-height: 116px; letter-spacing: -0.04em;">
-          font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 96px; font-weight: 600; line-height: 116px; letter-spacing: -0.04em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 96px; font-weight: normal; line-height: 116px; letter-spacing: -0.04em;">
+          font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 96px; font-weight: normal; line-height: 116px; letter-spacing: -0.04em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -4166,7 +4167,7 @@ section { padding: 120px 0; }
           <span class="type-token-id">D1</span>
           <span class="type-token-name">Display XXL &mdash; Large display text</span>
         </div>
-        <div class="type-token-sample grouped-display" style="font-size:40px; font-weight:600; line-height:1.2; letter-spacing:-0.03em;">Turn every release into lasting fan relationships.</div>
+        <div class="type-token-sample grouped-display" style="font-size:40px; line-height:1.2; letter-spacing:-0.03em;">Turn every release into lasting fan relationships.</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
           <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:999px;">GROUPED FONT</span>
           <span style="font-size:11px; color:var(--text-tertiary);">font-family: 'Grouped Font', 'Satoshi', sans-serif &mdash; Satoshi fallback if custom font unavailable</span>
@@ -4174,8 +4175,8 @@ section { padding: 120px 0; }
         <div class="type-token-specs">
           <span>40px</span> <span>Semibold 600</span> <span>LH 48px</span> <span>LS -3%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 40px; font-weight: 600; line-height: 48px; letter-spacing: -0.03em;">
-          font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 40px; font-weight: 600; line-height: 48px; letter-spacing: -0.03em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 40px; font-weight: normal; line-height: 48px; letter-spacing: -0.03em;">
+          font-family: 'Grouped Font', 'Satoshi', sans-serif; font-size: 40px; font-weight: normal; line-height: 48px; letter-spacing: -0.03em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
