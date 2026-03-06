@@ -64,14 +64,14 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
-  /* Radius: Two families. Sleeves are near-square. Labels are round. */
-  --radius-sleeve: 4px;       /* Cards, containers, panels — vinyl sleeve edges */
-  --radius-label: 9999px;     /* Buttons, stickers, badges, pills — stickers ON the sleeve */
-  --radius-sm: 6px;           /* Small interactive elements */
-  --radius-md: 10px;          /* Inputs, dropdowns */
-  --radius-lg: 4px;           /* Cards (sleeve) — intentionally sharp */
-  --radius-xl: 4px;           /* Large cards (sleeve) — intentionally sharp */
-  --radius-full: 9999px;      /* Pills, toggles */
+  /* Radius scale — five stops, no 10px */
+  --radius-0: 0px;            /* Sharp edges, dividers, flush containers */
+  --radius-sleeve: 4px;       /* Cards, containers, panels — vinyl sleeve edges (legacy alias) */
+  --radius-sm: 8px;           /* Small cards, list items, tightest interactive elements */
+  --radius-md: 16px;          /* Standard cards, inputs, dropdowns, modals */
+  --radius-lg: 24px;          /* Large cards, hero containers */
+  --radius-full: 39px;        /* All pills: buttons, badges, tags */
+  --radius-label: 39px;       /* Legacy alias → use --radius-full */
   --glass-bg: rgba(17,22,32,0.75);
   --glass-border: rgba(235,225,210,0.06);
   --deco-strong: rgba(240,235,227,0.18);
@@ -334,6 +334,42 @@ section { padding: 120px 0; }
 .font-accessibility-note .note-body {
   font-size: 14px; color: var(--text-secondary); line-height: 1.6;
 }
+
+/* ── Callout boxes ── */
+.callout-pending,
+.callout-confirmed,
+.callout-info {
+  padding: 20px 24px;
+  border-radius: var(--radius-sm);
+  margin-top: 32px;
+}
+.callout-pending {
+  background: rgba(251,191,36,0.06);
+  border: 1px solid rgba(251,191,36,0.15);
+}
+.callout-confirmed {
+  background: rgba(74,222,128,0.06);
+  border: 1px solid rgba(74,222,128,0.15);
+}
+.callout-info {
+  background: rgba(196,138,58,0.06);
+  border: 1px solid rgba(196,138,58,0.15);
+}
+.callout-pending .callout-label { color: var(--warning); }
+.callout-confirmed .callout-label { color: var(--success); }
+.callout-info .callout-label { color: var(--bronze-400); }
+.callout-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+
+/* ── Subsection labels ── */
+.subsection-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--bronze-400);
+  margin-bottom: 20px;
+}
+
 .font-usage-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
 }
@@ -2034,19 +2070,19 @@ section { padding: 120px 0; }
     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-top:48px;">
       <div class="surface-glass fade-up stagger-1" style="padding:36px;">
         <div style="font-size:44px; margin-bottom:20px; line-height:1;">&#9676;</div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">CYCLICAL</div>
+        <div class="subsection-label" style="margin-bottom:12px;">CYCLICAL</div>
         <div style="font-size:17px; font-weight:600; margin-bottom:8px; line-height:1.3;">Motion tells the next story.</div>
         <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Music lives in loops. Write, record, release, connect, repeat. Every animation should feel like it's returning to something, building on the last cycle. Rounded corners, circular motifs, spring easings that overshoot and settle. Nothing stops. Everything flows into the next beat.</div>
       </div>
       <div class="surface-glass fade-up stagger-2" style="padding:36px;">
         <div style="font-size:44px; margin-bottom:20px; line-height:1;">&#9687;</div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">TACTILE</div>
+        <div class="subsection-label" style="margin-bottom:12px;">TACTILE</div>
         <div style="font-size:17px; font-weight:600; margin-bottom:8px; line-height:1.3;">Surfaces you can almost touch.</div>
         <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Glass has weight. Cards tilt when you reach for them. Stickers resist then follow your hand. Grain gives every surface a texture you can feel through the screen. The experience should remind you of handling vinyl, flipping through a crate, holding something real.</div>
       </div>
       <div class="surface-glass fade-up stagger-3" style="padding:36px;">
         <div style="font-size:44px; margin-bottom:20px; line-height:1;">&#9673;</div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">VIBING</div>
+        <div class="subsection-label" style="margin-bottom:12px;">VIBING</div>
         <div style="font-size:17px; font-weight:600; margin-bottom:8px; line-height:1.3;">The room has a tempo.</div>
         <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Timing is feel. Fast UI feels anxious. Slow UI feels confident. Our transitions run 500ms or longer because we're not in a hurry. We're vibing. The cursor glow drifts. Cards lift and settle with weight. Everything breathes at a pace that matches sitting in a listening room, not clicking through a dashboard.</div>
       </div>
@@ -2054,7 +2090,7 @@ section { padding: 120px 0; }
 
     <div class="surface-vinyl fade-up" style="padding:40px; margin-top:24px;">
       <div style="position:relative; z-index:1; max-width:680px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">THE FEELING</div>
+        <div class="subsection-label" style="margin-bottom:16px;">THE FEELING</div>
         <div style="font-size:clamp(22px,3vw,32px); font-weight:700; line-height:1.2; margin-bottom:16px;">This should feel like an extension of the artist, not a tool they log into.</div>
         <div style="font-size:15px; color:var(--text-secondary); line-height:1.7;">When an artist opens Grouped, the screen should dissolve. No chrome, no clutter, no "app" feeling. Just them, their music, and a warm room full of fans. The physical metaphors in this system (glass, grain, warmth, tilt, weight) exist to bridge the gap between pixels and the real relationship happening underneath. Fans should feel the same thing: not a platform, but a place.</div>
       </div>
@@ -2148,7 +2184,7 @@ section { padding: 120px 0; }
       <div style="padding:32px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:2px solid var(--bronze-400);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
           <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--bronze-400); text-transform:uppercase;">Grouped Font</div>
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--bronze-400); background:rgba(196,138,58,0.12); padding:4px 12px; border-radius:9999px;">DISPLAY</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--bronze-400); background:rgba(196,138,58,0.12); padding:4px 12px; border-radius:var(--radius-full);">DISPLAY</div>
         </div>
         <div class="type-grouped-specimen" style="font-size:clamp(32px,4vw,48px); line-height:1.0; letter-spacing:-0.02em; margin-bottom:16px;">Turn every release into lasting fans.</div>
         <div style="font-size:12px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; line-height:1.8;">
@@ -2162,7 +2198,7 @@ section { padding: 120px 0; }
       <div style="padding:32px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
           <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--text-secondary); text-transform:uppercase;">Satoshi</div>
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--text-secondary); background:var(--bg-overlay); padding:4px 12px; border-radius:9999px;">FALLBACK + SYSTEM</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--text-secondary); background:var(--bg-overlay); padding:4px 12px; border-radius:var(--radius-full);">FALLBACK + SYSTEM</div>
         </div>
         <div style="font-weight:700; font-size:clamp(32px,4vw,48px); line-height:1.0; letter-spacing:-0.02em; margin-bottom:16px;">Turn every release into lasting fans.</div>
         <div style="font-size:12px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; line-height:1.8;">
@@ -2296,7 +2332,7 @@ section { padding: 120px 0; }
 
     <!-- COLOR CHEAT SHEET -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">THE FOUR CORE COLORS</div>
+      <div class="subsection-label">THE FOUR CORE COLORS</div>
       <div class="hero-color-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
 
         <!-- 1. Navy -->
@@ -2409,7 +2445,7 @@ section { padding: 120px 0; }
       <!-- Navy Principle -->
       <div class="fade-up" style="margin-top:32px;">
         <div class="surface-glass-warm" style="padding:28px 32px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">DESIGN PRINCIPLE</div>
+          <div class="subsection-label" style="margin-bottom:12px;">DESIGN PRINCIPLE</div>
           <div style="font-size:20px; font-weight:700; margin-bottom:10px;">Our dark is navy, not black.</div>
           <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Every dark surface carries a cool blue undertone that lets the warm bronze breathe. The temperature contrast between cool navy backgrounds and warm gold accents is what gives Grouped its depth. It's the same reason jewelers display gold on dark blue velvet, not black fabric.</p>
           <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Never use neutral greys (<span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#1A1A1A</span>, <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#222</span>) in the dark theme. They read as dead spots that break the temperature relationship.</p>
@@ -2498,6 +2534,7 @@ section { padding: 120px 0; }
               ✓ Primary CTA buttons (fill)<br>
               ✓ Concentric arc motif<br>
               ✓ The logo dot in "grouped."<br>
+              ✓ Interactive card hover outlines<br>
               ✗ Input focus rings<br>
               ✗ Stickers and tags<br>
               ✗ Status badges<br>
@@ -2520,11 +2557,15 @@ section { padding: 120px 0; }
               ✗ Headlines or display type<br>
               ✗ Brand-level identity elements<br>
               ✗ CTA buttons<br>
-              ✗ Section labels or overlines
+              ✗ Section labels or overlines<br>
+              ✗ Card hover borders
             </div>
           </div>
         </div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-top:16px; line-height:1.5;">The test: if the element is part of the brand voice (something you'd see on a poster), it's bronze. If the element is part of the interface (something you'd interact with or that tells you a current state), it's focus blue.</p>
+        <div class="callout-info" style="margin-top:16px;">
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Card hover outlines use bronze, not focus blue.</strong> When an interactive card gets a hover state border, that border is --bronze-400. Focus blue (--focus) is reserved strictly for form input rings and keyboard navigation focus states. Bronze on a card hover communicates "this is something worth reaching for." Focus blue on a card would read like a form field.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2642,7 +2683,7 @@ section { padding: 120px 0; }
     <!-- Design principle callout -->
     <div class="surface-vinyl fade-up" style="padding:40px; margin-top:48px;">
       <div style="position:relative; z-index:1;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">DESIGN PRINCIPLE</div>
+        <div class="subsection-label" style="margin-bottom:16px;">DESIGN PRINCIPLE</div>
         <div style="font-size:clamp(24px,3.5vw,36px); font-weight:700; line-height:1.15; margin-bottom:16px;">Grouped is the room. Artists are the reason people walked in.</div>
         <div style="font-size:15px; color:var(--text-secondary); max-width:600px; line-height:1.6;">Every design decision should ask: does this elevate the artist's content, or compete with it? The deep blue recedes. The grain adds texture without noise. Glass surfaces frame without containing. When it works, artists feel like the platform was built around them. That is the goal.</div>
       </div>
@@ -2652,7 +2693,7 @@ section { padding: 120px 0; }
     <!-- INTERACTION LANGUAGE: SHAPES OF SOUND -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">INTERACTION LANGUAGE</div>
+      <div class="subsection-label">INTERACTION LANGUAGE</div>
       <div style="font-size:28px; font-weight:700; letter-spacing:-0.01em; margin-bottom:12px; line-height:1.2;">Every shape and interaction borrows from music.</div>
       <p style="font-size:15px; color:var(--text-secondary); line-height:1.6; margin-bottom:40px; max-width:620px;">The recurring shapes across Grouped come from two places: the physics of sound and the hardware musicians use to control it. Flowing waveform strokes. Volume dials with clean tick marks. Frequency curves as progress indicators. These elements show up everywhere, from loading states to hover effects, because every interaction should remind you what this platform is for.</p>
     </div>
@@ -2663,7 +2704,7 @@ section { padding: 120px 0; }
       <!-- Column 1: Light elements -->
       <div class="surface-solid fade-up stagger-1" style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; min-height:320px;">
         <div>
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">LIGHT ELEMENTS</div>
+          <div class="subsection-label" style="margin-bottom:16px;">LIGHT ELEMENTS</div>
           <div style="font-size:18px; font-weight:700; margin-bottom:8px;">Waveforms. Flowing lines. Frequency curves.</div>
           <p style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Thin, luminous, alive. These are the shapes that move and respond. Progress bars that ripple. Loading states that pulse. Hover trails that follow the cursor like sound moving through a room. Clean strokes, no gradients. Light on dark. Subtle and sexy until you notice them, then impossible to unsee.</p>
         </div>
@@ -2689,7 +2730,7 @@ section { padding: 120px 0; }
       <!-- Column 2: Solid elements -->
       <div class="surface-solid fade-up stagger-2" style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; min-height:320px;">
         <div>
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">SOLID ELEMENTS</div>
+          <div class="subsection-label" style="margin-bottom:16px;">SOLID ELEMENTS</div>
           <div style="font-size:18px; font-weight:700; margin-bottom:8px;">Dials. Tick marks. Faders. Level meters.</div>
           <p style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Muted, structural, grounded. These shapes give the interface its weight. Volume dials with Swiss-minimal tick marks. Fader grooves as progress indicators. Level meters as data visualization. Flat fills, no shadows, no gradients. They feel like studio equipment because that is the vocabulary artists already think in.</p>
         </div>
@@ -2731,7 +2772,7 @@ section { padding: 120px 0; }
 
     <!-- The contrast principle -->
     <div class="surface-glass-warm fade-up" style="padding:32px 36px; margin-bottom:24px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">THE INTERPLAY</div>
+      <div class="subsection-label" style="margin-bottom:12px;">THE INTERPLAY</div>
       <div style="font-size:17px; font-weight:600; margin-bottom:10px; line-height:1.3;">Light shapes play against solid ones.</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; max-width:640px;"><strong style="color:var(--text-primary)">Light elements</strong> are thin strokes, frequency curves, luminous accents that respond and move. They catch your eye the way a waveform catches light on an oscilloscope. <strong style="color:var(--text-primary)">Solid elements</strong> are flat shapes with muted fills that hold position and communicate structure. The interplay gives the interface its character: precise but alive. Studio hardware with music running through it.</p>
     </div>
@@ -2967,7 +3008,7 @@ section { padding: 120px 0; }
     <!-- Logo character comparison -->
     <div class="fade-up" style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
       <div style="padding:32px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">GROUPED LOGO CHARACTER</div>
+        <div class="subsection-label" style="margin-bottom:16px;">GROUPED LOGO CHARACTER</div>
         <svg width="64" height="64" viewBox="0 0 100 100" fill="none" style="margin:0 auto 16px;">
           <path d="M50 10 A40 40 0 1 1 50 90" stroke="var(--text-primary)" stroke-width="5" stroke-linecap="round" fill="none"/>
           <path d="M50 25 A25 25 0 1 1 50 75" stroke="var(--bronze-400)" stroke-width="5" stroke-linecap="round" fill="none"/>
@@ -2975,7 +3016,7 @@ section { padding: 120px 0; }
         <div style="font-size:13px; color:var(--text-secondary);">2.5px strokes · rounded caps · concentric arcs</div>
       </div>
       <div style="padding:32px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">PHOSPHOR BOLD ICONS</div>
+        <div class="subsection-label" style="margin-bottom:16px;">PHOSPHOR BOLD ICONS</div>
         <div style="display:flex; justify-content:center; gap:16px; font-size:40px; color:var(--text-primary); margin-bottom:16px;">
           <i class="ph-bold ph-music-notes"></i>
           <i class="ph-bold ph-vinyl-record"></i>
@@ -2988,7 +3029,7 @@ section { padding: 120px 0; }
 
     <!-- Icon Size Scale -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:24px;">SIZE SCALE</div>
+      <div class="subsection-label" style="margin-bottom:24px;">SIZE SCALE</div>
       <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;">
         <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
           <div style="margin-bottom:16px; display:flex; align-items:center; justify-content:center; height:48px;">
@@ -3027,7 +3068,7 @@ section { padding: 120px 0; }
 
     <!-- Icon Set Grid -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:24px;">PRODUCT ICON SET</div>
+      <div class="subsection-label" style="margin-bottom:24px;">PRODUCT ICON SET</div>
 
       <!-- Navigation -->
       <div style="margin-bottom:32px;">
@@ -3188,7 +3229,7 @@ section { padding: 120px 0; }
 
     <!-- Color Rules -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:24px;">COLOR RULES</div>
+      <div class="subsection-label" style="margin-bottom:24px;">COLOR RULES</div>
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
         <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
           <div style="display:flex; gap:12px; margin-bottom:12px; font-size:24px;">
@@ -3222,7 +3263,7 @@ section { padding: 120px 0; }
 
     <!-- Do / Don't Guidelines -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:24px;">GUIDELINES</div>
+      <div class="subsection-label" style="margin-bottom:24px;">GUIDELINES</div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
         <div>
           <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
@@ -3253,7 +3294,7 @@ section { padding: 120px 0; }
 
     <!-- CSS Reference -->
     <div class="fade-up" style="margin-top:48px; padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">USAGE</div>
+      <div class="subsection-label" style="margin-bottom:16px;">USAGE</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-secondary); line-height:2; white-space:pre; overflow-x:auto;">&lt;!-- CDN --&gt;
 &lt;link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" rel="stylesheet"&gt;
 
@@ -3380,6 +3421,10 @@ section { padding: 120px 0; }
 <!-- MOTION -->
 <section id="motion">
   <div class="container">
+    <div class="fade-up callout-pending" style="margin-bottom:32px; margin-top:0;">
+      <div class="callout-label">IMPLEMENTATION PRIORITY: PHASE 2</div>
+      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">For the initial product launch, motion and animation are deprioritized in favor of shipping correct colors, typography, and layout. The easing curves and duration scale defined here are locked in and correct &mdash; dev picks this up in Phase 2. <strong style="color:var(--text-primary);">Do not introduce motion variables or transitions until the static component states are confirmed working.</strong></p>
+    </div>
     <div class="fade-up">
       <div class="section-label"><span class="section-num">05</span> / Motion</div>
       <h2 class="section-title grouped-display">Scroll drives narrative.</h2>
@@ -3455,29 +3500,35 @@ section { padding: 120px 0; }
       <div class="spacing-row"><span class="spacing-label">--space-24</span><div class="spacing-bar" style="width:96px"></div><span class="spacing-value">96px</span></div>
       <div class="spacing-row"><span class="spacing-label">--space-32</span><div class="spacing-bar" style="width:128px"></div><span class="spacing-value">128px</span></div>
     </div>
+    <div class="fade-up callout-info" style="margin-top:20px;">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">6px exception:</strong> Use 6px for micro-spacing between an icon and its adjacent text label, or any context where 4px is too tight and 8px is too loose. This is the only non-multiple-of-4 value in the scale. Figma defaults to 10px in several auto-layout contexts &mdash; avoid 10px for spacing; it falls outside the system.</div>
+    </div>
 
     <!-- Radius -->
     <div class="radius-grid fade-up" style="margin-top:80px;">
       <div class="radius-sample">
-        <div class="radius-box" style="border-radius:6px"></div>
-        <div class="radius-info"><div class="name">sm</div><div class="val">6px</div></div>
+        <div class="radius-box" style="border-radius:0px"></div>
+        <div class="radius-info"><div class="name">--radius-0</div><div class="val">0px</div></div>
       </div>
       <div class="radius-sample">
-        <div class="radius-box" style="border-radius:10px"></div>
-        <div class="radius-info"><div class="name">md</div><div class="val">10px</div></div>
+        <div class="radius-box" style="border-radius:8px"></div>
+        <div class="radius-info"><div class="name">--radius-sm</div><div class="val">8px</div></div>
       </div>
       <div class="radius-sample">
         <div class="radius-box" style="border-radius:16px"></div>
-        <div class="radius-info"><div class="name">lg</div><div class="val">16px</div></div>
+        <div class="radius-info"><div class="name">--radius-md</div><div class="val">16px</div></div>
       </div>
       <div class="radius-sample">
         <div class="radius-box" style="border-radius:24px"></div>
-        <div class="radius-info"><div class="name">xl</div><div class="val">24px</div></div>
+        <div class="radius-info"><div class="name">--radius-lg</div><div class="val">24px</div></div>
       </div>
       <div class="radius-sample">
-        <div class="radius-box" style="border-radius:9999px"></div>
-        <div class="radius-info"><div class="name">full</div><div class="val">pill</div></div>
+        <div class="radius-box" style="border-radius:39px"></div>
+        <div class="radius-info"><div class="name">--radius-full</div><div class="val">39px</div></div>
       </div>
+    </div>
+    <div class="fade-up callout-info" style="margin-top:20px;">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">No 10px radius.</strong> Not enough visual difference from 8px to justify a separate token. Figma defaults to 10px in several places &mdash; remap those to --radius-sm (8px) or --radius-md (16px) depending on context.</div>
     </div>
   </div>
 </section>
@@ -3498,7 +3549,7 @@ section { padding: 120px 0; }
     <!-- LOGO VARIANTS GRID -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">LOGO VARIANTS</div>
+      <div class="subsection-label">LOGO VARIANTS</div>
       <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">Nine approved combinations. The <strong>Brand</strong> color (bronze) is primary. Use <strong>Light</strong> on dark backgrounds and <strong>Dark</strong> on light backgrounds. Source: <code style="font-family:'JetBrains Mono',monospace; font-size:11px; background:var(--bg-raised); padding:2px 6px; border-radius:4px;">GDS26R → Logos page</code></p>
 
       <!-- Column headers -->
@@ -3598,7 +3649,7 @@ section { padding: 120px 0; }
     <!-- CLEAR SPACE & MINIMUM SIZE -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">CLEAR SPACE & MINIMUM SIZE</div>
+      <div class="subsection-label">CLEAR SPACE & MINIMUM SIZE</div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
         <!-- Clear space -->
         <div style="background:var(--bg-raised); border:1px solid var(--border-default); border-radius:var(--radius-md); padding:32px;">
@@ -3671,7 +3722,7 @@ section { padding: 120px 0; }
     <!-- BACKGROUND PLACEMENT -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BACKGROUND PLACEMENT</div>
+      <div class="subsection-label">BACKGROUND PLACEMENT</div>
       <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
         <div style="border-radius:var(--radius-md); overflow:hidden;">
           <div style="background:#111620; padding:32px; display:flex; align-items:center; justify-content:center; gap:8px; min-height:80px;">
@@ -3708,7 +3759,7 @@ section { padding: 120px 0; }
     <!-- LOGO DO/DON'T -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">USAGE GUIDELINES</div>
+      <div class="subsection-label">USAGE GUIDELINES</div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
         <!-- DO -->
         <div style="background:var(--bg-raised); border:1px solid var(--border-default); border-radius:var(--radius-md); padding:24px;">
@@ -3768,7 +3819,7 @@ section { padding: 120px 0; }
     <!-- CONCENTRIC ARCS: THE SIGNATURE -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">THE SIGNATURE MOTIF</div>
+      <div class="subsection-label">THE SIGNATURE MOTIF</div>
       <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Concentric arcs.</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">Sound waves radiating from a source. Vinyl grooves. Ripples. The concentric arc is the single most recognizable Grouped graphic element. Heavy strokes with tight gaps between them. The stroke is always wider than the gap (roughly 2.5:1). No feathering, no gradients, no per-ring opacity variation. Solid lines doing structural work.</p>
     </div>
@@ -3826,7 +3877,7 @@ section { padding: 120px 0; }
 
     <!-- Arc usage rule -->
     <div class="surface-glass-warm fade-up" style="padding:24px 32px; display:flex; gap:24px; align-items:center; margin-bottom:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); white-space:nowrap;">ARC RULE</div>
+      <div class="subsection-label" style="white-space:nowrap; margin-bottom:0;">ARC RULE</div>
       <div style="font-size:14px; color:var(--text-secondary); line-height:1.5;"><strong style="color:var(--text-primary)">Heavy strokes. Tight gaps.</strong> Stroke width is always larger than the gap between arcs (roughly 2.5:1 ratio). Every ring in a set uses the same weight and color. No opacity variation between individual strokes. When used as background, reduce the group opacity, not individual rings.</div>
     </div>
 
@@ -3834,7 +3885,7 @@ section { padding: 120px 0; }
     <!-- PHYSICAL CONTROLS -->
     <!-- ================================ -->
     <div class="fade-up">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">PHYSICAL CONTROLS</div>
+      <div class="subsection-label">PHYSICAL CONTROLS</div>
       <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Studio hardware as UI.</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">Controls borrowed from studio hardware, stripped to their structural essence. No gradients, no metallic effects, no embossing. The shape itself communicates the function. Circles rotate. Rectangles slide. The only warmth comes from bronze marking the active state. Swiss International Style applied to mixing boards.</p>
     </div>
@@ -3963,7 +4014,7 @@ section { padding: 120px 0; }
 
     <!-- Physical control rule -->
     <div class="surface-glass-warm fade-up" style="padding:24px 32px; display:flex; gap:24px; align-items:center; margin-bottom:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); white-space:nowrap;">HARDWARE RULE</div>
+      <div class="subsection-label" style="white-space:nowrap; margin-bottom:0;">HARDWARE RULE</div>
       <div style="font-size:14px; color:var(--text-secondary); line-height:1.5;"><strong style="color:var(--text-primary)">Controls are flat and structural.</strong> No gradients on controls themselves. No metallic effects. No embossing. Shapes communicate function: circles rotate, rectangles slide, pills toggle. The only warmth comes from bronze as the active/indicator color. Think Swiss International Style applied to studio equipment: the grid does the work, not decoration.</div>
     </div>
 
@@ -3971,7 +4022,7 @@ section { padding: 120px 0; }
     <!-- BADGE / PATCH TREATMENT -->
     <!-- ================================ -->
     <div class="fade-up">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BADGE &amp; PATCH</div>
+      <div class="subsection-label">BADGE &amp; PATCH</div>
       <div style="font-size:20px; font-weight:700; margin-bottom:8px;">The 70s patch aesthetic.</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">Concentric rounded borders in the brand palette create a retro badge feel. Use for special moments: launch announcements, year-in-review, limited drops, artist features. These are the stickers you'd iron onto a denim jacket.</p>
     </div>
@@ -4055,7 +4106,7 @@ section { padding: 120px 0; }
     <!-- TEXTURE PATTERNS -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BACKGROUND TEXTURES</div>
+      <div class="subsection-label">BACKGROUND TEXTURES</div>
       <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Arcs as atmosphere.</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">The concentric arc pattern at large scale. For subtle use, keep every stroke at full opacity and reduce the opacity of the entire SVG group. For bold use, place solid arcs on a bronze or colored field. The strokes are always the same weight with equal spacing. Scale the group, not individual rings.</p>
     </div>
@@ -4073,7 +4124,7 @@ section { padding: 120px 0; }
           <path d="M 600 0 A 320 320 0 0 1 280 320" fill="none" stroke="var(--text-primary)" stroke-width="38"/>
         </svg>
         <div style="position:relative; z-index:1;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:8px;">SUBTLE</div>
+          <div class="subsection-label" style="margin-bottom:8px;">SUBTLE</div>
           <div style="font-size:14px; color:var(--text-secondary);">Heavy strokes. Low group opacity. Background texture.</div>
         </div>
       </div>
@@ -4099,7 +4150,7 @@ section { padding: 120px 0; }
     <!-- ELEMENT COMBINATIONS -->
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">PUTTING IT TOGETHER</div>
+      <div class="subsection-label">PUTTING IT TOGETHER</div>
       <div style="font-size:20px; font-weight:700; margin-bottom:8px;">Elements in combination.</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:32px; max-width:560px;">The real power of these elements comes from layering them. Arcs as background. Glass cards on top. Physical controls inside. Badge treatments for special moments. Each layer adds depth without clutter.</p>
     </div>
@@ -4177,7 +4228,7 @@ section { padding: 120px 0; }
     <!-- Design principle callout -->
     <div class="surface-vinyl fade-up" style="padding:36px; margin-top:32px;">
       <div style="position:relative; z-index:1; max-width:640px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">TEXTURE PRINCIPLE</div>
+        <div class="subsection-label" style="margin-bottom:12px;">TEXTURE PRINCIPLE</div>
         <div style="font-size:clamp(20px,2.5vw,28px); font-weight:700; line-height:1.2; margin-bottom:12px;">Flat controls. Warm room. No contradiction.</div>
         <div style="font-size:14px; color:var(--text-secondary); line-height:1.6;">Controls are minimal and structural. The room around them (glass surfaces, grain texture, ambient glow) provides the warmth. This contrast is intentional: crisp UI elements sitting inside a warm, textured environment. The only gradients that exist are the ones mimicking warm studio light on surfaces, never on the controls themselves.</div>
       </div>
@@ -4192,7 +4243,7 @@ section { padding: 120px 0; }
 <section style="padding:80px 0;">
   <div class="container">
     <div class="surface-glass fade-up" style="padding:48px; text-align:center; max-width:720px; margin:0 auto;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">REMEMBER</div>
+      <div class="subsection-label" style="margin-bottom:16px;">REMEMBER</div>
       <div style="font-size:clamp(22px,3vw,34px); font-weight:700; line-height:1.2; margin-bottom:16px;">Every pixel should vibe.</div>
       <div style="font-size:15px; color:var(--text-secondary); line-height:1.7; max-width:540px; margin:0 auto;">If something feels flat, add texture. If something feels sharp, round it. If something feels fast, slow it down. If something feels static, let it breathe. The test is always the same: does this feel like a place you'd want to sit and listen to music in?</div>
     </div>
@@ -4239,7 +4290,7 @@ section { padding: 120px 0; }
       </div>
       <div class="align-card">
         <div class="status-dot aligned"></div>
-        <div class="align-card-label">Pill Buttons (9999px)</div>
+        <div class="align-card-label">Pill Buttons (39px)</div>
         <div class="align-card-status aligned">Aligned</div>
       </div>
       <div class="align-card">
@@ -4305,6 +4356,25 @@ section { padding: 120px 0; }
       <div><span class="status-dot override"></span><strong>5</strong> product overrides</div>
     </div>
 
+    <!-- Dark / Light Mode Status -->
+    <div class="fade-up" style="margin-top:32px;">
+      <div class="subsection-label">THEME STATUS</div>
+
+      <div class="callout-pending" style="margin-top:0; margin-bottom:12px;">
+        <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Dark Mode &mdash; In Progress</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:8px;">Known outstanding issues in Figma that need to be resolved before handoff:</div>
+        <ul style="font-size:13px; color:var(--text-secondary); line-height:1.8; padding-left:20px; margin:0;">
+          <li>Divider line colors are too bright &mdash; need to be remapped to the border token scale</li>
+          <li>Main navigation menu uses a legacy custom color palette &mdash; needs to be remapped to global tokens</li>
+        </ul>
+      </div>
+
+      <div style="padding:20px 24px; border-radius:var(--radius-sm); background:var(--bg-raised); border:1px solid var(--border-default);">
+        <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Light Mode &mdash; Not Started</div>
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Light mode has not been designed. When it is, note that state interaction opacity values (hover, active, focus) will likely need to be higher than the dark mode equivalents to maintain visual legibility.</p>
+      </div>
+    </div>
+
     <!-- Key callout: Figma text color -->
     <div class="fade-up" style="margin-top:32px; padding:20px 24px; border-radius:var(--radius-sleeve); background:rgba(248,113,113,0.06); border:1px solid rgba(248,113,113,0.15);">
       <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:#F87171; margin-bottom:8px;">FIGMA UPDATE NEEDED</div>
@@ -4313,8 +4383,8 @@ section { padding: 120px 0; }
     </div>
 
     <!-- Key callout: Font swap -->
-    <div class="fade-up" style="margin-top:12px; padding:20px 24px; border-radius:var(--radius-sleeve); background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.15);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:#FBBF24; margin-bottom:8px;">FIGMA UPDATE NEEDED</div>
+    <div class="fade-up callout-pending" style="margin-top:12px;">
+      <div class="callout-label">FIGMA UPDATE NEEDED</div>
       <div style="font-size:14px; color:var(--text-primary); margin-bottom:6px;">Body font: Figma has <strong>Inter</strong> (placeholder) &mdash; swap to <strong>Satoshi</strong>. Locked in.</div>
       <div style="font-size:13px; color:var(--text-secondary);">All token samples below render in Satoshi as the target state. The Figma file needs to be updated to match.</div>
     </div>
@@ -4817,19 +4887,19 @@ section { padding: 120px 0; }
           <div style="font-size:24px; font-weight:700; color:var(--text-secondary); margin-bottom:8px;">Aa</div>
           <div style="font-size:11px; font-weight:600; margin-bottom:4px;">Secondary</div>
           <div class="swatch-hex" onclick="copySwatch(this)" style="font-size:10px;">rgba(240,235,227,0.6)</div>
-          <div class="swatch-var">60%</div>
+          <div class="swatch-var">0.6</div>
         </div>
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
           <div style="font-size:24px; font-weight:700; color:var(--text-tertiary); margin-bottom:8px;">Aa</div>
           <div style="font-size:11px; font-weight:600; margin-bottom:4px;">Tertiary</div>
           <div class="swatch-hex" onclick="copySwatch(this)" style="font-size:10px;">rgba(240,235,227,0.38)</div>
-          <div class="swatch-var">38%</div>
+          <div class="swatch-var">0.38</div>
         </div>
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
           <div style="font-size:24px; font-weight:700; color:var(--text-muted); margin-bottom:8px;">Aa</div>
           <div style="font-size:11px; font-weight:600; margin-bottom:4px;">Muted</div>
           <div class="swatch-hex" onclick="copySwatch(this)" style="font-size:10px;">rgba(240,235,227,0.18)</div>
-          <div class="swatch-var">18%</div>
+          <div class="swatch-var">0.18</div>
         </div>
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
           <div style="font-size:24px; font-weight:700; color:var(--text-inverse); background:var(--text-primary); border-radius:var(--radius-sm); padding:4px; margin-bottom:8px;">Aa</div>
@@ -4988,8 +5058,8 @@ section { padding: 120px 0; }
       </div>
 
       <!-- Why Warm Vivid — rationale card -->
-      <div class="fade-up" style="margin-top:4px; padding:20px 24px; border-radius:var(--radius-sleeve); background:rgba(196,138,58,0.06); border:1px solid rgba(196,138,58,0.15);">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:10px;">WHY WARM VIVID?</div>
+      <div class="fade-up callout-info" style="margin-top:4px;">
+        <div class="callout-label" style="margin-bottom:10px;">WHY WARM VIVID?</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; font-size:12px; color:var(--text-secondary); line-height:1.5;">
           <div><strong style="color:var(--text-primary);">Warning/Bronze fix</strong> &mdash; <code style="font-family:'JetBrains Mono',monospace; font-size:10px; padding:2px 5px; background:var(--bg-overlay); border-radius:3px;">#F0C543</code> sits at ~47&deg; hue, 12&deg; clear of bronze (~35&deg;). Plus it's higher lightness, so they never merge.</div>
           <div><strong style="color:var(--text-primary);">Warmth preserved</strong> &mdash; Every color has a warm lean: green skews yellow-green, error is coral not pure red, info is sky not cobalt. They belong in the Grouped palette.</div>
@@ -5021,6 +5091,11 @@ section { padding: 120px 0; }
         </div>
       </div>
     </div>
+
+    <!-- Figma variable format note -->
+    <div class="fade-up callout-info">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Figma variable format:</strong> All opacity-based values in this system use decimals (0.07), not percentages (7%). Figma does not support percentage-based opacity in variables. When exporting JSON tokens for Storybook or Tailwind, verify every opacity-based surface and border color is in decimal format.</div>
+    </div>
   </div>
 </section>
 
@@ -5040,32 +5115,42 @@ section { padding: 120px 0; }
       <div class="type-category">BORDER RADIUS</div>
 
       <div class="radius-demo fade-up">
-        <div class="radius-demo-box" style="border-radius:4px;"></div>
+        <div class="radius-demo-box" style="border-radius:0px;"></div>
         <div>
-          <div class="radius-demo-label">Sleeve / Cards</div>
-          <div class="radius-demo-value">4px &middot; --radius-sleeve</div>
+          <div class="radius-demo-label">Sharp edges, dividers, flush containers</div>
+          <div class="radius-demo-value">0px &middot; --radius-0</div>
         </div>
       </div>
       <div class="radius-demo fade-up">
-        <div class="radius-demo-box" style="border-radius:6px;"></div>
+        <div class="radius-demo-box" style="border-radius:8px;"></div>
         <div>
-          <div class="radius-demo-label">Small Interactive</div>
-          <div class="radius-demo-value">6px &middot; --radius-sm</div>
+          <div class="radius-demo-label">Small cards, list items, tightest interactive</div>
+          <div class="radius-demo-value">8px &middot; --radius-sm</div>
         </div>
       </div>
       <div class="radius-demo fade-up">
-        <div class="radius-demo-box" style="border-radius:10px;"></div>
+        <div class="radius-demo-box" style="border-radius:16px;"></div>
         <div>
-          <div class="radius-demo-label">Inputs / Dropdowns</div>
-          <div class="radius-demo-value">10px &middot; --radius-md</div>
+          <div class="radius-demo-label">Standard cards, inputs, dropdowns, modals</div>
+          <div class="radius-demo-value">16px &middot; --radius-md</div>
         </div>
       </div>
       <div class="radius-demo fade-up">
-        <div class="radius-demo-box" style="border-radius:9999px;"></div>
+        <div class="radius-demo-box" style="border-radius:24px;"></div>
+        <div>
+          <div class="radius-demo-label">Large cards, hero containers</div>
+          <div class="radius-demo-value">24px &middot; --radius-lg</div>
+        </div>
+      </div>
+      <div class="radius-demo fade-up">
+        <div class="radius-demo-box" style="border-radius:39px;"></div>
         <div>
           <div class="radius-demo-label">Buttons / Pills / Badges</div>
-          <div class="radius-demo-value">9999px &middot; --radius-label <span style="color:var(--success); font-size:10px; margin-left:6px;">COMMITTED</span></div>
+          <div class="radius-demo-value">39px &middot; --radius-full</div>
         </div>
+      </div>
+      <div class="fade-up callout-info" style="margin-top:20px;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Why 39px for full-round:</strong> Figma's native "full round" output is 39px. Everything at 39px and above reads as a complete pill. 9999px and 39px are visually identical, but 39px exports cleanly to JSON/Storybook/Tailwind.</div>
       </div>
     </div>
 
@@ -5110,6 +5195,11 @@ section { padding: 120px 0; }
         </div>
       </div>
     </div>
+
+    <!-- Figma variable format note -->
+    <div class="fade-up callout-info">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Figma variable format:</strong> All opacity-based values in this system use decimals (0.07), not percentages (7%). Figma does not support percentage-based opacity in variables. When exporting JSON tokens for Storybook or Tailwind, verify every opacity-based surface and border color is in decimal format.</div>
+    </div>
   </div>
 </section>
 
@@ -5124,9 +5214,15 @@ section { padding: 120px 0; }
       <p class="section-desc">Grouped has two faces: the artist dashboard (where artists build campaigns, view analytics, manage fans) and the fan experience (where fans interact with swaps, feeds, and groups). Every screen maps to one of these two sides.</p>
     </div>
 
+    <!-- Personas placeholder -->
+    <div class="fade-up callout-pending">
+      <div class="callout-label">PERSONAS &mdash; TO BE DEFINED</div>
+      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Five user types have been identified that will drive decisions across dashboard complexity, breakpoints, and mobile vs. desktop feature priorities. This work is pending and will be added here when complete.</p>
+    </div>
+
     <!-- Artist Side -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">ARTIST DASHBOARD</div>
+      <div class="subsection-label">ARTIST DASHBOARD</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">The workspace where artists build campaigns, track fans, and manage their direct relationships. Sidebar navigation, data-dense layouts, and tools that feel like a professional studio console.</p>
     </div>
 
@@ -5231,7 +5327,7 @@ section { padding: 120px 0; }
 
     <!-- Fan Side -->
     <div class="fade-up" style="margin-top:64px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">FAN EXPERIENCE</div>
+      <div class="subsection-label">FAN EXPERIENCE</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">The fan-facing side. Clean, immersive, content-forward. The artist's brand should feel like the primary presence. Grouped recedes.</p>
     </div>
 
@@ -5304,7 +5400,7 @@ section { padding: 120px 0; }
     </div>
 
     <!-- CORE PRODUCT COMPONENTS -->
-    <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-top:48px; margin-bottom:24px;">CORE COMPONENTS</div>
+    <div class="subsection-label" style="margin-top:48px; margin-bottom:24px;">CORE COMPONENTS</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
 
       <!-- 1. Swap Card -->
@@ -5560,7 +5656,7 @@ section { padding: 120px 0; }
     </div>
 
     <!-- UI COMPONENTS -->
-    <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-top:64px; margin-bottom:24px;">UI COMPONENTS</div>
+    <div class="subsection-label" style="margin-top:64px; margin-bottom:24px;">UI COMPONENTS</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
 
       <!-- 9. Modal / Dialog -->
@@ -5843,7 +5939,7 @@ section { padding: 120px 0; }
 
     <!-- Shared sizing specs -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">SHARED SIZING</div>
+      <div class="subsection-label">SHARED SIZING</div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
         <div style="background:var(--bg-raised); border:1px solid var(--border-default); border-radius:var(--radius-sleeve); padding:24px; text-align:center;">
           <button class="btn btn-primary btn-sm" style="margin-bottom:12px; pointer-events:none;">Small</button>
@@ -5861,10 +5957,13 @@ section { padding: 120px 0; }
           <div style="font-size:11px; color:var(--text-tertiary); margin-top:4px; font-family:'JetBrains Mono','SF Mono',monospace;">height: 52px · padding: 16px 36px · font: 16px</div>
         </div>
       </div>
+      <div class="callout-info" style="margin-top:16px;">
+        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">All buttons use <strong style="color:var(--text-primary);">--radius-full (39px)</strong> pill radius. Figma's native full-round = 39px. Visually identical to 9999px, but 39px is stable and exports cleanly.</div>
+      </div>
     </div>
 
     <!-- 7 Button Spec Cards -->
-    <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-top:48px; margin-bottom:24px;">BUTTON TYPES</div>
+    <div class="subsection-label" style="margin-top:48px; margin-bottom:24px;">BUTTON TYPES</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
 
       <!-- 1. Primary -->
@@ -5881,8 +5980,8 @@ section { padding: 120px 0; }
           <div class="prod-card-desc">Hero action. One per screen. Solid bronze fill with inverse text. Use for the single most important CTA: Save, Submit, Confirm.</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
             fill: --bronze-400 · text: --text-inverse<br>
-            hover: --gold-500 + scale(1.02)<br>
-            active: --gold-600 + scale(0.98)
+            hover: subtle transparent-white overlay (~8% / 0.08 opacity) on bronze fill, slightly lighter border. No color switch. Do not bold label text.<br>
+            active: scale(0.97)
           </div>
         </div>
       </div>
@@ -5901,7 +6000,7 @@ section { padding: 120px 0; }
           <div class="prod-card-desc">Supporting action. Outline border, transparent fill. Pairs alongside Primary. Use for Edit, Share, Cancel, Back.</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
             fill: transparent · border: 1px --border-hover<br>
-            hover: border-active + bg wash<br>
+            hover: bronze outline stays at rest weight. On hover, fill gets a very subtle bronze wash — not a full fill. Keep the effect understated.<br>
             active: scale(0.97)
           </div>
         </div>
@@ -6006,6 +6105,11 @@ section { padding: 120px 0; }
       </div>
 
     </div>
+
+    <!-- Active/Press note -->
+    <div class="fade-up callout-info" style="margin-top:24px;">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Active (press) &mdash; all buttons:</strong> Scale to 97%. Already in doc &mdash; confirm this is implemented consistently across Primary, Secondary, and CTA variants.</div>
+    </div>
   </div>
 </section>
 
@@ -6022,7 +6126,7 @@ section { padding: 120px 0; }
 
     <!-- BUTTONS -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BUTTON STATES</div>
+      <div class="subsection-label">BUTTON STATES</div>
 
       <!-- Column headers -->
       <div style="display:grid; grid-template-columns:100px repeat(5, 1fr); gap:12px; margin-bottom:8px;">
@@ -6178,7 +6282,7 @@ section { padding: 120px 0; }
 
     <!-- INPUTS -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">INPUT STATES</div>
+      <div class="subsection-label">INPUT STATES</div>
       <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:16px;">
         <div style="text-align:center;">
           <div style="padding:16px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; min-height:80px; display:flex; align-items:center; justify-content:center;">
@@ -6219,7 +6323,7 @@ section { padding: 120px 0; }
 
     <!-- CARDS -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">CARD STATES</div>
+      <div class="subsection-label">CARD STATES</div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
         <div style="text-align:center;">
           <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; min-height:100px;">
@@ -6249,7 +6353,7 @@ section { padding: 120px 0; }
 
     <!-- BADGES -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">BADGE VARIANTS</div>
+      <div class="subsection-label">BADGE VARIANTS</div>
       <div style="display:flex; gap:10px; flex-wrap:wrap; padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
         <span class="badge">Default</span>
         <span class="badge badge-accent">Accent</span>
@@ -6262,39 +6366,102 @@ section { padding: 120px 0; }
 
     <!-- TOGGLES -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">TOGGLE STATES</div>
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+      <div class="subsection-label">TOGGLE STATES</div>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
+        <!-- Unselected / Default -->
         <div style="text-align:center;">
           <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
             <div class="toggle-track">
               <div class="toggle-thumb"></div>
             </div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Off</div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Unselected / Default</div>
         </div>
+        <!-- Unselected / Hover -->
+        <div style="text-align:center;">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
+            <div class="toggle-track" style="border-color:var(--border-hover);">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Unselected / Hover</div>
+        </div>
+        <!-- Unselected / Focused -->
+        <div style="text-align:center;">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
+            <div class="toggle-track" style="box-shadow:0 0 0 3px rgba(196,138,58,0.12); border-color:var(--bronze-400);">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Unselected / Focused</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">keyboard nav</div>
+        </div>
+        <!-- Selected / Default -->
         <div style="text-align:center;">
           <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
             <div class="toggle-track active">
               <div class="toggle-thumb"></div>
             </div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">On (Bronze)</div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Selected / Default</div>
         </div>
+        <!-- Selected / Hover -->
+        <div style="text-align:center;">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
+            <div class="toggle-track active" style="filter:brightness(1.1);">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Selected / Hover</div>
+        </div>
+        <!-- Selected / Focused -->
+        <div style="text-align:center;">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
+            <div class="toggle-track active" style="box-shadow:0 0 0 3px rgba(196,138,58,0.12);">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Selected / Focused</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">keyboard nav</div>
+        </div>
+        <!-- Disabled — Off -->
         <div style="text-align:center;">
           <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
             <div class="toggle-track" style="opacity:0.4; pointer-events:none;">
               <div class="toggle-thumb"></div>
             </div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Disabled</div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Disabled &mdash; Off</div>
           <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">opacity 0.4</div>
         </div>
+        <!-- Disabled — On -->
+        <div style="text-align:center;">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
+            <div class="toggle-track active" style="opacity:0.4; pointer-events:none;">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+          <div style="font-size:11px; font-weight:600; color:var(--text-tertiary);">Disabled &mdash; On</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">opacity 0.4</div>
+        </div>
+      </div>
+      <div style="margin-top:16px; font-size:12px; color:var(--text-tertiary);">Sizes confirmed: <strong style="color:var(--text-secondary);">Regular</strong> and <strong style="color:var(--text-secondary);">Compact</strong>. Two sizes only for now.</div>
+      <div class="callout-pending" style="margin-top:12px;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Third size (mobile) &mdash; under consideration.</strong> A larger toggle size for mobile tap targets may be added. Hold until the mobile design pass. Minimum tap target for any touch element must be large enough for a finger (44px recommended minimum hit area).</div>
+      </div>
+    </div>
+
+    <!-- CHECKBOXES -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">CHECKBOX STATES</div>
+      <div class="callout-pending" style="margin-top:0;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Third size (mobile) &mdash; under consideration.</strong> Currently two checkbox sizes are defined. A larger size optimized for touch targets may be added during the mobile design pass. Minimum recommended touch target: 44px hit area regardless of visual checkbox size.</div>
       </div>
     </div>
 
     <!-- State Transition Specs -->
     <div class="fade-up" style="margin-top:48px; padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">TRANSITION SPECS</div>
+      <div class="subsection-label" style="margin-bottom:16px;">TRANSITION SPECS</div>
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
         <div>
           <div style="font-size:13px; font-weight:600; margin-bottom:4px;">Hover</div>
@@ -6326,7 +6493,7 @@ section { padding: 120px 0; }
 
     <!-- Campaign Status -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">CAMPAIGN STATUS</div>
+      <div class="subsection-label">CAMPAIGN STATUS</div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
         <div style="padding:5px 14px; border-radius:999px; background:rgba(74,222,128,0.12); border:1px solid rgba(74,222,128,0.2); color:var(--success); font-size:12px; font-weight:600;">● Live</div>
         <div style="padding:5px 14px; border-radius:999px; background:rgba(240,197,67,0.12); border:1px solid rgba(240,197,67,0.2); color:var(--warning); font-size:12px; font-weight:600;">● Draft</div>
@@ -6339,7 +6506,7 @@ section { padding: 120px 0; }
 
     <!-- Fan Engagement Tiers -->
     <div class="fade-up" style="margin-top:40px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">FAN ENGAGEMENT TIERS</div>
+      <div class="subsection-label">FAN ENGAGEMENT TIERS</div>
       <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:20px;">Progressive profiling means fans earn engagement levels over time. These indicators show up in fan cards, directories, and analytics.</p>
       <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px;">
         <div class="surface-solid" style="padding:20px; text-align:center;">
@@ -6383,7 +6550,7 @@ section { padding: 120px 0; }
 
     <!-- Data Viz Palette -->
     <div class="fade-up" style="margin-top:40px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">DATA VISUALIZATION</div>
+      <div class="subsection-label">DATA VISUALIZATION</div>
       <div style="display:flex; gap:8px; margin-bottom:12px;">
         <div style="flex:1; height:48px; border-radius:var(--radius-sm); background:#7CBBDF; display:flex; align-items:flex-end; padding:6px 8px;"><span style="font-size:10px; font-weight:600; color:#111620;">Series 1</span></div>
         <div style="flex:1; height:48px; border-radius:var(--radius-sm); background:#C48A3A; display:flex; align-items:flex-end; padding:6px 8px;"><span style="font-size:10px; font-weight:600; color:#111620;">Series 2</span></div>
@@ -6397,7 +6564,7 @@ section { padding: 120px 0; }
 
     <!-- Subscription Tiers -->
     <div class="fade-up" style="margin-top:40px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">SUBSCRIPTION TIERS</div>
+      <div class="subsection-label">SUBSCRIPTION TIERS</div>
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
         <div class="surface-solid" style="padding:20px; text-align:center;">
           <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Free</div>
@@ -6439,7 +6606,7 @@ section { padding: 120px 0; }
 
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;">
       <div class="surface-solid fade-up stagger-1" style="padding:32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">PATTERN</div>
+        <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">The Conversion Funnel</div>
         <p style="font-size:13px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">Views → Swaps → Fans → Engaged → Revenue. Appears on dashboard, campaign detail, analytics. Needs consistent visual treatment showing progression and drop-off.</p>
         <div style="display:flex; align-items:center; gap:8px;">
@@ -6452,7 +6619,7 @@ section { padding: 120px 0; }
       </div>
 
       <div class="surface-solid fade-up stagger-2" style="padding:32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">PATTERN</div>
+        <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Feature Gates (Upgrade Prompts)</div>
         <p style="font-size:13px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">Pro tier is invisible until the campaign builder. Feature gates appear inline. Should feel like an invitation, not a wall.</p>
         <div style="padding:16px; border-radius:var(--radius-md); background:rgba(196,138,58,0.04); border:1px solid rgba(196,138,58,0.12);">
@@ -6463,25 +6630,25 @@ section { padding: 120px 0; }
       </div>
 
       <div class="surface-solid fade-up stagger-1" style="padding:32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">PATTERN</div>
+        <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Validation Moments</div>
         <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Artists need to feel progress. Like Shopify's "ka-ching" when you make a sale. Grouped needs celebration states for: new fan captured, milestone hit, first paid subscriber, email credit earned. Sound, motion, a moment that registers.</p>
       </div>
 
       <div class="surface-solid fade-up stagger-2" style="padding:32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">PATTERN</div>
+        <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Artist Theming (Fan-Facing)</div>
         <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Fan-facing surfaces adapt to the artist's brand. Configurable accent color, avatar, cover image. Grouped provides structure, the artist's identity fills it. Pro tier removes Grouped branding entirely.</p>
       </div>
 
       <div class="surface-solid fade-up stagger-1" style="padding:32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">PATTERN</div>
+        <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Between-Release Engagement</div>
         <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">The M2-M3 churn kill zone happens because artists have nothing to do between releases. Every screen needs a nudge toward the next action. Never let the dashboard feel "done."</p>
       </div>
 
       <div class="surface-solid fade-up stagger-2" style="padding:32px;">
-        <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:12px;">PATTERN</div>
+        <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">CRM Sync Status</div>
         <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Fan data flows to connected CRMs. Sync status needs a consistent indicator: connected, syncing, error, last synced. Appears in settings, fan directory, campaign detail.</p>
       </div>
@@ -6492,7 +6659,7 @@ section { padding: 120px 0; }
 <div class="container"><div class="divider"></div></div>
 
 <!-- DESIGNER HANDOFF NOTES -->
-<section id="prod-handoff" style="padding:64px 0;">
+<section id="prod-handoff">
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P6</span> / Designer Handoff Notes</div>
@@ -6596,7 +6763,7 @@ section { padding: 120px 0; }
 
     <!-- Touch Targets -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">TOUCH TARGETS</div>
+      <div class="subsection-label">TOUCH TARGETS</div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
         <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; gap:16px;">
           <div style="width:44px; height:44px; border-radius:var(--radius-sm); border:2px solid var(--bronze-400); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
@@ -6621,7 +6788,7 @@ section { padding: 120px 0; }
 
     <!-- Responsive Type Adjustments -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">RESPONSIVE ADJUSTMENTS</div>
+      <div class="subsection-label">RESPONSIVE ADJUSTMENTS</div>
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
           <div style="font-size:13px; font-weight:600; margin-bottom:8px;">Type Scale</div>
@@ -6638,9 +6805,26 @@ section { padding: 120px 0; }
       </div>
     </div>
 
+    <!-- Confirmed for launch -->
+    <div class="fade-up callout-confirmed" style="margin-top:48px;">
+      <div class="callout-label" style="margin-bottom:12px;">CONFIRMED FOR LAUNCH</div>
+      <ul style="font-size:13px; color:var(--text-secondary); line-height:1.8; padding-left:20px; margin:0;">
+        <li>Two breakpoints: mobile narrow and desktop.</li>
+        <li>Design standard width: <strong style="color:var(--text-primary);">1440px</strong>. Past 1440px, outer margins and gutters scale; content holds max-width.</li>
+        <li>Column grid: <strong style="color:var(--text-primary);">3-column layout</strong> for main content area on desktop, stacks to single column on mobile.</li>
+      </ul>
+    </div>
+
+    <!-- Phase 2: Dashboard bento layout -->
+    <div class="fade-up callout-pending" style="margin-top:16px;">
+      <div class="callout-label" style="margin-bottom:12px;">PHASE 2 &mdash; FUTURE WORK</div>
+      <div style="font-size:14px; font-weight:600; color:var(--text-primary); margin-bottom:8px;">Dashboard layout &mdash; Phase 2 investigation</div>
+      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Future dashboard views for managers and established artists will explore a customizable bento-box layout: drag-to-resize cards, saved dashboard views, and shareable report links (similar to Looker Studio). This requires research into responsive bento grid best practices across screen dimensions before anything is specced or built. <strong style="color:var(--text-primary);">Do not design this yet.</strong></p>
+    </div>
+
     <!-- CSS Reference -->
     <div class="fade-up" style="margin-top:48px; padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">CSS BREAKPOINTS</div>
+      <div class="subsection-label" style="margin-bottom:16px;">CSS BREAKPOINTS</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-secondary); line-height:2; white-space:pre; overflow-x:auto;">/* Mobile first — base styles are mobile */
 
 /* Tablet and up */
@@ -6668,7 +6852,7 @@ section { padding: 120px 0; }
 
     <!-- Grid Demo -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">12-COLUMN GRID</div>
+      <div class="subsection-label">12-COLUMN GRID</div>
       <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:8px; margin-bottom:8px;">
         <div style="height:40px; border-radius:4px; background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--bronze-400); font-weight:600;">1</div>
         <div style="height:40px; border-radius:4px; background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--bronze-400); font-weight:600;">2</div>
@@ -6701,7 +6885,7 @@ section { padding: 120px 0; }
 
     <!-- Grid Specs -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">GRID SPECS</div>
+      <div class="subsection-label">GRID SPECS</div>
       <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
           <div style="font-size:24px; font-weight:700; color:var(--bronze-400); margin-bottom:4px;">12</div>
@@ -6724,7 +6908,7 @@ section { padding: 120px 0; }
 
     <!-- Common Layout Patterns -->
     <div class="fade-up" style="margin-top:48px;">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:20px;">LAYOUT PATTERNS</div>
+      <div class="subsection-label">LAYOUT PATTERNS</div>
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
         <!-- Sidebar + Main -->
         <div style="padding:16px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
@@ -6762,7 +6946,7 @@ section { padding: 120px 0; }
 
     <!-- CSS Reference -->
     <div class="fade-up" style="margin-top:48px; padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); margin-bottom:16px;">GRID CSS</div>
+      <div class="subsection-label" style="margin-bottom:16px;">GRID CSS</div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-secondary); line-height:2; white-space:pre; overflow-x:auto;">.grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -7034,7 +7218,7 @@ function showCopyToast(anchor, message) {
     font-size: 13px;
     font-weight: 700;
     padding: 8px 18px;
-    border-radius: 9999px;
+    border-radius: 39px;
     z-index: 10000;
     pointer-events: none;
     opacity: 0;
