@@ -4507,8 +4507,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P</span> / Product System</div>
-      <h2 class="section-title" style="font-size:clamp(36px,5vw,56px);">The product, wireframed.</h2>
-      <p class="section-desc" style="max-width:640px;">Every screen, component, and token the Grouped product needs to ship. This is the bridge between the brand system and what artists and fans actually interact with. The brand tab defines how it looks. This tab defines what gets built.</p>
+      <h2 class="section-title" style="font-size:clamp(36px,5vw,56px);">Product system reference.</h2>
+      <p class="section-desc" style="max-width:640px;">Screens, components, tokens, and implementation specs for the Grouped product. Everything here maps to real Figma layers and ships as code.</p>
       <div class="resource-bar fade-up">
         <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=18-2" target="_blank" class="resource-link"><i class="ph-bold ph-figma-logo"></i> Figma Library</a>
         <a href="#" onclick="event.preventDefault();switchTab('foundation')" class="resource-link"><i class="ph-bold ph-stack"></i> Foundation Tokens</a>
@@ -4526,8 +4526,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P1</span> / Rebrand Alignment</div>
-      <h2 class="section-title">Figma GDS26R token audit.</h2>
-      <p class="section-desc" style="max-width:640px;">Mapping the product team's rebrand tokens against the brand design system. Green = aligned, amber = intentional product override, red = needs a decision before implementation.</p>
+      <h2 class="section-title">Token audit: Figma ↔ brand alignment.</h2>
+      <p class="section-desc" style="max-width:640px;">Product tokens checked against the brand system. Green = aligned, amber = intentional override, red = needs a decision before dev.</p>
     </div>
 
     <div class="align-grid fade-up" style="margin-top:40px;">
@@ -4632,7 +4632,7 @@ section { padding: 120px 0; }
     <div class="fade-up" style="margin-top:32px; padding:20px 24px; border-radius:var(--radius-sleeve); background:rgba(248,113,113,0.06); border:1px solid rgba(248,113,113,0.15);">
       <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:#F87171; margin-bottom:8px;">FIGMA UPDATE NEEDED</div>
       <div style="font-size:14px; color:var(--text-primary); margin-bottom:6px;">Primary text color: Figma has <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:2px 6px; background:var(--bg-overlay); border-radius:4px;">#f8f8f8</code> (cool white) &mdash; should be <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:2px 6px; background:var(--bg-overlay); border-radius:4px;">#F0EBE3</code> (warm cream).</div>
-      <div style="font-size:13px; color:var(--text-secondary);">The warm cream maintains the vinyl/bronze warmth across both marketing and product. Locked in.</div>
+      <div style="font-size:13px; color:var(--text-secondary);">Warm cream (#F0EBE3) is the correct text-primary value across all surfaces. This is confirmed.</div>
     </div>
 
     <!-- Key callout: Font swap -->
@@ -4651,8 +4651,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P2</span> / Product Type Scale</div>
-      <h2 class="section-title">Every text style, defined.</h2>
-      <p class="section-desc" style="max-width:640px;">The complete product typography system from Figma GDS26R. D0 and D1 use Anacrusis with Satoshi fallback; everything else is Satoshi. Five categories: Display, Heading, Body, Caption, and Component. Body defaults to 14px for data density. Component styles (C1-C7) are new to the system.</p>
+      <h2 class="section-title">Typography specs.</h2>
+      <p class="section-desc" style="max-width:640px;">All product type styles from the Figma file. D0–D1 use Anacrusis (Satoshi fallback); everything else is Satoshi. Five categories: Display, Heading, Body, Caption, Component. Body defaults to 14px. Component styles C1–C7 are new.</p>
     </div>
 
     <div style="margin-top:48px;">
@@ -5084,8 +5084,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P3</span> / Screen Map</div>
-      <h2 class="section-title">Two products. One system.</h2>
-      <p class="section-desc">Grouped has two faces: the artist dashboard (where artists build campaigns, view analytics, manage fans) and the fan experience (where fans interact with swaps, feeds, and groups). Every screen maps to one of these two sides.</p>
+      <h2 class="section-title">App surfaces: dashboard + fan experience.</h2>
+      <p class="section-desc">Two distinct surfaces: the artist dashboard (campaigns, analytics, fan management) and the fan experience (swaps, feeds, groups). Every screen belongs to one side.</p>
     </div>
 
     <!-- Personas placeholder -->
@@ -5097,7 +5097,7 @@ section { padding: 120px 0; }
     <!-- Artist Side -->
     <div class="fade-up" style="margin-top:48px;">
       <div class="subsection-label">ARTIST DASHBOARD</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">The workspace where artists build campaigns, track fans, and manage their direct relationships. Sidebar navigation, data-dense layouts, and tools that feel like a professional studio console.</p>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">Where artists build campaigns, track fans, and manage relationships. Sidebar nav, data-dense layouts, and utility-first tooling.</p>
     </div>
 
     <!-- Artist Dashboard Wireframe -->
@@ -5202,7 +5202,7 @@ section { padding: 120px 0; }
     <!-- Fan Side -->
     <div class="fade-up" style="margin-top:64px;">
       <div class="subsection-label">FAN EXPERIENCE</div>
-      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">The fan-facing side. Clean, immersive, content-forward. The artist's brand should feel like the primary presence. Grouped recedes.</p>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">Fan-facing surfaces. Minimal chrome, content-first. The artist's brand is the dominant visual — Grouped UI stays out of the way.</p>
     </div>
 
     <!-- Fan Swap Page Wireframe -->
@@ -5269,8 +5269,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P4</span> / Product Components</div>
-      <h2 class="section-title">The building blocks.</h2>
-      <p class="section-desc">Every repeating element the product needs, fully styled with real tokens and ready for implementation. These inherit the brand system's surfaces, type, color, and Phosphor Bold iconography.</p>
+      <h2 class="section-title">Component library.</h2>
+      <p class="section-desc">Reusable components styled with production tokens. All inherit the brand surfaces, type scale, color system, and Phosphor Bold icons.</p>
     </div>
 
     <!-- CORE PRODUCT COMPONENTS -->
@@ -5421,7 +5421,7 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Feed Item</div>
-          <div class="prod-card-desc">Auto-populated Smart Feed entry. Pulls from connected accounts. Zero artist effort. Fan-facing. Push notification trigger.</div>
+          <div class="prod-card-desc">Auto-populated Smart Feed entry. Pulls from connected accounts — no manual input needed. Fan-facing. Triggers push notifications.</div>
           <div class="prod-card-usage">USE ON: Fan-facing activity feed, push notification content</div>
         </div>
       </div>
@@ -5502,7 +5502,7 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Empty State</div>
-          <div class="prod-card-desc">First-run and zero-data states. Icon, message, primary action. Should feel inviting, not empty. Each screen needs its own version.</div>
+          <div class="prod-card-desc">First-run and zero-data states. Icon, message, primary action CTA. Design goal: guide the user forward, not just show "nothing here." Each screen needs its own variant.</div>
           <div class="prod-card-usage">USE ON: Every screen's zero-data state — campaigns, fans, analytics</div>
         </div>
       </div>
@@ -5757,7 +5757,7 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Tab Bar</div>
-          <div class="prod-card-desc">Horizontal tabs for campaign detail sub-views and analytics. Active state uses bronze underline. C4 component type for labels. Keyboard accessible.</div>
+          <div class="prod-card-desc">Horizontal tabs for campaign detail sub-views and analytics. Active state uses bronze underline. Labels use 12px/600 Satoshi uppercase. Keyboard accessible.</div>
           <div class="prod-card-usage">USE ON: Campaign detail sub-views, analytics, settings panels</div>
         </div>
       </div>
@@ -5824,8 +5824,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P5</span> / Button Library</div>
-      <h2 class="section-title">Every button, specified.</h2>
-      <p class="section-desc">Seven button types cover every interaction in the product and marketing surfaces. All share pill radius, Satoshi Bold uppercase labels, and three size tiers. Use the right button for the right context.</p>
+      <h2 class="section-title">Button library.</h2>
+      <p class="section-desc">Seven button types across product and marketing. All use pill radius, Satoshi Bold uppercase labels, and three size tiers (sm / md / lg). See the Do/Don't guide below for selection rules.</p>
     </div>
 
     <!-- Shared sizing specs -->
@@ -5927,7 +5927,7 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Tertiary</div>
-          <div class="prod-card-desc">Inline text link. No border, no fill. Medium weight, sentence case. Use for ancillary navigation: View Details, Learn More, See All.</div>
+          <div class="prod-card-desc">Inline text link. No border, no fill. Medium weight, sentence case. Use for secondary navigation: View Details, Learn More, See All.</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
             fill: transparent · text: --bronze-400<br>
             hover: --gold-300<br>
@@ -6038,8 +6038,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P6</span> / Component States</div>
-      <h2 class="section-title">Every state, documented.</h2>
-      <p class="section-desc">Interactive components have multiple states. This reference shows each state so the designer and developer are aligned on how components look at rest, on hover, when active, when disabled, and when in error.</p>
+      <h2 class="section-title">Component states.</h2>
+      <p class="section-desc">Visual spec for every interactive state: rest, hover, active, disabled, error. Use this as the source of truth for design–dev handoff.</p>
     </div>
 
     <!-- BUTTONS -->
@@ -6405,8 +6405,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P7</span> / Product Tokens</div>
-      <h2 class="section-title">Status, tiers, and data.</h2>
-      <p class="section-desc">Product-specific tokens that extend the brand color system for states, levels, and data visualization.</p>
+      <h2 class="section-title">Feature color tokens.</h2>
+      <p class="section-desc">Product-specific color tokens for campaign status, engagement tiers, and data visualization. These extend the brand palette.</p>
     </div>
 
     <!-- Campaign Status -->
@@ -6463,7 +6463,7 @@ section { padding: 120px 0; }
           <div style="font-size:11px; color:var(--text-tertiary);">Paid tier. Quest completions.</div>
         </div>
       </div>
-      <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Dots fill left to right using focus blue. Superfan earns bronze dots, connecting to the brand accent as a reward.</p>
+      <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Dots fill left to right using focus blue (#7CBBDF). Superfan tier uses bronze dots (#C48A3A) to distinguish paid engagement.</p>
     </div>
 
     <!-- Feature Colors -->
@@ -6538,8 +6538,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P8</span> / Patterns</div>
-      <h2 class="section-title">Recurring product logic.</h2>
-      <p class="section-desc">Design patterns that repeat across multiple screens. Solving these once means every screen stays consistent.</p>
+      <h2 class="section-title">Shared patterns.</h2>
+      <p class="section-desc">Patterns that repeat across multiple screens. Define them once, apply consistently everywhere.</p>
     </div>
 
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;">
@@ -6559,7 +6559,7 @@ section { padding: 120px 0; }
       <div class="surface-solid fade-up stagger-2" style="padding:32px;">
         <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Feature Gates (Upgrade Prompts)</div>
-        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">Pro tier is invisible until the campaign builder. Feature gates appear inline. Should feel like an invitation, not a wall.</p>
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">Pro tier is hidden until the campaign builder. Feature gates appear inline as contextual upgrade prompts — not blocking modals.</p>
         <div style="padding:16px; border-radius:var(--radius-md); background:rgba(196,138,58,0.04); border:1px solid rgba(196,138,58,0.12);">
           <div style="font-size:12px; font-weight:500; margin-bottom:4px;">Custom domain available on Growth</div>
           <div style="font-size:11px; color:var(--text-tertiary); margin-bottom:10px;">Your swap links use your own domain instead of grouped.com</div>
@@ -6570,19 +6570,19 @@ section { padding: 120px 0; }
       <div class="surface-solid fade-up stagger-1" style="padding:32px;">
         <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Validation Moments</div>
-        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Artists need to feel progress. Like Shopify's "ka-ching" when you make a sale. Grouped needs celebration states for: new fan captured, milestone hit, first paid subscriber, email credit earned. Sound, motion, a moment that registers.</p>
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Positive-feedback states that reinforce key actions. Triggers: new fan captured, milestone hit, first paid subscriber, email credit earned. Implement with animation + optional sound.</p>
       </div>
 
       <div class="surface-solid fade-up stagger-2" style="padding:32px;">
         <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Artist Theming (Fan-Facing)</div>
-        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Fan-facing surfaces adapt to the artist's brand. Configurable accent color, avatar, cover image. Grouped provides structure, the artist's identity fills it. Pro tier removes Grouped branding entirely.</p>
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Fan-facing surfaces adapt to the artist's brand. Configurable: accent color, avatar, cover image. Grouped provides the layout shell; the artist's assets override it. Pro tier removes Grouped branding.</p>
       </div>
 
       <div class="surface-solid fade-up stagger-1" style="padding:32px;">
         <div class="subsection-label" style="margin-bottom:12px;">PATTERN</div>
         <div style="font-size:17px; font-weight:700; margin-bottom:8px;">Between-Release Engagement</div>
-        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">The M2-M3 churn kill zone happens because artists have nothing to do between releases. Every screen needs a nudge toward the next action. Never let the dashboard feel "done."</p>
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Month 2–3 churn occurs when artists have nothing to do between releases. Every screen should surface a next action. Dashboard must always show a suggested task.</p>
       </div>
 
       <div class="surface-solid fade-up stagger-2" style="padding:32px;">
@@ -6601,8 +6601,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P9</span> / Designer Handoff Notes</div>
-      <h2 class="section-title">What's ready, what's next.</h2>
-      <p class="section-desc" style="max-width:700px;">This design system is your single source of truth for the Grouped rebrand. All 17 product components are fully styled with real tokens. Here's what you need to know going in.</p>
+      <h2 class="section-title">Implementation status.</h2>
+      <p class="section-desc" style="max-width:700px;">Current implementation status. All 17 product components are specced with real tokens. Check here before starting dev work.</p>
     </div>
 
     <div style="margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
@@ -6657,8 +6657,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P10</span> / Responsive Breakpoints</div>
-      <h2 class="section-title">Every screen size, covered.</h2>
-      <p class="section-desc">The product targets four breakpoint ranges. Mobile first — start with the smallest screen and layer complexity upward. Touch targets are non-negotiable minimums for accessibility.</p>
+      <h2 class="section-title">Responsive breakpoints.</h2>
+      <p class="section-desc">Four breakpoint ranges, mobile-first. Build for the smallest screen first, add complexity at each step up. Minimum 44px touch targets at all sizes.</p>
     </div>
 
     <!-- Breakpoint diagram -->
@@ -6784,8 +6784,8 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P11</span> / Grid &amp; Layout</div>
-      <h2 class="section-title">Structure for every screen.</h2>
-      <p class="section-desc">A 12-column grid provides the underlying structure. Gutters tighten on smaller screens. Containers center the content with a max-width constraint.</p>
+      <h2 class="section-title">Layout grid.</h2>
+      <p class="section-desc">12-column grid with responsive gutters. Containers center content at a max-width of 1200px.</p>
     </div>
 
     <!-- Grid Demo -->
