@@ -411,6 +411,14 @@ section { padding: 120px 0; }
   border-bottom: 1px solid var(--border-default);
 }
 .font-usage-card .usage-item:last-child { border-bottom: none; }
+/* Reusable Do/Don't grid + When-to-use callout */
+.usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.when-to-use { padding: 20px 24px; border-radius: var(--radius-sm); background: rgba(196,138,58,0.04); border: 1px solid rgba(196,138,58,0.12); margin-top: 24px; }
+.when-to-use .usage-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; color: var(--bronze-400); }
+.when-to-use .usage-row { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-default); font-size: 13px; }
+.when-to-use .usage-row:last-child { border-bottom: none; }
+.when-to-use .usage-token { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-primary); min-width: 80px; flex-shrink: 0; }
+.when-to-use .usage-desc { color: var(--text-secondary); }
 .font-comparison {
   margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
 }
@@ -436,7 +444,7 @@ section { padding: 120px 0; }
 .font-compare-sample { font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: 0em; margin-bottom: 12px; }
 .font-compare-body { font-size: 14px; color: var(--text-tertiary); }
 @media (max-width: 768px) {
-  .font-usage-grid, .font-comparison { grid-template-columns: 1fr; }
+  .font-usage-grid, .font-comparison, .usage-grid { grid-template-columns: 1fr; }
 }
 
 
@@ -1588,6 +1596,7 @@ section { padding: 120px 0; }
 .prod-card-info { padding: 20px 24px; }
 .prod-card-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
 .prod-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.prod-card-usage { font-size: 11px; font-weight: 600; color: var(--bronze-400); margin-top: 8px; letter-spacing: 0.02em; }
 .prod-token-row {
   display: flex;
   align-items: center;
@@ -2591,6 +2600,27 @@ section { padding: 120px 0; }
     <div class="fade-up callout-info" style="margin-top:40px;">
       <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Figma variable format:</strong> All opacity-based values in this system use decimals (0.07), not percentages (7%). Figma does not support percentage-based opacity in variables. When exporting JSON tokens for Storybook or Tailwind, verify every opacity-based surface and border color is in decimal format.</div>
     </div>
+
+    <!-- Color Do/Don'ts -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">COLOR USAGE GUIDE</div>
+      <div class="usage-grid">
+        <div class="font-usage-card use">
+          <div class="usage-label">&#10003; Do</div>
+          <div class="usage-item">Use bronze for primary actions, earned rewards, and brand moments</div>
+          <div class="usage-item">Use the navy text hierarchy (Primary &rarr; Secondary &rarr; Tertiary) for all content</div>
+          <div class="usage-item">Use semantic colors for status: green = success, red = error, yellow = warning</div>
+          <div class="usage-item">Keep focus blue for input rings, keyboard focus, and interactive state feedback</div>
+        </div>
+        <div class="font-usage-card avoid">
+          <div class="usage-label">&#10007; Don't</div>
+          <div class="usage-item">Don't use bronze for status indicators &mdash; it's brand, not feedback</div>
+          <div class="usage-item">Don't use pure white (#FFFFFF) for text &mdash; use --text-primary (#F0EBE3)</div>
+          <div class="usage-item">Don't mix bronze and focus blue on the same element</div>
+          <div class="usage-item">Don't use feature colors (Community blue, Swaps purple) outside their feature context</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2622,6 +2652,18 @@ section { padding: 120px 0; }
     </div>
     <div class="fade-up callout-info" style="margin-top:20px;">
       <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">6px exception:</strong> Use 6px for micro-spacing between an icon and its adjacent text label, or any context where 4px is too tight and 8px is too loose. This is the only non-multiple-of-4 value in the scale. Figma defaults to 10px in several auto-layout contexts &mdash; avoid 10px for spacing; it falls outside the system.</div>
+    </div>
+
+    <!-- Spacing when-to-use -->
+    <div class="fade-up when-to-use" style="margin-top:32px;">
+      <div class="usage-label">When to use each value</div>
+      <div class="usage-row"><span class="usage-token">4px</span><span class="usage-desc">Inline icon gaps, tight label pairs, chip padding</span></div>
+      <div class="usage-row"><span class="usage-token">8px</span><span class="usage-desc">Related items within a group &mdash; badge + label, icon + text</span></div>
+      <div class="usage-row"><span class="usage-token">12px</span><span class="usage-desc">Compact list items, small card internal padding</span></div>
+      <div class="usage-row"><span class="usage-token">16px</span><span class="usage-desc">Standard card padding, form field gaps &mdash; the workhorse value</span></div>
+      <div class="usage-row"><span class="usage-token">24px</span><span class="usage-desc">Section content gaps, card-to-card spacing in grids</span></div>
+      <div class="usage-row"><span class="usage-token">32&ndash;48px</span><span class="usage-desc">Section breaks within a page, hero inner padding</span></div>
+      <div class="usage-row"><span class="usage-token">64&ndash;128px</span><span class="usage-desc">Major section dividers, page-level vertical rhythm</span></div>
     </div>
 
     <!-- Radius -->
@@ -2960,6 +3002,27 @@ section { padding: 120px 0; }
       <div>
         <div style="font-size:14px; font-weight:500; margin-bottom:4px;">Interaction examples incoming</div>
         <div style="font-size:13px; color:var(--text-tertiary); line-height:1.5;">Osmo Supply vault references will be added here to showcase specific implementations: loading waveforms, progress dials, hover trails, level meter animations, and the full vocabulary of light-on-solid interactions in context.</div>
+      </div>
+    </div>
+
+    <!-- Surface Do/Don'ts -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">SURFACE LAYERING GUIDE</div>
+      <div class="usage-grid">
+        <div class="font-usage-card use">
+          <div class="usage-label">&#10003; Do</div>
+          <div class="usage-item">Layer surfaces Base &rarr; Raised &rarr; Overlay for natural depth</div>
+          <div class="usage-item">Use Glass (frosted blur) for overlays, modals, and floating panels</div>
+          <div class="usage-item">Use Solid cards for primary content containers</div>
+          <div class="usage-item">Use Vinyl (warm bronze tint) sparingly for premium brand moments</div>
+        </div>
+        <div class="font-usage-card avoid">
+          <div class="usage-label">&#10007; Don't</div>
+          <div class="usage-item">Don't skip surface levels &mdash; Overlay directly on Base looks flat</div>
+          <div class="usage-item">Don't stack Glass on Glass &mdash; one blur layer maximum</div>
+          <div class="usage-item">Don't use Vinyl for standard UI cards &mdash; it's a brand accent, not a container</div>
+          <div class="usage-item">Don't mix light and dark surface tokens &mdash; the system is dark-mode primary</div>
+        </div>
       </div>
     </div>
 
@@ -5238,6 +5301,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Swap Card</div>
           <div class="prod-card-desc">The core conversion unit. Fan-facing. Artist-branded with configurable gate type (email, phone, pre-save, follow). Appears on swap pages, embeds, and shared links.</div>
+          <div class="prod-card-usage">USE ON: Artist profile, campaign detail, shared links, embeds</div>
         </div>
       </div>
 
@@ -5280,6 +5344,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Campaign Card</div>
           <div class="prod-card-desc">Artist dashboard view of a campaign. Status badge, key metrics, conversion bar. Appears in campaigns list and dashboard.</div>
+          <div class="prod-card-usage">USE ON: Artist dashboard, campaigns list, campaign detail header</div>
         </div>
       </div>
 
@@ -5324,6 +5389,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Fan Card / Row</div>
           <div class="prod-card-desc">Single fan in a list. Contact info, engagement dots, source campaign. Used in fan directory, campaign detail, group member lists.</div>
+          <div class="prod-card-usage">USE ON: Fan directory, campaign detail, group member lists</div>
         </div>
       </div>
 
@@ -5356,6 +5422,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Feed Item</div>
           <div class="prod-card-desc">Auto-populated Smart Feed entry. Pulls from connected accounts. Zero artist effort. Fan-facing. Push notification trigger.</div>
+          <div class="prod-card-usage">USE ON: Fan-facing activity feed, push notification content</div>
         </div>
       </div>
 
@@ -5382,6 +5449,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Stat Card</div>
           <div class="prod-card-desc">Single KPI with trend indicator. Configurable for any metric. Dashboard and analytics screens.</div>
+          <div class="prod-card-usage">USE ON: Dashboard KPIs, analytics overview, campaign detail stats</div>
         </div>
       </div>
 
@@ -5414,6 +5482,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Email Composer</div>
           <div class="prod-card-desc">Credit-based email builder. Remaining credits, audience selector, subject line, template body. Upsell when credits run low.</div>
+          <div class="prod-card-usage">USE ON: Email campaigns, fan messaging, announcement broadcasts</div>
         </div>
       </div>
 
@@ -5434,6 +5503,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Empty State</div>
           <div class="prod-card-desc">First-run and zero-data states. Icon, message, primary action. Should feel inviting, not empty. Each screen needs its own version.</div>
+          <div class="prod-card-usage">USE ON: Every screen's zero-data state — campaigns, fans, analytics</div>
         </div>
       </div>
 
@@ -5462,6 +5532,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Toast / Notification</div>
           <div class="prod-card-desc">Transient feedback. Success, error, warning, info variants. Top-right, auto-dismiss. Semantic colors with Phosphor icons.</div>
+          <div class="prod-card-usage">USE ON: All transient feedback — success, error, warning, info</div>
         </div>
       </div>
     </div>
@@ -5493,6 +5564,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Modal / Dialog</div>
           <div class="prod-card-desc">Confirmation and destructive action dialogs. Centered overlay with scrim background, title, body, cancel + confirm actions. Error variant uses red confirm button.</div>
+          <div class="prod-card-usage">USE ON: Confirmations, destructive actions, focused input flows</div>
         </div>
       </div>
 
@@ -5519,6 +5591,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Dropdown / Select</div>
           <div class="prod-card-desc">Filter and sort controls. Trigger with chevron, open state with checkmark on selected. Bronze accent on active selection. Used for audience, campaign, and date filters.</div>
+          <div class="prod-card-usage">USE ON: Filters, sort controls, audience selectors, settings</div>
         </div>
       </div>
 
@@ -5557,6 +5630,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Table / Data Grid</div>
           <div class="prod-card-desc">Sortable data tables for fan directory, campaign list, and email history. Alternating row backgrounds, sort indicators, action menu per row.</div>
+          <div class="prod-card-usage">USE ON: Fan directory, campaign list, email history, admin views</div>
         </div>
       </div>
 
@@ -5588,6 +5662,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Chart Components</div>
           <div class="prod-card-desc">Line charts and donut charts for analytics views. Uses brand data-viz colors. Pure CSS/SVG, no JS library dependency for the design reference.</div>
+          <div class="prod-card-usage">USE ON: Analytics dashboard, campaign performance, fan growth</div>
         </div>
       </div>
 
@@ -5615,6 +5690,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">File Upload</div>
           <div class="prod-card-desc">Drag-and-drop zone for album art, audio files, and media. Shows file type hints, uploaded file state with remove action. Campaign builder and settings.</div>
+          <div class="prod-card-usage">USE ON: Campaign builder, profile settings, media uploads</div>
         </div>
       </div>
 
@@ -5660,6 +5736,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Progress Steps</div>
           <div class="prod-card-desc">Horizontal stepper for campaign builder, onboarding, and multi-step flows. Shows completed (green check), current (bronze), and upcoming (muted) states.</div>
+          <div class="prod-card-usage">USE ON: Campaign builder, onboarding, multi-step flows</div>
         </div>
       </div>
 
@@ -5681,6 +5758,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Tab Bar</div>
           <div class="prod-card-desc">Horizontal tabs for campaign detail sub-views and analytics. Active state uses bronze underline. C4 component type for labels. Keyboard accessible.</div>
+          <div class="prod-card-usage">USE ON: Campaign detail sub-views, analytics, settings panels</div>
         </div>
       </div>
 
@@ -5708,6 +5786,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Search / Filter Bar</div>
           <div class="prod-card-desc">Combined search input with filter controls. Active filters show as removable badge pills. Clear-all action. Used in fan directory and campaign listing.</div>
+          <div class="prod-card-usage">USE ON: Fan directory, campaign listing, any list with 10+ items</div>
         </div>
       </div>
 
@@ -5730,6 +5809,7 @@ section { padding: 120px 0; }
         <div class="prod-card-info">
           <div class="prod-card-name">Tooltip / Popover</div>
           <div class="prod-card-desc">Contextual information overlays. Small floating card with arrow caret, triggered on hover or info icon click. Metric explanations and feature hints.</div>
+          <div class="prod-card-usage">USE ON: Metric explanations, feature hints, onboarding tips</div>
         </div>
       </div>
 
@@ -5920,6 +6000,33 @@ section { padding: 120px 0; }
     <!-- Active/Press note -->
     <div class="fade-up callout-info" style="margin-top:24px;">
       <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Active (press) &mdash; all buttons:</strong> Scale to 97%. Already in doc &mdash; confirm this is implemented consistently across Primary, Secondary, and CTA variants.</div>
+    </div>
+
+    <!-- Button Do/Don'ts -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">BUTTON SELECTION GUIDE</div>
+      <div class="usage-grid">
+        <div class="font-usage-card use">
+          <div class="usage-label">&#10003; Do</div>
+          <div class="usage-item">One Primary per screen &mdash; it's the hero action</div>
+          <div class="usage-item">Use CTA for fan-facing engagement (Unlock, Claim, Join)</div>
+          <div class="usage-item">Use Destructive only for irreversible actions (delete, remove)</div>
+          <div class="usage-item">Use Ghost for icon-only actions in toolbars and tight layouts</div>
+        </div>
+        <div class="font-usage-card avoid">
+          <div class="usage-label">&#10007; Don't</div>
+          <div class="usage-item">Don't stack two Primary buttons &mdash; demote one to Secondary</div>
+          <div class="usage-item">Don't use CTA for admin/artist actions &mdash; use Secondary</div>
+          <div class="usage-item">Don't use Destructive for cancel or dismiss &mdash; use Secondary</div>
+          <div class="usage-item">Don't mix button sizes in the same row</div>
+        </div>
+      </div>
+      <div class="when-to-use fade-up">
+        <div class="usage-label">When to use each size</div>
+        <div class="usage-row"><span class="usage-token">sm (36px)</span><span class="usage-desc">Inline actions, table rows, compact card footers</span></div>
+        <div class="usage-row"><span class="usage-token">md (44px)</span><span class="usage-desc">Standard forms, dialogs, cards &mdash; the default choice</span></div>
+        <div class="usage-row"><span class="usage-token">lg (52px)</span><span class="usage-desc">Hero CTAs, onboarding flows, landing pages</span></div>
+      </div>
     </div>
   </div>
 </section>
