@@ -1870,6 +1870,110 @@ section { padding: 120px 0; }
 .status-dot.pending-rec { background: var(--bronze-400); }
 .align-card-status.pending-rec { background: rgba(196,138,58,0.1); color: var(--bronze-400); }
 
+/* Audit mismatch cards */
+.mismatch-card {
+  padding: 20px 24px; border-radius: var(--radius-sleeve);
+  background: var(--bg-raised); border: 1px solid rgba(248,113,113,0.18);
+  margin-bottom: 12px;
+}
+.mismatch-card-header {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;
+}
+.mismatch-card-header .status-dot { margin-top: 5px; }
+.mismatch-card-title {
+  font-size: 14px; font-weight: 700; color: var(--text-primary); line-height: 1.4;
+}
+.mismatch-card-category {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #F87171; margin-bottom: 4px;
+}
+.mismatch-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;
+}
+.mismatch-side {
+  padding: 12px 16px; border-radius: var(--radius-sm); font-size: 13px; line-height: 1.6;
+}
+.mismatch-side.brand-guide {
+  background: rgba(74,222,128,0.04); border: 1px solid rgba(74,222,128,0.12);
+}
+.mismatch-side.figma-actual {
+  background: rgba(248,113,113,0.04); border: 1px solid rgba(248,113,113,0.12);
+}
+.mismatch-side-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.mismatch-side.brand-guide .mismatch-side-label { color: #4ADE80; }
+.mismatch-side.figma-actual .mismatch-side-label { color: #F87171; }
+.mismatch-side code {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  padding: 1px 5px; background: var(--bg-overlay); border-radius: 3px;
+}
+.mismatch-node-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--text-tertiary); margin-top: 8px;
+  text-decoration: none; transition: color 0.2s;
+}
+.mismatch-node-link:hover { color: var(--bronze-400); }
+
+/* Audit aligned toggle */
+.audit-toggle {
+  margin-top: 32px; border-radius: var(--radius-sleeve);
+  background: var(--bg-raised); border: 1px solid var(--border-default);
+  overflow: hidden;
+}
+.audit-toggle-header {
+  padding: 16px 24px; cursor: pointer; display: flex;
+  align-items: center; justify-content: space-between;
+  user-select: none; transition: background 0.2s;
+}
+.audit-toggle-header:hover { background: var(--bg-overlay); }
+.audit-toggle-header .toggle-title {
+  font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px;
+}
+.audit-toggle-header .toggle-count {
+  font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 999px;
+  background: rgba(74,222,128,0.1); color: #4ADE80;
+}
+.audit-toggle-header .toggle-chevron {
+  font-size: 16px; color: var(--text-tertiary); transition: transform 0.3s;
+}
+.audit-toggle-header.open .toggle-chevron { transform: rotate(180deg); }
+.audit-toggle-body {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+}
+.audit-toggle-body.open { max-height: 3000px; }
+.audit-toggle-body-inner {
+  padding: 0 24px 20px; display: grid;
+  grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.aligned-item {
+  padding: 10px 14px; border-radius: var(--radius-sm);
+  background: rgba(74,222,128,0.03); border: 1px solid rgba(74,222,128,0.08);
+  display: flex; align-items: center; gap: 10px; font-size: 13px;
+}
+.aligned-item .aligned-name { flex: 1; font-weight: 500; color: var(--text-primary); }
+.aligned-item-links {
+  display: flex; gap: 8px; align-items: center;
+}
+.aligned-item-links a {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  text-decoration: none; padding: 2px 8px; border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+.aligned-item-links a.guide-link {
+  color: #4ADE80; background: rgba(74,222,128,0.08);
+}
+.aligned-item-links a.guide-link:hover {
+  background: rgba(74,222,128,0.15);
+}
+.aligned-item-links a.figma-link {
+  color: var(--text-tertiary); background: var(--bg-overlay);
+}
+.aligned-item-links a.figma-link:hover {
+  color: var(--text-primary); background: rgba(255,255,255,0.08);
+}
+
 /* Type token rows */
 .type-token-card {
   padding: 24px; border-radius: var(--radius-sleeve);
@@ -4536,121 +4640,569 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P1</span> / Rebrand Alignment</div>
-      <h2 class="section-title">Token audit: Figma ↔ brand alignment.</h2>
-      <p class="section-desc" style="max-width:640px;">Product tokens checked against the brand system. Green = aligned, amber = intentional override, red = needs a decision before dev.</p>
+      <h2 class="section-title">What's different: Figma ↔ brand guide.</h2>
+      <p class="section-desc" style="max-width:640px;">Token-by-token audit of GDS26R against the brand guide. Every mismatch is listed below with what the brand guide says vs what Figma currently has. Aligned tokens are in the dropdown at the bottom.</p>
     </div>
 
-    <div class="align-grid fade-up" style="margin-top:40px;">
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Base Background</div>
-        <div class="align-card-status aligned">Aligned</div>
+    <!-- Quick summary bar -->
+    <div class="fade-up" style="margin-top:32px; display:flex; gap:24px; font-size:13px; align-items:center;">
+      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot decision"></span><strong>14</strong> mismatches</div>
+      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot override"></span><strong>5</strong> intentional overrides</div>
+      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot aligned"></span><strong>20</strong> aligned</div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- MISMATCHES SECTION    -->
+    <!-- ===================== -->
+    <div class="fade-up" style="margin-top:40px;">
+      <div class="subsection-label">MISMATCHES &mdash; NEEDS FIGMA UPDATE OR DECISION</div>
+
+      <!-- 1: D0 Letter-spacing -->
+      <div class="mismatch-card" style="margin-top:16px;">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / D0 Display Hero</div>
+            <div class="mismatch-card-title">Letter-spacing mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>letter-spacing: -4%</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; D0</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            <code>letter-spacing: -1%</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">font/letterspacing/4xs = -1px</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Dark Mode Default</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 2: D0 Size variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / D0 Display Hero</div>
+            <div class="mismatch-card-title">Figma variable doesn't match label &mdash; <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:1px 5px; background:var(--bg-overlay); border-radius:3px;">font/size/6xl</code> = 64px</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>font-size: 96px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">D0 Display Hero &mdash; 96px / 6.0rem</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R Variable</div>
+            <code>font/size/6xl: 64px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 96px but variable resolves to 64px</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Pill Buttons (39px)</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 3: D0 Line-height variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / D0 Display Hero</div>
+            <div class="mismatch-card-title">Line-height variable mismatch &mdash; <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:1px 5px; background:var(--bg-overlay); border-radius:3px;">font/line-height/6xl</code> = 72px</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>line-height: 116px</code>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R Variable</div>
+            <code>font/line-height/6xl: 72px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 116px / 7.25rem but variable = 72px</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Display Font Separation</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 4: D1 Letter-spacing -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / D1 Display XXL</div>
+            <div class="mismatch-card-title">Letter-spacing mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>letter-spacing: -3%</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; D1</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            <code>letter-spacing: -0.05%</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">font/letterspacing/sm = -0.05px (essentially 0%)</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-396" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 729:396</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Primary Text (#F0EBE3)</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 5: D4 Weight -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / D4 Display M</div>
+            <div class="mismatch-card-title">Font weight mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>font-weight: 400</code> (Regular)
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; D4</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            <code>font-weight: 500</code> (Medium)
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Satoshi:Medium &mdash; font/weight/Medium = 500</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-12" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:12</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Spacing Scale (4px base)</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 6: C1 Weight -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / C1 Component XL</div>
+            <div class="mismatch-card-title">Font weight mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>font-weight: 600</code> (Semibold)
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; C1</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            <code>font-weight: 500</code> (Medium)
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Satoshi:Medium &mdash; renders lighter than intended</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1531-84" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1531:84</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot override"></div>
-        <div class="align-card-label">Body Font: Satoshi</div>
-        <div class="align-card-status override">Override</div>
+
+      <!-- 7: D6 Line-height variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / D6 Display XS</div>
+            <div class="mismatch-card-title">Line-height variable mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
+            <code>line-height: 20px</code>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma Variable</div>
+            <code>font/line-height/sm: 16px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Variable bound to wrong token (sm = 16px, should be md = 20px)</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-49" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:49</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot override"></div>
-        <div class="align-card-label">Body Default: 14px</div>
-        <div class="align-card-status override">Override</div>
+
+      <!-- 8: H4 Line-height variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / H4 Heading S</div>
+            <div class="mismatch-card-title">Line-height variable mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
+            <code>line-height: 28px</code>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma Variable</div>
+            <code>font/line-height/lg: 24px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 28px / 1.5rem but lg token = 24px</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-779" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1538:779</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot override"></div>
-        <div class="align-card-label">Semibold (600) Weight</div>
-        <div class="align-card-status override">Override</div>
+
+      <!-- 9: H5 Line-height variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / H5 Heading XS</div>
+            <div class="mismatch-card-title">Line-height variable mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
+            <code>line-height: 24px</code>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma Variable</div>
+            <code>font/line-height/md: 20px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 24px / 1.25rem but md token = 20px</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-786" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1538:786</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot override"></div>
-        <div class="align-card-label">Component Type Scale (C1-C7)</div>
-        <div class="align-card-status override">Override</div>
+
+      <!-- 10: Caption Line-height variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / Caption (Fine Print)</div>
+            <div class="mismatch-card-title">Line-height variable mismatch + naming inconsistency</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>line-height: 20px</code><br>
+            Name: <strong>Caption</strong> / <strong>Caption Emphasized</strong>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma Variable</div>
+            <code>font/line-height/sm: 16px</code><br>
+            Name: <strong>Fine Print</strong> / <strong>Fine Print Emphasized</strong>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Both line-height and naming diverge</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:42</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot override"></div>
-        <div class="align-card-label">Display Hero: 96px</div>
-        <div class="align-card-status override">Override</div>
+
+      <!-- 11: C6 Line-height variable -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / C6 Component XS</div>
+            <div class="mismatch-card-title">Line-height variable mismatch</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
+            <code>line-height: 16px</code>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma Variable</div>
+            <code>font/line-height/xs: 14px</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 16px / 1.0rem but xs token = 14px</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=2170-6176" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 2170:6176</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Warning / Bronze Proximity</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 12: Inter placeholder font -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Typography / Global</div>
+            <div class="mismatch-card-title">Inter still used as label / descriptor font in Figma</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            All type should be <strong>Satoshi</strong> or <strong>Anacrusis</strong>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">F1 / Typography &mdash; two typefaces, one system</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            Header labels render in <code>Inter:Regular</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Placeholder font still present throughout type scale page</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=4-58" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 4:58</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Status Color Saturation</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 13: Text color remnants -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Color / Text Primary</div>
+            <div class="mismatch-card-title">Potential #f8f8f8 remnants in Figma</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            <code>#F0EBE3</code> (Warm Cream)
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">F2 / Color &mdash; Primary text across all surfaces</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            Core variable = <code>#f0ebe3</code> (correct), but legacy frames may still reference <code>#f8f8f8</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Sweep needed to confirm all instances updated</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Full file audit</a>
       </div>
-      <div class="align-card">
-        <div class="status-dot aligned"></div>
-        <div class="align-card-label">Display Title Typeface</div>
-        <div class="align-card-status aligned">Aligned</div>
+
+      <!-- 14: Dark mode theme issues -->
+      <div class="mismatch-card">
+        <div class="mismatch-card-header">
+          <div class="status-dot decision" style="margin-top:5px;"></div>
+          <div>
+            <div class="mismatch-card-category">Theme / Dark Mode</div>
+            <div class="mismatch-card-title">Divider colors + nav menu still on legacy palette</div>
+          </div>
+        </div>
+        <div class="mismatch-compare">
+          <div class="mismatch-side brand-guide">
+            <div class="mismatch-side-label">Brand Guide</div>
+            Dividers use <code>border token scale</code><br>
+            Nav uses <code>global color tokens</code>
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">F2 / Color &mdash; all surfaces use token system</div>
+          </div>
+          <div class="mismatch-side figma-actual">
+            <div class="mismatch-side-label">Figma GDS26R</div>
+            Dividers too bright (custom values)<br>
+            Nav menu uses legacy custom palette
+            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Both need remapping to global tokens before handoff</div>
+          </div>
+        </div>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Full file audit</a>
       </div>
     </div>
 
-    <!-- Quick summary -->
-    <div class="fade-up" style="margin-top:32px; display:flex; gap:24px; font-size:13px;">
-      <div><span class="status-dot aligned"></span><strong>9</strong> aligned</div>
-      <div><span class="status-dot override"></span><strong>5</strong> product overrides</div>
+    <!-- ===================== -->
+    <!-- INTENTIONAL OVERRIDES -->
+    <!-- ===================== -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">INTENTIONAL PRODUCT OVERRIDES</div>
+      <p style="font-size:13px; color:var(--text-secondary); margin-top:4px; margin-bottom:16px;">These are intentional divergences from the marketing/brand system. Documented and approved &mdash; no action needed.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:10px;">
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Body Font: Satoshi</div><div class="align-card-status override">Override</div></div>
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Body Default: 14px</div><div class="align-card-status override">Override</div></div>
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Semibold (600) Weight</div><div class="align-card-status override">Override</div></div>
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Component Type Scale (C1-C7)</div><div class="align-card-status override">Override</div></div>
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Display Hero: 96px</div><div class="align-card-status override">Override</div></div>
+      </div>
     </div>
 
-    <!-- Dark / Light Mode Status -->
+    <!-- ===================== -->
+    <!-- ALIGNED TOGGLE        -->
+    <!-- ===================== -->
+    <div class="audit-toggle fade-up" style="margin-top:32px;">
+      <div class="audit-toggle-header" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <div class="toggle-title">
+          <span class="status-dot aligned"></span>
+          Aligned Tokens
+          <span class="toggle-count">20 aligned</span>
+        </div>
+        <span class="toggle-chevron"><i class="ph-bold ph-caret-down"></i></span>
+      </div>
+      <div class="audit-toggle-body">
+        <div class="audit-toggle-body-inner">
+
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Base Background (#111620)</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Dark Mode Default</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Primary Text (#F0EBE3)</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Bronze Accent (#C48A3A)</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Focus Blue (#7CBBDF)</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Display Font Separation (Anacrusis 40px+)</span>
+            <div class="aligned-item-links">
+              <a href="#found-typography" class="guide-link">F1a</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Display Title Typeface (Anacrusis at D0/D1)</span>
+            <div class="aligned-item-links">
+              <a href="#found-typography" class="guide-link">F1</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Spacing Scale (4px base)</span>
+            <div class="aligned-item-links">
+              <a href="#found-spacing" class="guide-link">F3</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Warning / Bronze Proximity (#F0C543)</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Status Color Saturation (Warm Vivid set)</span>
+            <div class="aligned-item-links">
+              <a href="#found-color" class="guide-link">F2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">D2 Display XL (36px / 400 / 48px / -1%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=744-84" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">D3 Display L (28px / 400 / 36px / -1%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=744-91" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">D5 Display S (18px / 500 / 24px / -0.5%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1348-9283" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">H1 Heading XL (36px / 700 / 44px / -2%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-408" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">H2 Heading L (28px / 700 / 36px / -1%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-414" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">H3 Heading M (24px / 700 / 32px / 0%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-428" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Body Default (14px / 400 / 20px / 0%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-35" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">Body Emphasized (14px / 700 / 20px / 0%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-20" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">C2&ndash;C5 Component tokens</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1534-91" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+          <div class="aligned-item">
+            <span class="status-dot aligned"></span>
+            <span class="aligned-name">C7 Component XXS (9px / 500 / 12px / 1%)</span>
+            <div class="aligned-item-links">
+              <a href="#prod-type-tokens" class="guide-link">P2</a>
+              <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=2170-6292" target="_blank" class="figma-link">Figma</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme status (kept as reference) -->
     <div class="fade-up" style="margin-top:32px;">
       <div class="subsection-label">THEME STATUS</div>
-
-      <div class="callout-pending" style="margin-top:0; margin-bottom:12px;">
-        <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Dark Mode &mdash; In Progress</div>
-        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:8px;">Known outstanding issues in Figma that need to be resolved before handoff:</div>
-        <ul style="font-size:13px; color:var(--text-secondary); line-height:1.8; padding-left:20px; margin:0;">
-          <li>Divider line colors are too bright &mdash; need to be remapped to the border token scale</li>
-          <li>Main navigation menu uses a legacy custom color palette &mdash; needs to be remapped to global tokens</li>
-        </ul>
-      </div>
-
-      <div style="padding:20px 24px; border-radius:var(--radius-sm); background:var(--bg-raised); border:1px solid var(--border-default);">
-        <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Light Mode &mdash; Not Started</div>
-        <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Light mode has not been designed. When it is, note that state interaction opacity values (hover, active, focus) will likely need to be higher than the dark mode equivalents to maintain visual legibility.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+        <div class="callout-pending" style="margin-top:0;">
+          <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Dark Mode &mdash; In Progress</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">Covered in mismatch #14 above. Dividers + nav need token remapping.</div>
+        </div>
+        <div style="padding:20px 24px; border-radius:var(--radius-sm); background:var(--bg-raised); border:1px solid var(--border-default);">
+          <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Light Mode &mdash; Not Started</div>
+          <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Interaction opacity values will likely need to be higher than dark mode equivalents.</p>
+        </div>
       </div>
     </div>
 
-    <!-- Key callout: Figma text color -->
-    <div class="fade-up" style="margin-top:32px; padding:20px 24px; border-radius:var(--radius-sleeve); background:rgba(248,113,113,0.06); border:1px solid rgba(248,113,113,0.15);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:#F87171; margin-bottom:8px;">FIGMA UPDATE NEEDED</div>
-      <div style="font-size:14px; color:var(--text-primary); margin-bottom:6px;">Primary text color: Figma has <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:2px 6px; background:var(--bg-overlay); border-radius:4px;">#f8f8f8</code> (cool white) &mdash; should be <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:2px 6px; background:var(--bg-overlay); border-radius:4px;">#F0EBE3</code> (warm cream).</div>
-      <div style="font-size:13px; color:var(--text-secondary);">Warm cream (#F0EBE3) is the correct text-primary value across all surfaces. This is confirmed.</div>
-    </div>
-
-    <!-- Key callout: Font swap -->
-    <div class="fade-up callout-pending" style="margin-top:12px;">
-      <div class="callout-label">FIGMA UPDATE NEEDED</div>
-      <div style="font-size:14px; color:var(--text-primary); margin-bottom:6px;">Body font: Figma still uses a placeholder &mdash; swap to <strong>Satoshi</strong>. Locked in.</div>
-      <div style="font-size:13px; color:var(--text-secondary);">All token samples below render in Satoshi as the target state. The Figma file needs to be updated to match.</div>
-    </div>
   </div>
 </section>
 
