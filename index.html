@@ -1872,20 +1872,32 @@ section { padding: 120px 0; }
 
 /* Audit mismatch cards */
 .mismatch-card {
-  padding: 20px 24px; border-radius: var(--radius-sleeve);
+  border-radius: var(--radius-sleeve);
   background: var(--bg-raised); border: 1px solid rgba(248,113,113,0.18);
-  margin-bottom: 12px;
+  margin-bottom: 8px; overflow: hidden;
 }
 .mismatch-card-header {
-  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 20px; cursor: pointer; user-select: none;
+  transition: background 0.2s;
 }
-.mismatch-card-header .status-dot { margin-top: 5px; }
+.mismatch-card-header:hover { background: var(--bg-overlay); }
+.mismatch-card-header .status-dot { flex-shrink: 0; }
+.mismatch-card-header .task-chevron {
+  margin-left: auto; font-size: 14px; color: var(--text-tertiary);
+  transition: transform 0.3s; flex-shrink: 0;
+}
+.mismatch-card-header.open .task-chevron { transform: rotate(180deg); }
+.mismatch-card-body {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+}
+.mismatch-card-body.open { max-height: 2000px; }
 .mismatch-card-title {
-  font-size: 14px; font-weight: 700; color: var(--text-primary); line-height: 1.4;
+  font-size: 13px; font-weight: 700; color: var(--text-primary); line-height: 1.4;
 }
 .mismatch-card-category {
   font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: #F87171; margin-bottom: 4px;
+  color: #F87171; margin-bottom: 2px;
 }
 .mismatch-compare {
   display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;
@@ -1911,10 +1923,16 @@ section { padding: 120px 0; }
 }
 .mismatch-node-link {
   display: inline-flex; align-items: center; gap: 4px;
-  font-size: 11px; color: var(--text-tertiary); margin-top: 8px;
+  font-size: 11px; color: var(--text-tertiary);
   text-decoration: none; transition: color 0.2s;
 }
 .mismatch-node-link:hover { color: var(--bronze-400); }
+.task-expand-all {
+  font-size: 12px; font-weight: 600; color: var(--focus); background: rgba(124,187,223,0.08);
+  border: 1px solid rgba(124,187,223,0.15); border-radius: 999px;
+  padding: 4px 14px; cursor: pointer; transition: background 0.2s;
+}
+.task-expand-all:hover { background: rgba(124,187,223,0.15); }
 
 /* Audit aligned toggle */
 .audit-toggle {
@@ -4655,189 +4673,213 @@ section { padding: 120px 0; }
     <!-- FIGMA UPDATE INSTRUCTIONS                -->
     <!-- ======================================== -->
     <div class="fade-up" style="margin-top:40px;">
-      <div class="subsection-label">FIGMA UPDATE TASKS &mdash; COPY-PASTE INSTRUCTIONS</div>
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div class="subsection-label">FIGMA UPDATE TASKS &mdash; COPY-PASTE INSTRUCTIONS</div>
+        <button class="task-expand-all" onclick="const cards=this.closest('.fade-up').querySelectorAll('.mismatch-card');const allOpen=[...cards].every(c=>c.querySelector('.mismatch-card-body').classList.contains('open'));cards.forEach(c=>{const h=c.querySelector('.mismatch-card-header');const b=c.querySelector('.mismatch-card-body');if(allOpen){h.classList.remove('open');b.classList.remove('open');}else{h.classList.add('open');b.classList.add('open');}});this.textContent=allOpen?'Expand All':'Collapse All';">Expand All</button>
+      </div>
 
       <!-- TASK 1: Fix variable values -->
       <div class="mismatch-card" style="margin-top:16px;">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 1 / Typography Variables</div>
             <div class="mismatch-card-title">Fix D0 variable values &mdash; size + line-height</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          <strong style="color:var(--text-primary);">Open:</strong> Variables panel &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/size/6xl</code><br>
-          <strong style="color:var(--text-primary);">Change:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">64</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">96</code><br><br>
-          <strong style="color:var(--text-primary);">Open:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/line-height/6xl</code><br>
-          <strong style="color:var(--text-primary);">Change:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">72</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">116</code>
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            <strong style="color:var(--text-primary);">Open:</strong> Variables panel &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/size/6xl</code><br>
+            <strong style="color:var(--text-primary);">Change:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">64</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">96</code><br><br>
+            <strong style="color:var(--text-primary);">Open:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/line-height/6xl</code><br>
+            <strong style="color:var(--text-primary);">Change:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">72</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">116</code>
+          </div>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295 (D0 frame)</a>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295 (D0 frame)</a>
       </div>
 
       <!-- TASK 2: Rebind line-height variables -->
       <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 2 / Line-Height Bindings</div>
             <div class="mismatch-card-title">Rebind 5 text styles to correct line-height variables</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          For each style below, select the text layer, open the line-height variable picker, and swap to the correct token:<br><br>
-          <div style="display:grid; grid-template-columns:100px 1fr 30px 1fr; gap:6px 12px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11px;">
-            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">D6</span>
-            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/sm</code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/md</code>
-            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">H4</span>
-            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/lg</code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/xl</code>
-            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">H5</span>
-            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/md</code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/lg</code>
-            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">Caption</span>
-            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/sm</code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/md</code>
-            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">C6</span>
-            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/xs</code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/sm</code>
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            For each style below, select the text layer, open the line-height variable picker, and swap to the correct token:<br><br>
+            <div style="display:grid; grid-template-columns:100px 1fr 30px 1fr; gap:6px 12px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11px;">
+              <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">D6</span>
+              <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/sm</code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/md</code>
+              <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">H4</span>
+              <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/lg</code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/xl</code>
+              <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">H5</span>
+              <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/md</code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/lg</code>
+              <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">Caption</span>
+              <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/sm</code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/md</code>
+              <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">C6</span>
+              <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/xs</code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/sm</code>
+            </div>
+            <div style="margin-top:12px; font-size:12px; color:var(--text-tertiary);">If <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/line-height/xl</code> (28px) doesn't exist yet, create it in the variables panel first.</div>
           </div>
-          <div style="margin-top:12px; font-size:12px; color:var(--text-tertiary);">If <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/line-height/xl</code> (28px) doesn't exist yet, create it in the variables panel first.</div>
-        </div>
-        <div style="display:flex; gap:8px; padding:0 20px 16px;">
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-49" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D6</a>
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-779" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> H4</a>
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-786" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> H5</a>
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> Caption</a>
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=2170-6176" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> C6</a>
+          <div style="display:flex; gap:8px; padding:0 20px 16px;">
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-49" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D6</a>
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-779" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> H4</a>
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-786" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> H5</a>
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> Caption</a>
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=2170-6176" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> C6</a>
+          </div>
         </div>
       </div>
 
       <!-- TASK 3: Letter-spacing -->
       <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 3 / Letter-Spacing</div>
             <div class="mismatch-card-title">Set D0 and D1 letter-spacing to brand values</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          <strong style="color:var(--text-primary);">D0 Display Hero:</strong> Select text layer at node 757:1295. Set letter-spacing to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">-4%</code> (currently -1%).<br>
-          <strong style="color:var(--text-primary);">D1 Display XXL:</strong> Select text layer at node 729:396. Set letter-spacing to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">-3%</code> (currently -0.05%).<br><br>
-          <span style="font-size:12px; color:var(--text-tertiary);">Both are display typefaces at large sizes &mdash; tight tracking is intentional for the Grouped aesthetic.</span>
-        </div>
-        <div style="display:flex; gap:8px; padding:0 20px 16px;">
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D0</a>
-          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-396" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D1</a>
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            <strong style="color:var(--text-primary);">D0 Display Hero:</strong> Select text layer at node 757:1295. Set letter-spacing to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">-4%</code> (currently -1%).<br>
+            <strong style="color:var(--text-primary);">D1 Display XXL:</strong> Select text layer at node 729:396. Set letter-spacing to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">-3%</code> (currently -0.05%).<br><br>
+            <span style="font-size:12px; color:var(--text-tertiary);">Both are display typefaces at large sizes &mdash; tight tracking is intentional for the Grouped aesthetic.</span>
+          </div>
+          <div style="display:flex; gap:8px; padding:0 20px 16px;">
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D0</a>
+            <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-396" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D1</a>
+          </div>
         </div>
       </div>
 
       <!-- TASK 4: Weight remap -->
       <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 4 / Font Weights</div>
             <div class="mismatch-card-title">Remap all Semibold &rarr; Bold + update D4 to Medium</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          <div style="padding:12px 16px; background:rgba(124,187,223,0.08); border:1px solid rgba(124,187,223,0.2); border-radius:var(--radius-sleeve); margin-bottom:16px;">
-            <strong style="color:var(--focus);">Why:</strong> <span style="color:var(--text-primary);">Satoshi has no 600 weight. All Semibold intent maps to Bold 700.</span>
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            <div style="padding:12px 16px; background:rgba(124,187,223,0.08); border:1px solid rgba(124,187,223,0.2); border-radius:var(--radius-sleeve); margin-bottom:16px;">
+              <strong style="color:var(--focus);">Why:</strong> <span style="color:var(--text-primary);">Satoshi has no 600 weight. All Semibold intent maps to Bold 700.</span>
+            </div>
+            <strong style="color:var(--text-primary);">Set to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/weight/Bold (700)</code>:</strong><br>
+            &bull; D0 Display Hero (node 757:1295)<br>
+            &bull; D1 Display XXL (node 729:396)<br>
+            &bull; C1 Component XL (node 1531:84) &mdash; currently Medium, should be Bold<br>
+            &bull; C2 Component L &bull; C3 Component M &bull; C4 Component S<br><br>
+            <strong style="color:var(--text-primary);">Set D4 to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/weight/Medium (500)</code>:</strong><br>
+            &bull; D4 Display M (node 757:12) &mdash; currently Medium in Figma, was Regular in old guide. Medium is correct for 24px display.<br><br>
+            <span style="font-size:12px; color:var(--text-tertiary);">Weight hierarchy after remap: Regular&nbsp;400 &lt; Medium&nbsp;500 &lt; Bold&nbsp;700. No gaps.</span>
           </div>
-          <strong style="color:var(--text-primary);">Set to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/weight/Bold (700)</code>:</strong><br>
-          &bull; D0 Display Hero (node 757:1295)<br>
-          &bull; D1 Display XXL (node 729:396)<br>
-          &bull; C1 Component XL (node 1531:84) &mdash; currently Medium, should be Bold<br>
-          &bull; C2 Component L &bull; C3 Component M &bull; C4 Component S<br><br>
-          <strong style="color:var(--text-primary);">Set D4 to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/weight/Medium (500)</code>:</strong><br>
-          &bull; D4 Display M (node 757:12) &mdash; currently Medium in Figma, was Regular in old guide. Medium is correct for 24px display.<br><br>
-          <span style="font-size:12px; color:var(--text-tertiary);">Weight hierarchy after remap: Regular&nbsp;400 &lt; Medium&nbsp;500 &lt; Bold&nbsp;700. No gaps.</span>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1531-84" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1531:84 (C1 frame)</a>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1531-84" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1531:84 (C1 frame)</a>
       </div>
 
       <!-- TASK 5: Caption naming -->
       <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 5 / Naming</div>
             <div class="mismatch-card-title">Rename &ldquo;Fine Print&rdquo; &rarr; &ldquo;Caption&rdquo;</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          <strong style="color:var(--text-primary);">In the text styles panel:</strong><br>
-          &bull; Rename <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Fine Print</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Caption</code><br>
-          &bull; Rename <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Fine Print Emphasized</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Caption Emphasized</code><br><br>
-          <span style="font-size:12px; color:var(--text-tertiary);">&ldquo;Caption&rdquo; is the standard name devs expect. Keeps naming consistent across brand guide, code, and Figma.</span>
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            <strong style="color:var(--text-primary);">In the text styles panel:</strong><br>
+            &bull; Rename <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Fine Print</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Caption</code><br>
+            &bull; Rename <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Fine Print Emphasized</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Caption Emphasized</code><br><br>
+            <span style="font-size:12px; color:var(--text-tertiary);">&ldquo;Caption&rdquo; is the standard name devs expect. Keeps naming consistent across brand guide, code, and Figma.</span>
+          </div>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:42 (Caption frame)</a>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:42 (Caption frame)</a>
       </div>
 
       <!-- TASK 6: Font + color cleanup -->
       <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 6 / Global Cleanup</div>
             <div class="mismatch-card-title">Replace Inter with Satoshi + sweep #f8f8f8 remnants</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          <strong style="color:var(--text-primary);">Font sweep:</strong><br>
-          &bull; Select All (<code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Cmd+A</code>) on the type scale page (node 4:58)<br>
-          &bull; In the font picker, filter for &ldquo;Inter&rdquo; &mdash; replace every instance with <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Satoshi</code><br>
-          &bull; Check all other pages for stray Inter instances<br><br>
-          <strong style="color:var(--text-primary);">Color sweep:</strong><br>
-          &bull; Use <strong>Edit &rarr; Find and Replace</strong> (color mode) or a plugin like &ldquo;Find and Replace Colors&rdquo;<br>
-          &bull; Find <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">#f8f8f8</code> &rarr; Replace with <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">#F0EBE3</code><br>
-          &bull; The core <code style="font-family:'JetBrains Mono',monospace; font-size:11px;">Text/Core/Primary</code> variable is already correct (#f0ebe3) &mdash; this catches hard-coded overrides
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            <strong style="color:var(--text-primary);">Font sweep:</strong><br>
+            &bull; Select All (<code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Cmd+A</code>) on the type scale page (node 4:58)<br>
+            &bull; In the font picker, filter for &ldquo;Inter&rdquo; &mdash; replace every instance with <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Satoshi</code><br>
+            &bull; Check all other pages for stray Inter instances<br><br>
+            <strong style="color:var(--text-primary);">Color sweep:</strong><br>
+            &bull; Use <strong>Edit &rarr; Find and Replace</strong> (color mode) or a plugin like &ldquo;Find and Replace Colors&rdquo;<br>
+            &bull; Find <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">#f8f8f8</code> &rarr; Replace with <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">#F0EBE3</code><br>
+            &bull; The core <code style="font-family:'JetBrains Mono',monospace; font-size:11px;">Text/Core/Primary</code> variable is already correct (#f0ebe3) &mdash; this catches hard-coded overrides
+          </div>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=4-58" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 4:58 (Type scale page)</a>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=4-58" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 4:58 (Type scale page)</a>
       </div>
 
       <!-- TASK 7: Nav menu remapping -->
       <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
+        <div class="mismatch-card-header" onclick="this.classList.toggle('open'); this.parentElement.querySelector('.mismatch-card-body').classList.toggle('open');">
+          <div class="status-dot decision" style="margin-top:2px;"></div>
           <div>
             <div class="mismatch-card-category">Task 7 / Nav Menu Colors</div>
             <div class="mismatch-card-title">Remap Artist Main Nav from legacy palette to global tokens</div>
           </div>
+          <span class="task-chevron"><i class="ph-bold ph-caret-down"></i></span>
         </div>
-        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
-          <div style="padding:12px 16px; background:rgba(240,112,104,0.08); border:1px solid rgba(240,112,104,0.2); border-radius:var(--radius-sleeve); margin-bottom:16px;">
-            <strong style="color:var(--error);">Critical:</strong> <span style="color:var(--text-primary);">The nav menu currently uses an entirely separate color system. Every color below is a custom variable that should reference a global token instead.</span>
+        <div class="mismatch-card-body">
+          <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+            <div style="padding:12px 16px; background:rgba(240,112,104,0.08); border:1px solid rgba(240,112,104,0.2); border-radius:var(--radius-sleeve); margin-bottom:16px;">
+              <strong style="color:var(--error);">Critical:</strong> <span style="color:var(--text-primary);">The nav menu currently uses an entirely separate color system. Every color below is a custom variable that should reference a global token instead.</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 30px 1fr; gap:8px 12px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11px;">
+              <div style="font-family:Satoshi,sans-serif; font-size:12px; font-weight:700; color:var(--text-primary); grid-column:1/-1; margin-bottom:4px;">Variable remapping:</div>
+              <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Text/interactive/Nav-menu<br><span style="color:var(--text-tertiary);">#f8f8f8</span></code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Text/Core/Primary<br>#F0EBE3</code>
+              <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Text/interactive/Nav-menu-secondary<br><span style="color:var(--text-tertiary);">#d2d3d6</span></code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">New: Text/Core/Muted<br>#A09B93</code>
+              <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">color/blue/400<br><span style="color:var(--text-tertiary);">#4f96d0</span></code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Brand/Focus Blue<br>#7CBBDF</code>
+              <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Menu Link Active<br><span style="color:var(--text-tertiary);">#101323</span></code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Fill/Core/Base<br>#111620</code>
+              <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Fill/Interactive/Nav-menu<br><span style="color:var(--text-tertiary);">#181e2a</span></code>
+              <span style="color:var(--text-tertiary);">&rarr;</span>
+              <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Fill/Core/L1<br>#181E2A (alias)</code>
+            </div>
+            <div style="margin-top:16px; font-size:12px; color:var(--text-tertiary);">After remapping, delete the orphaned nav-specific variables. The nav should inherit from the global token system so theme changes propagate automatically.</div>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 30px 1fr; gap:8px 12px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11px;">
-            <div style="font-family:Satoshi,sans-serif; font-size:12px; font-weight:700; color:var(--text-primary); grid-column:1/-1; margin-bottom:4px;">Variable remapping:</div>
-            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Text/interactive/Nav-menu<br><span style="color:var(--text-tertiary);">#f8f8f8</span></code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Text/Core/Primary<br>#F0EBE3</code>
-            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Text/interactive/Nav-menu-secondary<br><span style="color:var(--text-tertiary);">#d2d3d6</span></code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">New: Text/Core/Muted<br>#A09B93</code>
-            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">color/blue/400<br><span style="color:var(--text-tertiary);">#4f96d0</span></code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Brand/Focus Blue<br>#7CBBDF</code>
-            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Menu Link Active<br><span style="color:var(--text-tertiary);">#101323</span></code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Fill/Core/Base<br>#111620</code>
-            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Fill/Interactive/Nav-menu<br><span style="color:var(--text-tertiary);">#181e2a</span></code>
-            <span style="color:var(--text-tertiary);">&rarr;</span>
-            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Fill/Core/L1<br>#181E2A (alias)</code>
-          </div>
-          <div style="margin-top:16px; font-size:12px; color:var(--text-tertiary);">After remapping, delete the orphaned nav-specific variables. The nav should inherit from the global token system so theme changes propagate automatically.</div>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=93-771" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Menus page</a>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=93-771" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Menus page</a>
       </div>
     </div>
 
