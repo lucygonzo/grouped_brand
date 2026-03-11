@@ -2392,7 +2392,7 @@ section { padding: 120px 0; }
         <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid rgba(124,187,223,0.3);">
           <div style="font-size:14px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px;">No Semibold <span style="font-size:10px; font-weight:700; color:var(--focus); background:rgba(124,187,223,0.1); padding:2px 8px; border-radius:999px;">IMPORTANT</span></div>
           <div style="font-size:13px; color:var(--text-secondary); line-height:1.7;">
-            Satoshi does not include a Semibold (600) weight. Component tokens (C1-C4 buttons) specify <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font-weight: 600</code> for intent, but Satoshi renders this as Bold (700). This is expected and acceptable &mdash; the visual result is correct for buttons and CTAs.
+            Satoshi does not include a Semibold (600) weight. All tokens that previously specified 600 &mdash; D0, D1, C1&ndash;C4 &mdash; are now officially <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font-weight: 700</code> (Bold). This maintains the hierarchy: Regular&nbsp;400 &lt; Medium&nbsp;500 &lt; Bold&nbsp;700. Figma text styles should use <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/weight/Bold</code> for these tokens.
           </div>
         </div>
       </div>
@@ -4640,355 +4640,204 @@ section { padding: 120px 0; }
   <div class="container">
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P1</span> / Rebrand Alignment</div>
-      <h2 class="section-title">What's different: Figma ↔ brand guide.</h2>
-      <p class="section-desc" style="max-width:640px;">Token-by-token audit of GDS26R against the brand guide. Every mismatch is listed below with what the brand guide says vs what Figma currently has. Aligned tokens are in the dropdown at the bottom.</p>
+      <h2 class="section-title">Figma update instructions.</h2>
+      <p class="section-desc" style="max-width:640px;">All decisions resolved. These are the exact changes the product team needs to make in the GDS26R Figma file. Seven tasks, ordered by priority. Check off each one as you go.</p>
     </div>
 
     <!-- Quick summary bar -->
     <div class="fade-up" style="margin-top:32px; display:flex; gap:24px; font-size:13px; align-items:center;">
-      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot decision"></span><strong>14</strong> mismatches</div>
+      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot decision"></span><strong>7</strong> Figma tasks</div>
       <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot override"></span><strong>5</strong> intentional overrides</div>
       <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot aligned"></span><strong>20</strong> aligned</div>
     </div>
 
-    <!-- ===================== -->
-    <!-- MISMATCHES SECTION    -->
-    <!-- ===================== -->
+    <!-- ======================================== -->
+    <!-- FIGMA UPDATE INSTRUCTIONS                -->
+    <!-- ======================================== -->
     <div class="fade-up" style="margin-top:40px;">
-      <div class="subsection-label">MISMATCHES &mdash; NEEDS FIGMA UPDATE OR DECISION</div>
+      <div class="subsection-label">FIGMA UPDATE TASKS &mdash; COPY-PASTE INSTRUCTIONS</div>
 
-      <!-- 1: D0 Letter-spacing -->
+      <!-- TASK 1: Fix variable values -->
       <div class="mismatch-card" style="margin-top:16px;">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / D0 Display Hero</div>
-            <div class="mismatch-card-title">Letter-spacing mismatch</div>
+            <div class="mismatch-card-category">Task 1 / Typography Variables</div>
+            <div class="mismatch-card-title">Fix D0 variable values &mdash; size + line-height</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>letter-spacing: -4%</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; D0</div>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            <code>letter-spacing: -1%</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">font/letterspacing/4xs = -1px</div>
-          </div>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          <strong style="color:var(--text-primary);">Open:</strong> Variables panel &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/size/6xl</code><br>
+          <strong style="color:var(--text-primary);">Change:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">64</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">96</code><br><br>
+          <strong style="color:var(--text-primary);">Open:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/line-height/6xl</code><br>
+          <strong style="color:var(--text-primary);">Change:</strong> <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">72</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">116</code>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295</a>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295 (D0 frame)</a>
       </div>
 
-      <!-- 2: D0 Size variable -->
+      <!-- TASK 2: Rebind line-height variables -->
       <div class="mismatch-card">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / D0 Display Hero</div>
-            <div class="mismatch-card-title">Figma variable doesn't match label &mdash; <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:1px 5px; background:var(--bg-overlay); border-radius:3px;">font/size/6xl</code> = 64px</div>
+            <div class="mismatch-card-category">Task 2 / Line-Height Bindings</div>
+            <div class="mismatch-card-title">Rebind 5 text styles to correct line-height variables</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>font-size: 96px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">D0 Display Hero &mdash; 96px / 6.0rem</div>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          For each style below, select the text layer, open the line-height variable picker, and swap to the correct token:<br><br>
+          <div style="display:grid; grid-template-columns:100px 1fr 30px 1fr; gap:6px 12px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11px;">
+            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">D6</span>
+            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/sm</code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/md</code>
+            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">H4</span>
+            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/lg</code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/xl</code>
+            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">H5</span>
+            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/md</code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/lg</code>
+            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">Caption</span>
+            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/sm</code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/md</code>
+            <span style="color:var(--text-primary); font-family:Satoshi,sans-serif; font-size:12px; font-weight:700;">C6</span>
+            <code style="padding:2px 6px; background:var(--bg-overlay); border-radius:3px;">font/line-height/xs</code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:2px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/line-height/sm</code>
           </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R Variable</div>
-            <code>font/size/6xl: 64px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 96px but variable resolves to 64px</div>
-          </div>
+          <div style="margin-top:12px; font-size:12px; color:var(--text-tertiary);">If <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/line-height/xl</code> (28px) doesn't exist yet, create it in the variables panel first.</div>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295</a>
+        <div style="display:flex; gap:8px; padding:0 20px 16px;">
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-49" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D6</a>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-779" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> H4</a>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-786" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> H5</a>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> Caption</a>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=2170-6176" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> C6</a>
+        </div>
       </div>
 
-      <!-- 3: D0 Line-height variable -->
+      <!-- TASK 3: Letter-spacing -->
       <div class="mismatch-card">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / D0 Display Hero</div>
-            <div class="mismatch-card-title">Line-height variable mismatch &mdash; <code style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:1px 5px; background:var(--bg-overlay); border-radius:3px;">font/line-height/6xl</code> = 72px</div>
+            <div class="mismatch-card-category">Task 3 / Letter-Spacing</div>
+            <div class="mismatch-card-title">Set D0 and D1 letter-spacing to brand values</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>line-height: 116px</code>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R Variable</div>
-            <code>font/line-height/6xl: 72px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 116px / 7.25rem but variable = 72px</div>
-          </div>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          <strong style="color:var(--text-primary);">D0 Display Hero:</strong> Select text layer at node 757:1295. Set letter-spacing to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">-4%</code> (currently -1%).<br>
+          <strong style="color:var(--text-primary);">D1 Display XXL:</strong> Select text layer at node 729:396. Set letter-spacing to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">-3%</code> (currently -0.05%).<br><br>
+          <span style="font-size:12px; color:var(--text-tertiary);">Both are display typefaces at large sizes &mdash; tight tracking is intentional for the Grouped aesthetic.</span>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:1295</a>
+        <div style="display:flex; gap:8px; padding:0 20px 16px;">
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-1295" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D0</a>
+          <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-396" target="_blank" class="mismatch-node-link" style="margin:0;"><i class="ph-bold ph-figma-logo"></i> D1</a>
+        </div>
       </div>
 
-      <!-- 4: D1 Letter-spacing -->
+      <!-- TASK 4: Weight remap -->
       <div class="mismatch-card">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / D1 Display XXL</div>
-            <div class="mismatch-card-title">Letter-spacing mismatch</div>
+            <div class="mismatch-card-category">Task 4 / Font Weights</div>
+            <div class="mismatch-card-title">Remap all Semibold &rarr; Bold + update D4 to Medium</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>letter-spacing: -3%</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; D1</div>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          <div style="padding:12px 16px; background:rgba(124,187,223,0.08); border:1px solid rgba(124,187,223,0.2); border-radius:var(--radius-sleeve); margin-bottom:16px;">
+            <strong style="color:var(--focus);">Why:</strong> <span style="color:var(--text-primary);">Satoshi has no 600 weight. All Semibold intent maps to Bold 700.</span>
           </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            <code>letter-spacing: -0.05%</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">font/letterspacing/sm = -0.05px (essentially 0%)</div>
-          </div>
+          <strong style="color:var(--text-primary);">Set to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/weight/Bold (700)</code>:</strong><br>
+          &bull; D0 Display Hero (node 757:1295)<br>
+          &bull; D1 Display XXL (node 729:396)<br>
+          &bull; C1 Component XL (node 1531:84) &mdash; currently Medium, should be Bold<br>
+          &bull; C2 Component L &bull; C3 Component M &bull; C4 Component S<br><br>
+          <strong style="color:var(--text-primary);">Set D4 to <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">font/weight/Medium (500)</code>:</strong><br>
+          &bull; D4 Display M (node 757:12) &mdash; currently Medium in Figma, was Regular in old guide. Medium is correct for 24px display.<br><br>
+          <span style="font-size:12px; color:var(--text-tertiary);">Weight hierarchy after remap: Regular&nbsp;400 &lt; Medium&nbsp;500 &lt; Bold&nbsp;700. No gaps.</span>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=729-396" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 729:396</a>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1531-84" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1531:84 (C1 frame)</a>
       </div>
 
-      <!-- 5: D4 Weight -->
+      <!-- TASK 5: Caption naming -->
       <div class="mismatch-card">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / D4 Display M</div>
-            <div class="mismatch-card-title">Font weight mismatch</div>
+            <div class="mismatch-card-category">Task 5 / Naming</div>
+            <div class="mismatch-card-title">Rename &ldquo;Fine Print&rdquo; &rarr; &ldquo;Caption&rdquo;</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>font-weight: 400</code> (Regular)
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; D4</div>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            <code>font-weight: 500</code> (Medium)
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Satoshi:Medium &mdash; font/weight/Medium = 500</div>
-          </div>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          <strong style="color:var(--text-primary);">In the text styles panel:</strong><br>
+          &bull; Rename <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Fine Print</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Caption</code><br>
+          &bull; Rename <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Fine Print Emphasized</code> &rarr; <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Caption Emphasized</code><br><br>
+          <span style="font-size:12px; color:var(--text-tertiary);">&ldquo;Caption&rdquo; is the standard name devs expect. Keeps naming consistent across brand guide, code, and Figma.</span>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-12" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:12</a>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:42 (Caption frame)</a>
       </div>
 
-      <!-- 6: C1 Weight -->
+      <!-- TASK 6: Font + color cleanup -->
       <div class="mismatch-card">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / C1 Component XL</div>
-            <div class="mismatch-card-title">Font weight mismatch</div>
+            <div class="mismatch-card-category">Task 6 / Global Cleanup</div>
+            <div class="mismatch-card-title">Replace Inter with Satoshi + sweep #f8f8f8 remnants</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>font-weight: 600</code> (Semibold)
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">P2 / Product Type Scale &rarr; C1</div>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            <code>font-weight: 500</code> (Medium)
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Satoshi:Medium &mdash; renders lighter than intended</div>
-          </div>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          <strong style="color:var(--text-primary);">Font sweep:</strong><br>
+          &bull; Select All (<code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">Cmd+A</code>) on the type scale page (node 4:58)<br>
+          &bull; In the font picker, filter for &ldquo;Inter&rdquo; &mdash; replace every instance with <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Satoshi</code><br>
+          &bull; Check all other pages for stray Inter instances<br><br>
+          <strong style="color:var(--text-primary);">Color sweep:</strong><br>
+          &bull; Use <strong>Edit &rarr; Find and Replace</strong> (color mode) or a plugin like &ldquo;Find and Replace Colors&rdquo;<br>
+          &bull; Find <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">#f8f8f8</code> &rarr; Replace with <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">#F0EBE3</code><br>
+          &bull; The core <code style="font-family:'JetBrains Mono',monospace; font-size:11px;">Text/Core/Primary</code> variable is already correct (#f0ebe3) &mdash; this catches hard-coded overrides
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1531-84" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1531:84</a>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=4-58" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 4:58 (Type scale page)</a>
       </div>
 
-      <!-- 7: D6 Line-height variable -->
+      <!-- TASK 7: Nav menu remapping -->
       <div class="mismatch-card">
         <div class="mismatch-card-header">
           <div class="status-dot decision" style="margin-top:5px;"></div>
           <div>
-            <div class="mismatch-card-category">Typography / D6 Display XS</div>
-            <div class="mismatch-card-title">Line-height variable mismatch</div>
+            <div class="mismatch-card-category">Task 7 / Nav Menu Colors</div>
+            <div class="mismatch-card-title">Remap Artist Main Nav from legacy palette to global tokens</div>
           </div>
         </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
-            <code>line-height: 20px</code>
+        <div style="padding:16px 20px; font-size:13px; color:var(--text-secondary); line-height:1.8; border-top:1px solid var(--border-default);">
+          <div style="padding:12px 16px; background:rgba(240,112,104,0.08); border:1px solid rgba(240,112,104,0.2); border-radius:var(--radius-sleeve); margin-bottom:16px;">
+            <strong style="color:var(--error);">Critical:</strong> <span style="color:var(--text-primary);">The nav menu currently uses an entirely separate color system. Every color below is a custom variable that should reference a global token instead.</span>
           </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma Variable</div>
-            <code>font/line-height/sm: 16px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Variable bound to wrong token (sm = 16px, should be md = 20px)</div>
+          <div style="display:grid; grid-template-columns:1fr 30px 1fr; gap:8px 12px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11px;">
+            <div style="font-family:Satoshi,sans-serif; font-size:12px; font-weight:700; color:var(--text-primary); grid-column:1/-1; margin-bottom:4px;">Variable remapping:</div>
+            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Text/interactive/Nav-menu<br><span style="color:var(--text-tertiary);">#f8f8f8</span></code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Text/Core/Primary<br>#F0EBE3</code>
+            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Text/interactive/Nav-menu-secondary<br><span style="color:var(--text-tertiary);">#d2d3d6</span></code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">New: Text/Core/Muted<br>#A09B93</code>
+            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">color/blue/400<br><span style="color:var(--text-tertiary);">#4f96d0</span></code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Brand/Focus Blue<br>#7CBBDF</code>
+            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Menu Link Active<br><span style="color:var(--text-tertiary);">#101323</span></code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Fill/Core/Base<br>#111620</code>
+            <code style="padding:3px 6px; background:var(--bg-overlay); border-radius:3px;">Fill/Interactive/Nav-menu<br><span style="color:var(--text-tertiary);">#181e2a</span></code>
+            <span style="color:var(--text-tertiary);">&rarr;</span>
+            <code style="padding:3px 6px; background:rgba(74,222,128,0.15); border-radius:3px; color:var(--success);">Fill/Core/L1<br>#181E2A (alias)</code>
           </div>
+          <div style="margin-top:16px; font-size:12px; color:var(--text-tertiary);">After remapping, delete the orphaned nav-specific variables. The nav should inherit from the global token system so theme changes propagate automatically.</div>
         </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-49" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:49</a>
-      </div>
-
-      <!-- 8: H4 Line-height variable -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Typography / H4 Heading S</div>
-            <div class="mismatch-card-title">Line-height variable mismatch</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
-            <code>line-height: 28px</code>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma Variable</div>
-            <code>font/line-height/lg: 24px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 28px / 1.5rem but lg token = 24px</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-779" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1538:779</a>
-      </div>
-
-      <!-- 9: H5 Line-height variable -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Typography / H5 Heading XS</div>
-            <div class="mismatch-card-title">Line-height variable mismatch</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
-            <code>line-height: 24px</code>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma Variable</div>
-            <code>font/line-height/md: 20px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 24px / 1.25rem but md token = 20px</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=1538-786" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 1538:786</a>
-      </div>
-
-      <!-- 10: Caption Line-height variable -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Typography / Caption (Fine Print)</div>
-            <div class="mismatch-card-title">Line-height variable mismatch + naming inconsistency</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>line-height: 20px</code><br>
-            Name: <strong>Caption</strong> / <strong>Caption Emphasized</strong>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma Variable</div>
-            <code>font/line-height/sm: 16px</code><br>
-            Name: <strong>Fine Print</strong> / <strong>Fine Print Emphasized</strong>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Both line-height and naming diverge</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=757-42" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 757:42</a>
-      </div>
-
-      <!-- 11: C6 Line-height variable -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Typography / C6 Component XS</div>
-            <div class="mismatch-card-title">Line-height variable mismatch</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide / Figma Label</div>
-            <code>line-height: 16px</code>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma Variable</div>
-            <code>font/line-height/xs: 14px</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Label says 16px / 1.0rem but xs token = 14px</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=2170-6176" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 2170:6176</a>
-      </div>
-
-      <!-- 12: Inter placeholder font -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Typography / Global</div>
-            <div class="mismatch-card-title">Inter still used as label / descriptor font in Figma</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            All type should be <strong>Satoshi</strong> or <strong>Anacrusis</strong>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">F1 / Typography &mdash; two typefaces, one system</div>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            Header labels render in <code>Inter:Regular</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Placeholder font still present throughout type scale page</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=4-58" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Node 4:58</a>
-      </div>
-
-      <!-- 13: Text color remnants -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Color / Text Primary</div>
-            <div class="mismatch-card-title">Potential #f8f8f8 remnants in Figma</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            <code>#F0EBE3</code> (Warm Cream)
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">F2 / Color &mdash; Primary text across all surfaces</div>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            Core variable = <code>#f0ebe3</code> (correct), but legacy frames may still reference <code>#f8f8f8</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Sweep needed to confirm all instances updated</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Full file audit</a>
-      </div>
-
-      <!-- 14: Dark mode theme issues -->
-      <div class="mismatch-card">
-        <div class="mismatch-card-header">
-          <div class="status-dot decision" style="margin-top:5px;"></div>
-          <div>
-            <div class="mismatch-card-category">Theme / Dark Mode</div>
-            <div class="mismatch-card-title">Divider colors + nav menu still on legacy palette</div>
-          </div>
-        </div>
-        <div class="mismatch-compare">
-          <div class="mismatch-side brand-guide">
-            <div class="mismatch-side-label">Brand Guide</div>
-            Dividers use <code>border token scale</code><br>
-            Nav uses <code>global color tokens</code>
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">F2 / Color &mdash; all surfaces use token system</div>
-          </div>
-          <div class="mismatch-side figma-actual">
-            <div class="mismatch-side-label">Figma GDS26R</div>
-            Dividers too bright (custom values)<br>
-            Nav menu uses legacy custom palette
-            <div style="font-size:12px; color:var(--text-tertiary); margin-top:4px;">Both need remapping to global tokens before handoff</div>
-          </div>
-        </div>
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Full file audit</a>
+        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=93-771" target="_blank" class="mismatch-node-link"><i class="ph-bold ph-figma-logo"></i> Menus page</a>
       </div>
     </div>
 
@@ -5002,7 +4851,7 @@ section { padding: 120px 0; }
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:10px;">
         <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Body Font: Satoshi</div><div class="align-card-status override">Override</div></div>
         <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Body Default: 14px</div><div class="align-card-status override">Override</div></div>
-        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Semibold (600) Weight</div><div class="align-card-status override">Override</div></div>
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Bold for Components (700)</div><div class="align-card-status override">Resolved</div></div>
         <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Component Type Scale (C1-C7)</div><div class="align-card-status override">Override</div></div>
         <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Display Hero: 96px</div><div class="align-card-status override">Override</div></div>
       </div>
@@ -5188,13 +5037,13 @@ section { padding: 120px 0; }
       </div>
     </div>
 
-    <!-- Theme status (kept as reference) -->
+    <!-- Theme status -->
     <div class="fade-up" style="margin-top:32px;">
       <div class="subsection-label">THEME STATUS</div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
         <div class="callout-pending" style="margin-top:0;">
           <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Dark Mode &mdash; In Progress</div>
-          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">Covered in mismatch #14 above. Dividers + nav need token remapping.</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">Task 7 covers the nav menu remap. Divider tokens still need audit after nav is resolved.</div>
         </div>
         <div style="padding:20px 24px; border-radius:var(--radius-sm); background:var(--bg-raised); border:1px solid var(--border-default);">
           <div style="font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Light Mode &mdash; Not Started</div>
@@ -5228,16 +5077,16 @@ section { padding: 120px 0; }
           <span class="type-token-name">Display Hero &mdash; Largest display text</span>
           <span class="align-card-status override" style="margin-left:auto;">Override</span>
         </div>
-        <div class="type-token-sample grouped-display" style="font-size:72px; line-height:1.21; letter-spacing:-0.01em;">Turn every release</div>
+        <div class="type-token-sample grouped-display" style="font-size:72px; line-height:1.21; letter-spacing:-0.04em;">Turn every release</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
           <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:999px;">ANACRUSIS</span>
           <span style="font-size:11px; color:var(--text-tertiary);">font-family: 'Anacrusis', 'Satoshi', sans-serif &mdash; Satoshi fallback if custom font unavailable</span>
         </div>
         <div class="type-token-specs">
-          <span>96px</span> <span>Semibold 600</span> <span>LH 116px</span> <span>LS -1%</span>
+          <span>96px</span> <span>Bold 700</span> <span>LH 116px</span> <span>LS -4%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 96px; font-weight: normal; line-height: 116px; letter-spacing: -0.01em;">
-          font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 96px; font-weight: normal; line-height: 116px; letter-spacing: -0.01em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 96px; font-weight: 700; line-height: 116px; letter-spacing: -0.04em;">
+          font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 96px; font-weight: 700; line-height: 116px; letter-spacing: -0.04em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5247,16 +5096,16 @@ section { padding: 120px 0; }
           <span class="type-token-id">D1</span>
           <span class="type-token-name">Display XXL &mdash; Large display text</span>
         </div>
-        <div class="type-token-sample grouped-display" style="font-size:40px; line-height:1.2; letter-spacing:-0.01em;">Turn every release into lasting fan relationships.</div>
+        <div class="type-token-sample grouped-display" style="font-size:40px; line-height:1.2; letter-spacing:-0.03em;">Turn every release into lasting fan relationships.</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
           <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:999px;">ANACRUSIS</span>
           <span style="font-size:11px; color:var(--text-tertiary);">font-family: 'Anacrusis', 'Satoshi', sans-serif &mdash; Satoshi fallback if custom font unavailable</span>
         </div>
         <div class="type-token-specs">
-          <span>40px</span> <span>Semibold 600</span> <span>LH 48px</span> <span>LS -1%</span>
+          <span>40px</span> <span>Bold 700</span> <span>LH 48px</span> <span>LS -3%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 40px; font-weight: normal; line-height: 48px; letter-spacing: -0.01em;">
-          font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 40px; font-weight: normal; line-height: 48px; letter-spacing: -0.01em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 40px; font-weight: 700; line-height: 48px; letter-spacing: -0.03em;">
+          font-family: 'Anacrusis', 'Satoshi', sans-serif; font-size: 40px; font-weight: 700; line-height: 48px; letter-spacing: -0.03em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5296,12 +5145,12 @@ section { padding: 120px 0; }
           <span class="type-token-id">D4</span>
           <span class="type-token-name">Display M &mdash; Medium display text</span>
         </div>
-        <div class="type-token-sample" style="font-size:24px; font-weight:400; line-height:1.33; letter-spacing:0em;">Turn every release into lasting fan relationships.</div>
+        <div class="type-token-sample" style="font-size:24px; font-weight:500; line-height:1.33; letter-spacing:0em;">Turn every release into lasting fan relationships.</div>
         <div class="type-token-specs">
-          <span>24px</span> <span>Regular 400</span> <span>LH 32px</span> <span>LS 0%</span>
+          <span>24px</span> <span>Medium 500</span> <span>LH 32px</span> <span>LS 0%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 24px; font-weight: 400; line-height: 32px; letter-spacing: 0em;">
-          font-size: 24px; font-weight: 400; line-height: 32px; letter-spacing: 0em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: 0em;">
+          font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: 0em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5455,7 +5304,7 @@ section { padding: 120px 0; }
       <div class="type-token-card fade-up">
         <div class="type-token-label">
           <span class="type-token-id">Caption</span>
-          <span class="type-token-name">Fine Print &mdash; Legal, informational text</span>
+          <span class="type-token-name">Caption &mdash; Legal, informational text</span>
         </div>
         <div class="type-token-sample" style="font-size:12px; font-weight:500; line-height:1.67; letter-spacing:0.01em;">Powered by grouped. Terms of service apply. Your data is secure and never shared.</div>
         <div class="type-token-specs">
@@ -5470,7 +5319,7 @@ section { padding: 120px 0; }
       <div class="type-token-card fade-up">
         <div class="type-token-label">
           <span class="type-token-id">Caption Em</span>
-          <span class="type-token-name">Fine Print Emphasized &mdash; Small subtitles</span>
+          <span class="type-token-name">Caption Emphasized &mdash; Small subtitles</span>
         </div>
         <div class="type-token-sample" style="font-size:12px; font-weight:700; line-height:1.67; letter-spacing:0.005em;">47 / 200 EMAIL CREDITS REMAINING</div>
         <div class="type-token-specs">
@@ -5491,12 +5340,12 @@ section { padding: 120px 0; }
           <span class="type-token-name">Component XL &mdash; Large buttons</span>
           <span class="align-card-status override" style="margin-left:auto;">New</span>
         </div>
-        <div class="type-token-sample" style="font-size:20px; font-weight:600; line-height:1.2; letter-spacing:0em;">Create Campaign</div>
+        <div class="type-token-sample" style="font-size:20px; font-weight:700; line-height:1.2; letter-spacing:0em;">Create Campaign</div>
         <div class="type-token-specs">
-          <span>20px</span> <span>Semibold 600</span> <span>LH 24px</span> <span>LS 0%</span>
+          <span>20px</span> <span>Bold 700</span> <span>LH 24px</span> <span>LS 0%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 20px; font-weight: 600; line-height: 24px; letter-spacing: 0em;">
-          font-size: 20px; font-weight: 600; line-height: 24px; letter-spacing: 0em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 20px; font-weight: 700; line-height: 24px; letter-spacing: 0em;">
+          font-size: 20px; font-weight: 700; line-height: 24px; letter-spacing: 0em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5506,12 +5355,12 @@ section { padding: 120px 0; }
           <span class="type-token-id">C2</span>
           <span class="type-token-name">Component L &mdash; Buttons</span>
         </div>
-        <div class="type-token-sample" style="font-size:18px; font-weight:600; line-height:1.33; letter-spacing:0em;">Unlock Early Access</div>
+        <div class="type-token-sample" style="font-size:18px; font-weight:700; line-height:1.33; letter-spacing:0em;">Unlock Early Access</div>
         <div class="type-token-specs">
-          <span>18px</span> <span>Semibold 600</span> <span>LH 24px</span> <span>LS 0%</span>
+          <span>18px</span> <span>Bold 700</span> <span>LH 24px</span> <span>LS 0%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: 0em;">
-          font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: 0em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: 0em;">
+          font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: 0em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5521,12 +5370,12 @@ section { padding: 120px 0; }
           <span class="type-token-id">C3</span>
           <span class="type-token-name">Component M &mdash; Default buttons</span>
         </div>
-        <div class="type-token-sample" style="font-size:16px; font-weight:600; line-height:1.25; letter-spacing:0em;">Pay Now</div>
+        <div class="type-token-sample" style="font-size:16px; font-weight:700; line-height:1.25; letter-spacing:0em;">Pay Now</div>
         <div class="type-token-specs">
-          <span>16px</span> <span>Semibold 600</span> <span>LH 20px</span> <span>LS 0%</span>
+          <span>16px</span> <span>Bold 700</span> <span>LH 20px</span> <span>LS 0%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 16px; font-weight: 600; line-height: 20px; letter-spacing: 0em;">
-          font-size: 16px; font-weight: 600; line-height: 20px; letter-spacing: 0em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 16px; font-weight: 700; line-height: 20px; letter-spacing: 0em;">
+          font-size: 16px; font-weight: 700; line-height: 20px; letter-spacing: 0em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5536,12 +5385,12 @@ section { padding: 120px 0; }
           <span class="type-token-id">C4</span>
           <span class="type-token-name">Component S &mdash; Navigation</span>
         </div>
-        <div class="type-token-sample" style="font-size:14px; font-weight:600; line-height:1.14; letter-spacing:0.005em;">Dashboard &nbsp; Campaigns &nbsp; Fans &nbsp; Analytics</div>
+        <div class="type-token-sample" style="font-size:14px; font-weight:700; line-height:1.14; letter-spacing:0.005em;">Dashboard &nbsp; Campaigns &nbsp; Fans &nbsp; Analytics</div>
         <div class="type-token-specs">
-          <span>14px</span> <span>Semibold 600</span> <span>LH 16px</span> <span>LS 0.5%</span>
+          <span>14px</span> <span>Bold 700</span> <span>LH 16px</span> <span>LS 0.5%</span>
         </div>
-        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 14px; font-weight: 600; line-height: 16px; letter-spacing: 0.005em;">
-          font-size: 14px; font-weight: 600; line-height: 16px; letter-spacing: 0.005em;
+        <div class="type-token-css" onclick="copyToken(this)" data-copy="font-size: 14px; font-weight: 700; line-height: 16px; letter-spacing: 0.005em;">
+          font-size: 14px; font-weight: 700; line-height: 16px; letter-spacing: 0.005em;
           <span class="copy-hint">click to copy</span>
         </div>
       </div>
@@ -5601,18 +5450,18 @@ section { padding: 120px 0; }
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
           <div style="font-size:28px; font-weight:400; margin-bottom:8px;">Aa</div>
           <div style="font-size:11px; color:var(--text-tertiary);">Regular 400</div>
-          <div style="font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Body, Display D2-D4</div>
+          <div style="font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Body, Display D2-D3</div>
         </div>
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
           <div style="font-size:28px; font-weight:500; margin-bottom:8px;">Aa</div>
           <div style="font-size:11px; color:var(--text-tertiary);">Medium 500</div>
-          <div style="font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">D5-D6, Caption, UI labels</div>
+          <div style="font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">D4-D6, Caption, UI labels</div>
         </div>
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid rgba(124,187,223,0.3);">
           <div style="font-size:28px; font-weight:700; margin-bottom:8px;">Aa</div>
-          <div style="font-size:11px; color:var(--text-tertiary);">Semibold 600 <span style="font-size:9px; color:var(--focus);">&rarr; Bold</span></div>
-          <div style="font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">C1-C4 buttons, nav active</div>
-          <div style="font-size:9px; color:var(--focus); margin-top:6px;">Satoshi has no 600 &mdash; renders as Bold 700</div>
+          <div style="font-size:11px; color:var(--text-tertiary);">Bold 700</div>
+          <div style="font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">D0-D1 display, C1-C4 buttons</div>
+          <div style="font-size:9px; color:var(--focus); margin-top:6px;">Satoshi has no 600 &mdash; all Semibold remapped to Bold</div>
         </div>
         <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
           <div style="font-size:28px; font-weight:700; margin-bottom:8px;">Aa</div>

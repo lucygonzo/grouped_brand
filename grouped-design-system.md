@@ -692,7 +692,7 @@ This section documents where the product UI intentionally diverges from the mark
 | Focus blue (#7CBBDF) | Aligned | Same token |
 | Body font (Satoshi) | Override | Figma currently shows Inter (placeholder) — needs swap |
 | Body default size | Override | Product uses 14px for density; marketing stays 16px |
-| Semibold weight (600) | Override | Product uses extensively; not in marketing scale |
+| Bold weight for components (700) | Override | Satoshi has no 600; all Semibold remapped to 700 Bold |
 | Pill buttons (9999px) | Override | Product commits to full-round interactive elements |
 | Component type scale (C1–C7) | Override | New category for product UI elements |
 | Display max size (96px D0) | Override | Product hero needs larger than marketing's 80px |
@@ -709,11 +709,11 @@ Product uses five type categories rendered in Satoshi (target state).
 
 | Token | Size | Weight | Line-Height | Letter-Spacing | Usage |
 |---|---|---|---|---|---|
-| D0 | 96px | 600 Semibold | 116px | -4% | Display Hero |
-| D1 | 40px | 600 Semibold | 48px | -3% | Display XXL |
+| D0 | 96px | 700 Bold | 116px | -4% | Display Hero |
+| D1 | 40px | 700 Bold | 48px | -3% | Display XXL |
 | D2 | 36px | 400 Regular | 48px | -1% | Display XL (data viz) |
 | D3 | 28px | 400 Regular | 36px | -1% | Display L |
-| D4 | 24px | 400 Regular | 32px | 0% | Display M |
+| D4 | 24px | 500 Medium | 32px | 0% | Display M |
 | D5 | 18px | 500 Medium | 24px | -0.5% | Display S (subtitles) |
 | D6 | 14px | 500 Medium | 20px | 0.5% | Display XS |
 
@@ -745,10 +745,10 @@ Product uses five type categories rendered in Satoshi (target state).
 
 | Token | Size | Weight | Line-Height | Letter-Spacing | Usage |
 |---|---|---|---|---|---|
-| C1 | 20px | 600 Semibold | 24px | 0% | Large buttons |
-| C2 | 18px | 600 Semibold | 24px | 0% | Buttons |
-| C3 | 16px | 600 Semibold | 20px | 0% | Buttons |
-| C4 | 14px | 600 Semibold | 16px | 0.5% | Navigation |
+| C1 | 20px | 700 Bold | 24px | 0% | Large buttons |
+| C2 | 18px | 700 Bold | 24px | 0% | Buttons |
+| C3 | 16px | 700 Bold | 20px | 0% | Buttons |
+| C4 | 14px | 700 Bold | 16px | 0.5% | Navigation |
 | C5 | 14px | 500 Medium | 16px | 0.5% | Navigation (light) |
 | C6 | 11px | 500 Medium | 16px | 0.5% | Badges |
 | C7 | 9px | 500 Medium | 12px | 1% | Smallest badges |
