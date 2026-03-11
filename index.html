@@ -1857,7 +1857,7 @@ section { padding: 120px 0; }
 .align-card {
   padding: 16px 20px; border-radius: var(--radius-sleeve);
   background: var(--bg-raised); border: 1px solid var(--border-default);
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
 }
 .align-card-label { font-size: 13px; font-weight:500; flex: 1; }
 .align-card-status {
@@ -1869,6 +1869,7 @@ section { padding: 120px 0; }
 .align-card-status.decision { background: rgba(248,113,113,0.1); color: #F87171; }
 .status-dot.pending-rec { background: var(--bronze-400); }
 .align-card-status.pending-rec { background: rgba(196,138,58,0.1); color: var(--bronze-400); }
+.align-card-note { width:100%; font-size:12px; color:var(--text-tertiary); line-height:1.5; margin-top:2px; padding-left:18px; }
 
 /* Audit mismatch cards */
 .mismatch-card {
@@ -2177,19 +2178,19 @@ section { padding: 120px 0; }
   <a href="#" class="nav-logo grouped-display">grouped<span>.</span></a>
   <div style="display:flex; align-items:center; gap:4px; background:var(--bg-overlay); border-radius:999px; padding:3px; border:1px solid var(--border-default);">
     <button class="tab-btn active" data-tab="foundation" onclick="switchTab('foundation')">Foundation</button>
-    <button class="tab-btn" data-tab="brand" onclick="switchTab('brand')">Brand</button>
+    <button class="tab-btn" data-tab="marketing" onclick="switchTab('marketing')">Marketing</button>
     <button class="tab-btn" data-tab="product" onclick="switchTab('product')">Product</button>
   </div>
   <div class="nav-links">
     <a href="#found-typography" class="foundation-nav-link">Type</a>
     <a href="#found-color" class="foundation-nav-link">Color</a>
     <a href="#found-spacing" class="foundation-nav-link">Spacing</a>
-    <a href="#iconography" class="brand-nav-link" style="display:none;">Icons</a>
-    <a href="#surfaces" class="brand-nav-link" style="display:none;">Surfaces</a>
-    <a href="#components" class="brand-nav-link" style="display:none;">Components</a>
-    <a href="#photography" class="brand-nav-link" style="display:none;">Photography</a>
-    <a href="#motion" class="brand-nav-link" style="display:none;">Motion</a>
-    <a href="#logo-usage" class="brand-nav-link" style="display:none;">Logo</a>
+    <a href="#iconography" class="marketing-nav-link" style="display:none;">Icons</a>
+    <a href="#surfaces" class="marketing-nav-link" style="display:none;">Surfaces</a>
+    <a href="#components" class="marketing-nav-link" style="display:none;">Components</a>
+    <a href="#photography" class="marketing-nav-link" style="display:none;">Photography</a>
+    <a href="#motion" class="marketing-nav-link" style="display:none;">Motion</a>
+    <a href="#logo-usage" class="marketing-nav-link" style="display:none;">Logo</a>
     <a href="#prod-status" class="product-nav-link" style="display:none;">Status</a>
     <a href="#prod-type-tokens" class="product-nav-link" style="display:none;">Type</a>
     <a href="#prod-screens" class="product-nav-link" style="display:none;">Screens</a>
@@ -2847,8 +2848,8 @@ section { padding: 120px 0; }
 
 </div><!-- end foundation-tab -->
 
-<!-- ===== BRAND TAB ===== -->
-<div id="brand-tab" class="tab-content">
+<!-- ===== MARKETING TAB ===== -->
+<div id="marketing-tab" class="tab-content">
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -4665,7 +4666,7 @@ section { padding: 120px 0; }
     <!-- Quick summary bar -->
     <div class="fade-up" style="margin-top:32px; display:flex; gap:24px; font-size:13px; align-items:center;">
       <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot decision"></span><strong>7</strong> Figma tasks</div>
-      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot override"></span><strong>5</strong> intentional overrides</div>
+      <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot override"></span><strong>1</strong> intentional override</div>
       <div style="display:flex; align-items:center; gap:6px;"><span class="status-dot aligned"></span><strong>20</strong> aligned</div>
     </div>
 
@@ -4890,12 +4891,8 @@ section { padding: 120px 0; }
       <div class="subsection-label">INTENTIONAL PRODUCT OVERRIDES</div>
       <p style="font-size:13px; color:var(--text-secondary); margin-top:4px; margin-bottom:16px;">These are intentional divergences from the marketing/brand system. Documented and approved &mdash; no action needed.</p>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:10px;">
-        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Body Font: Satoshi</div><div class="align-card-status override">Override</div></div>
-        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Body Default: 14px</div><div class="align-card-status override">Override</div></div>
-        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Bold for Components (700)</div><div class="align-card-status override">Resolved</div></div>
-        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Component Type Scale (C1-C7)</div><div class="align-card-status override">Override</div></div>
-        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Display Hero: 96px</div><div class="align-card-status override">Override</div></div>
+      <div style="display:grid; grid-template-columns:1fr; gap:10px; max-width:640px;">
+        <div class="align-card"><div class="status-dot override"></div><div class="align-card-label">Component Type Scale (C1&ndash;C7) + Satoshi body</div><div class="align-card-status override">Override</div><div class="align-card-note">Product-only scale for buttons, nav, and badges. Body defaults to 14px Satoshi. Anacrusis is reserved for display sizes (32px+) where the custom face is legible; Satoshi handles everything else in product UI. Not present in the marketing/brand type system.</div></div>
       </div>
     </div>
 
@@ -7069,8 +7066,8 @@ section { padding: 120px 0; }
           <div>✓ Logo variants — 9 combinations in <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=18-2" target="_blank" style="color:var(--bronze-400);">Figma source</a></div>
           <div>✓ Responsive breakpoints (4 ranges) + 12-column grid system</div>
           <div>✓ Motion curves and transition specs</div>
-          <div>✓ Brand elements, textures, and photography guidelines</div>
-          <div>✓ Rebrand token alignment (9 aligned, 5 overrides documented)</div>
+          <div>✓ Marketing elements, textures, and photography guidelines</div>
+          <div>✓ Rebrand token alignment (20 aligned, 1 override documented)</div>
         </div>
       </div>
 
@@ -7379,7 +7376,7 @@ function switchTab(tab) {
   document.querySelector(`.tab-btn[data-tab="${tab}"]`).classList.add('active');
   // Toggle nav links
   document.querySelectorAll('.foundation-nav-link').forEach(el => el.style.display = tab === 'foundation' ? '' : 'none');
-  document.querySelectorAll('.brand-nav-link').forEach(el => el.style.display = tab === 'brand' ? '' : 'none');
+  document.querySelectorAll('.marketing-nav-link').forEach(el => el.style.display = tab === 'marketing' ? '' : 'none');
   document.querySelectorAll('.product-nav-link').forEach(el => el.style.display = tab === 'product' ? '' : 'none');
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
