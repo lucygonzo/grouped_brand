@@ -2644,6 +2644,56 @@ section { padding: 120px 0; }
         </div>
       </div>
 
+      <!-- Surface Layers — Light Mode (Warm Exploration) -->
+      <div class="fade-up" style="margin-top:40px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+          <div class="color-group-title" style="margin-bottom:0;">Surface Layers (Light Mode)</div>
+          <span style="font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#B8941F; background:rgba(184,148,31,0.1); padding:3px 8px; border-radius:var(--radius-sm);">Exploration</span>
+        </div>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-bottom:16px;">Proposed warm surface palette derived from cream (#F0EBE3). Replaces current cool neutrals to maintain brand temperature — warm lights, cool dark vinyl.</p>
+        <div class="surface-stack">
+          <div class="surface-level" style="background:#FAF7F2" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 1</span><span class="level-hex copyable" style="color:#8A7A64;">#FAF7F2</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-1</span></div>
+          <div class="surface-level" style="background:#F5F1EA" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 2</span><span class="level-hex copyable" style="color:#8A7A64;">#F5F1EA</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-2</span></div>
+          <div class="surface-level" style="background:#F0EBE3" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 3</span><span class="level-hex copyable" style="color:#8A7A64;">#F0EBE3</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-3</span></div>
+          <div class="surface-level" style="background:#E8E2D8" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 4</span><span class="level-hex copyable" style="color:#8A7A64;">#E8E2D8</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-4</span></div>
+          <div class="surface-level" style="background:#E0D9CE" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 5</span><span class="level-hex copyable" style="color:#8A7A64;">#E0D9CE</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-5</span></div>
+          <div class="surface-level" style="background:#D8D0C4" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 6</span><span class="level-hex copyable" style="color:#8A7A64;">#D8D0C4</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-6</span></div>
+        </div>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Warm cream base with a ~3-point saturation drop per step. Layer 3 is the brand cream itself (#F0EBE3) — layers above are lighter, layers below are heavier. Same 6-step structure as dark mode; same <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">--layer-*</span> tokens resolve per theme.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;">
+          <div class="callout-info">
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Current light mode (cool):</strong> <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">#FAFAF8 → #FFFFFF → #F3F3F0 → #EAEAE6</span><br>Cool grays — functional but not on-brand. Reads generic, no temperature relationship with bronze.</div>
+          </div>
+          <div class="callout-info" style="border-color:rgba(196,138,58,0.25);">
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--bronze-400);">Proposed light mode (warm):</strong> <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">#FAF7F2 → #F0EBE3 → #D8D0C4</span><br>Warm cream lineage — inverts the dark mode temperature relationship. Bronze accents sit on warm linen instead of sterile white.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display Strategy Discussion -->
+      <div class="fade-up" style="margin-top:24px;">
+        <div class="surface-glass-warm" style="padding:24px 28px;">
+          <div class="subsection-label" style="margin-bottom:10px;">OPEN QUESTION</div>
+          <div style="font-size:18px; font-weight:700; margin-bottom:12px;">Should we always show both palettes?</div>
+          <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">The design system reference needs to document both dark and light surface layers. The question is how they appear in this guide and whether the surface swatches should be mode-aware or always-visible.</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+            <div style="padding:16px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default);">
+              <div style="font-size:13px; font-weight:700; margin-bottom:8px;">A: Always Both</div>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">Dark + light stacks are always visible side by side, regardless of the viewer's current mode. Devs see the full picture at a glance. No toggling needed.</p>
+            </div>
+            <div style="padding:16px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default);">
+              <div style="font-size:13px; font-weight:700; margin-bottom:8px;">B: Mode-Aware</div>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">Each swatch renders in its native mode — dark layers shown on dark, light layers on light. Viewer toggles the theme to see each set in context. Most accurate preview.</p>
+            </div>
+            <div style="padding:16px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default);">
+              <div style="font-size:13px; font-weight:700; margin-bottom:8px;">C: Primary + Toggle</div>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">Dark layers visible by default (dark-first). Light layers appear inline when viewer switches to light mode — or via a local toggle on this section only.</p>
+            </div>
+          </div>
+          <p style="font-size:12px; color:var(--text-tertiary); margin-top:12px; line-height:1.5;"><strong style="color:var(--text-secondary);">Leaning toward A</strong> — this is a reference doc, not a product surface. Devs need to see both without hunting. The light swatches render on their own warm background so they read accurately even in dark mode. Decide in next sync.</p>
+        </div>
+      </div>
+
       <!-- Navy Principle -->
       <div class="fade-up" style="margin-top:32px;">
         <div class="surface-glass-warm" style="padding:28px 32px;">
