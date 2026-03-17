@@ -10,13 +10,20 @@
 <style>
 /* ================================================================
    GROUPED DESIGN SYSTEM — BRAND MANIFESTO SITE
-   v1.0 · February 2026
+   v1.1 · March 2026
    ================================================================ */
 
 
 @font-face {
   font-family: 'Anacrusis';
   src: url('Anacrusis.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Anacrusis';
+  src: url('Anacrusis.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -32,15 +39,24 @@
   --bg-overlay: #1F2735;
   --bg-subtle: #262F3F;
   --bg-muted: #2E3849;
+  /* Layer aliases — numbered surface system (March 2026 sync) */
+  --layer-1: #111620;
+  --layer-2: #181E2A;
+  --layer-3: #1F2735;
+  --layer-4: #262F3F;
+  --layer-5: #2E3849;
+  --layer-6: #364252;
   --border-default: rgba(235,225,210,0.07);
   --border-hover: rgba(235,225,210,0.11);
   --border-active: rgba(235,225,210,0.16);
   --border-strong: rgba(235,225,210,0.22);
+  --border-input: rgba(235,225,210,0.14);  /* PENDING — dark mode input stroke under review */
   --text-primary: #F0EBE3;
   --text-secondary: #67686B;   /* Figma: color/neutral/400 — solid mid-gray */
   --text-tertiary: #494B50;    /* Computed solid — hierarchy below secondary */
   --text-muted: #2E3238;       /* Computed solid — very dim, decorative only */
   --text-inverse: #111620;
+  --button-text: #111620;      /* Inverts against bronze/primary button fill */
   --gold-50: #FEF7EC;
   --gold-100: #FDE9C8;
   --gold-200: #FAD08E;
@@ -97,15 +113,24 @@
   --bg-overlay: #111111;
   --bg-subtle: #1A1A1A;
   --bg-muted: #222222;
+  /* Layer aliases — numbered surface system */
+  --layer-1: #000000;
+  --layer-2: #0A0A0A;
+  --layer-3: #111111;
+  --layer-4: #1A1A1A;
+  --layer-5: #222222;
+  --layer-6: #2A2A2A;
   --border-default: rgba(255,255,255,0.07);
   --border-hover: rgba(255,255,255,0.11);
   --border-active: rgba(255,255,255,0.16);
   --border-strong: rgba(255,255,255,0.22);
+  --border-input: rgba(255,255,255,0.14);
   --text-primary: #F0EBE3;
   --text-secondary: #67686B;
   --text-tertiary: #494B50;
   --text-muted: #2E3238;
   --text-inverse: #000000;
+  --button-text: #000000;
   --gold-50: #FEF7EC;
   --gold-100: #FDE9C8;
   --gold-200: #FAD08E;
@@ -150,6 +175,13 @@
   --bg-overlay: #FFFFFF;
   --bg-subtle: #F3F3F0;
   --bg-muted: #EAEAE6;
+  /* Layer aliases — numbered surface system */
+  --layer-1: #FAFAF8;
+  --layer-2: #FFFFFF;
+  --layer-3: #FFFFFF;
+  --layer-4: #F3F3F0;
+  --layer-5: #EAEAE6;
+  --layer-6: #E0E0DC;
   --border-default: rgba(26,26,26,0.15);
   --border-hover: rgba(26,26,26,0.22);
   --border-active: rgba(26,26,26,0.28);
@@ -160,6 +192,7 @@
   --text-tertiary: #7C7E85;    /* Computed solid — lighter step above secondary */
   --text-muted: #ABABAF;       /* Computed solid — light, decorative */
   --text-inverse: #FFFFFF;
+  --button-text: #FFFFFF;
   --bronze-400: #956A1D;
   --gold-500: #845E18;
   --gold-600: #6E4F14;
@@ -1266,10 +1299,10 @@ section { padding: 120px 0; }
 .btn-loading.btn-cta::after { border-color: rgba(196,138,58,0.25); border-top-color: var(--bronze-400); }
 .btn-loading.btn-ghost::after { border-color: rgba(240,235,227,0.2); border-top-color: var(--text-secondary); }
 
-/* Focus ring — a11y */
+/* Focus ring — a11y (focus blue confirmed, March 2026 sync) */
 .btn:focus-visible {
-  outline: 2px solid var(--bronze-400); outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(196,138,58,0.2);
+  outline: 2px solid var(--focus); outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(124,187,223,0.2);
 }
 
 /* inputs */
@@ -2202,6 +2235,9 @@ section { padding: 120px 0; }
     <a href="#prod-responsive" class="product-nav-link" style="display:none;">Responsive</a>
     <a href="#prod-grid" class="product-nav-link" style="display:none;">Grid</a>
     <a href="#prod-handoff" class="product-nav-link" style="display:none;">Handoff</a>
+    <a href="#prod-modes" class="product-nav-link" style="display:none;">Modes</a>
+    <a href="#prod-artist-theming" class="product-nav-link" style="display:none;">Theming</a>
+    <a href="#prod-future" class="product-nav-link" style="display:none;">Future</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
   </div>
 </nav>
@@ -2235,9 +2271,13 @@ section { padding: 120px 0; }
       <h2 class="section-title">Satoshi<span style="font-family:'Anacrusis';font-weight:normal;color:var(--bronze-400)"> + Anacrusis.</span></h2>
       <p class="section-desc">Two typefaces, one system. Anacrusis is the custom display face for marketing headlines and brand moments. Satoshi handles everything else. Type should feel confident and unhurried. Anacrusis has natural kerning baked in — let the font breathe at display sizes. Generous line-height in body copy lets the text breathe the way the room breathes.</p>
       <div class="resource-bar" style="margin-top:24px;">
-        <a href="Anacrusis.otf" download class="resource-link"><i class="ph-bold ph-download-simple"></i> Anacrusis OTF</a>
+        <a href="Anacrusis.otf" download class="resource-link"><i class="ph-bold ph-download-simple"></i> Anacrusis OTF (Design)</a>
+        <a href="https://drive.google.com/file/d/1vbkwin8JaHFFwWwFr0TWI7opTTgWjgxY/view?usp=drive_link" target="_blank" class="resource-link"><i class="ph-bold ph-download-simple"></i> Anacrusis TTF (Web)</a>
         <a href="https://www.fontshare.com/fonts/satoshi" target="_blank" class="resource-link"><i class="ph-bold ph-arrow-square-out"></i> Satoshi on Fontshare</a>
         <a href="https://drive.google.com/drive/folders/1m-E-OrAZURtpMzw7F7QNpZnMXhDPYsd9?usp=drive_link" target="_blank" class="resource-link"><i class="ph-bold ph-google-drive-logo"></i> All Fonts (Drive)</a>
+      </div>
+      <div class="callout-info" style="margin-top:12px;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">OTF vs TTF:</strong> Use OTF in design tools (Figma, Illustrator, InDesign). Use TTF for web embedding and CSS @font-face declarations. Both contain the same glyphs and metrics.</div>
       </div>
     </div>
 
@@ -2586,15 +2626,19 @@ section { padding: 120px 0; }
 
       <!-- Background Surfaces -->
       <div class="fade-up">
-        <div class="color-group-title">Background Surfaces (Dark Mode)</div>
+        <div class="color-group-title">Surface Layers (Dark Mode)</div>
         <div class="surface-stack">
-          <div class="surface-level" style="background:#111620" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Base</span><span class="level-hex copyable">#111620</span></div>
-          <div class="surface-level" style="background:#181E2A" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Raised</span><span class="level-hex copyable">#181E2A</span></div>
-          <div class="surface-level" style="background:#1F2735" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Overlay</span><span class="level-hex copyable">#1F2735</span></div>
-          <div class="surface-level" style="background:#262F3F" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Subtle</span><span class="level-hex copyable">#262F3F</span></div>
-          <div class="surface-level" style="background:#2E3849" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Muted</span><span class="level-hex copyable">#2E3849</span></div>
+          <div class="surface-level" style="background:#111620" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 1</span><span class="level-hex copyable">#111620</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-1</span></div>
+          <div class="surface-level" style="background:#181E2A" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 2</span><span class="level-hex copyable">#181E2A</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-2</span></div>
+          <div class="surface-level" style="background:#1F2735" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 3</span><span class="level-hex copyable">#1F2735</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-3</span></div>
+          <div class="surface-level" style="background:#262F3F" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 4</span><span class="level-hex copyable">#262F3F</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-4</span></div>
+          <div class="surface-level" style="background:#2E3849" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 5</span><span class="level-hex copyable">#2E3849</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-5</span></div>
+          <div class="surface-level" style="background:#364252" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 6</span><span class="level-hex copyable">#364252</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-6</span></div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Each level gains ~7 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Six numbered layers. Each gains ~3-3.5 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop. Layer 6 provides additional room between layers for dark mode grading.</p>
+        <div class="callout-info" style="margin-top:12px;">
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Legacy aliases:</strong> The original <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--bg-base</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--bg-muted</span> variable names remain available for backward compatibility. Prefer <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--layer-1</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--layer-6</span> in new work.</div>
+        </div>
       </div>
 
       <!-- Navy Principle -->
@@ -2843,6 +2887,32 @@ section { padding: 120px 0; }
         </div>
       </div>
     </div>
+
+    <!-- Responsive Margins -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">RESPONSIVE MARGINS</div>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">Standardized left/right page margins across breakpoints. Form fields and content containers should not expand beyond the max-width cap.</p>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
+          <div style="font-size:28px; font-weight:700; color:var(--bronze-400); margin-bottom:4px;">12px</div>
+          <div style="font-size:12px; font-weight:500; color:var(--text-primary); margin-bottom:4px;">Mobile L/R</div>
+          <div style="font-size:11px; color:var(--text-tertiary);">0 &mdash; 639px</div>
+        </div>
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
+          <div style="font-size:28px; font-weight:700; color:var(--bronze-400); margin-bottom:4px;">40px</div>
+          <div style="font-size:12px; font-weight:500; color:var(--text-primary); margin-bottom:4px;">Desktop L/R</div>
+          <div style="font-size:11px; color:var(--text-tertiary);">1024px+</div>
+        </div>
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
+          <div style="font-size:28px; font-weight:700; color:var(--bronze-400); margin-bottom:4px;">1280px</div>
+          <div style="font-size:12px; font-weight:500; color:var(--text-primary); margin-bottom:4px;">Max Content Width</div>
+          <div style="font-size:11px; color:var(--text-tertiary);">Wide desktop cap</div>
+        </div>
+      </div>
+      <div class="callout-info" style="margin-top:16px;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--warning);">Flagged:</strong> Global spacing is currently too tight across the product. A dedicated margins/gutters ticket is pending to address spacing compression globally.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2859,7 +2929,7 @@ section { padding: 120px 0; }
     <circle class="ring-3" cx="350" cy="350" r="147" stroke-dasharray="924" />
   </svg>
   <div class="hero-content">
-    <div class="hero-overline">Design System v1.0</div>
+    <div class="hero-overline">Design System v1.1</div>
     <h1 class="hero-title grouped-display">The visual<br>language of<br><span class="gold">Grouped.</span></h1>
     <p class="hero-subtitle">A complete design system for building every surface of Grouped. Dark mode primary. Swiss minimal roots. Bronze accent, earned.</p>
     <div class="resource-bar" style="justify-content:center; margin-top:32px;">
@@ -3139,18 +3209,26 @@ section { padding: 120px 0; }
       <div class="usage-grid">
         <div class="font-usage-card use">
           <div class="usage-label">&#10003; Do</div>
-          <div class="usage-item">Layer surfaces Base &rarr; Raised &rarr; Overlay for natural depth</div>
+          <div class="usage-item">Layer surfaces L1 &rarr; L2 &rarr; L3 &rarr; L4 for natural depth</div>
           <div class="usage-item">Use Glass (frosted blur) for overlays, modals, and floating panels</div>
-          <div class="usage-item">Use Solid cards for primary content containers</div>
+          <div class="usage-item">Use solid surfaces for primary content containers</div>
           <div class="usage-item">Use Vinyl (warm bronze tint) sparingly for premium brand moments</div>
+          <div class="usage-item">Use fill on marketing surfaces for layered elements or visual weight</div>
         </div>
         <div class="font-usage-card avoid">
           <div class="usage-label">&#10007; Don't</div>
-          <div class="usage-item">Don't skip surface levels &mdash; Overlay directly on Base looks flat</div>
+          <div class="usage-item">Don't skip layers &mdash; L3 directly on L1 looks flat</div>
           <div class="usage-item">Don't stack Glass on Glass &mdash; one blur layer maximum</div>
-          <div class="usage-item">Don't use Vinyl for standard UI cards &mdash; it's a brand accent, not a container</div>
+          <div class="usage-item">Don't use Vinyl for standard product surfaces &mdash; it's a brand accent, not a container</div>
           <div class="usage-item">Don't mix light and dark surface tokens &mdash; the system is dark-mode primary</div>
         </div>
+      </div>
+    </div>
+
+    <!-- Gradient Deprecation -->
+    <div class="fade-up callout-info" style="margin-top:24px; border-color:var(--warning); background:rgba(240,197,67,0.04);">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
+        <strong style="color:var(--warning);">Deprecated: Gradient backgrounds.</strong> Gradient fills on product surfaces (e.g., the wallet/payout page) are being phased out. Use the numbered layer tokens (L1&ndash;L6) for solid backgrounds instead. A &ldquo;slow glow&rdquo; data banner motif is under exploration as a replacement for ambient gradient treatments on data-heavy summary areas.
       </div>
     </div>
 
@@ -3338,6 +3416,19 @@ section { padding: 120px 0; }
             <span style="color:var(--text-primary)">Login</span>
           </div>
         </div>
+        <div style="margin-top:20px;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:12px;">NAV STATES</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.7;">
+            <strong style="color:var(--text-primary);">Selected:</strong> Icon turns bronze (<span style="font-family:'JetBrains Mono',monospace; font-size:11px;">--bronze-400</span>) + background steps up one layer (L2 on L1, L3 on L2). The opacity of the background increases to differentiate.<br>
+            <strong style="color:var(--text-primary);">Hover:</strong> Opacity-based lightening on border and fill. Not a new color &mdash; subtle transparency shift only.<br>
+            <strong style="color:var(--text-primary);">Default:</strong> Secondary text color (<span style="font-family:'JetBrains Mono',monospace; font-size:11px;">#A09B93</span>).
+          </div>
+          <div class="callout-info" style="margin-top:12px;">
+            <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;">
+              <strong style="color:var(--warning);">Flagged items:</strong> Divider lines between menu items are too heavy (ticket for removal/thinning). Logo in nav panel renders too large (needs sizing decision). Menu parameter controls needed as features grow (max items, add/remove criteria).
+            </div>
+          </div>
+        </div>
         <div style="margin-top:24px;">
           <div class="comp-card-title" style="margin-bottom:16px;">Toggles</div>
           <div style="display:flex; gap:16px; align-items:center;">
@@ -3364,7 +3455,14 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label"><span class="section-num">B4</span> / Iconography</div>
       <h2 class="section-title grouped-display">Bold, rounded, geometric.</h2>
-      <p class="section-desc">Grouped uses <strong>Phosphor Bold</strong> as its icon library. The 2px strokes and rounded terminals mirror the Grouped logo's bold geometric character. Every icon inherits text color by default, making them feel like part of the typography, not decorations bolted on top.</p>
+      <p class="section-desc">Grouped uses <strong>Phosphor Bold</strong> as its interim icon library. The 2px strokes and rounded terminals mirror the Grouped logo's bold geometric character. Every icon inherits text color by default, making them feel like part of the typography, not decorations bolted on top.</p>
+    </div>
+
+    <div class="fade-up callout-info" style="margin-top:16px; border-color:var(--warning); background:rgba(240,197,67,0.04);">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
+        <strong style="color:var(--warning);">Transition in progress:</strong> Bob is building a custom icon set to replace Phosphor Bold. Custom SVGs are pending delivery from Figma. The website may need bolder icon strokes than the product. Until delivery, continue using Phosphor Bold.<br><br>
+        <strong style="color:var(--text-primary);">When the custom set arrives:</strong> Upload SVGs to Google Drive with documented links. Icons should be reviewed for visual cohesion with the new Grouped logo icon (concentric arc DNA, rounded caps, bold weight). Size scale and color inheritance rules will carry over.
+      </div>
     </div>
 
     <!-- Logo character comparison -->
@@ -6320,7 +6418,7 @@ section { padding: 120px 0; }
           <div class="prod-card-name">Primary</div>
           <div class="prod-card-desc">Hero action. One per screen. Solid bronze fill with inverse text. Use for the single most important CTA: Save, Submit, Confirm.</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
-            fill: --bronze-400 · text: --text-inverse<br>
+            fill: --bronze-400 · text: --button-text<br>
             hover: subtle transparent-white overlay (~8% / 0.08 opacity) on bronze fill, slightly lighter border. No color switch. Do not bold label text.<br>
             active: scale(0.97)
           </div>
@@ -6397,13 +6495,18 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Ghost</div>
-          <div class="prod-card-desc">Icon-only utility button. Square hit target (44px default). No border, no fill at rest. Use for Like, Menu, Settings, Close, Overflow.</div>
+          <div class="prod-card-desc">Icon-only interactions use tertiary treatment: no fill, no shadow, no border at rest. Ghost fill appears on hover only. Use for icon-only utility actions: Like, Menu, Settings, Close, Overflow. Square hit target (44px default).</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
             fill: transparent · text: --text-secondary<br>
-            hover: text-primary + bg wash<br>
+            hover: text-primary + bg wash (ghost fill)<br>
             sm: 36px · md: 44px · lg: 52px
           </div>
         </div>
+      </div>
+
+      <!-- Icon vs. Button Rule -->
+      <div class="fade-up callout-info" style="grid-column:span 2; margin-top:0;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Icon vs. Button rule:</strong> If the action has a text label, use a standard button type (Primary, Secondary, Tertiary). If the action is icon-only with no label, use Ghost. Ghost is the tertiary treatment for icons. A full icon-vs-button rationale document is pending &mdash; flagged for future design exploration.</div>
       </div>
 
       <!-- 6. Link / URL -->
@@ -6660,10 +6763,10 @@ section { padding: 120px 0; }
         </div>
         <div style="text-align:center;">
           <div style="padding:16px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; min-height:80px; display:flex; align-items:center; justify-content:center;">
-            <div style="width:100%; padding:10px 12px; border-radius:var(--radius-sm); background:var(--bg-overlay); border:1px solid var(--bronze-400); font-size:12px; color:var(--text-tertiary); text-align:left; box-shadow:0 0 0 3px rgba(196,138,58,0.12);">|</div>
+            <div style="width:100%; padding:10px 12px; border-radius:var(--radius-sm); background:var(--bg-overlay); border:1px solid var(--focus); font-size:12px; color:var(--text-tertiary); text-align:left; box-shadow:0 0 0 3px rgba(124,187,223,0.15);">|</div>
           </div>
           <div style="font-size:11px; font-weight:500; color:var(--text-tertiary);">Focused</div>
-          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">bronze border + ring</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">focus blue border + ring</div>
         </div>
         <div style="text-align:center;">
           <div style="padding:16px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; min-height:80px; display:flex; align-items:center; justify-content:center;">
@@ -6687,6 +6790,9 @@ section { padding: 120px 0; }
           <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">opacity 0.4</div>
         </div>
       </div>
+      <div class="callout-info" style="margin-top:16px; border-color:var(--warning); background:rgba(240,197,67,0.04);">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--warning);">Pending:</strong> A dedicated <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">--border-input</span> variable has been added to the dark mode token set. Input fields now have their own border category, separate from card borders. Exact dark-mode input stroke color is still under review by Bob.</div>
+      </div>
     </div>
 
     <!-- CARDS -->
@@ -6694,14 +6800,15 @@ section { padding: 120px 0; }
       <div class="subsection-label">CARD STATES</div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
         <div style="text-align:center;">
-          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; min-height:100px;">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:transparent; border:1px solid var(--border-default); margin-bottom:8px; min-height:100px;">
             <div style="font-size:14px; font-weight:500; margin-bottom:6px;">Campaign Name</div>
             <div style="font-size:12px; color:var(--text-tertiary);">1,247 views</div>
           </div>
           <div style="font-size:11px; font-weight:500; color:var(--text-tertiary);">Default</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">border only, no fill</div>
         </div>
         <div style="text-align:center;">
-          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-hover); margin-bottom:8px; min-height:100px; transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:transparent; border:1px solid var(--border-hover); margin-bottom:8px; min-height:100px; transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.15);">
             <div style="font-size:14px; font-weight:500; margin-bottom:6px;">Campaign Name</div>
             <div style="font-size:12px; color:var(--text-tertiary);">1,247 views</div>
           </div>
@@ -6709,13 +6816,16 @@ section { padding: 120px 0; }
           <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">lift -2px, border-hover, shadow</div>
         </div>
         <div style="text-align:center;">
-          <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--bronze-400); margin-bottom:8px; min-height:100px; box-shadow:0 0 0 3px rgba(196,138,58,0.12);">
+          <div style="padding:24px; border-radius:var(--radius-sleeve); background:transparent; border:1px solid var(--bronze-400); margin-bottom:8px; min-height:100px; box-shadow:0 0 0 3px rgba(196,138,58,0.12);">
             <div style="font-size:14px; font-weight:500; margin-bottom:6px;">Campaign Name</div>
             <div style="font-size:12px; color:var(--text-tertiary);">1,247 views</div>
           </div>
           <div style="font-size:11px; font-weight:500; color:var(--text-tertiary);">Selected</div>
-          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">bronze border + focus ring</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">bronze border (selection) · keyboard focus uses --focus blue</div>
         </div>
+      </div>
+      <div class="callout-info" style="margin-top:16px;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Standard product cards use border/outline only, no background fill.</strong> Filled surfaces (glass, vinyl, solid with bg) are reserved for marketing layered elements or elements that need visual weight to draw attention. Marketing surfaces keep their existing fill treatments.</div>
       </div>
     </div>
 
@@ -6729,6 +6839,9 @@ section { padding: 120px 0; }
         <span class="badge badge-warning">Pending</span>
         <span class="badge badge-error">Failed</span>
         <span class="badge badge-info">New</span>
+      </div>
+      <div class="callout-info" style="margin-top:12px; border-color:var(--warning); background:rgba(240,197,67,0.04);">
+        <div style="font-size:12px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--warning);">Under review:</strong> Badge colors were flagged as potentially too saturated in the March 2026 sync. Current treatment (subtle fill + outline + colored text) is directionally aligned, but saturation levels may be dialed back after accessibility review.</div>
       </div>
     </div>
 
@@ -6757,12 +6870,12 @@ section { padding: 120px 0; }
         <!-- Unselected / Focused -->
         <div style="text-align:center;">
           <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
-            <div class="toggle-track" style="box-shadow:0 0 0 3px rgba(196,138,58,0.12); border-color:var(--bronze-400);">
+            <div class="toggle-track" style="box-shadow:0 0 0 3px rgba(124,187,223,0.15); border-color:var(--focus);">
               <div class="toggle-thumb"></div>
             </div>
           </div>
           <div style="font-size:11px; font-weight:500; color:var(--text-tertiary);">Unselected / Focused</div>
-          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">keyboard nav</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">keyboard nav (focus blue)</div>
         </div>
         <!-- Selected / Default -->
         <div style="text-align:center;">
@@ -6785,12 +6898,12 @@ section { padding: 120px 0; }
         <!-- Selected / Focused -->
         <div style="text-align:center;">
           <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); margin-bottom:8px; display:flex; align-items:center; justify-content:center; min-height:60px;">
-            <div class="toggle-track active" style="box-shadow:0 0 0 3px rgba(196,138,58,0.12);">
+            <div class="toggle-track active" style="box-shadow:0 0 0 3px rgba(124,187,223,0.15); border-color:var(--focus);">
               <div class="toggle-thumb"></div>
             </div>
           </div>
           <div style="font-size:11px; font-weight:500; color:var(--text-tertiary);">Selected / Focused</div>
-          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">keyboard nav</div>
+          <div style="font-size:10px; color:var(--text-tertiary); margin-top:2px;">keyboard nav (focus blue)</div>
         </div>
         <!-- Disabled — Off -->
         <div style="text-align:center;">
@@ -6841,7 +6954,7 @@ section { padding: 120px 0; }
         </div>
         <div>
           <div style="font-size:13px; font-weight:500; margin-bottom:4px;">Focus Ring</div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.8;">outline: none;<br>box-shadow: 0 0 0 3px<br>&nbsp;&nbsp;rgba(196,138,58,0.12);<br>border-color: var(--bronze-400);</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.8;">outline: none;<br>box-shadow: 0 0 0 3px<br>&nbsp;&nbsp;rgba(124,187,223,0.15);<br>border-color: var(--focus);</div>
         </div>
       </div>
     </div>
@@ -7089,12 +7202,12 @@ section { padding: 120px 0; }
     <div class="fade-up" style="margin-top:24px; padding:20px 24px; background:var(--bg-raised); border:1px solid var(--bronze-400); border-radius:var(--radius-md);">
       <div style="font-size:12px; font-weight:700; color:var(--bronze-400); margin-bottom:12px;">KEY DECISIONS ALREADY MADE</div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; font-size:12px; color:var(--text-secondary); line-height:1.5;">
-        <div><strong style="color:var(--text-primary);">Dark mode default</strong> — base #111620, warm cream #F0EBE3 text</div>
-        <div><strong style="color:var(--text-primary);">Display font</strong> — Anacrusis for D0/D1 (40px+), Satoshi for everything else</div>
-        <div><strong style="color:var(--text-primary);">Icon library</strong> — Phosphor Bold (2px strokes, rounded caps, matches logo character)</div>
-        <div><strong style="color:var(--text-primary);">Status colors</strong> — Warm vivid palette, warning yellow 12° separated from bronze</div>
+        <div><strong style="color:var(--text-primary);">Dark mode default</strong> — base #111620, warm cream #F0EBE3 text. External pages dark-only.</div>
+        <div><strong style="color:var(--text-primary);">Surface layers</strong> — Layer 1&ndash;6 numbered system. Legacy --bg-* aliases maintained.</div>
+        <div><strong style="color:var(--text-primary);">Icon library</strong> — Phosphor Bold (interim). Custom set in progress from Bob. SVGs pending.</div>
+        <div><strong style="color:var(--text-primary);">Focus rings</strong> — Focus blue (#7CBBDF) confirmed for all focus states. Bronze for card hover/selection only.</div>
         <div><strong style="color:var(--text-primary);">Bronze accent</strong> — #C48A3A is the signature brand color across all surfaces</div>
-        <div><strong style="color:var(--text-primary);">Mobile first</strong> — Base styles target 0-639px, layer up from there</div>
+        <div><strong style="color:var(--text-primary);">Product cards</strong> — Border/outline only, no fill. Fill reserved for marketing surfaces needing visual weight.</div>
       </div>
     </div>
   </div>
@@ -7355,13 +7468,159 @@ section { padding: 120px 0; }
   </div>
 </section>
 
+<div class="container"><div class="divider"></div></div>
+
+<!-- MODE STRATEGY -->
+<section id="prod-modes">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label"><span class="section-num">P12</span> / Mode Strategy</div>
+      <h2 class="section-title">Dark-first, warm-optional.</h2>
+      <p class="section-desc">Dark mode is the default experience across all product surfaces. Light mode is available for authenticated users but is not the primary focus.</p>
+    </div>
+
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">MODE RULES</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+          <div style="font-size:15px; font-weight:700; margin-bottom:12px;">Dark = Default</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.8;">
+            <div style="margin-bottom:6px;">&bull; Dark mode is applied consistently across all product surfaces</div>
+            <div style="margin-bottom:6px;">&bull; External pages (login, sign-up, public-facing) = dark mode only, no toggle</div>
+            <div style="margin-bottom:6px;">&bull; Authenticated users get a light mode toggle in settings</div>
+            <div>&bull; Website effort split: ~80% dark mode, ~20% light mode</div>
+          </div>
+        </div>
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+          <div style="font-size:15px; font-weight:700; margin-bottom:12px;">Light Mode Direction</div>
+          <p style="font-size:13px; color:var(--text-secondary); line-height:1.7; margin-bottom:12px;">Exploring a warm surface palette derived from the cream (#F0EBE3) family. Current light mode uses cool neutrals. Goal: warm light surfaces that maintain the brand temperature relationship &mdash; warm lights and cool dark vinyl.</p>
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:8px;">CANDIDATE WARM PALETTE (EXPLORATION)</div>
+          <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:4px; border-radius:var(--radius-sm); overflow:hidden;">
+            <div style="height:48px; background:#FAF7F2; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:600; color:#4A3114;">L1</span></div>
+            <div style="height:48px; background:#F5F1EA; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:600; color:#4A3114;">L2</span></div>
+            <div style="height:48px; background:#F0EBE3; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:600; color:#4A3114;">L3</span></div>
+            <div style="height:48px; background:#E8E2D8; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:600; color:#4A3114;">L4</span></div>
+            <div style="height:48px; background:#E0D9CE; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:600; color:#4A3114;">L5</span></div>
+            <div style="height:48px; background:#D8D0C4; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:600; color:#4A3114;">L6</span></div>
+          </div>
+          <p style="font-size:11px; color:var(--text-tertiary); margin-top:8px;">Not final. Shown for direction only. Finalize dark mode first, then derive light from that foundation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up" style="margin-top:32px;">
+      <div class="subsection-label">PROCESS</div>
+      <div class="callout-info">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Finalize dark mode first, then flip to light.</strong> Get dark mode fully right, inventory all elements, then derive light mode from that foundation. Building both in parallel is not the approach. Bob to document the element inventory as part of dark mode finalization.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ARTIST THEMING -->
+<section id="prod-artist-theming">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label"><span class="section-num">P13</span> / Artist Theming</div>
+      <h2 class="section-title">Two colors. One artist.</h2>
+      <p class="section-desc">Fan-facing surfaces adapt to the artist's brand through two configurable color tokens. The Grouped platform backdrop stays cool and confident and does not compete with artist branding.</p>
+    </div>
+
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">THEMING MODEL</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+          <div style="font-size:15px; font-weight:700; margin-bottom:12px;">Year 1: Two-Token Model</div>
+          <p style="font-size:13px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Artists get a <strong style="color:var(--text-primary);">primary</strong> and <strong style="color:var(--text-primary);">secondary</strong> color token. These drive calls to action, accents, and glow colors within their Group/feed context.</p>
+          <div style="display:flex; gap:12px;">
+            <div style="flex:1; padding:16px; border-radius:var(--radius-sm); background:var(--bg-overlay); border:1px solid var(--border-default); text-align:center;">
+              <div style="width:32px; height:32px; border-radius:50%; background:var(--bronze-400); margin:0 auto 8px;"></div>
+              <div style="font-size:11px; font-weight:500;">Primary</div>
+              <div style="font-size:10px; color:var(--text-tertiary);">CTAs, accents, glow</div>
+            </div>
+            <div style="flex:1; padding:16px; border-radius:var(--radius-sm); background:var(--bg-overlay); border:1px solid var(--border-default); text-align:center;">
+              <div style="width:32px; height:32px; border-radius:50%; background:var(--focus); margin:0 auto 8px;"></div>
+              <div style="font-size:11px; font-weight:500;">Secondary</div>
+              <div style="font-size:10px; color:var(--text-tertiary);">Supporting, highlights</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+          <div style="font-size:15px; font-weight:700; margin-bottom:12px;">Platform Principle</div>
+          <p style="font-size:13px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Grouped is the room. Artist colors run on top of it. The deep blue backdrop recedes, the artist's palette fills the foreground. Using tokens and small hex overrides, the view updates without breaking the design system.</p>
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:8px;">FUTURE PHASES</div>
+          <div style="font-size:12px; color:var(--text-secondary); line-height:1.8;">
+            <div><strong style="color:var(--text-primary);">Phase 2:</strong> AI-driven color extraction from album art &mdash; algorithmically extract dominant colors from a cover image and offer as default theme.</div>
+            <div style="margin-top:6px;"><strong style="color:var(--text-primary);">Phase 3:</strong> Per-album and per-post color theming &mdash; each release feels visually distinct.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- FUTURE EXPLORATION -->
+<section id="prod-future">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label"><span class="section-num">P14</span> / Future Exploration</div>
+      <h2 class="section-title">Deferred items.</h2>
+      <p class="section-desc">Decisions and explorations flagged during syncs but not yet resolved. Track these for future design sprints so nothing falls through the cracks.</p>
+    </div>
+
+    <div style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+        <div style="font-size:12px; font-weight:700; color:var(--warning); margin-bottom:8px;">DESIGN SYSTEM</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.8;">
+          <div>&bull; Icon vs. button rationale document &mdash; when to use standalone icon vs. button component</div>
+          <div>&bull; Pressed/active states for all interactive components &mdash; currently missing</div>
+          <div>&bull; Dark mode input stroke color finalization (--border-input)</div>
+          <div>&bull; Global spacing &ldquo;too tight&rdquo; audit &mdash; margins/gutters ticket pending</div>
+          <div>&bull; &ldquo;Slow glow&rdquo; data banner motif &mdash; replacement for gradient backgrounds</div>
+        </div>
+      </div>
+      <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+        <div style="font-size:12px; font-weight:700; color:var(--warning); margin-bottom:8px;">PRODUCT &amp; FEATURES</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.8;">
+          <div>&bull; Messages page full redesign candidate &mdash; Bob recommends a complete redo over cosmetic patching</div>
+          <div>&bull; Color blindness considerations for data viz &mdash; pair color with directional icons (up/down arrows) so meaning is not color-dependent</div>
+          <div>&bull; Data visualization color palette &mdash; define once artist data priorities are understood</div>
+          <div>&bull; Nav menu parameter controls &mdash; max items, add/remove criteria as features grow</div>
+        </div>
+      </div>
+      <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+        <div style="font-size:12px; font-weight:700; color:var(--warning); margin-bottom:8px;">BRAND &amp; THEMING</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.8;">
+          <div>&bull; Warm light mode surface palette exploration</div>
+          <div>&bull; Custom icon set delivery + GDrive upload workflow</div>
+          <div>&bull; Icon weight adjustment for website (bolder strokes at website scale)</div>
+          <div>&bull; Product area color differentiation &mdash; do Swaps and Broadcasts need distinct accent colors?</div>
+        </div>
+      </div>
+      <div style="padding:20px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default);">
+        <div style="font-size:12px; font-weight:700; color:var(--warning); margin-bottom:8px;">ACCESSIBILITY</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.8;">
+          <div>&bull; High contrast / browser-level accessibility mode testing</div>
+          <div>&bull; Badge color saturation review for contrast compliance</div>
+          <div>&bull; Font zoom behavior validation across the system</div>
+          <div>&bull; Scroll fade interaction on filtering toolbar (micro-interaction)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div><!-- end product-tab -->
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-logo grouped-display">grouped<span>.</span></div>
-    <div class="footer-note">Design System v1.0 · February 2026 · Internal Reference</div>
+    <div class="footer-note">Design System v1.1 · March 2026 · Internal Reference</div>
   </div>
 </footer>
 
