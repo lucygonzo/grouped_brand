@@ -1030,17 +1030,19 @@ section { padding: 120px 0; }
 
 /* gold scale */
 .gold-scale {
-  display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px;
-  border-radius: var(--radius-lg); overflow: hidden; margin-top: 24px;
+  display: flex; gap: 2px; border-radius: var(--radius-lg); overflow: hidden; margin-top: 24px;
 }
 .gold-step {
-  height: 80px; display: flex; align-items: flex-end; padding: 8px 10px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  cursor: pointer; transition: transform 0.2s;
+  flex: 1; height: 120px; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 4px;
+  padding: 8px 4px;
+  cursor: pointer; transition: flex 300ms ease;
   position: relative;
 }
-.gold-step:hover { transform: scaleY(1.1); transform-origin: bottom; }
-.gold-step span { position: relative; z-index: 1; }
+.gold-step:hover { flex: 1.5; }
+.gold-step .step-name { font-family: 'Satoshi', sans-serif; font-weight: 600; font-size: 12px; position: relative; z-index: 1; }
+.gold-step .step-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; opacity: 0.85; position: relative; z-index: 1; }
+.gold-step .step-alias { font-family: 'JetBrains Mono', monospace; font-size: 9px; opacity: 0.55; position: relative; z-index: 1; }
 
 /* bg surfaces */
 .surface-stack {
@@ -1523,8 +1525,9 @@ section { padding: 120px 0; }
   .type-display-xl { font-size: 48px; }
   .type-display-lg { font-size: 40px; }
   .type-display-md { font-size: 32px; }
-  .gold-scale { grid-template-columns: repeat(4, 1fr); }
-  .gold-step { height: 60px; }
+  .gold-scale { flex-wrap: wrap; }
+  .gold-step { min-width: calc(25% - 2px); height: 80px; }
+  .gold-step .step-alias { font-size: 8px; }
   .semantic-row { grid-template-columns: repeat(2, 1fr); }
   .comp-grid { grid-template-columns: 1fr; }
   .hero-color-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -2612,14 +2615,14 @@ section { padding: 120px 0; }
       <div class="fade-up">
         <div class="color-group-title">Bronze Accent Scale</div>
         <div class="gold-scale">
-          <div class="gold-step" style="background:#FEF7EC;color:#4A3114" onclick="copyHex(this,'#FEF7EC')"><span>50</span></div>
-          <div class="gold-step" style="background:#FDE9C8;color:#4A3114" onclick="copyHex(this,'#FDE9C8')"><span>100</span></div>
-          <div class="gold-step" style="background:#FAD08E;color:#4A3114" onclick="copyHex(this,'#FAD08E')"><span>200</span></div>
-          <div class="gold-step" style="background:#F6B44E;color:#4A3114" onclick="copyHex(this,'#F6B44E')"><span>300</span></div>
-          <div class="gold-step" style="background:#C48A3A;color:#09090B" onclick="copyHex(this,'#C48A3A')"><span>400 ★</span></div>
-          <div class="gold-step" style="background:#B87A2E;color:#FEF7EC" onclick="copyHex(this,'#B87A2E')"><span>500</span></div>
-          <div class="gold-step" style="background:#916024;color:#FEF7EC" onclick="copyHex(this,'#916024')"><span>600</span></div>
-          <div class="gold-step" style="background:#6B471B;color:#FEF7EC" onclick="copyHex(this,'#6B471B')"><span>700</span></div>
+          <div class="gold-step" style="background:#FEF7EC;color:#4A3114" onclick="copyHex(this,'#FEF7EC')"><span class="step-name">50</span><span class="step-hex">#FEF7EC</span><span class="step-alias">--bronze-50</span></div>
+          <div class="gold-step" style="background:#FDE9C8;color:#4A3114" onclick="copyHex(this,'#FDE9C8')"><span class="step-name">100</span><span class="step-hex">#FDE9C8</span><span class="step-alias">--bronze-100</span></div>
+          <div class="gold-step" style="background:#FAD08E;color:#4A3114" onclick="copyHex(this,'#FAD08E')"><span class="step-name">200</span><span class="step-hex">#FAD08E</span><span class="step-alias">--bronze-200</span></div>
+          <div class="gold-step" style="background:#F6B44E;color:#4A3114" onclick="copyHex(this,'#F6B44E')"><span class="step-name">300</span><span class="step-hex">#F6B44E</span><span class="step-alias">--bronze-300</span></div>
+          <div class="gold-step" style="background:#C48A3A;color:#09090B" onclick="copyHex(this,'#C48A3A')"><span class="step-name">400 ★</span><span class="step-hex">#C48A3A</span><span class="step-alias">--bronze-400</span></div>
+          <div class="gold-step" style="background:#B87A2E;color:#FEF7EC" onclick="copyHex(this,'#B87A2E')"><span class="step-name">500</span><span class="step-hex">#B87A2E</span><span class="step-alias">--bronze-500</span></div>
+          <div class="gold-step" style="background:#916024;color:#FEF7EC" onclick="copyHex(this,'#916024')"><span class="step-name">600</span><span class="step-hex">#916024</span><span class="step-alias">--bronze-600</span></div>
+          <div class="gold-step" style="background:#6B471B;color:#FEF7EC" onclick="copyHex(this,'#6B471B')"><span class="step-name">700</span><span class="step-hex">#6B471B</span><span class="step-alias">--bronze-700</span></div>
         </div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">★ Primary brand accent. <span style="font-family:'JetBrains Mono',monospace">#C48A3A</span> is reserved for headlines, logos, section labels, CTAs, and the concentric arc motif. It is the brand voice. It should never appear on interactive feedback elements like focus rings, stickers, or status badges.</p>
       </div>
