@@ -1274,8 +1274,8 @@ section { padding: 120px 0; }
 .btn-destructive:hover { background: var(--error-hover); box-shadow: 0 4px 16px rgba(240,112,104,0.25); transform: scale(1.02); }
 .btn-destructive:active { background: var(--error-active); transform: scale(0.97); }
 
-/* CTA — legacy alias, merged into Secondary (March 2026 sync) */
-.btn-cta { /* Inherits same treatment as .btn-secondary — bronze outline */
+/* .btn-cta — legacy alias for .btn-secondary. CTA is a goal, not a type. */
+.btn-cta { /* Same treatment as .btn-secondary — bronze outline */
   background: transparent; color: var(--bronze-400);
   border: 1.5px solid var(--bronze-400);
 }
@@ -2531,7 +2531,7 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label"><span class="section-num">F2</span> / Color</div>
       <h2 class="section-title grouped-display">Warm bronze. Cool blue. Deep navy.</h2>
-      <p class="section-desc">Three temperature layers. Deep blue surfaces create the room. Warm bronze marks the brand: headlines, logos, section labels, CTAs. Cool focus blue handles everything interactive: input highlights, accent stickers, active indicators, badges. The split keeps bronze feeling earned and intentional instead of overused.</p>
+      <p class="section-desc">Three temperature layers. Deep blue surfaces create the room. Warm bronze marks the brand: headlines, logos, section labels, buttons. Cool focus blue handles everything interactive: input highlights, accent stickers, active indicators, badges. The split keeps bronze feeling earned and intentional instead of overused.</p>
     </div>
 
     <!-- COLOR CHEAT SHEET -->
@@ -2588,7 +2588,7 @@ section { padding: 120px 0; }
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
               <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Headlines</span>
               <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Logo</span>
-              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">CTAs</span>
+              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Buttons</span>
               <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Labels</span>
             </div>
           </div>
@@ -2630,7 +2630,7 @@ section { padding: 120px 0; }
           <div class="gold-step" style="background:#916024;color:#FEF7EC" onclick="copyHex(this,'#916024')"><span class="step-name">600</span><span class="step-hex">#916024</span><span class="step-alias">--bronze-600</span></div>
           <div class="gold-step" style="background:#6B471B;color:#FEF7EC" onclick="copyHex(this,'#6B471B')"><span class="step-name">700</span><span class="step-hex">#6B471B</span><span class="step-alias">--bronze-700</span></div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">★ Primary brand accent. <span style="font-family:'JetBrains Mono',monospace">#C48A3A</span> is reserved for headlines, logos, section labels, CTAs, and the concentric arc motif. It is the brand voice. It should never appear on interactive feedback elements like focus rings, stickers, or status badges.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">★ Primary brand accent. <span style="font-family:'JetBrains Mono',monospace">#C48A3A</span> is reserved for headlines, logos, section labels, buttons, and the concentric arc motif. It is the brand voice. It should never appear on interactive feedback elements like focus rings, stickers, or status badges.</p>
       </div>
 
       <!-- Background Surfaces -->
@@ -3289,7 +3289,7 @@ section { padding: 120px 0; }
               <button class="btn btn-primary btn-lg"><i class="ph-bold ph-play btn-icon"></i> Play Now</button>
             </div>
           </div>
-          <!-- Secondary (includes former CTA) -->
+          <!-- Secondary -->
           <div>
             <div style="font-size:10px; font-weight:500; letter-spacing:0.08em; color:var(--text-tertiary); margin-bottom:8px;">SECONDARY</div>
             <div class="btn-row">
@@ -6072,7 +6072,7 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Empty State</div>
-          <div class="prod-card-desc">First-run and zero-data states. Icon, message, primary action CTA. Design goal: guide the user forward, not just show "nothing here." Each screen needs its own variant.</div>
+          <div class="prod-card-desc">First-run and zero-data states. Icon, message, primary action. Design goal: guide the user forward, not just show "nothing here." Each screen needs its own variant.</div>
           <div class="prod-card-usage">USE ON: Every screen's zero-data state — campaigns, fans, analytics</div>
         </div>
       </div>
@@ -6395,7 +6395,7 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label"><span class="section-num">P5</span> / Button Library</div>
       <h2 class="section-title">Button library.</h2>
-      <p class="section-desc">Six button types across product and marketing. All use pill radius, Satoshi Bold uppercase labels, and three size tiers (sm / md / lg). See the Do/Don't guide below for selection rules.</p>
+      <p class="section-desc">Five button types: three core levels (Primary, Secondary, Tertiary) plus Link and Destructive. All use pill radius, Satoshi Bold uppercase labels, and three size tiers (sm / md / lg). See the Do/Don't guide below for selection rules.</p>
     </div>
 
     <!-- Shared sizing specs -->
@@ -6438,7 +6438,7 @@ section { padding: 120px 0; }
         </div>
         <div class="prod-card-info">
           <div class="prod-card-name">Primary</div>
-          <div class="prod-card-desc">Hero action. One per screen. Solid bronze fill with inverse text. Use for the single most important CTA: Save, Submit, Confirm.</div>
+          <div class="prod-card-desc">Hero action. One per screen. Solid bronze fill with inverse text. Use for the single most important action: Save, Submit, Confirm.</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
             fill: --bronze-400 · text: --button-text<br>
             hover: subtle transparent-white overlay (~8% / 0.08 opacity) on bronze fill, slightly lighter border. No color switch. Do not bold label text.<br>
@@ -6447,7 +6447,7 @@ section { padding: 120px 0; }
         </div>
       </div>
 
-      <!-- 2. Secondary (absorbs CTA — March 2026 sync) -->
+      <!-- 2. Secondary -->
       <div class="prod-component-card fade-up stagger-2">
         <div class="prod-card-preview" style="flex-direction:column; gap:12px;">
           <div class="btn-row" style="justify-content:center;">
@@ -6466,35 +6466,18 @@ section { padding: 120px 0; }
             hover: subtle bronze wash + glow<br>
             active: deeper wash + scale(0.97)
           </div>
-          <div class="callout-info" style="margin-top:12px;">
-            <div style="font-size:12px; color:var(--text-secondary); line-height:1.5;"><strong style="color:var(--text-primary);">Merged from CTA:</strong> The previous Secondary (neutral border) and CTA/Unlock (bronze border) were two outline variants with thin differentiation. Consolidated into one bronze-outline type. The legacy <span style="font-family:'JetBrains Mono',monospace; font-size:10px;">.btn-cta</span> class still works as an alias.</div>
-          </div>
         </div>
       </div>
 
-      <!-- 3. Tertiary -->
+      <!-- 3. Tertiary (text + icon-only) -->
       <div class="prod-component-card fade-up stagger-2">
-        <div class="prod-card-preview" style="flex-direction:column; gap:12px;">
+        <div class="prod-card-preview" style="flex-direction:column; gap:16px;">
+          <div style="font-size:10px; font-weight:500; letter-spacing:0.08em; color:var(--text-tertiary);">TEXT VARIANT</div>
           <div class="btn-row" style="justify-content:center;">
             <button class="btn btn-tertiary">View details →</button>
             <button class="btn btn-tertiary">Learn more →</button>
-            <button class="btn btn-tertiary btn-disabled">Disabled →</button>
           </div>
-        </div>
-        <div class="prod-card-info">
-          <div class="prod-card-name">Tertiary</div>
-          <div class="prod-card-desc">Inline text link. No border, no fill. Medium weight, sentence case. Use for secondary navigation: View Details, Learn More, See All.</div>
-          <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
-            fill: transparent · text: --bronze-400<br>
-            hover: --gold-300<br>
-            active: --gold-500
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. Ghost -->
-      <div class="prod-component-card fade-up stagger-1">
-        <div class="prod-card-preview" style="flex-direction:column; gap:12px;">
+          <div style="font-size:10px; font-weight:500; letter-spacing:0.08em; color:var(--text-tertiary); margin-top:8px;">ICON-ONLY VARIANT (GHOST)</div>
           <div class="btn-row" style="justify-content:center;">
             <button class="btn btn-ghost btn-sm"><i class="ph-bold ph-heart" style="font-size:16px;"></i></button>
             <button class="btn btn-ghost"><i class="ph-bold ph-dots-three-vertical" style="font-size:18px;"></i></button>
@@ -6502,19 +6485,14 @@ section { padding: 120px 0; }
           </div>
         </div>
         <div class="prod-card-info">
-          <div class="prod-card-name">Ghost</div>
-          <div class="prod-card-desc">Icon-only interactions use tertiary treatment: no fill, no shadow, no border at rest. Ghost fill appears on hover only. Use for icon-only utility actions: Like, Menu, Settings, Close, Overflow. Square hit target (44px default).</div>
+          <div class="prod-card-name">Tertiary</div>
+          <div class="prod-card-desc">Minimal treatment — no fill, no border at rest. Two variants: <strong>text</strong> for inline navigation (View Details, Learn More, See All) and <strong>icon-only (ghost)</strong> for utility actions (Like, Menu, Settings, Close). Ghost fill appears on hover only. Square hit target for icons (44px default).</div>
           <div style="margin-top:12px; padding:10px 12px; background:var(--bg-base); border-radius:var(--radius-sm); font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); line-height:1.6;">
-            fill: transparent · text: --text-secondary<br>
-            hover: text-primary + bg wash (ghost fill)<br>
-            sm: 36px · md: 44px · lg: 52px
+            text: fill transparent · text --bronze-400 · hover --gold-300<br>
+            ghost: fill transparent · text --text-secondary · hover ghost fill<br>
+            icon sizes: sm 36px · md 44px · lg 52px
           </div>
         </div>
-      </div>
-
-      <!-- Icon vs. Button Rule -->
-      <div class="fade-up callout-info" style="grid-column:span 2; margin-top:0;">
-        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Icon vs. Button rule:</strong> If the action has a text label, use a standard button type (Primary, Secondary, Tertiary). If the action is icon-only with no label, use Ghost. Ghost is the tertiary treatment for icons. A full icon-vs-button rationale document is pending &mdash; flagged for future design exploration.</div>
       </div>
 
       <!-- 6. Link / URL -->
@@ -6560,7 +6538,7 @@ section { padding: 120px 0; }
 
     <!-- Active/Press note -->
     <div class="fade-up callout-info" style="margin-top:24px;">
-      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Active (press) &mdash; all buttons:</strong> Scale to 97%. Already in doc &mdash; confirm this is implemented consistently across Primary, Secondary, Ghost, and Destructive variants.</div>
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Active (press) &mdash; all buttons:</strong> Scale to 97%. Already in doc &mdash; confirm this is implemented consistently across Primary, Secondary, Tertiary, and Destructive variants.</div>
     </div>
 
     <!-- Button Do/Don'ts -->
@@ -6572,7 +6550,7 @@ section { padding: 120px 0; }
           <div class="usage-item">One Primary per screen &mdash; it's the hero action</div>
           <div class="usage-item">Use Secondary for all supporting actions (Edit, Share, Unlock, Claim)</div>
           <div class="usage-item">Use Destructive only for irreversible actions (delete, remove)</div>
-          <div class="usage-item">Use Ghost for icon-only actions in toolbars and tight layouts</div>
+          <div class="usage-item">Use Tertiary for inline text links and icon-only utility actions</div>
         </div>
         <div class="font-usage-card avoid">
           <div class="usage-label">&#10007; Don't</div>
@@ -6586,7 +6564,7 @@ section { padding: 120px 0; }
         <div class="usage-label">When to use each size</div>
         <div class="usage-row"><span class="usage-token">sm (36px)</span><span class="usage-desc">Inline actions, table rows, compact card footers</span></div>
         <div class="usage-row"><span class="usage-token">md (44px)</span><span class="usage-desc">Standard forms, dialogs, cards &mdash; the default choice</span></div>
-        <div class="usage-row"><span class="usage-token">lg (52px)</span><span class="usage-desc">Hero CTAs, onboarding flows, landing pages</span></div>
+        <div class="usage-row"><span class="usage-token">lg (52px)</span><span class="usage-desc">Hero actions, onboarding flows, landing pages</span></div>
       </div>
 
       <!-- Focus Ring + Button Decision -->
@@ -6664,7 +6642,7 @@ section { padding: 120px 0; }
         </div>
       </div>
 
-      <!-- Secondary row (bronze outline — absorbs former CTA) -->
+      <!-- Secondary row -->
       <div style="display:grid; grid-template-columns:100px repeat(5, 1fr); gap:12px; margin-bottom:12px;">
         <div style="display:flex; align-items:center; font-size:11px; font-weight:500; color:var(--text-secondary);">Secondary</div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
@@ -7248,7 +7226,7 @@ section { padding: 120px 0; }
             <div style="font-size:14px; font-weight:700;">Mobile</div>
           </div>
           <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--bronze-400); margin-bottom:8px;">0 — 639px</div>
-          <div style="font-size:11px; color:var(--text-tertiary); line-height:1.5;">Single column. Fan-facing swap pages, mobile web app. Stacked layouts, full-width CTAs.</div>
+          <div style="font-size:11px; color:var(--text-tertiary); line-height:1.5;">Single column. Fan-facing swap pages, mobile web app. Stacked layouts, full-width actions.</div>
         </div>
         <div style="padding:24px; background:var(--bg-raised); border-right:1px solid var(--border-default);">
           <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
@@ -7287,7 +7265,7 @@ section { padding: 120px 0; }
           </div>
           <div>
             <div style="font-size:14px; font-weight:500;">44px minimum</div>
-            <div style="font-size:12px; color:var(--text-tertiary);">Primary actions: buttons, nav items, CTA areas</div>
+            <div style="font-size:12px; color:var(--text-tertiary);">Primary actions: buttons, nav items, action areas</div>
           </div>
         </div>
         <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; gap:16px;">
@@ -7553,7 +7531,7 @@ section { padding: 120px 0; }
             <div style="flex:1; padding:16px; border-radius:var(--radius-sm); background:var(--bg-overlay); border:1px solid var(--border-default); text-align:center;">
               <div style="width:32px; height:32px; border-radius:50%; background:var(--bronze-400); margin:0 auto 8px;"></div>
               <div style="font-size:11px; font-weight:500;">Primary</div>
-              <div style="font-size:10px; color:var(--text-tertiary);">CTAs, accents, glow</div>
+              <div style="font-size:10px; color:var(--text-tertiary);">Buttons, accents, glow</div>
             </div>
             <div style="flex:1; padding:16px; border-radius:var(--radius-sm); background:var(--bg-overlay); border:1px solid var(--border-default); text-align:center;">
               <div style="width:32px; height:32px; border-radius:50%; background:var(--focus); margin:0 auto 8px;"></div>
