@@ -69,6 +69,8 @@
   --success: #4ADE80;
   --warning: #F0C543;
   --error: #F07068;
+  --error-hover: #D85A52;
+  --error-active: #C04840;
   --info: #63B3ED;
   --focus: #7CBBDF;  /* Ducky blue — interactive focus states */
   --feature-community: #38C3FF;   /* color/blue/500 */
@@ -143,6 +145,8 @@
   --success: #4ADE80;
   --warning: #F0C543;
   --error: #F07068;
+  --error-hover: #D85A52;
+  --error-active: #C04840;
   --info: #63B3ED;
   --focus: #7CBBDF;
   --feature-community: #38C3FF;
@@ -200,6 +204,8 @@
   --success: #1A9A4A;
   --warning: #B8941F;
   --error: #C93E36;
+  --error-hover: #B53830;
+  --error-active: #A03028;
   --info: #2A7AB5;
   --focus: #2874A6;
   --feature-community: #38C3FF;
@@ -1265,8 +1271,8 @@ section { padding: 120px 0; }
 .btn-destructive {
   background: var(--error); color: #FFFFFF; border: none;
 }
-.btn-destructive:hover { background: #D85A52; box-shadow: 0 4px 16px rgba(240,112,104,0.25); transform: scale(1.02); }
-.btn-destructive:active { background: #C04840; transform: scale(0.97); }
+.btn-destructive:hover { background: var(--error-hover); box-shadow: 0 4px 16px rgba(240,112,104,0.25); transform: scale(1.02); }
+.btn-destructive:active { background: var(--error-active); transform: scale(0.97); }
 
 /* CTA — legacy alias, merged into Secondary (March 2026 sync) */
 .btn-cta { /* Inherits same treatment as .btn-secondary — bronze outline */
@@ -1483,7 +1489,7 @@ section { padding: 120px 0; }
 }
 .spacing-bar {
   height: 24px; background: rgba(196,138,58,0.15); border: 1px solid rgba(196,138,58,0.2);
-  border-radius: 4px; transition: width 0.3s var(--ease-out);
+  border-radius: var(--radius-sleeve); transition: width 0.3s var(--ease-out);
 }
 .spacing-label {
   font-family: 'JetBrains Mono', monospace; font-size: 12px;
@@ -1546,7 +1552,7 @@ section { padding: 120px 0; }
 /* ===== TAB SYSTEM ===== */
 .tab-btn {
   padding: 6px 16px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: none;
   background: transparent;
   color: var(--text-tertiary);
@@ -1616,7 +1622,7 @@ section { padding: 120px 0; }
   letter-spacing: 0.04em;
 }
 .prod-component-card {
-  background: var(--bg-raised);
+  background: transparent;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sleeve);
   overflow: hidden;
@@ -1662,7 +1668,7 @@ section { padding: 120px 0; }
 .prod-check {
   width: 18px;
   height: 18px;
-  border-radius: 4px;
+  border-radius: var(--radius-sleeve);
   border: 1.5px solid var(--border-hover);
   flex-shrink: 0;
   margin-top: 1px;
@@ -1898,7 +1904,7 @@ section { padding: 120px 0; }
 .align-card-label { font-size: 13px; font-weight:500; flex: 1; }
 .align-card-status {
   font-size: 11px; font-weight:500; letter-spacing: 0.04em;
-  padding: 3px 10px; border-radius: 999px;
+  padding: 4px 12px; border-radius: var(--radius-full);
 }
 .align-card-status.aligned { background: rgba(74,222,128,0.1); color: #4ADE80; }
 .align-card-status.override { background: rgba(251,191,36,0.1); color: #FBBF24; }
@@ -1966,7 +1972,7 @@ section { padding: 120px 0; }
 .mismatch-node-link:hover { color: var(--bronze-400); }
 .task-expand-all {
   font-size: 12px; font-weight: 600; color: var(--focus); background: rgba(124,187,223,0.08);
-  border: 1px solid rgba(124,187,223,0.15); border-radius: 999px;
+  border: 1px solid rgba(124,187,223,0.15); border-radius: var(--radius-full);
   padding: 4px 14px; cursor: pointer; transition: background 0.2s;
 }
 .task-expand-all:hover { background: rgba(124,187,223,0.15); }
@@ -1987,7 +1993,7 @@ section { padding: 120px 0; }
   font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px;
 }
 .audit-toggle-header .toggle-count {
-  font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: var(--radius-full);
   background: rgba(74,222,128,0.1); color: #4ADE80;
 }
 .audit-toggle-header .toggle-chevron {
@@ -2013,7 +2019,7 @@ section { padding: 120px 0; }
 }
 .aligned-item-links a {
   font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
-  text-decoration: none; padding: 2px 8px; border-radius: 999px;
+  text-decoration: none; padding: 2px 8px; border-radius: var(--radius-full);
   transition: background 0.2s, color 0.2s;
 }
 .aligned-item-links a.guide-link {
@@ -2174,7 +2180,7 @@ section { padding: 120px 0; }
 /* Badge preview row */
 .status-badge-preview {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight:500;
+  padding: 4px 10px; border-radius: var(--radius-full); font-size: 11px; font-weight:500;
   letter-spacing: 0.02em;
 }
 /* Bronze comparison strip */
@@ -2212,7 +2218,7 @@ section { padding: 120px 0; }
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo grouped-display">grouped<span>.</span></a>
-  <div style="display:flex; align-items:center; gap:4px; background:var(--bg-overlay); border-radius:999px; padding:3px; border:1px solid var(--border-default);">
+  <div style="display:flex; align-items:center; gap:4px; background:var(--bg-overlay); border-radius:var(--radius-full); padding:4px; border:1px solid var(--border-default);">
     <button class="tab-btn active" data-tab="foundation" onclick="switchTab('foundation')">Foundation</button>
     <button class="tab-btn" data-tab="marketing" onclick="switchTab('marketing')">Marketing</button>
     <button class="tab-btn" data-tab="product" onclick="switchTab('product')">Product</button>
@@ -2452,7 +2458,7 @@ section { padding: 120px 0; }
           </div>
         </div>
         <div style="padding:24px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid rgba(124,187,223,0.3);">
-          <div style="font-size:14px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px;">No Semibold <span style="font-size:10px; font-weight:700; color:var(--focus); background:rgba(124,187,223,0.1); padding:2px 8px; border-radius:999px;">IMPORTANT</span></div>
+          <div style="font-size:14px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px;">No Semibold <span style="font-size:10px; font-weight:700; color:var(--focus); background:rgba(124,187,223,0.1); padding:2px 8px; border-radius:var(--radius-full);">IMPORTANT</span></div>
           <div style="font-size:13px; color:var(--text-secondary); line-height:1.7;">
             Satoshi does not include a Semibold (600) weight. All tokens that previously specified 600 &mdash; D0, D1, C1&ndash;C4 &mdash; are now officially <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font-weight: 700</code> (Bold). This maintains the hierarchy: Regular&nbsp;400 &lt; Medium&nbsp;500 &lt; Bold&nbsp;700. Figma text styles should use <code style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:1px 4px; background:var(--bg-overlay); border-radius:3px;">font/weight/Bold</code> for these tokens.
           </div>
@@ -2544,9 +2550,9 @@ section { padding: 120px 0; }
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--bg-base</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">The room. Every surface starts here. Cool blue undertone — never neutral grey.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:3px 8px; border-radius:var(--radius-label);">Backgrounds</span>
-              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:3px 8px; border-radius:var(--radius-label);">Surfaces</span>
-              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:3px 8px; border-radius:var(--radius-label);">Canvas</span>
+              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:4px 8px; border-radius:var(--radius-label);">Backgrounds</span>
+              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:4px 8px; border-radius:var(--radius-label);">Surfaces</span>
+              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:4px 8px; border-radius:var(--radius-label);">Canvas</span>
             </div>
           </div>
         </div>
@@ -2562,9 +2568,9 @@ section { padding: 120px 0; }
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--text-primary</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">Warm white with a yellow undertone. Body text, headings, UI labels. Reads softer than pure white.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:3px 8px; border-radius:var(--radius-label);">Body Text</span>
-              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:3px 8px; border-radius:var(--radius-label);">Headings</span>
-              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:3px 8px; border-radius:var(--radius-label);">UI Labels</span>
+              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:4px 8px; border-radius:var(--radius-label);">Body Text</span>
+              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:4px 8px; border-radius:var(--radius-label);">Headings</span>
+              <span style="font-size:10px; font-weight:600; color:var(--text-secondary); background:var(--bg-base); border:1px solid var(--border-default); padding:4px 8px; border-radius:var(--radius-label);">UI Labels</span>
             </div>
           </div>
         </div>
@@ -2580,10 +2586,10 @@ section { padding: 120px 0; }
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--bronze-400</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">The brand voice. Warm, earned, intentional. Never on interactive feedback elements.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:3px 8px; border-radius:var(--radius-label);">Headlines</span>
-              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:3px 8px; border-radius:var(--radius-label);">Logo</span>
-              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:3px 8px; border-radius:var(--radius-label);">CTAs</span>
-              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:3px 8px; border-radius:var(--radius-label);">Labels</span>
+              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Headlines</span>
+              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Logo</span>
+              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">CTAs</span>
+              <span style="font-size:10px; font-weight:600; color:var(--bronze-400); background:rgba(196,138,58,0.1); border:1px solid rgba(196,138,58,0.2); padding:4px 8px; border-radius:var(--radius-label);">Labels</span>
             </div>
           </div>
         </div>
@@ -2599,9 +2605,9 @@ section { padding: 120px 0; }
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--focus</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">The interactive accent. Cool counterbalance to bronze. Pops against navy without competing.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span style="font-size:10px; font-weight:600; color:var(--focus); background:rgba(124,187,223,0.1); border:1px solid rgba(124,187,223,0.2); padding:3px 8px; border-radius:var(--radius-label);">Focus Rings</span>
-              <span style="font-size:10px; font-weight:600; color:var(--focus); background:rgba(124,187,223,0.1); border:1px solid rgba(124,187,223,0.2); padding:3px 8px; border-radius:var(--radius-label);">Badges</span>
-              <span style="font-size:10px; font-weight:600; color:var(--focus); background:rgba(124,187,223,0.1); border:1px solid rgba(124,187,223,0.2); padding:3px 8px; border-radius:var(--radius-label);">Active States</span>
+              <span style="font-size:10px; font-weight:600; color:var(--focus); background:rgba(124,187,223,0.1); border:1px solid rgba(124,187,223,0.2); padding:4px 8px; border-radius:var(--radius-label);">Focus Rings</span>
+              <span style="font-size:10px; font-weight:600; color:var(--focus); background:rgba(124,187,223,0.1); border:1px solid rgba(124,187,223,0.2); padding:4px 8px; border-radius:var(--radius-label);">Badges</span>
+              <span style="font-size:10px; font-weight:600; color:var(--focus); background:rgba(124,187,223,0.1); border:1px solid rgba(124,187,223,0.2); padding:4px 8px; border-radius:var(--radius-label);">Active States</span>
             </div>
           </div>
         </div>
@@ -3969,7 +3975,7 @@ section { padding: 120px 0; }
         <div style="font-size:15px; font-weight:700; margin-bottom:4px;">Download logo assets</div>
         <div style="font-size:12px; color:var(--text-secondary);">All logo types in SVG, PNG, JPEG, and PDF. Use SVG for web, PNG @2x for print.</div>
       </div>
-      <a href="https://drive.google.com/drive/folders/1m-E-OrAZURtpMzw7F7QNpZnMXhDPYsd9?usp=drive_link" target="_blank" style="font-size:12px; font-weight:700; color:#111620; text-decoration:none; padding:10px 20px; background:var(--bronze-400); border-radius:var(--radius-full); white-space:nowrap; display:flex; align-items:center; gap:6px;">
+      <a href="https://drive.google.com/drive/folders/1m-E-OrAZURtpMzw7F7QNpZnMXhDPYsd9?usp=drive_link" target="_blank" style="font-size:12px; font-weight:700; color:var(--button-text); text-decoration:none; padding:12px 24px; background:var(--bronze-400); border-radius:var(--radius-full); white-space:nowrap; display:flex; align-items:center; gap:6px;">
         <i class="ph-bold ph-download-simple" style="font-size:14px;"></i> Download from Drive
       </a>
     </div>
@@ -5232,7 +5238,7 @@ section { padding: 120px 0; }
         </div>
         <div class="type-token-sample grouped-display" style="font-size:72px; line-height:1.21; letter-spacing:-0.04em;">Turn every release</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-          <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:999px;">ANACRUSIS</span>
+          <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:var(--radius-full);">ANACRUSIS</span>
           <span style="font-size:11px; color:var(--text-tertiary);">font-family: 'Anacrusis', 'Satoshi', sans-serif &mdash; Satoshi fallback if custom font unavailable</span>
         </div>
         <div class="type-token-specs">
@@ -5251,7 +5257,7 @@ section { padding: 120px 0; }
         </div>
         <div class="type-token-sample grouped-display" style="font-size:40px; line-height:1.2; letter-spacing:-0.03em;">Turn every release into lasting fan relationships.</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-          <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:999px;">ANACRUSIS</span>
+          <span style="font-size:10px; font-weight:700; letter-spacing:0.08em; color:var(--bronze-400); background:rgba(196,138,58,0.1); padding:2px 8px; border-radius:var(--radius-full);">ANACRUSIS</span>
           <span style="font-size:11px; color:var(--text-tertiary);">font-family: 'Anacrusis', 'Satoshi', sans-serif &mdash; Satoshi fallback if custom font unavailable</span>
         </div>
         <div class="type-token-specs">
@@ -5569,9 +5575,9 @@ section { padding: 120px 0; }
           <span class="type-token-name">Component XS &mdash; Badges, small elements</span>
         </div>
         <div class="type-token-sample" style="font-size:11px; font-weight:500; line-height:1.45; letter-spacing:0.005em;">
-          <span style="padding:3px 10px; border-radius:999px; background:rgba(74,222,128,0.12); color:var(--success);">Live</span>
-          <span style="padding:3px 10px; border-radius:999px; background:rgba(240,197,67,0.12); color:var(--warning); margin-left:6px;">Draft</span>
-          <span style="padding:3px 10px; border-radius:999px; background:rgba(99,179,237,0.12); color:var(--info); margin-left:6px;">Scheduled</span>
+          <span style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(74,222,128,0.12); color:var(--success);">Live</span>
+          <span style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(240,197,67,0.12); color:var(--warning); margin-left:6px;">Draft</span>
+          <span style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(99,179,237,0.12); color:var(--info); margin-left:6px;">Scheduled</span>
         </div>
         <div class="type-token-specs">
           <span>11px</span> <span>Medium 500</span> <span>LH 16px</span> <span>LS 0.5%</span>
@@ -5684,7 +5690,7 @@ section { padding: 120px 0; }
         <div class="wire-topbar">
           <div style="font-size:15px; font-weight:500;">Dashboard</div>
           <div style="display:flex; gap:8px;">
-            <div style="padding:6px 14px; border-radius:999px; background:var(--bronze-400); color:var(--bg-base); font-size:12px; font-weight:600;">+ New Campaign</div>
+            <div style="padding:6px 14px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--bg-base); font-size:12px; font-weight:600;">+ New Campaign</div>
             <div style="width:32px; height:32px; border-radius:50%; background:var(--bg-overlay); border:1px solid var(--border-default);"></div>
           </div>
         </div>
@@ -5783,7 +5789,7 @@ section { padding: 120px 0; }
         <div style="padding:12px; border-radius:var(--radius-md); background:var(--bg-overlay); border:1px solid var(--border-default); text-align:left; margin-bottom:12px;">
           <span style="font-size:13px; color:var(--text-tertiary);">Your email address</span>
         </div>
-        <div style="padding:12px; border-radius:999px; background:var(--bronze-400); color:var(--bg-base); font-size:14px; font-weight:600; text-align:center;">Unlock Early Access</div>
+        <div style="padding:12px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--bg-base); font-size:14px; font-weight:600; text-align:center;">Unlock Early Access</div>
         <div style="font-size:11px; color:var(--text-tertiary); margin-top:16px;">Powered by grouped<span style="color:var(--bronze-400)">.</span></div>
       </div>
     </div>
@@ -5857,7 +5863,7 @@ section { padding: 120px 0; }
             <div style="height:100px; margin-bottom:12px; border-radius:var(--radius-sm); background:linear-gradient(180deg, rgba(196,138,58,0.08) 0%, var(--bg-overlay) 100%); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; overflow:hidden;">
               <i class="ph-bold ph-vinyl-record" style="font-size:40px; color:var(--text-tertiary); opacity:0.3;"></i>
             </div>
-            <div style="padding:12px; border-radius:999px; background:var(--bronze-400); color:var(--bg-base); font-size:14px; font-weight:600; text-align:center; letter-spacing:0.005em;">
+            <div style="padding:12px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--bg-base); font-size:14px; font-weight:600; text-align:center; letter-spacing:0.005em;">
               <i class="ph-bold ph-envelope" style="font-size:16px; margin-right:6px; vertical-align:-2px;"></i>Unlock with Email
             </div>
           </div>
@@ -5878,7 +5884,7 @@ section { padding: 120px 0; }
                 <div style="font-size:14px; font-weight:500;">Summer Drop</div>
                 <div style="font-size:11px; color:var(--text-tertiary);">Created Feb 12 · Smart Swap</div>
               </div>
-              <div style="padding:3px 10px; border-radius:999px; background:rgba(74,222,128,0.12); color:var(--success); font-size:11px; font-weight:600; display:flex; align-items:center; gap:4px;">
+              <div style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(74,222,128,0.12); color:var(--success); font-size:11px; font-weight:600; display:flex; align-items:center; gap:4px;">
                 <i class="ph-bold ph-check-circle" style="font-size:12px;"></i>Live
               </div>
             </div>
@@ -6036,8 +6042,8 @@ section { padding: 120px 0; }
               Hey! Wanted to let you know my new single drops this Friday. As an early fan, you get to hear it first...
             </div>
             <div style="display:flex; justify-content:flex-end; margin-top:12px; gap:8px;">
-              <div style="padding:8px 16px; border-radius:999px; border:1px solid var(--border-default); font-size:12px; font-weight:600; color:var(--text-secondary);">Preview</div>
-              <div style="padding:8px 16px; border-radius:999px; background:var(--bronze-400); color:var(--bg-base); font-size:12px; font-weight:600; display:flex; align-items:center; gap:4px;">
+              <div style="padding:8px 16px; border-radius:var(--radius-full); border:1px solid var(--border-default); font-size:12px; font-weight:600; color:var(--text-secondary);">Preview</div>
+              <div style="padding:8px 16px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--bg-base); font-size:12px; font-weight:600; display:flex; align-items:center; gap:4px;">
                 <i class="ph-bold ph-paper-plane-tilt" style="font-size:14px;"></i>Send
               </div>
             </div>
@@ -6059,7 +6065,7 @@ section { padding: 120px 0; }
             </div>
             <div style="font-size:16px; font-weight:500; margin-bottom:6px;">No campaigns yet</div>
             <div style="font-size:13px; color:var(--text-tertiary); margin-bottom:20px; max-width:240px; margin-left:auto; margin-right:auto; line-height:1.5;">Create your first swap and start building fan relationships.</div>
-            <div style="padding:10px 24px; border-radius:999px; background:var(--bronze-400); color:var(--bg-base); font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+            <div style="padding:10px 24px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--bg-base); font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
               <i class="ph-bold ph-plus" style="font-size:16px;"></i>Create Campaign
             </div>
           </div>
@@ -6117,8 +6123,8 @@ section { padding: 120px 0; }
               </div>
               <div style="font-size:13px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">This will permanently delete "Summer Drop" and all collected fan data. This action cannot be undone.</div>
               <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <div style="padding:10px 20px; border-radius:999px; border:1px solid var(--border-default); font-size:13px; font-weight:600; color:var(--text-secondary);">Cancel</div>
-                <div style="padding:10px 20px; border-radius:999px; background:var(--error); color:#fff; font-size:13px; font-weight:600; display:flex; align-items:center; gap:4px;">
+                <div style="padding:10px 20px; border-radius:var(--radius-full); border:1px solid var(--border-default); font-size:13px; font-weight:600; color:var(--text-secondary);">Cancel</div>
+                <div style="padding:10px 20px; border-radius:var(--radius-full); background:var(--error); color:#fff; font-size:13px; font-weight:600; display:flex; align-items:center; gap:4px;">
                   <i class="ph-bold ph-trash" style="font-size:14px;"></i>Delete
                 </div>
               </div>
@@ -6592,12 +6598,12 @@ section { padding: 120px 0; }
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:16px;">
             <div style="padding:14px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
               <div style="font-size:12px; font-weight:700; margin-bottom:8px;">Primary + Focus</div>
-              <div style="display:inline-block; padding:8px 20px; background:var(--bronze-400); color:var(--button-text); border-radius:999px; font-size:11px; font-weight:700; text-transform:uppercase; outline:2px solid var(--focus); outline-offset:2px;">Button</div>
+              <div style="display:inline-block; padding:8px 20px; background:var(--bronze-400); color:var(--button-text); border-radius:var(--radius-full); font-size:11px; font-weight:700; text-transform:uppercase; outline:2px solid var(--focus); outline-offset:2px;">Button</div>
               <p style="font-size:11px; color:var(--text-tertiary); margin-top:8px;">Clean. Ring wraps solid fill.</p>
             </div>
             <div style="padding:14px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
               <div style="font-size:12px; font-weight:700; margin-bottom:8px;">Secondary + Focus</div>
-              <div style="display:inline-block; padding:8px 20px; background:transparent; color:var(--bronze-400); border:1.5px solid var(--bronze-400); border-radius:999px; font-size:11px; font-weight:700; text-transform:uppercase; outline:2px solid var(--focus); outline-offset:2px;">Button</div>
+              <div style="display:inline-block; padding:8px 20px; background:transparent; color:var(--bronze-400); border:1.5px solid var(--bronze-400); border-radius:var(--radius-full); font-size:11px; font-weight:700; text-transform:uppercase; outline:2px solid var(--focus); outline-offset:2px;">Button</div>
               <p style="font-size:11px; color:var(--text-tertiary); margin-top:8px;">Two rings, but 2px gap reads clean. Bronze = identity, blue = focus.</p>
             </div>
             <div style="padding:14px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
@@ -6642,19 +6648,19 @@ section { padding: 120px 0; }
       <div style="display:grid; grid-template-columns:100px repeat(5, 1fr); gap:12px; margin-bottom:12px;">
         <div style="display:flex; align-items:center; font-size:11px; font-weight:500; color:var(--text-secondary);">Primary</div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--bronze-400); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif;">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif;">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--gold-500); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; box-shadow:0 4px 12px rgba(196,138,58,0.25);">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--gold-500); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; box-shadow:0 4px 12px rgba(196,138,58,0.25);">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--gold-600); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; transform:scale(0.97);">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--gold-600); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; transform:scale(0.97);">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--bronze-400); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; opacity:0.4;">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--bronze-400); color:var(--text-inverse); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; opacity:0.4;">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--bronze-400); font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">Button<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--bronze-400); font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">Button<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
         </div>
       </div>
 
@@ -6662,19 +6668,19 @@ section { padding: 120px 0; }
       <div style="display:grid; grid-template-columns:100px repeat(5, 1fr); gap:12px; margin-bottom:12px;">
         <div style="display:flex; align-items:center; font-size:11px; font-weight:500; color:var(--text-secondary);">Secondary</div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:transparent; color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400);">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:transparent; color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400);">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:rgba(196,138,58,0.08); color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400); box-shadow:0 0 20px rgba(196,138,58,0.15);">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:rgba(196,138,58,0.08); color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400); box-shadow:0 0 20px rgba(196,138,58,0.15);">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:rgba(196,138,58,0.14); color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400); transform:scale(0.97);">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:rgba(196,138,58,0.14); color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400); transform:scale(0.97);">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:transparent; color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400); opacity:0.4;">Button</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:transparent; color:var(--bronze-400); font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; border:1.5px solid var(--bronze-400); opacity:0.4;">Button</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:transparent; font-size:13px; font-weight:700; border:1.5px solid var(--bronze-400); display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">Button<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(196,138,58,0.25); border-top-color:var(--bronze-400); border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:transparent; font-size:13px; font-weight:700; border:1.5px solid var(--bronze-400); display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">Button<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(196,138,58,0.25); border-top-color:var(--bronze-400); border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
         </div>
       </div>
 
@@ -6722,19 +6728,19 @@ section { padding: 120px 0; }
       <div style="display:grid; grid-template-columns:100px repeat(5, 1fr); gap:12px; margin-bottom:12px;">
         <div style="display:flex; align-items:center; font-size:11px; font-weight:500; color:var(--text-secondary);">Link</div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 14px; border-radius:999px; background:var(--bg-raised); color:var(--text-secondary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-default);">link.co/xyz</div>
+          <div style="padding:8px 14px; border-radius:var(--radius-full); background:var(--bg-raised); color:var(--text-secondary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-default);">link.co/xyz</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 14px; border-radius:999px; background:var(--bg-raised); color:var(--text-primary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-hover);">link.co/xyz</div>
+          <div style="padding:8px 14px; border-radius:var(--radius-full); background:var(--bg-raised); color:var(--text-primary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-hover);">link.co/xyz</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 14px; border-radius:999px; background:var(--bg-raised); color:var(--text-primary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-hover); transform:scale(0.98);">link.co/xyz</div>
+          <div style="padding:8px 14px; border-radius:var(--radius-full); background:var(--bg-raised); color:var(--text-primary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-hover); transform:scale(0.98);">link.co/xyz</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 14px; border-radius:999px; background:var(--bg-raised); color:var(--text-secondary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-default); opacity:0.4;">link.co/xyz</div>
+          <div style="padding:8px 14px; border-radius:var(--radius-full); background:var(--bg-raised); color:var(--text-secondary); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-default); opacity:0.4;">link.co/xyz</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 14px; border-radius:999px; background:var(--bg-raised); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">link.co/xyz<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(240,235,227,0.15); border-top-color:var(--text-secondary); border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
+          <div style="padding:8px 14px; border-radius:var(--radius-full); background:var(--bg-raised); font-size:11px; font-weight:500; font-family:'JetBrains Mono','SF Mono',monospace; border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">link.co/xyz<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(240,235,227,0.15); border-top-color:var(--text-secondary); border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
         </div>
       </div>
 
@@ -6742,19 +6748,19 @@ section { padding: 120px 0; }
       <div style="display:grid; grid-template-columns:100px repeat(5, 1fr); gap:12px;">
         <div style="display:flex; align-items:center; font-size:11px; font-weight:500; color:var(--text-secondary);">Destructive</div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--error); color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif;">Delete</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--error); color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif;">Delete</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:#D85A52; color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; box-shadow:0 4px 16px rgba(240,112,104,0.25);">Delete</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--error-hover); color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; box-shadow:0 4px 16px rgba(240,112,104,0.25);">Delete</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:#C04840; color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; transform:scale(0.97);">Delete</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--error-active); color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; transform:scale(0.97);">Delete</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--error); color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; opacity:0.4;">Delete</div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--error); color:#FFFFFF; font-size:13px; font-weight:700; font-family:'Satoshi',sans-serif; opacity:0.4;">Delete</div>
         </div>
         <div style="padding:16px 8px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; min-height:64px;">
-          <div style="padding:8px 20px; border-radius:999px; background:var(--error); font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">Delete<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
+          <div style="padding:8px 20px; border-radius:var(--radius-full); background:var(--error); font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; position:relative; color:transparent;">Delete<span style="position:absolute; width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 0.6s linear infinite;"></span></div>
         </div>
       </div>
 
@@ -6985,11 +6991,11 @@ section { padding: 120px 0; }
     <div class="fade-up" style="margin-top:48px;">
       <div class="subsection-label">CAMPAIGN STATUS</div>
       <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-        <div style="padding:5px 14px; border-radius:999px; background:rgba(74,222,128,0.12); border:1px solid rgba(74,222,128,0.2); color:var(--success); font-size:12px; font-weight:600;">● Live</div>
-        <div style="padding:5px 14px; border-radius:999px; background:rgba(240,197,67,0.12); border:1px solid rgba(240,197,67,0.2); color:var(--warning); font-size:12px; font-weight:600;">● Draft</div>
-        <div style="padding:5px 14px; border-radius:999px; background:rgba(99,179,237,0.12); border:1px solid rgba(99,179,237,0.2); color:var(--info); font-size:12px; font-weight:600;">● Scheduled</div>
-        <div style="padding:5px 14px; border-radius:999px; background:var(--bg-overlay); border:1px solid var(--border-default); color:var(--text-tertiary); font-size:12px; font-weight:600;">● Ended</div>
-        <div style="padding:5px 14px; border-radius:999px; background:rgba(240,112,104,0.12); border:1px solid rgba(240,112,104,0.2); color:var(--error); font-size:12px; font-weight:600;">● Paused</div>
+        <div style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(74,222,128,0.12); border:1px solid rgba(74,222,128,0.2); color:var(--success); font-size:12px; font-weight:600;">● Live</div>
+        <div style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(240,197,67,0.12); border:1px solid rgba(240,197,67,0.2); color:var(--warning); font-size:12px; font-weight:600;">● Draft</div>
+        <div style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(99,179,237,0.12); border:1px solid rgba(99,179,237,0.2); color:var(--info); font-size:12px; font-weight:600;">● Scheduled</div>
+        <div style="padding:4px 12px; border-radius:var(--radius-full); background:var(--bg-overlay); border:1px solid var(--border-default); color:var(--text-tertiary); font-size:12px; font-weight:600;">● Ended</div>
+        <div style="padding:4px 12px; border-radius:var(--radius-full); background:rgba(240,112,104,0.12); border:1px solid rgba(240,112,104,0.2); color:var(--error); font-size:12px; font-weight:600;">● Paused</div>
       </div>
       <p style="font-size:13px; color:var(--text-tertiary); line-height:1.5;">Maps directly to semantic colors. Live = success, Draft = warning, Scheduled = info, Ended = neutral, Paused = error.</p>
     </div>
