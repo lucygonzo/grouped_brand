@@ -39,7 +39,14 @@
   --bg-overlay: #1F2735;
   --bg-subtle: #262F3F;
   --bg-muted: #2E3849;
-  /* Layer aliases — numbered surface system (March 2026 sync) */
+  /* Surface layers — L0–L5 canonical naming */
+  --L0: #111620;
+  --L1: #181E2A;
+  --L2: #1F2735;
+  --L3: #262F3F;
+  --L4: #2E3849;
+  --L5: #364252;
+  /* Legacy aliases — --layer-* and --bg-* still resolve */
   --layer-1: #111620;
   --layer-2: #181E2A;
   --layer-3: #1F2735;
@@ -51,6 +58,13 @@
   --border-active: rgba(235,225,210,0.16);
   --border-strong: rgba(235,225,210,0.22);
   --border-input: rgba(235,225,210,0.14);  /* PENDING — dark mode input stroke under review */
+  /* Text hierarchy — T1–T5 canonical naming */
+  --T1: #F0EBE3;              /* Primary — body copy, headings */
+  --T2: #67686B;              /* Secondary — supporting text */
+  --T3: #494B50;              /* Tertiary — captions, metadata */
+  --T4: #2E3238;              /* Muted — decorative, very dim */
+  --T5: #111620;              /* Inverse — text on light/accent fills */
+  /* Legacy aliases — --text-* still resolve */
   --text-primary: #F0EBE3;
   --text-secondary: #67686B;   /* Figma: color/neutral/400 — solid mid-gray */
   --text-tertiary: #494B50;    /* Computed solid — hierarchy below secondary */
@@ -115,7 +129,14 @@
   --bg-overlay: #111111;
   --bg-subtle: #1A1A1A;
   --bg-muted: #222222;
-  /* Layer aliases — numbered surface system */
+  /* Surface layers — L0–L5 canonical naming */
+  --L0: #000000;
+  --L1: #0A0A0A;
+  --L2: #111111;
+  --L3: #1A1A1A;
+  --L4: #222222;
+  --L5: #2A2A2A;
+  /* Legacy aliases */
   --layer-1: #000000;
   --layer-2: #0A0A0A;
   --layer-3: #111111;
@@ -127,6 +148,13 @@
   --border-active: rgba(255,255,255,0.16);
   --border-strong: rgba(255,255,255,0.22);
   --border-input: rgba(255,255,255,0.14);
+  /* Text hierarchy — T1–T5 canonical naming */
+  --T1: #F0EBE3;
+  --T2: #67686B;
+  --T3: #494B50;
+  --T4: #2E3238;
+  --T5: #000000;
+  /* Legacy aliases */
   --text-primary: #F0EBE3;
   --text-secondary: #67686B;
   --text-tertiary: #494B50;
@@ -179,7 +207,14 @@
   --bg-overlay: #FFFFFF;
   --bg-subtle: #F3F3F0;
   --bg-muted: #EAEAE6;
-  /* Layer aliases — numbered surface system */
+  /* Surface layers — L0–L5 canonical naming */
+  --L0: #FAFAF8;
+  --L1: #FFFFFF;
+  --L2: #FFFFFF;
+  --L3: #F3F3F0;
+  --L4: #EAEAE6;
+  --L5: #E0E0DC;
+  /* Legacy aliases */
   --layer-1: #FAFAF8;
   --layer-2: #FFFFFF;
   --layer-3: #FFFFFF;
@@ -191,6 +226,13 @@
   --border-active: rgba(26,26,26,0.28);
   --border-strong: rgba(26,26,26,0.35);
   --border-input: rgba(26,26,26,0.25);
+  /* Text hierarchy — T1–T5 canonical naming */
+  --T1: #111620;
+  --T2: #535862;
+  --T3: #7C7E85;
+  --T4: #ABABAF;
+  --T5: #FFFFFF;
+  /* Legacy aliases */
   --text-primary: #111620;     /* Align to Figma: color/neutral/900 */
   --text-secondary: #535862;   /* Figma: color/neutral/600 — solid cool gray */
   --text-tertiary: #7C7E85;    /* Computed solid — lighter step above secondary */
@@ -2637,16 +2679,16 @@ section { padding: 120px 0; }
       <div class="fade-up">
         <div class="color-group-title">Surface Layers (Dark Mode)</div>
         <div class="surface-stack">
-          <div class="surface-level" style="background:#111620" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 1</span><span class="level-hex copyable">#111620</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-1</span></div>
-          <div class="surface-level" style="background:#181E2A" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 2</span><span class="level-hex copyable">#181E2A</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-2</span></div>
-          <div class="surface-level" style="background:#1F2735" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 3</span><span class="level-hex copyable">#1F2735</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-3</span></div>
-          <div class="surface-level" style="background:#262F3F" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 4</span><span class="level-hex copyable">#262F3F</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-4</span></div>
-          <div class="surface-level" style="background:#2E3849" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 5</span><span class="level-hex copyable">#2E3849</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-5</span></div>
-          <div class="surface-level" style="background:#364252" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">Layer 6</span><span class="level-hex copyable">#364252</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--layer-6</span></div>
+          <div class="surface-level" style="background:#111620" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L0</span><span class="level-hex copyable">#111620</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L0</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-base &middot; --layer-1</span></div>
+          <div class="surface-level" style="background:#181E2A" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L1</span><span class="level-hex copyable">#181E2A</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L1</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-raised &middot; --layer-2</span></div>
+          <div class="surface-level" style="background:#1F2735" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L2</span><span class="level-hex copyable">#1F2735</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L2</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-overlay &middot; --layer-3</span></div>
+          <div class="surface-level" style="background:#262F3F" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L3</span><span class="level-hex copyable">#262F3F</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L3</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-subtle &middot; --layer-4</span></div>
+          <div class="surface-level" style="background:#2E3849" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L4</span><span class="level-hex copyable">#2E3849</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L4</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-muted &middot; --layer-5</span></div>
+          <div class="surface-level" style="background:#364252" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L5</span><span class="level-hex copyable">#364252</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L5</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--layer-6</span></div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Six numbered layers. Each gains ~3-3.5 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop. Layer 6 provides additional room between layers for dark mode grading.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Six surface layers, L0&ndash;L5. Each gains ~3-3.5 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop. L5 provides additional room between layers for dark mode grading.</p>
         <div class="callout-info" style="margin-top:12px;">
-          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Legacy aliases:</strong> The original <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--bg-base</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--bg-muted</span> variable names remain available for backward compatibility. Prefer <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--layer-1</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--layer-6</span> in new work.</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Legacy aliases:</strong> The original <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--bg-base</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--bg-muted</span> and <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--layer-1</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--layer-6</span> variable names remain available for backward compatibility. Prefer <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--L0</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--L5</span> in new work.</div>
         </div>
       </div>
 
@@ -2655,14 +2697,14 @@ section { padding: 120px 0; }
         <div class="color-group-title">Surface Layers (Light Mode)</div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-bottom:16px;">Warm surface palette derived from cream (#F0EBE3). Maintains brand temperature — warm lights, cool dark vinyl. Both palettes are always visible regardless of viewer mode.</p>
         <div class="surface-stack">
-          <div class="surface-level" style="background:#FAF7F2" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 1</span><span class="level-hex copyable" style="color:#8A7A64;">#FAF7F2</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-1</span></div>
-          <div class="surface-level" style="background:#F5F1EA" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 2</span><span class="level-hex copyable" style="color:#8A7A64;">#F5F1EA</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-2</span></div>
-          <div class="surface-level" style="background:#F0EBE3" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 3</span><span class="level-hex copyable" style="color:#8A7A64;">#F0EBE3</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-3</span></div>
-          <div class="surface-level" style="background:#E8E2D8" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 4</span><span class="level-hex copyable" style="color:#8A7A64;">#E8E2D8</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-4</span></div>
-          <div class="surface-level" style="background:#E0D9CE" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 5</span><span class="level-hex copyable" style="color:#8A7A64;">#E0D9CE</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-5</span></div>
-          <div class="surface-level" style="background:#D8D0C4" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">Layer 6</span><span class="level-hex copyable" style="color:#8A7A64;">#D8D0C4</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--layer-6</span></div>
+          <div class="surface-level" style="background:#FAF7F2" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L0</span><span class="level-hex copyable" style="color:#8A7A64;">#FAF7F2</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L0</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-base &middot; --layer-1</span></div>
+          <div class="surface-level" style="background:#F5F1EA" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L1</span><span class="level-hex copyable" style="color:#8A7A64;">#F5F1EA</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L1</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-raised &middot; --layer-2</span></div>
+          <div class="surface-level" style="background:#F0EBE3" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L2</span><span class="level-hex copyable" style="color:#8A7A64;">#F0EBE3</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L2</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-overlay &middot; --layer-3</span></div>
+          <div class="surface-level" style="background:#E8E2D8" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L3</span><span class="level-hex copyable" style="color:#8A7A64;">#E8E2D8</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L3</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-subtle &middot; --layer-4</span></div>
+          <div class="surface-level" style="background:#E0D9CE" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L4</span><span class="level-hex copyable" style="color:#8A7A64;">#E0D9CE</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L4</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-muted &middot; --layer-5</span></div>
+          <div class="surface-level" style="background:#D8D0C4" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L5</span><span class="level-hex copyable" style="color:#8A7A64;">#D8D0C4</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L5</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--layer-6</span></div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Warm cream base with a ~3-point saturation drop per step. Layer 3 is the brand cream itself (#F0EBE3) — layers above are lighter, layers below are heavier. Same 6-step structure as dark mode; same <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">--layer-*</span> tokens resolve per theme.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Warm cream base with a ~3-point saturation drop per step. L2 is the brand cream itself (#F0EBE3) — layers above are lighter, layers below are heavier. Same 6-step structure as dark mode; same <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">--L*</span> tokens resolve per theme.</p>
         <div class="callout-info" style="margin-top:16px; border-color:rgba(196,138,58,0.25);">
           <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Why warm, not cool?</strong> The previous light mode used cool grays (<span style="font-family:'JetBrains Mono',monospace; font-size:11px;">#FAFAF8</span>, <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">#FFFFFF</span>) that felt generic and broke the brand temperature relationship. Warm cream surfaces invert the dark mode formula — bronze on warm linen instead of sterile white — keeping the palette intentional in both modes.</div>
         </div>
@@ -2679,25 +2721,44 @@ section { padding: 120px 0; }
         </div>
       </div>
 
-      <!-- Text Hierarchy -->
+      <!-- Text Hierarchy — T1–T5 -->
       <div class="fade-up">
-        <div class="color-group-title">Text Hierarchy</div>
-        <div style="display:grid; gap:16px; margin-top:16px;">
+        <div class="color-group-title">Text Hierarchy (T1&ndash;T5)</div>
+        <div style="display:grid; gap:20px; margin-top:16px;">
           <div style="display:flex; align-items:center; gap:20px;">
-            <span style="font-size:20px; font-weight:700; min-width:240px;">Primary (100%)</span>
+            <div style="min-width:240px;">
+              <span style="font-size:20px; font-weight:700;">T1</span>
+              <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-primary &middot; --T1</div>
+            </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#F0EBE3</span>
           </div>
           <div style="display:flex; align-items:center; gap:20px;">
-            <span style="font-size:20px; font-weight:700; min-width:240px; color:var(--text-secondary);">Secondary</span>
+            <div style="min-width:240px;">
+              <span style="font-size:20px; font-weight:700; color:var(--text-secondary);">T2</span>
+              <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-secondary &middot; --T2</div>
+            </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#67686B</span>
           </div>
           <div style="display:flex; align-items:center; gap:20px;">
-            <span style="font-size:20px; font-weight:700; min-width:240px; color:var(--text-tertiary);">Tertiary</span>
+            <div style="min-width:240px;">
+              <span style="font-size:20px; font-weight:700; color:var(--text-tertiary);">T3</span>
+              <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-tertiary &middot; --T3</div>
+            </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#494B50</span>
           </div>
           <div style="display:flex; align-items:center; gap:20px;">
-            <span style="font-size:20px; font-weight:700; min-width:240px; color:var(--text-muted);">Muted (18%)</span>
-            <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">var(--deco-strong)</span>
+            <div style="min-width:240px;">
+              <span style="font-size:20px; font-weight:700; color:var(--text-muted);">T4</span>
+              <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-muted &middot; --T4</div>
+            </div>
+            <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#2E3238</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:20px;">
+            <div style="min-width:240px;">
+              <span style="font-size:20px; font-weight:700; color:var(--text-inverse); background:var(--text-primary); padding:0 8px; border-radius:var(--radius-sleeve);">T5</span>
+              <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-inverse &middot; --T5</div>
+            </div>
+            <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#111620</span>
           </div>
         </div>
       </div>
@@ -2808,7 +2869,7 @@ section { padding: 120px 0; }
         <div class="font-usage-card use">
           <div class="usage-label">&#10003; Do</div>
           <div class="usage-item">Use bronze for primary actions, earned rewards, and brand moments</div>
-          <div class="usage-item">Use the navy text hierarchy (Primary &rarr; Secondary &rarr; Tertiary) for all content</div>
+          <div class="usage-item">Use the text hierarchy (T1 &rarr; T2 &rarr; T3) for all content</div>
           <div class="usage-item">Use semantic colors for status: green = success, red = error, yellow = warning</div>
           <div class="usage-item">Keep focus blue for input rings, keyboard focus, and interactive state feedback</div>
         </div>
@@ -3237,7 +3298,7 @@ section { padding: 120px 0; }
       <div class="usage-grid">
         <div class="font-usage-card use">
           <div class="usage-label">&#10003; Do</div>
-          <div class="usage-item">Layer surfaces L1 &rarr; L2 &rarr; L3 &rarr; L4 for natural depth</div>
+          <div class="usage-item">Layer surfaces L0 &rarr; L1 &rarr; L2 &rarr; L3 for natural depth</div>
           <div class="usage-item">Use Glass (frosted blur) for overlays, modals, and floating panels</div>
           <div class="usage-item">Use solid surfaces for primary content containers</div>
           <div class="usage-item">Use Vinyl (warm bronze tint) sparingly for premium brand moments</div>
@@ -3245,7 +3306,7 @@ section { padding: 120px 0; }
         </div>
         <div class="font-usage-card avoid">
           <div class="usage-label">&#10007; Don't</div>
-          <div class="usage-item">Don't skip layers &mdash; L3 directly on L1 looks flat</div>
+          <div class="usage-item">Don't skip layers &mdash; L2 directly on L0 looks flat</div>
           <div class="usage-item">Don't stack Glass on Glass &mdash; one blur layer maximum</div>
           <div class="usage-item">Don't use Vinyl for standard product surfaces &mdash; it's a brand accent, not a container</div>
           <div class="usage-item">Don't mix light and dark surface tokens &mdash; the system is dark-mode primary</div>
@@ -3256,7 +3317,7 @@ section { padding: 120px 0; }
     <!-- Gradient Deprecation -->
     <div class="fade-up callout-info" style="margin-top:24px; border-color:var(--warning); background:rgba(240,197,67,0.04);">
       <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
-        <strong style="color:var(--warning);">Deprecated: Gradient backgrounds.</strong> Gradient fills on product surfaces (e.g., the wallet/payout page) are being phased out. Use the numbered layer tokens (L1&ndash;L6) for solid backgrounds instead. A &ldquo;slow glow&rdquo; data banner motif is under exploration as a replacement for ambient gradient treatments on data-heavy summary areas.
+        <strong style="color:var(--warning);">Deprecated: Gradient backgrounds.</strong> Gradient fills on product surfaces (e.g., the wallet/payout page) are being phased out. Use the numbered layer tokens (L0&ndash;L5) for solid backgrounds instead. A &ldquo;slow glow&rdquo; data banner motif is under exploration as a replacement for ambient gradient treatments on data-heavy summary areas.
       </div>
     </div>
 
@@ -7190,7 +7251,7 @@ section { padding: 120px 0; }
       <div style="font-size:12px; font-weight:700; color:var(--bronze-400); margin-bottom:12px;">KEY DECISIONS ALREADY MADE</div>
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; font-size:12px; color:var(--text-secondary); line-height:1.5;">
         <div><strong style="color:var(--text-primary);">Dark mode default</strong> — base #111620, warm cream #F0EBE3 text. External pages dark-only.</div>
-        <div><strong style="color:var(--text-primary);">Surface layers</strong> — Layer 1&ndash;6 numbered system. Legacy --bg-* aliases maintained.</div>
+        <div><strong style="color:var(--text-primary);">Surface layers</strong> — L0&ndash;L5 numbered system. Legacy --bg-*, --layer-* aliases maintained.</div>
         <div><strong style="color:var(--text-primary);">Icon library</strong> — Phosphor Bold (interim). Custom set in progress from Bob. SVGs pending.</div>
         <div><strong style="color:var(--text-primary);">Focus rings</strong> — Focus blue (#7CBBDF) confirmed for all focus states. Bronze for card hover/selection only.</div>
         <div><strong style="color:var(--text-primary);">Bronze accent</strong> — #C48A3A is the signature brand color across all surfaces</div>
@@ -7483,12 +7544,12 @@ section { padding: 120px 0; }
           <p style="font-size:13px; color:var(--text-secondary); line-height:1.7; margin-bottom:12px;">Exploring a warm surface palette derived from the cream (#F0EBE3) family. Current light mode uses cool neutrals. Goal: warm light surfaces that maintain the brand temperature relationship &mdash; warm lights and cool dark vinyl.</p>
           <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:8px;">CANDIDATE WARM PALETTE (EXPLORATION)</div>
           <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:4px; border-radius:var(--radius-sm); overflow:hidden;">
-            <div style="height:48px; background:#FAF7F2; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L1</span></div>
-            <div style="height:48px; background:#F5F1EA; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L2</span></div>
-            <div style="height:48px; background:#F0EBE3; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L3</span></div>
-            <div style="height:48px; background:#E8E2D8; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L4</span></div>
-            <div style="height:48px; background:#E0D9CE; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L5</span></div>
-            <div style="height:48px; background:#D8D0C4; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L6</span></div>
+            <div style="height:48px; background:#FAF7F2; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L0</span></div>
+            <div style="height:48px; background:#F5F1EA; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L1</span></div>
+            <div style="height:48px; background:#F0EBE3; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L2</span></div>
+            <div style="height:48px; background:#E8E2D8; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L3</span></div>
+            <div style="height:48px; background:#E0D9CE; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L4</span></div>
+            <div style="height:48px; background:#D8D0C4; display:flex; align-items:flex-end; padding:4px 6px;"><span style="font-size:9px; font-weight:700; color:#4A3114;">L5</span></div>
           </div>
           <p style="font-size:11px; color:var(--text-tertiary); margin-top:8px;">Not final. Shown for direction only. Finalize dark mode first, then derive light from that foundation.</p>
         </div>
