@@ -1094,16 +1094,99 @@ section { padding: 120px 0; }
 
 /* bg surfaces */
 .surface-stack {
-  display: flex; gap: 2px; border-radius: var(--radius-lg); overflow: hidden; margin-top: 24px;
+  display: flex; gap: 2px; border-radius: var(--radius-lg); overflow: visible; margin-top: 24px;
 }
+.surface-stack .surface-level:first-child { border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+.surface-stack .surface-level:last-child { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
 .surface-level {
   flex: 1; height: 120px; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 6px;
   font-size: 11px; font-weight: 500; transition: flex 0.3s var(--ease-out);
+  position: relative;
 }
 .surface-level:hover { flex: 1.5; }
 .surface-level .level-name { color: var(--text-secondary); }
 .surface-level .level-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); }
+
+/* Why-tooltips — hover-reveal rationale for color tokens */
+.why-tip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  cursor: help;
+}
+.why-tip > i {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: color 0.25s var(--ease-out);
+}
+.why-tip:hover > i { color: var(--bronze-400); }
+.why-tip .why-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 260px;
+  padding: 14px 16px;
+  background: var(--bg-raised);
+  border: 1px solid rgba(196,138,58,0.18);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  z-index: 50;
+  white-space: normal;
+}
+.why-tip .why-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(196,138,58,0.18);
+}
+.why-tip:hover .why-bubble {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+.surface-level .why-tip {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin-left: 0;
+}
+.surface-level .why-tip .why-bubble {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(6px);
+}
+.surface-level .why-tip:hover .why-bubble {
+  transform: translateX(0) translateY(0);
+}
+.surface-level .why-tip .why-bubble::after {
+  left: auto;
+  right: 8px;
+  transform: none;
+}
+/* Text hierarchy: left-align tooltips since icons are on the left */
+.why-tip[style*="margin-top"] .why-bubble {
+  left: 0;
+  transform: translateX(0) translateY(6px);
+}
+.why-tip[style*="margin-top"]:hover .why-bubble {
+  transform: translateX(0) translateY(0);
+}
+.why-tip[style*="margin-top"] .why-bubble::after {
+  left: 16px;
+  transform: none;
+}
 
 /* semantic colors */
 .semantic-row {
@@ -2679,12 +2762,12 @@ section { padding: 120px 0; }
       <div class="fade-up">
         <div class="color-group-title">Surface Layers (Dark Mode)</div>
         <div class="surface-stack">
-          <div class="surface-level" style="background:#111620" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L0</span><span class="level-hex copyable">#111620</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L0</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-base &middot; --layer-1</span></div>
-          <div class="surface-level" style="background:#181E2A" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L1</span><span class="level-hex copyable">#181E2A</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L1</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-raised &middot; --layer-2</span></div>
-          <div class="surface-level" style="background:#1F2735" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L2</span><span class="level-hex copyable">#1F2735</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L2</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-overlay &middot; --layer-3</span></div>
-          <div class="surface-level" style="background:#262F3F" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L3</span><span class="level-hex copyable">#262F3F</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L3</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-subtle &middot; --layer-4</span></div>
-          <div class="surface-level" style="background:#2E3849" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L4</span><span class="level-hex copyable">#2E3849</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L4</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-muted &middot; --layer-5</span></div>
-          <div class="surface-level" style="background:#364252" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L5</span><span class="level-hex copyable">#364252</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L5</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--layer-6</span></div>
+          <div class="surface-level" style="background:#111620" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L0</span><span class="level-hex copyable">#111620</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L0</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-base &middot; --layer-1</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">The deepest navy — the &ldquo;velvet backdrop&rdquo; everything else sits on. Cool blue undertone lets warm bronze breathe.</span></span></div>
+          <div class="surface-level" style="background:#181E2A" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L1</span><span class="level-hex copyable">#181E2A</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L1</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-raised &middot; --layer-2</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">First elevation step for cards and panels. Subtle shift from L0 but enough to create depth without competing.</span></span></div>
+          <div class="surface-level" style="background:#1F2735" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L2</span><span class="level-hex copyable">#1F2735</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L2</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-overlay &middot; --layer-3</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Mid-depth for floating UI — dropdowns, popovers, modals. Distinct enough to read as &ldquo;above&rdquo; L1.</span></span></div>
+          <div class="surface-level" style="background:#262F3F" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L3</span><span class="level-hex copyable">#262F3F</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L3</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-subtle &middot; --layer-4</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Interactive feedback layer — hover states, selected rows, active backgrounds.</span></span></div>
+          <div class="surface-level" style="background:#2E3849" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L4</span><span class="level-hex copyable">#2E3849</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L4</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-muted &middot; --layer-5</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Section dividers, disabled zones, low-emphasis areas. Approaching the upper brightness limit.</span></span></div>
+          <div class="surface-level" style="background:#364252" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name">L5</span><span class="level-hex copyable">#364252</span><span class="level-alias" style="font-size:10px; color:var(--text-tertiary); margin-left:8px;">--L5</span><br><span style="font-size:9px; color:var(--text-tertiary); margin-left:8px; font-family:'JetBrains Mono',monospace;">--layer-6</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Highest elevation. Rarely used — exists so nested layouts have room to stack without running out of contrast.</span></span></div>
         </div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Six surface layers, L0&ndash;L5. Each gains ~3-3.5 lightness points with a consistent blue undertone. Cool surfaces make the warm bronze and warm white feel intentional, and give the focus blue room to pop. L5 provides additional room between layers for dark mode grading.</p>
         <div class="callout-info" style="margin-top:12px;">
@@ -2697,12 +2780,12 @@ section { padding: 120px 0; }
         <div class="color-group-title">Surface Layers (Light Mode)</div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-bottom:16px;">Warm surface palette derived from cream (#F0EBE3). Maintains brand temperature — warm lights, cool dark vinyl. Both palettes are always visible regardless of viewer mode.</p>
         <div class="surface-stack">
-          <div class="surface-level" style="background:#FAF7F2" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L0</span><span class="level-hex copyable" style="color:#8A7A64;">#FAF7F2</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L0</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-base &middot; --layer-1</span></div>
-          <div class="surface-level" style="background:#F5F1EA" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L1</span><span class="level-hex copyable" style="color:#8A7A64;">#F5F1EA</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L1</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-raised &middot; --layer-2</span></div>
-          <div class="surface-level" style="background:#F0EBE3" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L2</span><span class="level-hex copyable" style="color:#8A7A64;">#F0EBE3</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L2</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-overlay &middot; --layer-3</span></div>
-          <div class="surface-level" style="background:#E8E2D8" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L3</span><span class="level-hex copyable" style="color:#8A7A64;">#E8E2D8</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L3</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-subtle &middot; --layer-4</span></div>
-          <div class="surface-level" style="background:#E0D9CE" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L4</span><span class="level-hex copyable" style="color:#8A7A64;">#E0D9CE</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L4</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-muted &middot; --layer-5</span></div>
-          <div class="surface-level" style="background:#D8D0C4" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L5</span><span class="level-hex copyable" style="color:#8A7A64;">#D8D0C4</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L5</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--layer-6</span></div>
+          <div class="surface-level" style="background:#FAF7F2" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L0</span><span class="level-hex copyable" style="color:#8A7A64;">#FAF7F2</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L0</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-base &middot; --layer-1</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb" style="color:#A89A84;"></i><span class="why-bubble">The deepest navy — the &ldquo;velvet backdrop&rdquo; everything else sits on. Cool blue undertone lets warm bronze breathe.</span></span></div>
+          <div class="surface-level" style="background:#F5F1EA" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L1</span><span class="level-hex copyable" style="color:#8A7A64;">#F5F1EA</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L1</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-raised &middot; --layer-2</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb" style="color:#A89A84;"></i><span class="why-bubble">First elevation step for cards and panels. Subtle shift from L0 but enough to create depth without competing.</span></span></div>
+          <div class="surface-level" style="background:#F0EBE3" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L2</span><span class="level-hex copyable" style="color:#8A7A64;">#F0EBE3</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L2</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-overlay &middot; --layer-3</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb" style="color:#A89A84;"></i><span class="why-bubble">Mid-depth for floating UI — dropdowns, popovers, modals. Distinct enough to read as &ldquo;above&rdquo; L1.</span></span></div>
+          <div class="surface-level" style="background:#E8E2D8" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L3</span><span class="level-hex copyable" style="color:#8A7A64;">#E8E2D8</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L3</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-subtle &middot; --layer-4</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb" style="color:#A89A84;"></i><span class="why-bubble">Interactive feedback layer — hover states, selected rows, active backgrounds.</span></span></div>
+          <div class="surface-level" style="background:#E0D9CE" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L4</span><span class="level-hex copyable" style="color:#8A7A64;">#E0D9CE</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L4</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--bg-muted &middot; --layer-5</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb" style="color:#A89A84;"></i><span class="why-bubble">Section dividers, disabled zones, low-emphasis areas. Approaching the upper brightness limit.</span></span></div>
+          <div class="surface-level" style="background:#D8D0C4" onclick="copyValue(this.querySelector('.level-hex'))"><span class="level-name" style="color:#6B5A42;">L5</span><span class="level-hex copyable" style="color:#8A7A64;">#D8D0C4</span><span class="level-alias" style="font-size:10px; color:#A89A84; margin-left:8px;">--L5</span><br><span style="font-size:9px; color:#A89A84; margin-left:8px; font-family:'JetBrains Mono',monospace;">--layer-6</span><span class="why-tip" onclick="event.stopPropagation()"><i class="ph-bold ph-lightbulb" style="color:#A89A84;"></i><span class="why-bubble">Highest elevation. Rarely used — exists so nested layouts have room to stack without running out of contrast.</span></span></div>
         </div>
         <p style="font-size:13px; color:var(--text-tertiary); margin-top:12px;">Warm cream base with a ~3-point saturation drop per step. L2 is the brand cream itself (#F0EBE3) — layers above are lighter, layers below are heavier. Same 6-step structure as dark mode; same <span style="font-family:'JetBrains Mono',monospace; font-size:11px;">--L*</span> tokens resolve per theme.</p>
         <div class="callout-info" style="margin-top:16px; border-color:rgba(196,138,58,0.25);">
@@ -2729,6 +2812,7 @@ section { padding: 120px 0; }
             <div style="min-width:240px;">
               <span style="font-size:20px; font-weight:700;">T1</span>
               <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-primary &middot; --T1</div>
+              <span class="why-tip" style="margin-top:4px;"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Warm cream on navy — the signature brand contrast. Readable at all sizes.</span></span>
             </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#F0EBE3</span>
           </div>
@@ -2736,6 +2820,7 @@ section { padding: 120px 0; }
             <div style="min-width:240px;">
               <span style="font-size:20px; font-weight:700; color:var(--text-secondary);">T2</span>
               <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-secondary &middot; --T2</div>
+              <span class="why-tip" style="margin-top:4px;"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Neutral mid-gray for supporting text. Doesn&rsquo;t compete with T1 but stays legible.</span></span>
             </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#67686B</span>
           </div>
@@ -2743,6 +2828,7 @@ section { padding: 120px 0; }
             <div style="min-width:240px;">
               <span style="font-size:20px; font-weight:700; color:var(--text-tertiary);">T3</span>
               <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-tertiary &middot; --T3</div>
+              <span class="why-tip" style="margin-top:4px;"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Captions, metadata, timestamps. Intentionally dim but still accessible at 13px+.</span></span>
             </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#494B50</span>
           </div>
@@ -2750,6 +2836,7 @@ section { padding: 120px 0; }
             <div style="min-width:240px;">
               <span style="font-size:20px; font-weight:700; color:var(--text-muted);">T4</span>
               <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-muted &middot; --T4</div>
+              <span class="why-tip" style="margin-top:4px;"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">Decorative only — rule lines, watermarks. Below WCAG threshold, never for readable content.</span></span>
             </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#2E3238</span>
           </div>
@@ -2757,6 +2844,7 @@ section { padding: 120px 0; }
             <div style="min-width:240px;">
               <span style="font-size:20px; font-weight:700; color:var(--text-inverse); background:var(--text-primary); padding:0 8px; border-radius:var(--radius-sleeve);">T5</span>
               <div style="font-size:9px; color:var(--text-tertiary); font-family:'JetBrains Mono',monospace; margin-top:2px;">--text-inverse &middot; --T5</div>
+              <span class="why-tip" style="margin-top:4px;"><i class="ph-bold ph-lightbulb"></i><span class="why-bubble">For text on filled backgrounds (bronze buttons, colored badges). Flips per theme.</span></span>
             </div>
             <span class="copyable" onclick="copyValue(this)" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-tertiary)">#111620</span>
           </div>
