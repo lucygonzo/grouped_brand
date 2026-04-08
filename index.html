@@ -3366,6 +3366,7 @@ section { padding: 120px 0; }
           </div>
           <div style="padding:20px; background:var(--bg-raised);">
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:18px; font-weight:700; color:var(--text-primary); margin-bottom:4px;">#111620</div>
+            <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:10px; color:var(--text-tertiary); line-height:1.6; margin-bottom:8px;">RGB 17, 22, 32<br>CMYK 47/31/0/87<br>PMS 533 C</div>
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--bg-base</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">The room. Every surface starts here. Cool blue undertone — never neutral grey.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -3384,6 +3385,7 @@ section { padding: 120px 0; }
           </div>
           <div style="padding:20px; background:var(--bg-raised);">
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:18px; font-weight:700; color:#F0EBE3; margin-bottom:4px;">#F0EBE3</div>
+            <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:10px; color:var(--text-tertiary); line-height:1.6; margin-bottom:8px;">RGB 240, 235, 227<br>CMYK 0/2/6/6<br>PMS 7527 C</div>
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--text-primary</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">Warm white with a yellow undertone. Body text, headings, UI labels. Reads softer than pure white.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -3402,6 +3404,7 @@ section { padding: 120px 0; }
           </div>
           <div style="padding:20px; background:var(--bg-raised);">
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:18px; font-weight:700; color:var(--bronze-400); margin-bottom:4px;">#C48A3A</div>
+            <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:10px; color:var(--text-tertiary); line-height:1.6; margin-bottom:8px;">RGB 196, 138, 58<br>CMYK 0/30/70/23<br>PMS 1245 C</div>
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--bronze-400</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">The brand voice. Warm, earned, intentional. Never on interactive feedback elements.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -3421,6 +3424,7 @@ section { padding: 120px 0; }
           </div>
           <div style="padding:20px; background:var(--bg-raised);">
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:18px; font-weight:700; color:var(--focus); margin-bottom:4px;">#7CBBDF</div>
+            <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:10px; color:var(--text-tertiary); line-height:1.6; margin-bottom:8px;">RGB 124, 187, 223<br>CMYK 44/16/0/13<br>PMS 2905 C</div>
             <div style="font-family:'JetBrains Mono','SF Mono',monospace; font-size:11px; color:var(--text-tertiary); margin-bottom:12px;">--focus</div>
             <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:12px;">The interactive accent. Cool counterbalance to bronze. Pops against navy without competing.</p>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -3711,7 +3715,7 @@ section { padding: 120px 0; }
       <!-- Color Roles -->
       <div class="fade-up" style="margin-top:48px;">
         <div class="color-group-title">Color Roles</div>
-        <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-top:8px; margin-bottom:24px;">Bronze and focus blue serve different jobs. Mixing them up makes the interface feel muddy and makes bronze lose its weight. These rules keep the separation clean.</p>
+        <p style="font-size:14px; color:var(--text-secondary); line-height:1.6; margin-top:8px; margin-bottom:24px;"><strong style="color:var(--bronze-400);">Bronze is the action color.</strong> It marks things that matter and things you tap — primary CTAs, buttons that do something, headlines worth reading, the brand itself. Focus blue handles interface feedback. Mixing them makes bronze lose its weight.</p>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <!-- Bronze column -->
           <div style="padding:24px; border-radius:var(--radius-md); background:var(--bg-raised); border:1px solid var(--border-default);">
@@ -3755,7 +3759,7 @@ section { padding: 120px 0; }
             </div>
           </div>
         </div>
-        <p style="font-size:13px; color:var(--text-tertiary); margin-top:16px; line-height:1.5;">The test: if the element is part of the brand voice (something you'd see on a poster), it's bronze. If the element is part of the interface (something you'd interact with or that tells you a current state), it's focus blue.</p>
+        <p style="font-size:13px; color:var(--text-tertiary); margin-top:16px; line-height:1.5;"><strong style="color:var(--text-secondary);">The test:</strong> Does it invite action or represent the brand? → Bronze. Does it provide interface feedback or indicate system state? → Focus blue.</p>
         <div class="callout-info" style="margin-top:16px;">
           <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Card hover outlines use bronze, not focus blue.</strong> When an interactive card gets a hover state border, that border is --bronze-400. Focus blue (--focus) is reserved strictly for form input rings and keyboard navigation focus states. Bronze on a card hover communicates "this is something worth reaching for." Focus blue on a card would read like a form field.</div>
         </div>
@@ -4824,7 +4828,22 @@ section { padding: 120px 0; }
 
 <div class="container"><div class="divider"></div></div>
 
-
+<!-- Downloadable Assets -->
+<div class="container" style="padding-bottom:80px;">
+  <div class="fade-up" style="margin-top:48px;">
+    <div class="subsection-label">DOWNLOADABLE ASSETS</div>
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="callout-confirmed" style="margin-top:0;">
+        <div class="callout-label">ANIMATION FILES — COMING SOON</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">Pre-built animation files (Lottie, After Effects, CSS keyframes) will be available for download here. These cover standard transitions, loading states, celebration moments, and micro-interactions — all using the easing curves and duration scale defined above. Drop them into your project and they're on-brand.</div>
+      </div>
+      <div class="callout-confirmed" style="margin-top:0;">
+        <div class="callout-label">VIDEO CAPTION TOOLS — COMING SOON</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">Video caption templates for Adobe Creative Cloud will be available for download. On-brand text overlays, lower thirds, and caption styles for video content — pre-set with Satoshi typography, bronze accent treatments, and the correct spacing. Save and use directly in Premiere Pro and After Effects.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div><!-- /page-motion -->
 </div><!-- end foundation-tab -->
@@ -6936,7 +6955,13 @@ section { padding: 120px 0; }
     <!-- ================================ -->
     <div class="fade-up" style="margin-top:64px;">
       <div class="subsection-label">EXTENDED LOGO LIBRARY</div>
-      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:24px;">Specialty lockups for specific contexts. The <strong>Typemark</strong> is wordmark-only. <strong>Stacked</strong> variants add personality. <strong>Pill Tag</strong> and <strong>Retro Stamp</strong> are for badges and embellishments.</p>
+      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">Specialty lockups for specific contexts. The <strong>Typemark</strong> is wordmark-only. <strong>Stacked</strong> variants add personality. <strong>Pill Tag</strong> and <strong>Retro Stamp</strong> are for badges and embellishments.</p>
+      <div class="callout-info" style="margin-bottom:24px; border-color:var(--error); background:rgba(240,112,104,0.04);">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--error);">Internal team only.</strong> Pill Tag, Retro Stamp, Stacked Askew, and Stacked Sticker are creative variations produced by the internal team. External partners, contractors, and co-branded materials should use the standard lockups only (Horizontal, Vertical, or VinylG Icon). If in doubt, use the Horizontal Lockup in Warm Bronze.</div>
+      </div>
+      <div class="callout-info" style="margin-bottom:24px;">
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--text-primary);">Where the VinylG icon appears most:</strong> Favicons, app icons, avatars, loading states, watermarks on shared content, notification badges, and anywhere the full wordmark won't fit. It's the most-used logo variant across the product.</div>
+      </div>
 
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-bottom:24px;">
         <!-- Typemark -->
