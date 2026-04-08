@@ -2475,7 +2475,7 @@ section { padding: 120px 0; }
     <div class="sidebar-group-label">Product</div>
     <a class="sidebar-link" data-page="screens" onclick="switchPage('screens')"><i class="ph-bold ph-monitor"></i> Screens</a>
     <a class="sidebar-link" data-page="product-tokens" onclick="switchPage('product-tokens')"><i class="ph-bold ph-code"></i> Product Tokens</a>
-    <a class="sidebar-link" data-page="patterns" onclick="switchPage('patterns')"><i class="ph-bold ph-flow-arrow"></i> Patterns</a>
+    <a class="sidebar-link" data-page="patterns" onclick="switchPage('patterns')"><i class="ph-bold ph-flow-arrow"></i> UI Patterns</a>
     <a class="sidebar-link" data-page="modes" onclick="switchPage('modes')"><i class="ph-bold ph-moon"></i> Modes & Theming</a>
   </div>
   <div class="sidebar-group">
@@ -6236,6 +6236,31 @@ section { padding: 120px 0; }
       </div>
     </div>
 
+    <!-- Icon Context Rules: Custom vs Emoji -->
+    <div class="fade-up" style="margin-top:32px;">
+      <div class="subsection-label">ICON CONTEXT RULES</div>
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="font-usage-card use" style="padding:24px;">
+          <div class="usage-label">CUSTOM ICONS (Product &amp; Official)</div>
+          <div class="usage-item">Product UI: navigation, actions, status indicators</div>
+          <div class="usage-item">Feature documentation and specs</div>
+          <div class="usage-item">Professional communications and decks</div>
+          <div class="usage-item">Website interface elements</div>
+          <div class="usage-item">Component library and design system</div>
+          <div style="margin-top:12px; font-size:12px; color:var(--text-tertiary); line-height:1.5;">Currently Phosphor Bold (interim). Custom set from Bob incoming. Align icons to features when documenting functionality.</div>
+        </div>
+        <div style="padding:24px; border-radius:var(--radius-sleeve); background:rgba(196,138,58,0.04); border:1px solid rgba(196,138,58,0.12);">
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--bronze-400); margin-bottom:12px;">EMOJI (D2C &amp; Conversational)</div>
+          <div class="usage-item">Social media posts and captions</div>
+          <div class="usage-item">Marketing copy: value props, outcomes, benefits</div>
+          <div class="usage-item">Casual / conversational brand voice contexts</div>
+          <div class="usage-item">Email subject lines and casual CTAs</div>
+          <div class="usage-item">Fan-facing community messaging</div>
+          <div style="margin-top:12px; font-size:12px; color:var(--text-tertiary); line-height:1.5;">Prefer Apple-style emoji with depth (not flat). Exploring custom depth-emoji versions for cross-surface consistency. Emoji is the warm, human layer — use when the brand is being conversational, not when it's being precise.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Logo character comparison -->
     <div class="fade-up" style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
       <div style="padding:32px; border-radius:var(--radius-sleeve); background:var(--bg-raised); border:1px solid var(--border-default); text-align:center;">
@@ -7930,10 +7955,10 @@ section { padding: 120px 0; }
       <p class="section-desc">Two distinct surfaces: the artist dashboard (campaigns, analytics, fan management) and the fan experience (swaps, feeds, groups). Every screen belongs to one side.</p>
     </div>
 
-    <!-- Personas placeholder -->
-    <div class="fade-up callout-pending">
-      <div class="callout-label">PERSONAS &mdash; TO BE DEFINED</div>
-      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Five user types have been identified that will drive decisions across dashboard complexity, breakpoints, and mobile vs. desktop feature priorities. This work is pending and will be added here when complete.</p>
+    <!-- Personas reference (defined in Brand HQ, not here) -->
+    <div class="fade-up callout-info" style="border-color:var(--bronze-400);">
+      <div class="callout-label" style="color:var(--bronze-400);">PERSONAS &mdash; BRAND HQ</div>
+      <p style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin:0;">Five user types have been identified that drive decisions across dashboard complexity, breakpoints, and mobile vs. desktop feature priorities. Persona definitions are research-backed and live in the <strong style="color:var(--text-primary);">Brand HQ &rarr; Target Audience</strong> section. Screen designs reference these personas for layout and feature priority decisions.</p>
     </div>
 
     <!-- Artist Side -->
@@ -8247,9 +8272,12 @@ section { padding: 120px 0; }
 <section id="prod-patterns">
   <div class="container">
     <div class="fade-up">
-      <div class="section-label">Patterns</div>
-      <h2 class="section-title">Shared patterns.</h2>
-      <p class="section-desc">Patterns that repeat across multiple screens. Define them once, apply consistently everywhere.</p>
+      <div class="section-label">UI Patterns</div>
+      <h2 class="section-title">Shared product patterns.</h2>
+      <p class="section-desc">Recurring product flows and UI patterns that appear across multiple screens. Define them once, apply consistently everywhere.</p>
+      <div class="callout-info" style="margin-top:16px; padding:14px 20px;">
+        <div style="font-size:12px; color:var(--text-secondary);"><i class="ph-bold ph-info" style="color:var(--bronze-400); margin-right:6px;"></i> These are <strong style="color:var(--text-primary);">UI/product flow patterns</strong> (conversion funnels, feature gates, CRM sync). For <strong style="color:var(--text-primary);">visual design patterns</strong> (concentric arcs, sound waves, physical controls), see <a href="#" onclick="event.preventDefault();switchPage('brand-elements')" style="color:var(--bronze-400); text-decoration:underline;">Brand Elements</a>.</div>
+      </div>
     </div>
 
     <div class="grid-2 mt-lg">
