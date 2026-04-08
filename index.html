@@ -2451,16 +2451,24 @@ section { padding: 120px 0; }
 <!-- NAV -->
 <!-- Sidebar Navigation (v2 — hidden until Phase 2 activates it) -->
 <aside class="sidebar" id="sidebar">
+  <div class="sidebar-group" style="padding-top:12px;">
+    <a class="sidebar-link active" data-page="quick-start" onclick="switchPage('quick-start')"><i class="ph-bold ph-lightning"></i> Quick-Start Guide</a>
+  </div>
+  <div class="sidebar-group" style="padding-top:8px; margin-top:4px; border-top:1px solid var(--border-default);">
+    <div style="display:flex; gap:8px; padding:4px 12px 12px;">
+      <a href="https://drive.google.com/drive/folders/1Xxf5FXOZaglTArxdbcs3P7f-hP1tMtWF" target="_blank" style="font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--bronze-400)'" onmouseout="this.style.color=''"><i class="ph-bold ph-arrow-square-out" style="font-size:11px;"></i> Brand HQ</a>
+    </div>
+  </div>
   <div class="sidebar-group">
     <div class="sidebar-group-label">Brand</div>
     <a class="sidebar-link" data-page="manifesto" onclick="switchPage('manifesto')"><i class="ph-bold ph-scroll"></i> Manifesto</a>
+    <a class="sidebar-link" data-page="verbal" onclick="switchPage('verbal')"><i class="ph-bold ph-chat-text"></i> Verbal Identity</a>
     <a class="sidebar-link" data-page="logo" onclick="switchPage('logo')"><i class="ph-bold ph-vinyl-record"></i> Logo</a>
     <a class="sidebar-link" data-page="brand-elements" onclick="switchPage('brand-elements')"><i class="ph-bold ph-circles-three"></i> Brand Elements</a>
     <a class="sidebar-link" data-page="photography" onclick="switchPage('photography')"><i class="ph-bold ph-camera"></i> Photography</a>
   </div>
   <div class="sidebar-group">
     <div class="sidebar-group-label">Design System</div>
-    <a class="sidebar-link active" data-page="quick-start" onclick="switchPage('quick-start')"><i class="ph-bold ph-lightning"></i> Quick-Start</a>
     <a class="sidebar-link" data-page="color" onclick="switchPage('color')"><i class="ph-bold ph-palette"></i> Color</a>
     <a class="sidebar-link" data-page="typography" onclick="switchPage('typography')"><i class="ph-bold ph-text-aa"></i> Typography</a>
     <a class="sidebar-link" data-page="surfaces" onclick="switchPage('surfaces')"><i class="ph-bold ph-stack"></i> Surfaces & Cards</a>
@@ -2509,21 +2517,13 @@ section { padding: 120px 0; }
     <!-- Core Colors -->
     <div class="fade-up" style="margin-top:48px;">
       <div class="subsection-label">FOUR CORE COLORS</div>
-      <div class="grid-4" style="margin-top:16px;">
+      <div style="display:grid; grid-template-columns:5fr 3fr 2fr 1fr; gap:8px; margin-top:16px;">
         <div style="border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;" onclick="switchPage('color')">
-          <div style="height:80px; background:#C48A3A;"></div>
-          <div style="padding:12px; background:var(--bg-raised); border:1px solid var(--border-default); border-top:none;">
-            <div style="font-size:13px; font-weight:700;">Bronze</div>
-            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-tertiary);">#C48A3A</div>
-            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Brand voice</div>
-          </div>
-        </div>
-        <div style="border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;" onclick="switchPage('color')">
-          <div style="height:80px; background:#111620;"></div>
+          <div style="height:80px; background:#111620; border:1px solid var(--border-default); border-bottom:none;"></div>
           <div style="padding:12px; background:var(--bg-raised); border:1px solid var(--border-default); border-top:none;">
             <div style="font-size:13px; font-weight:700;">Navy</div>
             <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-tertiary);">#111620</div>
-            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Foundation</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Foundation &mdash; dominant surface</div>
           </div>
         </div>
         <div style="border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;" onclick="switchPage('color')">
@@ -2535,9 +2535,17 @@ section { padding: 120px 0; }
           </div>
         </div>
         <div style="border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;" onclick="switchPage('color')">
+          <div style="height:80px; background:#C48A3A;"></div>
+          <div style="padding:12px; background:var(--bg-raised); border:1px solid var(--border-default); border-top:none;">
+            <div style="font-size:13px; font-weight:700;">Bronze</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-tertiary);">#C48A3A</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Brand accent</div>
+          </div>
+        </div>
+        <div style="border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;" onclick="switchPage('color')">
           <div style="height:80px; background:#7CBBDF;"></div>
           <div style="padding:12px; background:var(--bg-raised); border:1px solid var(--border-default); border-top:none;">
-            <div style="font-size:13px; font-weight:700;">Focus Blue</div>
+            <div style="font-size:13px; font-weight:700;">Blue</div>
             <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-tertiary);">#7CBBDF</div>
             <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Interactive</div>
           </div>
@@ -2614,7 +2622,7 @@ section { padding: 120px 0; }
         <div class="font-usage-card avoid" style="padding:20px;">
           <div class="usage-label">Never</div>
           <div class="usage-item">Use neutral greys in dark mode — always navy blues</div>
-          <div class="usage-item">Use Anacrusis under 32px or for body text</div>
+          <div class="usage-item">Use <span class="grouped-display" style="font-weight:normal">Anacrusis</span> under 32px or for body text</div>
           <div class="usage-item">Use bronze for focus rings or status badges</div>
           <div class="usage-item">Put bronze on non-navy dark backgrounds</div>
           <div class="usage-item">Use gradient fills on product surfaces</div>
@@ -2643,26 +2651,6 @@ section { padding: 120px 0; }
 </div><!-- /page-quick-start -->
 
 <div class="page-content" id="page-typography">
-<!-- FOUNDATION HERO -->
-<section style="padding:120px 0 64px;">
-  <div class="container">
-    <div class="fade-up">
-      <p class="section-desc" style="max-width:640px;">Typography, color, and spacing form the foundation of every surface in Grouped — brand and product alike. These tokens are the single source of truth.</p>
-      <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
-        <div class="badge"><i class="ph-bold ph-figma-logo" style="font-size:14px;"></i> Designers</div>
-        <div class="badge"><i class="ph-bold ph-code" style="font-size:14px;"></i> Developers</div>
-        <div style="font-size:12px; color:var(--text-tertiary); align-self:center;">Canonical token values. All pages reference these tokens.</div>
-      </div>
-      <div class="resource-bar fade-up">
-        <a href="https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R" target="_blank" class="resource-link"><i class="ph-bold ph-figma-logo"></i> Figma Library</a>
-        <a href="https://drive.google.com/drive/folders/1m-E-OrAZURtpMzw7F7QNpZnMXhDPYsd9?usp=drive_link" target="_blank" class="resource-link"><i class="ph-bold ph-download-simple"></i> Download Fonts</a>
-        <a href="#found-color" class="resource-link"><i class="ph-bold ph-palette"></i> Jump to Color</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="container"><div class="divider"></div></div>
 
 <!-- F1: TYPOGRAPHY -->
 <section id="found-typography">
@@ -2670,7 +2658,7 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label">Typography</div>
       <h2 class="section-title">Satoshi<span style="font-family:'Anacrusis';font-weight:normal;color:var(--bronze-400)"> + Anacrusis.</span></h2>
-      <p class="section-desc">Two typefaces, one system. Anacrusis is the custom display face for marketing headlines and brand moments. Satoshi handles everything else. Type should feel confident and unhurried. Anacrusis has natural kerning baked in — let the font breathe at display sizes. Generous line-height in body copy lets the text breathe the way the room breathes.</p>
+      <p class="section-desc">Two typefaces, one system. <span class="grouped-display" style="font-weight:normal">Anacrusis</span> is the custom display face for marketing headlines and brand moments. Satoshi handles everything else. Type should feel confident and unhurried. <span class="grouped-display" style="font-weight:normal">Anacrusis</span> has natural kerning baked in — let the font breathe at display sizes. Generous line-height in body copy lets the text breathe the way the room breathes.</p>
       <div class="resource-bar" style="margin-top:24px;">
         <a href="Anacrusis.otf" download class="resource-link"><i class="ph-bold ph-download-simple"></i> Anacrusis OTF (Design)</a>
         <a href="https://drive.google.com/file/d/1vbkwin8JaHFFwWwFr0TWI7opTTgWjgxY/view?usp=drive_link" target="_blank" class="resource-link"><i class="ph-bold ph-download-simple"></i> Anacrusis TTF (Web)</a>
@@ -2719,7 +2707,7 @@ section { padding: 120px 0; }
     <!-- Accessibility Note -->
     <div class="font-accessibility-note surface-glass-warm fade-up" style="background:rgba(196,138,58,0.06);">
       <div class="note-title">⚠ Accessibility takes priority over brand expression</div>
-      <div class="note-body">Anacrusis is a single-weight display face. In product, it's reserved for D0 (96px) and D1 (40px) only. In marketing, it works for headlines at 32px and above. It should never be used for body text, form labels, navigation, product UI, or any text smaller than 32px. When in doubt, use Satoshi. Legibility always wins. Anacrusis should enhance the experience for sighted users without creating barriers for anyone else.</div>
+      <div class="note-body"><span class="grouped-display" style="font-weight:normal">Anacrusis</span> is a single-weight display face. In product, it's reserved for D0 (96px) and D1 (40px) only. In marketing, it works for headlines at 32px and above. It should never be used for body text, form labels, navigation, product UI, or any text smaller than 32px. When in doubt, use Satoshi. Legibility always wins. <span class="grouped-display" style="font-weight:normal">Anacrusis</span> should enhance the experience for sighted users without creating barriers for anyone else.</div>
     </div>
 
     <!-- Usage Rules -->
@@ -2731,7 +2719,7 @@ section { padding: 120px 0; }
         <div class="usage-item">Brand moments in pitch decks</div>
         <div class="usage-item">Social media graphics (large text)</div>
         <div class="usage-item">Print headers and posters</div>
-        <div class="usage-item">The "grouped." wordmark/logotype</div>
+        <div class="usage-item">The <span class="grouped-display" style="font-weight:normal">Grouped</span> wordmark/logotype</div>
       </div>
       <div class="font-usage-card avoid">
         <div class="usage-label">Use Satoshi instead for</div>
@@ -2748,7 +2736,7 @@ section { padding: 120px 0; }
     <div class="fade-up" style="margin-top:80px;">
       <div class="section-label">DISPLAY FONT RULE</div>
       <h3 style="font-size:36px; font-weight:900; letter-spacing:-0.015em; margin-bottom:12px;">Anacrusis for headlines. Satoshi for everything else.</h3>
-      <p class="section-desc">Two fonts, clear boundaries. Anacrusis handles the biggest display moments across both marketing and product. Satoshi is the universal fallback and system workhorse.</p>
+      <p class="section-desc">Two fonts, clear boundaries. <span class="grouped-display" style="font-weight:normal">Anacrusis</span> handles the biggest display moments across both marketing and product. Satoshi is the universal fallback and system workhorse.</p>
     </div>
 
     <!-- Side by side: Anacrusis hero vs Satoshi fallback -->
@@ -2789,10 +2777,10 @@ section { padding: 120px 0; }
         <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--bronze-400); text-transform:uppercase; margin-bottom:12px;">Display Font Stack</div>
         <code style="display:block; background:var(--bg-overlay); padding:12px 16px; border-radius:var(--radius-sleeve); font-size:14px; font-family:'JetBrains Mono',monospace; margin-bottom:16px; color:var(--text-primary);">font-family: 'Anacrusis', 'Satoshi', sans-serif;</code>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 32px; font-size:13px; color:var(--text-secondary); line-height:1.6;">
-          <div><strong style="color:var(--text-primary);">40px+ only</strong> — Anacrusis never appears below 40px</div>
+          <div><strong style="color:var(--text-primary);">40px+ only</strong> — <span class="grouped-display" style="font-weight:normal">Anacrusis</span> never appears below 40px</div>
           <div><strong style="color:var(--text-primary);">Max 2 per screen</strong> — hero headline + maybe a section title</div>
           <div><strong style="color:var(--text-primary);">H1–H5 stay Satoshi</strong> — display font is for moments, headings are for structure</div>
-          <div><strong style="color:var(--text-primary);">No inline mixing</strong> — Anacrusis and Satoshi don't sit on the same line</div>
+          <div><strong style="color:var(--text-primary);">No inline mixing</strong> — <span class="grouped-display" style="font-weight:normal">Anacrusis</span> and Satoshi don't sit on the same line</div>
           <div><strong style="color:var(--text-primary);">Product D0 + D1 only</strong> — onboarding, pricing, celebration states</div>
           <div><strong style="color:var(--text-primary);">Dark mode tested</strong> — verify against #111620 at both sizes</div>
         </div>
@@ -2803,7 +2791,7 @@ section { padding: 120px 0; }
     <div class="fade-up" style="margin-top:80px;">
       <div class="section-label">Satoshi</div>
       <h3 style="font-size:36px; font-weight:900; letter-spacing:-0.015em; margin-bottom:12px;">The system workhorse.</h3>
-      <p class="section-desc">Five weights. Variable font. Optimized for screens. Handles everything from 11px captions to 80px display type when Anacrusis isn't appropriate.</p>
+      <p class="section-desc">Five weights. Variable font. Optimized for screens. Handles everything from 11px captions to 80px display type when <span class="grouped-display" style="font-weight:normal">Anacrusis</span> isn't appropriate.</p>
     </div>
 
     <!-- Weight Cards -->
@@ -2924,7 +2912,7 @@ section { padding: 120px 0; }
     <div class="fade-up">
       <div class="section-label">Product Type Scale</div>
       <h2 class="section-title">Typography specs.</h2>
-      <p class="section-desc" style="max-width:640px;">All product type styles from the Figma file. D0–D1 use Anacrusis (Satoshi fallback); everything else is Satoshi. Five categories: Display, Heading, Body, Caption, Component. Body defaults to 14px. Component styles C1–C7 are new.</p>
+      <p class="section-desc" style="max-width:640px;">All product type styles from the Figma file. D0–D1 use <span class="grouped-display" style="font-weight:normal">Anacrusis</span> (Satoshi fallback); everything else is Satoshi. Five categories: Display, Heading, Body, Caption, Component. Body defaults to 14px. Component styles C1–C7 are new.</p>
     </div>
 
     <div style="margin-top:48px;">
@@ -3519,7 +3507,7 @@ section { padding: 120px 0; }
           <div style="border-radius:var(--radius-sm); overflow:hidden; border:2px solid rgba(74,222,128,0.3);">
             <div style="padding:32px; background:#111620; text-align:center;">
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--success); margin-bottom:16px;"><i class="ph-bold ph-check-circle"></i> CORRECT</div>
-              <div style="font-size:32px; font-weight:900; color:#C48A3A; margin-bottom:8px;">grouped.</div>
+              <div style="font-size:32px; font-weight:900; color:#C48A3A; margin-bottom:8px;" class="grouped-display">Grouped</div>
               <div style="font-size:13px; color:#67686B;">Bronze on navy #111620</div>
               <div style="display:flex; justify-content:center; gap:8px; margin-top:16px;">
                 <span style="padding:6px 16px; border-radius:39px; background:#C48A3A; color:#111620; font-size:12px; font-weight:700;">Get Started</span>
@@ -3534,7 +3522,7 @@ section { padding: 120px 0; }
           <div style="border-radius:var(--radius-sm); overflow:hidden; border:2px solid rgba(240,112,104,0.3);">
             <div style="padding:32px; background:#1a1a1a; text-align:center;">
               <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--error); margin-bottom:16px;"><i class="ph-bold ph-x-circle"></i> NEVER DO THIS</div>
-              <div style="font-size:32px; font-weight:900; color:#8B7355; margin-bottom:8px;">grouped.</div>
+              <div style="font-size:32px; font-weight:900; color:#8B7355; margin-bottom:8px;" class="grouped-display">Grouped</div>
               <div style="font-size:13px; color:#666666;">Bronze on neutral grey #1a1a1a</div>
               <div style="display:flex; justify-content:center; gap:8px; margin-top:16px;">
                 <span style="padding:6px 16px; border-radius:39px; background:#8B7355; color:#1a1a1a; font-size:12px; font-weight:700;">Get Started</span>
@@ -3548,6 +3536,32 @@ section { padding: 120px 0; }
         </div>
         <div class="callout-info" style="margin-top:16px; border-color:var(--error); background:rgba(240,112,104,0.04);">
           <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><strong style="color:var(--error);">If you see this:</strong> Bronze appearing as a dull olive/brown-green on dark backgrounds means the surface is using a neutral grey instead of our navy tokens. Fix the background to use <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--L0</span> through <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--L5</span>. This commonly happens with browser-forced dark mode, CSS <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">prefers-color-scheme</span> overrides, or third-party embed contexts.</div>
+        </div>
+      </div>
+
+      <!-- Additional Color Rules -->
+      <div class="fade-up" style="margin-top:32px;">
+        <div class="grid-2">
+          <div class="callout-info" style="margin-top:0; border-color:var(--error); background:rgba(240,112,104,0.04);">
+            <div class="callout-label" style="color:var(--error);">BRONZE 600 &amp; 700: NEVER AS BACKGROUNDS</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;"><span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--gold-600</span> (#916024) and <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">--gold-700</span> (#6B471B) must never be used as surface or background colors. They read as muddy brown and destroy the warm-cool temperature contrast. These values exist only for small accent details (borders, shadows, dark tints) — never as fills.</div>
+          </div>
+          <div class="callout-info" style="margin-top:0;">
+            <div class="callout-label" style="color:var(--bronze-400);">BLACK &amp; WHITE: UTILITY ONLY</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">Pure black (<span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#000000</span>) and pure white (<span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#FFFFFF</span>) are not part of the brand palette. Use them only when functionally necessary: OLED mode base, print utility, or forced-contrast accessibility contexts. The brand lives in navy and cream, not black and white.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bronze Light vs Dark Explanation -->
+      <div class="fade-up" style="margin-top:32px;">
+        <div class="callout-info" style="border-color:var(--bronze-400);">
+          <div class="callout-label" style="color:var(--bronze-400);">WHY BRONZE CHANGES BETWEEN MODES</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
+            <strong style="color:var(--text-primary);">Dark mode:</strong> <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#C48A3A</span> — lighter, warmer bronze. On navy backgrounds, it needs to be luminous enough to feel like a warm light source. This is the signature brand bronze.<br><br>
+            <strong style="color:var(--text-primary);">Light mode:</strong> <span style="font-family:'JetBrains Mono',monospace; font-size:12px;">#956A1D</span> — darker, richer bronze. On cream/white backgrounds, the dark-mode bronze washes out and loses contrast. The light variant is shifted darker to maintain the same visual weight and WCAG AA compliance (4.6:1 ratio).<br><br>
+            Both are the same bronze — just adjusted for their environment. Think of it like gold jewelry photographed in dim vs bright light.
+          </div>
         </div>
       </div>
 
@@ -3712,7 +3726,7 @@ section { padding: 120px 0; }
               ✓ Primary button fill<br>
               ✓ Secondary button outline<br>
               ✓ Concentric arc motif<br>
-              ✓ The logo dot in "grouped."<br>
+              ✓ The logo dot in the <span class="grouped-display" style="font-weight:normal">Grouped</span> wordmark<br>
               ✓ Interactive card hover outlines<br>
               ✗ Input focus rings<br>
               ✗ Stickers and tags<br>
@@ -4887,7 +4901,100 @@ section { padding: 120px 0; }
 
 <div class="container"><div class="divider"></div></div>
 
+<!-- Brand Ecosystem -->
+<div class="fade-up" style="padding:0 0 80px;">
+  <div class="container">
+    <div class="subsection-label">BRAND ECOSYSTEM</div>
+    <div class="surface-glass-warm" style="padding:28px 32px;">
+      <div style="font-size:20px; font-weight:700; margin-bottom:10px;">Grouped is one brand in a family.</div>
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Grouped exists alongside sibling brands that each own a distinct space in the artist-fan ecosystem. The design system documented here applies to Grouped surfaces specifically. Understanding which brand owns which space prevents design system misapplication across surfaces that belong to different brands.</p>
+      <div class="callout-info" style="margin-top:12px; padding:14px 20px; border-color:var(--bronze-400);">
+        <div style="font-size:12px; color:var(--text-secondary);"><i class="ph-bold ph-map-trifold" style="color:var(--bronze-400); margin-right:6px;"></i> Full brand architecture and ecosystem positioning lives in <strong style="color:var(--text-primary);">Brand HQ &rarr; Company Overview</strong>. This defines which brand owns the artist community, which owns the product platform, and the strategic space each occupies.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div><!-- /page-manifesto -->
+
+<!-- ===== VERBAL IDENTITY PAGE ===== -->
+<div class="page-content" id="page-verbal">
+<section style="padding:120px 0 64px;">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Verbal Identity</div>
+      <h2 class="section-title grouped-display">How Grouped talks.</h2>
+      <p class="section-desc">The brand voice matches the visual identity: confident, warm, unhurried. Copy should feel like a conversation with someone who knows music, not a SaaS dashboard talking at you.</p>
+      <div class="callout-info" style="margin-top:16px; padding:14px 20px; border-color:var(--bronze-400);">
+        <div style="font-size:12px; color:var(--text-secondary);"><i class="ph-bold ph-map-trifold" style="color:var(--bronze-400); margin-right:6px;"></i> Full tone of voice guide, AI brand-voice prompt, and prohibited language list live in <strong style="color:var(--text-primary);">Brand HQ &rarr; Verbal Identity</strong>. This page covers the essentials for product UI copy.</div>
+      </div>
+    </div>
+
+    <!-- CTA Copy Patterns -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">CTA COPY PATTERNS</div>
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="font-usage-card use" style="padding:24px;">
+          <div class="usage-label">Grouped Voice</div>
+          <div class="usage-item">Get Started &rarr; <strong>Start creating</strong></div>
+          <div class="usage-item">Submit &rarr; <strong>Save</strong> or <strong>Done</strong></div>
+          <div class="usage-item">Learn More &rarr; <strong>See how it works</strong></div>
+          <div class="usage-item">Sign Up &rarr; <strong>Join Grouped</strong></div>
+          <div class="usage-item">Upgrade &rarr; <strong>Unlock more</strong></div>
+          <div class="usage-item">Delete &rarr; <strong>Remove</strong> (softer unless destructive)</div>
+        </div>
+        <div class="font-usage-card avoid" style="padding:24px;">
+          <div class="usage-label">Avoid</div>
+          <div class="usage-item">Corporate jargon: "leverage", "synergy", "optimize"</div>
+          <div class="usage-item">Urgency pressure: "Act now!", "Don't miss out!"</div>
+          <div class="usage-item">Generic SaaS: "Your dashboard", "Manage your account"</div>
+          <div class="usage-item">Passive voice: "Your campaign has been created"</div>
+          <div class="usage-item">Tech-first language: "Deploy", "Configure", "Initialize"</div>
+          <div class="usage-item">Overpromising: "Guaranteed", "Explosive growth"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Addressing Users -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">HOW WE ADDRESS USERS</div>
+      <div style="padding:24px; border-radius:var(--radius-sm); background:var(--bg-raised); border:1px solid var(--border-default); margin-top:16px;">
+        <div style="display:grid; gap:16px; font-size:13px; color:var(--text-secondary); line-height:1.6;">
+          <div><strong style="color:var(--text-primary);">Artists:</strong> "you" / "your" &mdash; direct, personal. "Your fans are waiting" not "The artist's fans are waiting."</div>
+          <div><strong style="color:var(--text-primary);">Fans:</strong> "you" &mdash; same direct address. The platform disappears; it's just them and the artist.</div>
+          <div><strong style="color:var(--text-primary);">Product UI:</strong> First person where the system speaks: "We saved your draft." Second person for actions: "Share your release."</div>
+          <div><strong style="color:var(--text-primary);">Empty states:</strong> Encouraging, not clinical. "No campaigns yet &mdash; ready to start your first?" not "No data to display."</div>
+          <div><strong style="color:var(--text-primary);">Errors:</strong> Human, specific, actionable. "That name's already taken &mdash; try another?" not "Error: duplicate entry."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tone Markers -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div class="subsection-label">TONE MARKERS</div>
+      <p style="font-size:13px; color:var(--text-tertiary); margin-bottom:16px; margin-top:16px;">The verbal identity mirrors the visual philosophy. Three words that apply to both:</p>
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="surface-glass" style="padding:28px;">
+          <div style="font-size:28px; margin-bottom:12px;">&#9676;</div>
+          <div style="font-size:15px; font-weight:700; margin-bottom:6px;">Confident</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Say it once, clearly. No hedging, no "we think", no "perhaps." State the value and let it land.</div>
+        </div>
+        <div class="surface-glass" style="padding:28px;">
+          <div style="font-size:28px; margin-bottom:12px;">&#9687;</div>
+          <div style="font-size:15px; font-weight:700; margin-bottom:6px;">Warm</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">We're talking to artists and fans, not users and subscribers. The language should feel like a conversation, not an interface.</div>
+        </div>
+        <div class="surface-glass" style="padding:28px;">
+          <div style="font-size:28px; margin-bottom:12px;">&#9673;</div>
+          <div style="font-size:15px; font-weight:700; margin-bottom:6px;">Unhurried</div>
+          <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Short copy, but never rushed. No exclamation points unless something genuinely exciting happened. Let the product speak through clarity, not volume.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- /page-verbal -->
+
 <div class="page-content" id="page-components">
 <!-- COMPONENTS -->
 <section id="components">
@@ -6644,6 +6751,14 @@ section { padding: 120px 0; }
         <div class="photo-rule-icon dont">✕</div>
         <div class="photo-rule-title">No oversaturated or filtered images</div>
         <div class="photo-rule-desc">No Instagram-style presets, no VSCO film emulations, no heavy color grading that distorts skin tones. Warmth comes from lighting and subtle post, not from filters layered on top.</div>
+      </div>
+    </div>
+
+    <!-- Device Mockup Rule -->
+    <div class="fade-up callout-info" style="margin-top:32px;">
+      <div class="callout-label" style="color:var(--bronze-400);">DEVICE MOCKUP RULE</div>
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
+        <strong style="color:var(--text-primary);">Dark backgrounds → dark device mockups. Light backgrounds → light device mockups.</strong> Always match the device chrome to the surface it sits on. No white phones on navy backgrounds, no dark phones on cream backgrounds. The device should feel like part of the room, not a foreign object dropped in.
       </div>
     </div>
 
